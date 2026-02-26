@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.ivoa.dm.mymodel","l":"Another"},{"p":"org.ivoa.dm.mymodel","l":"Another.AnotherBuilder"},{"p":"org.ivoa.dm.mymodel","l":"MymodelModel"},{"p":"org.ivoa.dm.mymodel","l":"MymodelModel.References"}];updateSearchResults();

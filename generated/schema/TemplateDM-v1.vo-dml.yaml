@@ -1,0 +1,19 @@
+components:
+  schemas:
+    Another:
+      type: "object"
+      description: ""
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        att:
+          type: "string"
+          built-in: "true"
+          description: "describe me"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "att"
+      additionalProperties: false

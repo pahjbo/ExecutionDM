@@ -1,0 +1,56 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "https://ivoa.net/dm/TemplateDM-v1.vo-dml.json",
+  "title" : "TBD",
+  "description" : "a template data model",
+  "type" : "object",
+  "properties" : {
+    "MymodelModel" : {
+      "type" : "object",
+      "properties" : {
+        "refs" : {
+          "type" : "object",
+          "properties" : {
+            "$comment" : "placeholder to make commas easier!"
+          },
+          "additionalProperties" : false
+        },
+        "content" : {
+          "type" : "array",
+          "items" : {
+            "anyOf" : [ {
+              "$ref" : "https://ivoa.net/dm/TemplateDM-v1.vo-dml.json#/$defs/Another"
+            } ]
+          },
+          "additionalProperties" : false
+        }
+      },
+      "additionalProperties" : false
+    }
+  },
+  "$defs" : {
+    "$comment" : "placeholder to make commas easier!",
+    "Another" : {
+      "type" : "object",
+      "description" : "",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "att" : {
+          "type" : "string",
+          "built-in" : "true",
+          "description" : "describe me"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ "att" ],
+      "additionalProperties" : false
+    }
+  }
+}

@@ -1,0 +1,27 @@
+
+
+@startuml
+
+' hide the spot
+' hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+        
+entity "Another" as Another {
+
+    ID : BIGINT
+
+---
+
+    att : VARCHAR
+
+}
+
+
+        
+
+
+@enduml
+
+    
