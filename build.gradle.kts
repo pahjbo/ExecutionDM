@@ -2,12 +2,15 @@ plugins {
     // this plugin provides all the vo-dml functionality
     id("net.ivoa.vo-dml.vodmltools") version "0.5.30"
  //   id("org.kordamp.gradle.jandex") version "1.1.0"
+    `maven-publish`
 }
+group = "net.ivoa.dm"
+version = "0.1-SNAPSHOT"
 
 vodml {
     vodmlDir.set(file("vo-dml"))
     vodslDir.set(file("model"))
-    bindingFiles.setFrom(file("vo-dml/TemplateDM-v1.vodml-binding.xml"))
+    bindingFiles.setFrom(file("vo-dml/ExecutionDM-v1.vodml-binding.xml"))
     outputDocDir.set(layout.projectDirectory.dir("doc/std/vodml-generated"))
     outputSiteDir.set(layout.projectDirectory.dir("doc/site/generated")) // N.B the last part of this path must be "generated"
 
@@ -84,5 +87,48 @@ tasks.register<Exec>("doSite"){
 java {
     toolchain {
         languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("mavenJava") {
+            from(components["java"])
+            pom {
+                name.set("Execution DM")
+                description.set("A data model to organise execution of applications")
+                url.set("https://github.com/ivoa/ExecutionDM")
+                licenses {
+                    license {
+                        name.set("GNU General Public License v3.0")
+                        url.set("https://www.gnu.org/licenses/gpl-3.0.html")
+                    }
+                }
+                developers {
+                    developer {
+                        id.set("pahjbo")
+                        name.set("Paul Harrison")
+                        email.set("paul.harrison@manchester.ac.uk")
+                    }
+                }
+                scm {
+                    connection.set("scm:git:git://github.com/ivoa/ExecutionDM.git")
+                    developerConnection.set("scm:git:ssh://github.com/ivoa/ExecutionDM.git")
+                    url.set("https://github.com/ivoa/ExecutionDM")
+                }
+            }
+        }
+    }
+    repositories {
+        // TODO really want to publish to a repo run by the IVOA
+        maven {
+            name = "uksrcrepo"
+            url = uri("https://repo.dev.uksrc.org/repository/maven-snapshots/")
+            credentials {
+                username = (findProperty("uksrcNexusUsername") ?: System.getenv("UKSRC_REPO_USERNAME")) as String?
+                password = (findProperty("uksrcNexusPassword") ?: System.getenv("UKSRC_REPO_PASSWORD")) as String?
+            }
+        }
+
     }
 }

@@ -1,6 +1,6 @@
 site_name: Model Documentation
 docs_dir: doc/site
-repo_url: 'https://github.com/ivoa/DataModelTemplate'
+repo_url: 'https://github.com/ivoa/ExecutionDM'
 
 theme:
   name: material

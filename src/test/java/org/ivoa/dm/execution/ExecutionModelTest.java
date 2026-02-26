@@ -1,4 +1,4 @@
-package org.ivoa.dm.mymodel;
+package org.ivoa.dm.execution;
 /*
  * Created on 10/05/2023 by Paul Harrison (paul.harrison@manchester.ac.uk).
  */
@@ -8,11 +8,11 @@ import org.ivoa.vodml.testing.AutoRoundTripWithValidationTest;
 /**
  * This will run a XML and JSON round trip test on the model inst
  */
-public class MymodelModelTest extends AutoRoundTripWithValidationTest<MymodelModel> {
+public class ExecutionModelTest extends AutoRoundTripWithValidationTest<ExecutionModel> {
     @Override
-    public MymodelModel createModel() {
+    public ExecutionModel createModel() {
         // create the model instance here.
-        MymodelModel retval = new MymodelModel();
+        ExecutionModel retval = new ExecutionModel();
 
         Another another = new Another("test");
         retval.addContent(another);
@@ -20,7 +20,7 @@ public class MymodelModelTest extends AutoRoundTripWithValidationTest<MymodelMod
     }
 
     @Override
-    public void testModel(MymodelModel mymodelModel) {
+    public void testModel(ExecutionModel executionModel) {
         //this could do specialized testing on the model instance
     }
 }
