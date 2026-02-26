@@ -1,0 +1,10 @@
+/.idea/
+/.gradle/
+/build/
+
+/mkdocs.yml
+/allnav.yml
+/doc/site/generated/
+/doc/std/vodml-generated/
+/site/
+
