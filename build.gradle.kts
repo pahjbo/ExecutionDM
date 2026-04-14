@@ -1,6 +1,6 @@
 plugins {
     // this plugin provides all the vo-dml functionality
-    id("net.ivoa.vo-dml.vodmltools") version "0.5.30"
+    id("net.ivoa.vo-dml.vodmltools") version "0.6.2"
  //   id("org.kordamp.gradle.jandex") version "1.1.0"
     `maven-publish`
 }
@@ -8,9 +8,9 @@ group = "net.ivoa.dm"
 version = "0.1-SNAPSHOT"
 
 vodml {
-    vodmlDir.set(file("vo-dml"))
+    vodmlDir.set(layout.projectDirectory.dir("vo-dml"))
     vodslDir.set(file("model"))
-    bindingFiles.setFrom(file("vo-dml/ExecutionDM-v1.vodml-binding.xml"))
+    bindingFiles.setFrom(file("ExecutionDM-v1.vodml-binding.xml"))
     outputDocDir.set(layout.projectDirectory.dir("doc/std/vodml-generated"))
     outputSiteDir.set(layout.projectDirectory.dir("doc/site/generated")) // N.B the last part of this path must be "generated"
 
