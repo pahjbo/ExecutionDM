@@ -1,0 +1,114 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json",
+  "title" : "",
+  "description" : "Parameter Data Model for tool inputs and outputs",
+  "type" : "object",
+  "properties" : {
+    "PdlModel" : {
+      "type" : "object",
+      "properties" : {
+        "refs" : {
+          "type" : "object",
+          "properties" : {
+            "$comment" : "placeholder to make commas easier!"
+          },
+          "additionalProperties" : false
+        },
+        "content" : {
+          "type" : "array",
+          "items" : {
+            "anyOf" : [ ]
+          },
+          "additionalProperties" : false
+        }
+      },
+      "additionalProperties" : false
+    }
+  },
+  "$defs" : {
+    "$comment" : "placeholder to make commas easier!",
+    "BaseParameterType" : {
+      "type" : "object",
+      "description" : "",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier!"
+      },
+      "required" : [ ],
+      "additionalProperties" : false
+    },
+    "ParameterSemantics" : {
+      "type" : "object",
+      "description" : "",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier!"
+      },
+      "required" : [ ],
+      "additionalProperties" : false
+    },
+    "ParameterOrGroup" : {
+      "type" : "object",
+      "description" : "",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "the name of the parameter"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ "@type", "name" ]
+    },
+    "ParameterDefinition" : {
+      "allOf" : [ {
+        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterOrGroup"
+      }, {
+        "type" : "object",
+        "description" : "the definition of a parameter",
+        "properties" : {
+          "$comment" : "placeholder to make commas easier",
+          "description" : {
+            "type" : "string",
+            "description" : "Parameter description"
+          },
+          "kind" : {
+            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/BaseParameterType",
+            "description" : "the type of the parameter"
+          },
+          "semantics" : {
+            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterSemantics",
+            "description" : ""
+          }
+        },
+        "required" : [ "kind", "semantics" ]
+      } ],
+      "unevaluatedProperties" : false
+    },
+    "ParameterGroup" : {
+      "allOf" : [ {
+        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterOrGroup"
+      }, {
+        "type" : "object",
+        "description" : "a group of parameter Definitions",
+        "properties" : {
+          "$comment" : "placeholder to make commas easier",
+          "params" : {
+            "type" : "array",
+            "items" : {
+              "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterDefinition"
+            }
+          }
+        },
+        "required" : [ "params" ]
+      } ],
+      "unevaluatedProperties" : false
+    }
+  }
+}

@@ -1,0 +1,251 @@
+components:
+  schemas:
+    tool.Author:
+      type: "object"
+      description: "Details about an author of the image"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        name:
+          type: "string"
+          description: "Name of the author"
+        email:
+          type: "string"
+          description: "Contact email address for the author"
+        role:
+          type: "string"
+          description: "Role of the author; default maintainer"
+        github:
+          type: "string"
+          description: "GitHub username"
+        gitlab:
+          type: "string"
+          description: "GitLab username"
+        orcid:
+          type: "string"
+          description: "ORCID identifier"
+        affiliation:
+          type: "string"
+          description: "Affiliation"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "name"
+      - "email"
+      additionalProperties: false
+    tool.OCIRegistry:
+      type: "object"
+      description: "Details about the OCIcontainer registry"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        host:
+          type: "string"
+          description: "Container registry hostname"
+        project:
+          type: "string"
+          description: "Container registry project/namespace"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "host"
+      - "project"
+      additionalProperties: false
+    tool.Discovery:
+      type: "object"
+      description: "Discovery metadata mapped to OCI labels/annotations"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        imageTitle:
+          type: "string"
+          description: "Human-readable title (schema field: title)"
+        description:
+          type: "string"
+          description: "Human-readable description (1..255 chars)"
+        source:
+          type: "string"
+          format: "uri"
+          description: "Source code URL"
+        url:
+          type: "string"
+          format: "uri"
+          description: "Project URL"
+        documentation:
+          type: "string"
+          format: "uri"
+          description: "Documentation URL"
+        version:
+          type: "string"
+          description: "Packaged software version"
+        revision:
+          type: "string"
+          description: "Source control revision; default unknown"
+        created:
+          type: "string"
+          format: "date-time"
+          description: "Metadata processing timestamp (UTC)"
+        authors:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/tool.Author"
+        licenses:
+          type: "string"
+          description: "SPDX license expression"
+        keywords:
+          type: "array"
+          items:
+            type: "string"
+          description: "Discovery/search keywords"
+        domain:
+          type: "array"
+          items:
+            type: "string"
+          description: "Scientific domains; default astronomy; min_length=1"
+        kind:
+          type: "array"
+          items:
+            type: "string"
+          description: "One of notebook|headless|carta|firefly|contributed|desktop;\
+            \ min_length=1"
+        tools:
+          type: "array"
+          items:
+            type: "string"
+          description: "Scientific software packages included"
+        deprecated:
+          type: "boolean"
+          description: "Deprecation status; default false"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "imageTitle"
+      - "description"
+      - "source"
+      - "version"
+      - "licenses"
+      - "domain"
+      - "kind"
+      additionalProperties: false
+    tool.EnvVar:
+      type: "object"
+      description: "Environment variable map entry"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        name:
+          type: "string"
+          description: "Environment variable name"
+        value:
+          type: "string"
+          description: "Environment variable value"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "name"
+      - "value"
+      additionalProperties: false
+    tool.ToolImage:
+      type: "object"
+      description: "Definition of a tool image"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        registry:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/tool.OCIRegistry"
+          description: "OCI registry details"
+        build:
+          type: "object"
+          $ref: "#/components/schemas/tool.BuildProcess"
+        discovery:
+          type: "object"
+          $ref: "#/components/schemas/tool.Discovery"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "registry"
+      - "build"
+      - "discovery"
+      additionalProperties: false
+    tool.BuildProcess:
+      type: "object"
+      description: ""
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
+      additionalProperties: false
+    tool.ToolInterface:
+      type: "object"
+      description: ""
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        pg:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ParameterGroup"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
+      additionalProperties: false
+    tool.Tool:
+      type: "object"
+      description: "Definition of a Library Tool"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        id:
+          type: "string"
+          description: "Unique tool identifier"
+        image:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/tool.ToolImage"
+          description: "Tool container image reference"
+        command:
+          type: "array"
+          items:
+            type: "string"
+          description: "Tokenized initial command; supports {{inputs.key}} min_length=1"
+        env:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/tool.EnvVar"
+        inputs:
+          type: "array"
+          items:
+            anyOf:
+            - $ref: "#/components/schemas/ParameterDefinition"
+            - $ref: "#/components/schemas/ParameterGroup"
+        outputs:
+          type: "array"
+          items:
+            anyOf:
+            - $ref: "#/components/schemas/ParameterDefinition"
+            - $ref: "#/components/schemas/ParameterGroup"
+      required:
+      - "id"
+      - "image"
+      - "command"
+      - "outputs"
+      additionalProperties: false

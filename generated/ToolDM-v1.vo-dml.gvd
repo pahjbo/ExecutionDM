@@ -1,0 +1,100 @@
+
+digraph GVmap {  
+	label = "\n\ntool data model"
+	rankdir=TB
+	
+	node [ 
+	  shape=tab
+	  style=filled
+	]
+	subgraph cluster_packages {
+	  label="Model"
+	  rankdir=TB
+      style=filled
+      fillcolor="/set312/1"
+	  
+    "tool" [
+
+    URL="../tool/tool"
+    label = "tool"
+    fillcolor="/set312/2"
+    ] ;
+    
+	}
+	
+	node [
+	shape=record
+	fontsize=8
+	style=filled] 
+    
+  "pdl:ParameterGroup" [
+    URL="not known#ParameterGroup"
+    label = "{pdl:ParameterGroup}"
+    fillcolor="grey"
+    ] ;
+      
+    
+  "pdl:ParameterOrGroup" [
+    URL="not known#ParameterOrGroup"
+    label = "{pdl:ParameterOrGroup}"
+    fillcolor="grey"
+    ] ;
+      
+    "tool:tool.Author" [
+    URL="../tool/tool.Author"
+    label = "{tool/Author|+name : ivoa:string\l+email : ivoa:string\l+role : ivoa:string\l+github : ivoa:string\l+gitlab : ivoa:string\l+orcid : ivoa:string\l+affiliation : ivoa:string\l}"
+    fillcolor="/set312/2"
+    ] ;
+  "tool:tool.OCIRegistry" [
+    URL="../tool/tool.OCIRegistry"
+    label = "{tool/OCIRegistry|+host : ivoa:string\l+project : ivoa:string\l}"
+    fillcolor="/set312/2"
+    ] ;
+  "tool:tool.Discovery" [
+    URL="../tool/tool.Discovery"
+    label = "{tool/Discovery|+imageTitle : ivoa:string\l+description : ivoa:string\l+source : ivoa:anyURI\l+url : ivoa:anyURI\l+documentation : ivoa:anyURI\l+version : ivoa:string\l+revision : ivoa:string\l+created : ivoa:datetime\l+licenses : ivoa:string\l+keywords : ivoa:string\l+domain : ivoa:string\l+kind : ivoa:string\l+tools : ivoa:string\l+deprecated : ivoa:boolean\l}"
+    fillcolor="/set312/2"
+    ] ;
+  "tool:tool.EnvVar" [
+    URL="../tool/tool.EnvVar"
+    label = "{tool/EnvVar|+name : ivoa:string\l+value : ivoa:string\l}"
+    fillcolor="/set312/2"
+    ] ;
+  "tool:tool.ToolImage" [
+    URL="../tool/tool.ToolImage"
+    label = "{tool/ToolImage}"
+    fillcolor="/set312/2"
+    ] ;
+  "tool:tool.BuildProcess" [
+    URL="../tool/tool.BuildProcess"
+    label = "{tool/BuildProcess}"
+    fillcolor="/set312/2"
+    ] ;
+  "tool:tool.ToolInterface" [
+    URL="../tool/tool.ToolInterface"
+    label = "{tool/ToolInterface}"
+    fillcolor="/set312/2"
+    ] ;
+  "tool:tool.Tool" [
+    URL="../tool/tool.Tool"
+    label = "{tool/Tool|+id : ivoa:string\l+command : ivoa:string\l}"
+    fillcolor="/set312/2"
+    ] ;
+  
+ 
+    edge [color="blue", arrowhead="open", arrowtail="diamond",dir="both",fontsize="10"]
+    "tool:tool.Discovery" -> "tool:tool.Author" [headlabel="0..*",label="authors",labelfontsize=10] ;
+  "tool:tool.ToolImage" -> "tool:tool.BuildProcess" [headlabel="1",label="build",labelfontsize=10] ;
+  "tool:tool.ToolImage" -> "tool:tool.Discovery" [headlabel="1",label="discovery",labelfontsize=10] ;
+  "tool:tool.ToolInterface" -> "pdl:ParameterGroup" [headlabel="0..*",label="pg",labelfontsize=10] ;
+  "tool:tool.Tool" -> "tool:tool.EnvVar" [headlabel="0..*",label="env",labelfontsize=10] ;
+  "tool:tool.Tool" -> "pdl:ParameterOrGroup" [headlabel="0..*",label="inputs",labelfontsize=10] ;
+  "tool:tool.Tool" -> "pdl:ParameterOrGroup" [headlabel="1..*",label="outputs",labelfontsize=10] ;
+  
+ 
+    edge [color="green", arrowhead="open", arrowtail="none"]
+    "tool:tool.ToolImage" -> "tool:tool.OCIRegistry" [headlabel="1",label="registry",labelfontsize=10] ;
+  "tool:tool.Tool" -> "tool:tool.ToolImage" [headlabel="1",label="image",labelfontsize=10] ;
+    
+}
+  

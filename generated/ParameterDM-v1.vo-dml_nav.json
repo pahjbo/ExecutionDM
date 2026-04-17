@@ -1,0 +1,26 @@
+
+
+            {
+            "pdl model": [
+            {
+            "Overview": "generated/ParameterDM-v1.vo-dml.md"
+            }
+
+            
+                ,{
+                "ObjectTypes": [
+
+                {"ParameterDefinition" : "generated/pdl/ParameterDefinition.md"},{"ParameterGroup" : "generated/pdl/ParameterGroup.md"},{"ParameterOrGroup" : "generated/pdl/ParameterOrGroup.md"}
+                ]
+                }
+            
+                ,{
+                "DataTypes": [
+                {"BaseParameterType" : "generated/pdl/BaseParameterType.md"},{"ParameterSemantics" : "generated/pdl/ParameterSemantics.md"}
+                ]
+                }
+            
+            ]
+            }
+
+        

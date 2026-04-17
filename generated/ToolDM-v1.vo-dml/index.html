@@ -1,0 +1,2535 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../pdl/ParameterSemantics/">
+      
+      
+        <link rel="next" href="../tool/tool.Author/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.6.17">
+    
+    
+      
+        <title>Overview - Model Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.7e37652d.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tool" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Model Documentation" class="md-header__button md-logo" aria-label="Model Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Model Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Overview
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/pahjbo/ExecutionDM" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Introduction
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../prd/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Requirements
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../architecture/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Architecture
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../runtimeEnvironment/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Runtime
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../schema/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Schema
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../design-log/decisions/" class="md-tabs__link">
+          
+  
+  
+  Design Log
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../IVOA-v1.0.vo-dml/" class="md-tabs__link">
+          
+  
+  
+  AutoGenerated Documentation
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../javadoc" class="md-tabs__link">
+        
+  
+  
+    
+  
+  JavaDoc
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Model Documentation" class="md-nav__button md-logo" aria-label="Model Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Model Documentation
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/pahjbo/ExecutionDM" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    GitHub
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../prd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requirements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../runtimeEnvironment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Runtime
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../schema/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Schema
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Design Log
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Design Log
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-log/decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decisions Register
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-log/requirements-detail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requirements Detail
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../design-log/rfc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requests for Change (RFC)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    AutoGenerated Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            AutoGenerated Documentation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Imported Models
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
+            <span class="md-nav__icon md-icon"></span>
+            Imported Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1_1" id="__nav_7_1_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ivoa model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_1">
+            <span class="md-nav__icon md-icon"></span>
+            ivoa model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../IVOA-v1.0.vo-dml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1_1_2" id="__nav_7_1_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DataTypes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_1_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            DataTypes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/IntegerQuantity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    IntegerQuantity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/Quantity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Quantity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/RealQuantity/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    RealQuantity
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_1_1_3" id="__nav_7_1_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PrimitiveTypes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_1_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            PrimitiveTypes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/Unit/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Unit
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/anyURI/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    anyURI
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/boolean/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    boolean
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/complex/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    complex
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/datetime/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    datetime
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/integer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    integer
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/nonnegativeInteger/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    nonnegativeInteger
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/rational/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    rational
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/real/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    real
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ivoa/string/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    string
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    execution model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
+            <span class="md-nav__icon md-icon"></span>
+            execution model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ExecutionDM-v1.vo-dml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2_2" id="__nav_7_2_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ObjectTypes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            ObjectTypes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execution/DataResource/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    DataResource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execution/ExecutionNode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExecutionNode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execution/PerformanceMetric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PerformanceMetric
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execution/PerformanceProfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PerformanceProfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execution/PhysicalLocation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PhysicalLocation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execution/WorkLoad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WorkLoad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2_3" id="__nav_7_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Enumerations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Enumerations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../execution/job.ExecutionPhase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    job.ExecutionPhase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    pdl model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            pdl model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ParameterDM-v1.vo-dml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3_2" id="__nav_7_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ObjectTypes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            ObjectTypes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdl/ParameterDefinition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ParameterDefinition
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdl/ParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ParameterGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdl/ParameterOrGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ParameterOrGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3_3" id="__nav_7_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DataTypes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            DataTypes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdl/BaseParameterType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BaseParameterType
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pdl/ParameterSemantics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ParameterSemantics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    tool model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            tool model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overview-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objecttypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObjectTypes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imports
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4_2" id="__nav_7_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ObjectTypes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            ObjectTypes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/tool.Author/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.Author
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/tool.BuildProcess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.BuildProcess
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/tool.Discovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.Discovery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/tool.EnvVar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.EnvVar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/tool.OCIRegistry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.OCIRegistry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/tool.Tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.Tool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/tool.ToolImage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.ToolImage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../tool/tool.ToolInterface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.ToolInterface
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../javadoc" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    JavaDoc
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#introduction" class="md-nav__link">
+    <span class="md-ellipsis">
+      Introduction
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Introduction">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#authors" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authors
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#overview-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      Overview diagram
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Packages
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#objecttypes" class="md-nav__link">
+    <span class="md-ellipsis">
+      ObjectTypes
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      References
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#imports" class="md-nav__link">
+    <span class="md-ellipsis">
+      Imports
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+    <a href="https://github.com/pahjbo/ExecutionDM/edit/master/docs/generated/ToolDM-v1.vo-dml.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
+    </a>
+  
+  
+
+
+<h1 id="tool">tool<a class="headerlink" href="#tool" title="Permanent link">&para;</a></h1>
+<p>version 0.1 <em>2026-04-17</em></p>
+<h2 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h2>
+<p>Tool Data Model for defining executable tools</p>
+<h3 id="authors">Authors<a class="headerlink" href="#authors" title="Permanent link">&para;</a></h3>
+<p>Paul Harrison</p>
+<h3 id="overview-diagram">Overview diagram<a class="headerlink" href="#overview-diagram" title="Permanent link">&para;</a></h3>
+<p>The whole model is represented in a model diagram below</p>
+<div xmlns:bnd="http://www.ivoa.net/xml/vodml-binding/v0.9.1" xmlns:vf="http://www.ivoa.net/xml/VODML/functions" xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="579pt" height="592pt" viewBox="0.00 0.00 579.00 592.00" preserveAspectRatio="xMidYMid meet" zoomAndPan="magnify" version="1.1" contentScriptType="text/ecmascript" contentStyleType="text/css"><g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 588.38)"><title>GVmap</title><polygon fill="white" stroke="none" points="-4,4 -4,-588.38 575.12,-588.38 575.12,4 -4,4"/><text xml:space="preserve" text-anchor="middle" x="285.56" y="-7.2" font-family="Times,serif" font-size="14.00">tool data model</text><g id="clust1" class="cluster"><title>cluster_packages</title><polygon fill="#8dd3c7" stroke="black" points="8,-499.88 8,-576.38 78,-576.38 78,-499.88 8,-499.88"/><text xml:space="preserve" text-anchor="middle" x="43" y="-559.08" font-family="Times,serif" font-size="14.00">Model</text></g><g id="node1" class="node"><title>tool</title><g id="a_node1"><a xlink:href="../tool/tool" xlink:title="tool" xlink:type="simple" xlink:show="replace" xlink:actuate="onRequest">
+<polygon fill="#ffffb3" stroke="black" points="70,-543.88 28,-543.88 28,-547.88 16,-547.88 16,-507.88 70,-507.88 70,-543.88"/>
+<polyline fill="none" stroke="black" points="16,-543.88 28,-543.88"/>
+<text xml:space="preserve" text-anchor="middle" x="43" y="-520.83" font-family="Times,serif" font-size="14.00">tool</text>
+</a></g></g><g id="node2" class="node"><title>pdl:ParameterGroup</title><g id="a_node2"><a xlink:href="not known#ParameterGroup" xlink:title="{pdl:ParameterGroup}" xlink:type="simple" xlink:show="replace" xlink:actuate="onRequest">
+<polygon fill="grey" stroke="black" points="84,-414.38 84,-450.38 166,-450.38 166,-414.38 84,-414.38"/>
+<text xml:space="preserve" text-anchor="middle" x="125" y="-429.77" font-family="Times,serif" font-size="8.00">pdl:ParameterGroup</text>
+</a></g></g><g id="node3" class="node"><title>pdl:ParameterOrGroup</title><g id="a_node3"><a xlink:href="not known#ParameterOrGroup" xlink:title="{pdl:ParameterOrGroup}" xlink:type="simple" xlink:show="replace" xlink:actuate="onRequest">
+<polygon fill="grey" stroke="black" points="184.5,-414.38 184.5,-450.38 275.5,-450.38 275.5,-414.38 184.5,-414.38"/>
+<text xml:space="preserve" text-anchor="middle" x="230" y="-429.77" font-family="Times,serif" font-size="8.00">pdl:ParameterOrGroup</text>
+</a></g></g><g id="node4" class="node"><title>tool:tool.Author</title><g id="a_node4"><a xlink:href="../tool/tool.Author" xlink:title="{tool/Author|+name : ivoa:string\l+email : ivoa:string\l+role : ivoa:string\l+github : ivoa:string\l+gitlab : ivoa:string\l+orcid : ivoa:string\l+affiliation : ivoa:string\l}" xlink:type="simple" xlink:show="replace" xlink:actuate="onRequest">
+<polygon fill="#ffffb3" stroke="black" points="377.12,-57 377.12,-151 468.88,-151 468.88,-57 377.12,-57"/>
+<text xml:space="preserve" text-anchor="middle" x="423" y="-139.4" font-family="Times,serif" font-size="8.00">tool/Author</text>
+<polyline fill="none" stroke="black" points="377.12,-133.25 468.88,-133.25"/>
+<text xml:space="preserve" text-anchor="start" x="385.12" y="-121.65" font-family="Times,serif" font-size="8.00">+name : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="385.12" y="-111.9" font-family="Times,serif" font-size="8.00">+email : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="385.12" y="-102.15" font-family="Times,serif" font-size="8.00">+role : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="385.12" y="-92.4" font-family="Times,serif" font-size="8.00">+github : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="385.12" y="-82.65" font-family="Times,serif" font-size="8.00">+gitlab : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="385.12" y="-72.9" font-family="Times,serif" font-size="8.00">+orcid : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="385.12" y="-63.15" font-family="Times,serif" font-size="8.00">+affiliation : ivoa:string</text>
+</a></g></g><g id="node5" class="node"><title>tool:tool.OCIRegistry</title><g id="a_node5"><a xlink:href="../tool/tool.OCIRegistry" xlink:title="{tool/OCIRegistry|+host : ivoa:string\l+project : ivoa:string\l}" xlink:type="simple" xlink:show="replace" xlink:actuate="onRequest">
+<polygon fill="#ffffb3" stroke="black" points="264.25,-257.75 264.25,-303 347.75,-303 347.75,-257.75 264.25,-257.75"/>
+<text xml:space="preserve" text-anchor="middle" x="306" y="-291.4" font-family="Times,serif" font-size="8.00">tool/OCIRegistry</text>
+<polyline fill="none" stroke="black" points="264.25,-285.25 347.75,-285.25"/>
+<text xml:space="preserve" text-anchor="start" x="272.25" y="-273.65" font-family="Times,serif" font-size="8.00">+host : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="272.25" y="-263.9" font-family="Times,serif" font-size="8.00">+project : ivoa:string</text>
+</a></g></g><g id="node6" class="node"><title>tool:tool.Discovery</title><g id="a_node6"><a xlink:href="../tool/tool.Discovery" xlink:title="{tool/Discovery|+imageTitle : ivoa:string\l+description : ivoa:string\l+source : ivoa:anyURI\l+url : ivoa:anyURI\l+documentation : ivoa:anyURI\l+version : ivoa:string\l+revision : ivoa:string\l+created : ivoa:datetime\l+licenses : ivoa:string\l+keywords : ivoa:string\l+domain : ivoa:string\l+kind : ivoa:string\l+tools : ivoa:string\l+deprecated : ivoa:boolean\l}" xlink:type="simple" xlink:show="replace" xlink:actuate="onRequest">
+<polygon fill="#ffffb3" stroke="black" points="365.5,-199.25 365.5,-361.5 480.5,-361.5 480.5,-199.25 365.5,-199.25"/>
+<text xml:space="preserve" text-anchor="middle" x="423" y="-349.9" font-family="Times,serif" font-size="8.00">tool/Discovery</text>
+<polyline fill="none" stroke="black" points="365.5,-343.75 480.5,-343.75"/>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-332.15" font-family="Times,serif" font-size="8.00">+imageTitle : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-322.4" font-family="Times,serif" font-size="8.00">+description : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-312.65" font-family="Times,serif" font-size="8.00">+source : ivoa:anyURI</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-302.9" font-family="Times,serif" font-size="8.00">+url : ivoa:anyURI</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-293.15" font-family="Times,serif" font-size="8.00">+documentation : ivoa:anyURI</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-283.4" font-family="Times,serif" font-size="8.00">+version : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-273.65" font-family="Times,serif" font-size="8.00">+revision : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-263.9" font-family="Times,serif" font-size="8.00">+created : ivoa:datetime</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-254.15" font-family="Times,serif" font-size="8.00">+licenses : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-244.4" font-family="Times,serif" font-size="8.00">+keywords : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-234.65" font-family="Times,serif" font-size="8.00">+domain : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-224.9" font-family="Times,serif" font-size="8.00">+kind : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-215.15" font-family="Times,serif" font-size="8.00">+tools : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="373.5" y="-205.4" font-family="Times,serif" font-size="8.00">+deprecated : ivoa:boolean</text>
+</a></g></g><g id="edge1" class="edge"><title>tool:tool.Discovery-&gt;tool:tool.Author</title><path fill="none" stroke="blue" d="M423,-185.86C423,-177.94 423,-170.08 423,-162.57"/><polygon fill="blue" stroke="blue" points="423,-185.92 427,-191.92 423,-197.92 419,-191.92 423,-185.92"/><polygon fill="blue" stroke="blue" points="423,-152.66 427.5,-162.66 423,-156.44 423,-162.66 423,-162.66 423,-162.66 423,-156.44 418.5,-162.66 423,-152.66"/><text xml:space="preserve" text-anchor="middle" x="438" y="-171.25" font-family="Times,serif" font-size="10.00">authors</text><text xml:space="preserve" text-anchor="middle" x="415.5" y="-153.19" font-family="Times,serif" font-size="10.00">0..*</text></g><g id="node7" class="node"><title>tool:tool.EnvVar</title><g id="a_node7"><a xlink:href="../tool/tool.EnvVar" xlink:title="{tool/EnvVar|+name : ivoa:string\l+value : ivoa:string\l}" xlink:type="simple" xlink:show="replace" xlink:actuate="onRequest">
+<polygon fill="#ffffb3" stroke="black" points="293.88,-409.75 293.88,-455 372.12,-455 372.12,-409.75 293.88,-409.75"/>
+<text xml:space="preserve" text-anchor="middle" x="333" y="-443.4" font-family="Times,serif" font-size="8.00">tool/EnvVar</text>
+<polyline fill="none" stroke="black" points="293.88,-437.25 372.12,-437.25"/>
+<text xml:space="preserve" text-anchor="start" x="301.88" y="-425.65" font-family="Times,serif" font-size="8.00">+name : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="301.88" y="-415.9" font-family="Times,serif" font-size="8.00">+value : ivoa:string</text>
+</a></g></g><g id="node8" class="node"><title>tool:tool.ToolImage</title><g id="a_node8"><a xlink:href="../tool/tool.ToolImage" xlink:title="{tool/ToolImage}" xlink:type="simple" xlink:show="replace" xlink:actuate="onRequest">
+<polygon fill="#ffffb3" stroke="black" points="390.62,-414.38 390.62,-450.38 455.38,-450.38 455.38,-414.38 390.62,-414.38"/>
+<text xml:space="preserve" text-anchor="middle" x="423" y="-429.77" font-family="Times,serif" font-size="8.00">tool/ToolImage</text>
+</a></g></g><g id="edge8" class="edge"><title>tool:tool.ToolImage-&gt;tool:tool.OCIRegistry</title><path fill="none" stroke="green" d="M404.61,-414C390.76,-400.47 371.72,-380.88 357,-362 344.97,-346.57 333.18,-328.21 323.98,-312.92"/><polygon fill="green" stroke="green" points="318.94,-304.42 327.91,-310.73 320.87,-307.67 324.04,-313.02 324.04,-313.02 324.04,-313.02 320.87,-307.67 320.17,-315.31 318.94,-304.42"/><text xml:space="preserve" text-anchor="middle" x="396.4" y="-381.75" font-family="Times,serif" font-size="10.00">registry</text><text xml:space="preserve" text-anchor="middle" x="315.7" y="-305.12" font-family="Times,serif" font-size="10.00">1</text></g><g id="edge3" class="edge"><title>tool:tool.ToolImage-&gt;tool:tool.Discovery</title><path fill="none" stroke="blue" d="M423,-401.3C423,-392.79 423,-383.07 423,-372.91"/><polygon fill="blue" stroke="blue" points="423,-401.27 427,-407.27 423,-413.27 419,-407.27 423,-401.27"/><polygon fill="blue" stroke="blue" points="423,-362.99 427.5,-372.99 423,-366.77 423,-372.99 423,-372.99 423,-372.99 423,-366.77 418.5,-372.99 423,-362.99"/><text xml:space="preserve" text-anchor="middle" x="442.88" y="-381.75" font-family="Times,serif" font-size="10.00">discovery</text><text xml:space="preserve" text-anchor="middle" x="420.38" y="-363.52" font-family="Times,serif" font-size="10.00">1</text></g><g id="node9" class="node"><title>tool:tool.BuildProcess</title><g id="a_node9"><a xlink:href="../tool/tool.BuildProcess" xlink:title="{tool/BuildProcess}" xlink:type="simple" xlink:show="replace" xlink:actuate="onRequest">
+<polygon fill="#ffffb3" stroke="black" points="498.88,-262.38 498.88,-298.38 571.12,-298.38 571.12,-262.38 498.88,-262.38"/>
+<text xml:space="preserve" text-anchor="middle" x="535" y="-277.77" font-family="Times,serif" font-size="8.00">tool/BuildProcess</text>
+</a></g></g><g id="edge2" class="edge"><title>tool:tool.ToolImage-&gt;tool:tool.BuildProcess</title><path fill="none" stroke="blue" d="M452.67,-405.56C457.59,-400.93 462.54,-396.05 467,-391.25 490.18,-366.31 509.77,-332.33 521.89,-308.79"/><polygon fill="blue" stroke="blue" points="452.89,-405.36 451.17,-412.36 444.04,-413.46 445.77,-406.46 452.89,-405.36"/><polygon fill="blue" stroke="blue" points="526.37,-299.87 525.9,-310.82 524.67,-303.25 521.88,-308.8 521.88,-308.8 521.88,-308.8 524.67,-303.25 517.86,-306.78 526.37,-299.87"/><text xml:space="preserve" text-anchor="middle" x="487.05" y="-381.75" font-family="Times,serif" font-size="10.00">build</text><text xml:space="preserve" text-anchor="middle" x="524.29" y="-300.53" font-family="Times,serif" font-size="10.00">1</text></g><g id="node10" class="node"><title>tool:tool.ToolInterface</title><g id="a_node10"><a xlink:href="../tool/tool.ToolInterface" xlink:title="{tool/ToolInterface}" xlink:type="simple" xlink:show="replace" xlink:actuate="onRequest">
+<polygon fill="#ffffb3" stroke="black" points="87.75,-507.88 87.75,-543.88 162.25,-543.88 162.25,-507.88 87.75,-507.88"/>
+<text xml:space="preserve" text-anchor="middle" x="125" y="-523.27" font-family="Times,serif" font-size="8.00">tool/ToolInterface</text>
+</a></g></g><g id="edge4" class="edge"><title>tool:tool.ToolInterface-&gt;pdl:ParameterGroup</title><path fill="none" stroke="blue" d="M125,-494.67C125,-484.1 125,-472.28 125,-461.85"/><polygon fill="blue" stroke="blue" points="125,-494.76 129,-500.76 125,-506.76 121,-500.76 125,-494.76"/><polygon fill="blue" stroke="blue" points="125,-452.04 129.5,-462.04 125,-455.82 125,-462.04 125,-462.04 125,-462.04 125,-455.82 120.5,-462.04 125,-452.04"/><text xml:space="preserve" text-anchor="middle" x="130.25" y="-475.25" font-family="Times,serif" font-size="10.00">pg</text><text xml:space="preserve" text-anchor="middle" x="117.5" y="-452.57" font-family="Times,serif" font-size="10.00">0..*</text></g><g id="node11" class="node"><title>tool:tool.Tool</title><g id="a_node11"><a xlink:href="../tool/tool.Tool" xlink:title="{tool/Tool|+id : ivoa:string\l+command : ivoa:string\l}" xlink:type="simple" xlink:show="replace" xlink:actuate="onRequest">
+<polygon fill="#ffffb3" stroke="black" points="260.12,-503.25 260.12,-548.5 351.88,-548.5 351.88,-503.25 260.12,-503.25"/>
+<text xml:space="preserve" text-anchor="middle" x="306" y="-536.9" font-family="Times,serif" font-size="8.00">tool/Tool</text>
+<polyline fill="none" stroke="black" points="260.12,-530.75 351.88,-530.75"/>
+<text xml:space="preserve" text-anchor="start" x="268.12" y="-519.15" font-family="Times,serif" font-size="8.00">+id : ivoa:string</text>
+<text xml:space="preserve" text-anchor="start" x="268.12" y="-509.4" font-family="Times,serif" font-size="8.00">+command : ivoa:string</text>
+</a></g></g><g id="edge6" class="edge"><title>tool:tool.Tool-&gt;pdl:ParameterOrGroup</title><path fill="none" stroke="blue" d="M249.19,-502.95C242.2,-497.98 235.96,-491.97 231.5,-484.75 227.34,-478.02 225.89,-469.78 225.76,-461.89"/><polygon fill="blue" stroke="blue" points="248.87,-502.75 256.07,-502.49 259.08,-509.04 251.88,-509.3 248.87,-502.75"/><polygon fill="blue" stroke="blue" points="226.29,-452.02 230.25,-462.25 226.09,-455.8 225.75,-462.01 225.75,-462.01 225.75,-462.01 226.09,-455.8 221.26,-461.76 226.29,-452.02"/><text xml:space="preserve" text-anchor="middle" x="244.25" y="-475.25" font-family="Times,serif" font-size="10.00">inputs</text><text xml:space="preserve" text-anchor="middle" x="218.86" y="-452.55" font-family="Times,serif" font-size="10.00">0..*</text></g><g id="edge7" class="edge"><title>tool:tool.Tool-&gt;pdl:ParameterOrGroup</title><path fill="none" stroke="blue" d="M279.72,-493.24C270.45,-482.07 260.14,-469.66 251.33,-459.05"/><polygon fill="blue" stroke="blue" points="279.75,-493.27 286.66,-495.33 287.41,-502.5 280.5,-500.44 279.75,-493.27"/><polygon fill="blue" stroke="blue" points="245.11,-451.56 254.96,-456.38 247.52,-454.47 251.5,-459.26 251.5,-459.26 251.5,-459.26 247.52,-454.47 248.03,-462.13 245.11,-451.56"/><text xml:space="preserve" text-anchor="middle" x="287.93" y="-475.25" font-family="Times,serif" font-size="10.00">outputs</text><text xml:space="preserve" text-anchor="middle" x="236.83" y="-452.38" font-family="Times,serif" font-size="10.00">1..*</text></g><g id="edge5" class="edge"><title>tool:tool.Tool-&gt;tool:tool.EnvVar</title><path fill="none" stroke="blue" d="M316.03,-490.87C318.45,-482.67 321.03,-473.93 323.43,-465.81"/><polygon fill="blue" stroke="blue" points="316.05,-490.82 318.19,-497.7 312.65,-502.33 310.52,-495.44 316.05,-490.82"/><polygon fill="blue" stroke="blue" points="326.21,-456.39 327.69,-467.25 325.14,-460.02 323.38,-465.98 323.38,-465.98 323.38,-465.98 325.14,-460.02 319.06,-464.71 326.21,-456.39"/><text xml:space="preserve" text-anchor="middle" x="328.62" y="-475.25" font-family="Times,serif" font-size="10.00">env</text><text xml:space="preserve" text-anchor="middle" x="319.05" y="-456.97" font-family="Times,serif" font-size="10.00">0..*</text></g><g id="edge9" class="edge"><title>tool:tool.Tool-&gt;tool:tool.ToolImage</title><path fill="none" stroke="green" d="M334.02,-502.96C351.57,-489.24 374.19,-471.55 392.23,-457.44"/><polygon fill="green" stroke="green" points="399.72,-451.58 394.61,-461.29 396.74,-453.91 391.84,-457.74 391.84,-457.74 391.84,-457.74 396.74,-453.91 389.07,-454.2 399.72,-451.58"/><text xml:space="preserve" text-anchor="middle" x="383.88" y="-475.25" font-family="Times,serif" font-size="10.00">image</text><text xml:space="preserve" text-anchor="middle" x="398.05" y="-452.58" font-family="Times,serif" font-size="10.00">1</text></g></g></svg></div>
+<h2 id="packages">Packages<a class="headerlink" href="#packages" title="Permanent link">&para;</a></h2>
+<ul>
+<li><em>tool</em>A package for describing the building and functionality of a tool</li>
+</ul>
+<h2 id="objecttypes">ObjectTypes<a class="headerlink" href="#objecttypes" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../tool/tool.Author/">tool.Author</a></li>
+<li><a href="../tool/tool.BuildProcess/">tool.BuildProcess</a></li>
+<li><a href="../tool/tool.Discovery/">tool.Discovery</a></li>
+<li><a href="../tool/tool.EnvVar/">tool.EnvVar</a></li>
+<li><a href="../tool/tool.OCIRegistry/">tool.OCIRegistry</a></li>
+<li><a href="../tool/tool.Tool/">tool.Tool</a></li>
+<li><a href="../tool/tool.ToolImage/">tool.ToolImage</a></li>
+<li><a href="../tool/tool.ToolInterface/">tool.ToolInterface</a></li>
+</ul>
+<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
+<ul>
+<li><a href="../tool/tool.OCIRegistry/">tool.OCIRegistry</a></li>
+<li><a href="../tool/tool.ToolImage/">tool.ToolImage</a></li>
+</ul>
+<h2 id="imports">Imports<a class="headerlink" href="#imports" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>ivoa</p>
+</li>
+<li>
+<p>pdl</p>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "content.action.edit", "content.tooltips"], "search": "../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.92b07e13.min.js"></script>
+      
+    
+  </body>
+</html>

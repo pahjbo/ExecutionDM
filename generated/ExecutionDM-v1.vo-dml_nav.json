@@ -1,0 +1,26 @@
+
+
+            {
+            "execution model": [
+            {
+            "Overview": "generated/ExecutionDM-v1.vo-dml.md"
+            }
+
+            
+                ,{
+                "ObjectTypes": [
+
+                {"DataResource" : "generated/execution/DataResource.md"},{"ExecutionNode" : "generated/execution/ExecutionNode.md"},{"PerformanceMetric" : "generated/execution/PerformanceMetric.md"},{"PerformanceProfile" : "generated/execution/PerformanceProfile.md"},{"PhysicalLocation" : "generated/execution/PhysicalLocation.md"},{"WorkLoad" : "generated/execution/WorkLoad.md"}
+                ]
+                }
+            
+                ,{
+                "Enumerations": [
+                {"job.ExecutionPhase" : "generated/execution/job.ExecutionPhase.md"}
+                ]
+                }
+            
+            ]
+            }
+
+        

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-   <system systemId="TemplateDM-v1.vo-dml.xsd"
-           uri="http://ivoa.net/dm/mymodel/v0.1"/>
+   <system systemId="ExecutionDM-v1.vo-dml.xsd"
+           uri="http://ivoa.net/dm/execution/v0.1"/>
+   <system systemId="ToolDM-v1.vo-dml.xsd" uri="http://ivoa.net/dm/tool/v0.1"/>
+   <system systemId="ParameterDM-v1.vo-dml.xsd" uri="http://ivoa.net/dm/pdl/v0.1"/>
 </catalog>

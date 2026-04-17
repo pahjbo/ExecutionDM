@@ -1,0 +1,58 @@
+
+digraph GVmap {  
+	label = "\n\npdl data model"
+	rankdir=TB
+	
+	node [ 
+	  shape=tab
+	  style=filled
+	]
+	subgraph cluster_packages {
+	  label="Model"
+	  rankdir=TB
+      style=filled
+      fillcolor="/set312/1"
+	  
+	}
+	
+	node [
+	shape=record
+	fontsize=8
+	style=filled] 
+    "pdl:BaseParameterType" [
+    URL="../pdl/BaseParameterType"
+    label = "{&lt;&lt;datatype&gt;&gt;\nBaseParameterType}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:ParameterSemantics" [
+    URL="../pdl/ParameterSemantics"
+    label = "{&lt;&lt;datatype&gt;&gt;\nParameterSemantics}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:ParameterOrGroup" [
+    URL="../pdl/ParameterOrGroup"
+    label = "{ParameterOrGroup|+name : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:ParameterDefinition" [
+    URL="../pdl/ParameterDefinition"
+    label = "{ParameterDefinition|+description : ivoa:string\l+kind : pdl:BaseParameterType\l+semantics : pdl:ParameterSemantics\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:ParameterGroup" [
+    URL="../pdl/ParameterGroup"
+    label = "{ParameterGroup}"
+    fillcolor="/set312/1"
+    ] ;
+  
+ 
+    edge [color="red", arrowtail="none", arrowhead="empty"]
+    "pdl:ParameterDefinition" -> "pdl:ParameterOrGroup" ;
+  "pdl:ParameterGroup" -> "pdl:ParameterOrGroup" ;
+  
+ 
+    edge [color="blue", arrowhead="open", arrowtail="diamond",dir="both",fontsize="10"]
+    "pdl:ParameterGroup" -> "pdl:ParameterDefinition" [headlabel="1..*",label="params",labelfontsize=10] ;
+    
+}
+  

@@ -9,14 +9,14 @@
       
       
       
-        <link rel="prev" href="..">
+        <link rel="prev" href="../runtimeEnvironment/">
       
       
-        <link rel="next" href="../generated/IVOA-v1.0.vo-dml/">
+        <link rel="next" href="../design-log/decisions/">
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.5.25">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.6.17">
     
     
       
@@ -24,7 +24,7 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.7e37652d.min.css">
       
       
 
@@ -43,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -79,12 +79,12 @@
     <a href=".." title="Model Documentation" class="md-header__button md-logo" aria-label="Model Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
     </label>
     <div class="md-header__title" data-md-component="header-title">
       <div class="md-header__ellipsis">
@@ -104,36 +104,38 @@
     </div>
     
     
-      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
     
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
   <label class="md-search__overlay" for="__search"></label>
   <div class="md-search__inner" role="search">
     <form class="md-search__form" name="search">
       <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
       <label class="md-search__icon md-icon" for="__search">
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
         
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
       </label>
       <nav class="md-search__options" aria-label="Search">
         
         <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
           
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
         </button>
       </nav>
       
     </form>
     <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
         <div class="md-search-result" data-md-component="search-result">
           <div class="md-search-result__meta">
             Initializing search
@@ -144,13 +146,14 @@
     </div>
   </div>
 </div>
+      
     
     
       <div class="md-header__source">
-        <a href="https://github.com/ivoa/DataModelTemplate" title="Go to repository" class="md-source" data-md-component="source">
+        <a href="https://github.com/pahjbo/ExecutionDM" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -176,9 +179,11 @@
   
   
   
+  
     <li class="md-tabs__item">
       <a href=".." class="md-tabs__link">
         
+  
   
     
   
@@ -192,12 +197,71 @@
         
   
   
+  
+  
+    <li class="md-tabs__item">
+      <a href="../prd/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Requirements
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../architecture/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Architecture
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../runtimeEnvironment/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Runtime
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
     
   
   
     <li class="md-tabs__item md-tabs__item--active">
       <a href="./" class="md-tabs__link">
         
+  
   
     
   
@@ -212,15 +276,38 @@
   
   
   
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../design-log/decisions/" class="md-tabs__link">
+          
+  
+  
+  Design Log
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
     
     
       
   
   
   
+  
     
     
       
+  
   
   
   
@@ -229,6 +316,7 @@
       <li class="md-tabs__item">
         <a href="../generated/IVOA-v1.0.vo-dml/" class="md-tabs__link">
           
+  
   
   AutoGenerated Documentation
 
@@ -248,9 +336,11 @@
   
   
   
+  
     <li class="md-tabs__item">
       <a href="../generated/javadoc" class="md-tabs__link">
         
+  
   
     
   
@@ -286,17 +376,17 @@
     <a href=".." title="Model Documentation" class="md-nav__button md-logo" aria-label="Model Documentation" data-md-component="logo">
       
   
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
 
     </a>
     Model Documentation
   </label>
   
     <div class="md-nav__source">
-      <a href="https://github.com/ivoa/DataModelTemplate" title="Go to repository" class="md-source" data-md-component="source">
+      <a href="https://github.com/pahjbo/ExecutionDM" title="Go to repository" class="md-source" data-md-component="source">
   <div class="md-source__icon md-icon">
     
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill="currentColor" d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
   </div>
   <div class="md-source__repository">
     GitHub
@@ -316,8 +406,76 @@
       <a href=".." class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../prd/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requirements
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Architecture
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../runtimeEnvironment/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Runtime
+    
   </span>
   
 
@@ -345,8 +503,10 @@
         <label class="md-nav__link md-nav__link--active" for="__toc">
           
   
+  
   <span class="md-ellipsis">
     Schema
+    
   </span>
   
 
@@ -356,8 +516,10 @@
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
+  
   <span class="md-ellipsis">
     Schema
+    
   </span>
   
 
@@ -404,6 +566,7 @@
     
     
     
+    
       
       
     
@@ -412,22 +575,141 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
         
           
-          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
             
   
+  
   <span class="md-ellipsis">
-    AutoGenerated Documentation
+    Design Log
+    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Design Log
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-log/decisions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Decisions Register
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-log/requirements-detail/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requirements Detail
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../design-log/rfc/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Requests for Change (RFC)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    AutoGenerated Documentation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
             <span class="md-nav__icon md-icon"></span>
             AutoGenerated Documentation
           </label>
@@ -442,6 +724,7 @@
     
     
     
+    
       
       
     
@@ -450,22 +733,24 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1" >
         
           
-          <label class="md-nav__link" for="__nav_3_1" id="__nav_3_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_1" id="__nav_7_1_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     Imported Models
+    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1">
             <span class="md-nav__icon md-icon"></span>
             Imported Models
           </label>
@@ -480,6 +765,7 @@
     
     
     
+    
       
       
     
@@ -488,22 +774,24 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1_1" >
         
           
-          <label class="md-nav__link" for="__nav_3_1_1" id="__nav_3_1_1_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_1_1" id="__nav_7_1_1_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     ivoa model
+    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_1_1_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_1_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_1">
             <span class="md-nav__icon md-icon"></span>
             ivoa model
           </label>
@@ -519,8 +807,10 @@
       <a href="../generated/IVOA-v1.0.vo-dml/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Overview
+    
   </span>
   
 
@@ -539,6 +829,7 @@
     
     
     
+    
       
       
     
@@ -547,22 +838,24 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1_1_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_1_1_2" id="__nav_3_1_1_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_1_1_2" id="__nav_7_1_1_2_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     DataTypes
+    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1_2">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_1_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_1_2">
             <span class="md-nav__icon md-icon"></span>
             DataTypes
           </label>
@@ -578,8 +871,10 @@
       <a href="../generated/ivoa/IntegerQuantity/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     IntegerQuantity
+    
   </span>
   
 
@@ -599,8 +894,10 @@
       <a href="../generated/ivoa/Quantity/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Quantity
+    
   </span>
   
 
@@ -620,8 +917,10 @@
       <a href="../generated/ivoa/RealQuantity/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     RealQuantity
+    
   </span>
   
 
@@ -648,6 +947,7 @@
     
     
     
+    
       
       
     
@@ -656,22 +956,24 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_1_1_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_1_1_3" >
         
           
-          <label class="md-nav__link" for="__nav_3_1_1_3" id="__nav_3_1_1_3_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_1_1_3" id="__nav_7_1_1_3_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     PrimitiveTypes
+    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_3_1_1_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_1_1_3">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_7_1_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_1_1_3">
             <span class="md-nav__icon md-icon"></span>
             PrimitiveTypes
           </label>
@@ -687,8 +989,10 @@
       <a href="../generated/ivoa/Unit/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     Unit
+    
   </span>
   
 
@@ -708,8 +1012,10 @@
       <a href="../generated/ivoa/anyURI/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     anyURI
+    
   </span>
   
 
@@ -729,8 +1035,10 @@
       <a href="../generated/ivoa/boolean/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     boolean
+    
   </span>
   
 
@@ -750,8 +1058,10 @@
       <a href="../generated/ivoa/complex/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     complex
+    
   </span>
   
 
@@ -771,8 +1081,10 @@
       <a href="../generated/ivoa/datetime/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     datetime
+    
   </span>
   
 
@@ -792,8 +1104,10 @@
       <a href="../generated/ivoa/integer/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     integer
+    
   </span>
   
 
@@ -813,8 +1127,10 @@
       <a href="../generated/ivoa/nonnegativeInteger/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     nonnegativeInteger
+    
   </span>
   
 
@@ -834,8 +1150,10 @@
       <a href="../generated/ivoa/rational/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     rational
+    
   </span>
   
 
@@ -855,8 +1173,10 @@
       <a href="../generated/ivoa/real/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     real
+    
   </span>
   
 
@@ -876,8 +1196,10 @@
       <a href="../generated/ivoa/string/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     string
+    
   </span>
   
 
@@ -920,6 +1242,7 @@
     
     
     
+    
       
       
     
@@ -928,24 +1251,26 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_2" id="__nav_7_2_label" tabindex="0">
             
   
+  
   <span class="md-ellipsis">
-    mymodel model
+    execution model
+    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2">
             <span class="md-nav__icon md-icon"></span>
-            mymodel model
+            execution model
           </label>
           <ul class="md-nav__list" data-md-scrollfix>
             
@@ -956,11 +1281,13 @@
   
   
     <li class="md-nav__item">
-      <a href="../generated/TemplateDM-v1.vo-dml/" class="md-nav__link">
+      <a href="../generated/ExecutionDM-v1.vo-dml/" class="md-nav__link">
         
+  
   
   <span class="md-ellipsis">
     Overview
+    
   </span>
   
 
@@ -979,6 +1306,7 @@
     
     
     
+    
       
       
     
@@ -987,22 +1315,24 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_2" >
         
           
-          <label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_7_2_2" id="__nav_7_2_2_label" tabindex="0">
             
+  
   
   <span class="md-ellipsis">
     ObjectTypes
+    
   </span>
   
 
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_3_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_3_2_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_2">
             <span class="md-nav__icon md-icon"></span>
             ObjectTypes
           </label>
@@ -1015,11 +1345,790 @@
   
   
     <li class="md-nav__item">
-      <a href="../generated/mymodel/Another/" class="md-nav__link">
+      <a href="../generated/execution/DataResource/" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
-    Another
+    DataResource
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/execution/ExecutionNode/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ExecutionNode
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/execution/PerformanceMetric/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PerformanceMetric
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/execution/PerformanceProfile/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PerformanceProfile
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/execution/PhysicalLocation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PhysicalLocation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/execution/WorkLoad/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    WorkLoad
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_2_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_2_3" id="__nav_7_2_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Enumerations
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_2_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            Enumerations
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/execution/job.ExecutionPhase/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    job.ExecutionPhase
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3" id="__nav_7_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    pdl model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3">
+            <span class="md-nav__icon md-icon"></span>
+            pdl model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/ParameterDM-v1.vo-dml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3_2" id="__nav_7_3_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ObjectTypes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_3_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            ObjectTypes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/pdl/ParameterDefinition/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ParameterDefinition
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/pdl/ParameterGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ParameterGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/pdl/ParameterOrGroup/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ParameterOrGroup
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_3_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_3_3" id="__nav_7_3_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    DataTypes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_3_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_3_3">
+            <span class="md-nav__icon md-icon"></span>
+            DataTypes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/pdl/BaseParameterType/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    BaseParameterType
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/pdl/ParameterSemantics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    ParameterSemantics
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4" id="__nav_7_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    tool model
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_7_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4">
+            <span class="md-nav__icon md-icon"></span>
+            tool model
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/ToolDM-v1.vo-dml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_7_4_2" id="__nav_7_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    ObjectTypes
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_7_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            ObjectTypes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/tool/tool.Author/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.Author
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/tool/tool.BuildProcess/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.BuildProcess
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/tool/tool.Discovery/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.Discovery
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/tool/tool.EnvVar/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.EnvVar
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/tool/tool.OCIRegistry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.OCIRegistry
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/tool/tool.Tool/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.Tool
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/tool/tool.ToolImage/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.ToolImage
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../generated/tool/tool.ToolInterface/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    tool.ToolInterface
+    
   </span>
   
 
@@ -1062,8 +2171,10 @@
       <a href="../generated/javadoc" class="md-nav__link">
         
   
+  
   <span class="md-ellipsis">
     JavaDoc
+    
   </span>
   
 
@@ -1121,10 +2232,11 @@
                 
                   
 
+
   
-    <a href="https://github.com/ivoa/DataModelTemplate/edit/master/docs/schema.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/pahjbo/ExecutionDM/edit/master/docs/schema.md" title="Edit this page" class="md-content__button md-icon" rel="edit">
       
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4v-2m10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1 2.1 2.1Z"/></svg>
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
   
   
@@ -1133,13 +2245,13 @@
 <h1 id="schema">Schema<a class="headerlink" href="#schema" title="Permanent link">&para;</a></h1>
 <p>The schema for the model instance serializations can be found below</p>
 <ul>
-<li><a download="TemplateDM-v1.vo-dml.xsd" href="../generated/schema/TemplateDM-v1.vo-dml.xsd">XML</a></li>
-<li><a download="TemplateDM-v1.vo-dml.json" href="../generated/schema/TemplateDM-v1.vo-dml.json">JSON</a></li>
-<li><a download="TemplateDM-v1.vo-dml.yaml" href="../generated/schema/TemplateDM-v1.vo-dml.yaml">OpenAPI</a></li>
-<li><a download="TemplateDM-v1.vo-dml.tap.xml" href="../generated/schema/TemplateDM-v1.vo-dml.tap.xml">TAPSchema</a></li>
+<li><a download="ExecutionDM-v1.vo-dml.xsd" href="../generated/schema/ExecutionDM-v1.vo-dml.xsd">XML</a></li>
+<li><a download="ExecutionDM-v1.vo-dml.json" href="../generated/schema/ExecutionDM-v1.vo-dml.json">JSON</a></li>
+<li><a download="ExecutionDM-v1.vo-dml.yaml" href="../generated/schema/ExecutionDM-v1.vo-dml.yaml">OpenAPI</a></li>
+<li><a download="ExecutionDM-v1.vo-dml.tap.xml" href="../generated/schema/ExecutionDM-v1.vo-dml.tap.xml">TAPSchema</a></li>
 </ul>
 <h2 id="tapschema-er-diagram">TAPSchema ER Diagram<a class="headerlink" href="#tapschema-er-diagram" title="Permanent link">&para;</a></h2>
-<p><svg xmlns="http://www.w3.org/2000/svg" contentStyleType="text/css" data-diagram-type="CLASS" preserveAspectRatio="xMaxYMax meet" style="width:134px;height:166px;background:#FFFFFF" version="1.1" viewBox="0 0 134 166" width="100%" zoomAndPan="magnify" class="uml" alt="uml diagram" title=""><defs /><g><g class="entity" data-qualified-name="Another" data-source-line="8" id="ent0002"><rect fill="#F1F1F1" height="145.7813" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="113.6641" x="7" y="7" /><ellipse cx="33.6626" cy="23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M37.772,29 L30.0533,29 L30.0533,16.6094 L37.772,16.6094 L37.772,18.7656 L32.5064,18.7656 L32.5064,21.4375 L37.272,21.4375 L37.272,23.5938 L32.5064,23.5938 L32.5064,26.8438 L37.772,26.8438 L37.772,29 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="55.7471" x="50.2543" y="27.8467">Another</text><line style="stroke:#181818;stroke-width:0.5;" x1="8" x2="119.6641" y1="39" y2="39" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="13" y="55.9951">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="76.2617" x="13" y="72.292">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="13" y="88.5889">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="8" x2="119.6641" y1="95.8906" y2="95.8906" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="13" y="112.8857">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="101.6641" x="13" y="129.1826">att : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4502" x="13" y="145.4795">&#160;</text></g></g></svg></p>
+<p><svg xmlns="http://www.w3.org/2000/svg" contentStyleType="text/css" data-diagram-type="CLASS" preserveAspectRatio="xMaxYMax meet" style="width:1876px;height:1838px;background:#FFFFFF" version="1.1" viewBox="0 0 1876 1838" width="100%" zoomAndPan="magnify" class="uml" alt="uml diagram" title=""><defs /><g><g class="cluster" data-qualified-name="execution" data-source-line="8" id="ent0003"><path d="M8.5,51.22 L79.1855,51.22 A3.75,3.75 0 0 1 81.6855,53.72 L88.6855,73.7083 L740.5,73.7083 A2.5,2.5 0 0 1 743,76.2083 L743,535.78 A2.5,2.5 0 0 1 740.5,538.28 L8.5,538.28 A2.5,2.5 0 0 1 6,535.78 L6,53.72 A2.5,2.5 0 0 1 8.5,51.22" fill="none" style="stroke:#000000;stroke-width:1.5;" /><line style="stroke:#000000;stroke-width:1.5;" x1="6" x2="88.6855" y1="73.7083" y2="73.7083" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="69.6855" x="10" y="66.7552">execution</text></g><g class="cluster" data-qualified-name="tool" data-source-line="64" id="ent0010"><path d="M1098.5,584.25 L1127.6094,584.25 A3.75,3.75 0 0 1 1130.1094,586.75 L1137.1094,606.7383 L1866.5,606.7383 A2.5,2.5 0 0 1 1869,609.2383 L1869,1828.68 A2.5,2.5 0 0 1 1866.5,1831.18 L1098.5,1831.18 A2.5,2.5 0 0 1 1096,1828.68 L1096,586.75 A2.5,2.5 0 0 1 1098.5,584.25" fill="none" style="stroke:#000000;stroke-width:1.5;" /><line style="stroke:#000000;stroke-width:1.5;" x1="1096" x2="1137.1094" y1="606.7383" y2="606.7383" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="28.1094" x="1100" y="599.7852">tool</text></g><g class="cluster" data-qualified-name="pdl" data-source-line="178" id="ent0019"><path d="M769.5,6 L793.6055,6 A3.75,3.75 0 0 1 796.1055,8.5 L803.1055,28.4883 L1069.5,28.4883 A2.5,2.5 0 0 1 1072,30.9883 L1072,903.1 A2.5,2.5 0 0 1 1069.5,905.6 L769.5,905.6 A2.5,2.5 0 0 1 767,903.1 L767,8.5 A2.5,2.5 0 0 1 769.5,6" fill="none" style="stroke:#000000;stroke-width:1.5;" /><line style="stroke:#000000;stroke-width:1.5;" x1="767" x2="803.1055" y1="28.4883" y2="28.4883" /><text fill="#000000" font-family="sans-serif" font-size="14" font-weight="bold" lengthAdjust="spacing" textLength="23.1055" x="771" y="21.5352">pdl</text></g><g class="entity" data-qualified-name="execution.PhysicalLocation" data-source-line="8" id="ent0002"><rect fill="#F1F1F1" height="130.4414" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="214.458" x="21.77" y="102.71" /><ellipse cx="36.77" cy="118.71" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M40.3843,125.21 L32.6645,125.21 L32.6645,112.8169 L40.3843,112.8169 L40.3843,114.9751 L35.1133,114.9751 L35.1133,117.648 L39.8862,117.648 L39.8862,119.8062 L35.1133,119.8062 L35.1133,123.0518 L40.3843,123.0518 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="182.458" x="50.77" y="124.001">execution.PhysicalLocation</text><line style="stroke:#181818;stroke-width:0.5;" x1="22.77" x2="235.228" y1="134.71" y2="134.71" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="27.77" y="152.2452">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="27.77" y="168.7334">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="27.77" y="185.2217">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="22.77" x2="235.228" y1="192.1748" y2="192.1748" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="27.77" y="209.71">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="27.77" y="226.1983">&#160;</text></g><g class="entity" data-qualified-name="execution.ExecutionNode" data-source-line="17" id="ent0004"><rect fill="#F1F1F1" height="163.418" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="224.8643" x="271.57" y="86.22" /><ellipse cx="295.5072" cy="102.22" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M299.1214,108.72 L291.4017,108.72 L291.4017,96.3269 L299.1214,96.3269 L299.1214,98.4851 L293.8504,98.4851 L293.8504,101.158 L298.6234,101.158 L298.6234,103.3162 L293.8504,103.3162 L293.8504,106.5618 L299.1214,106.5618 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="173.0039" x="311.4932" y="107.511">execution.ExecutionNode</text><line style="stroke:#181818;stroke-width:0.5;" x1="272.57" x2="495.4343" y1="118.22" y2="118.22" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="277.57" y="135.7552">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="277.57" y="152.2434">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="277.57" y="168.7317">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="272.57" x2="495.4343" y1="175.6848" y2="175.6848" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="277.57" y="193.22">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212.0371" x="277.57" y="209.7083">resourcesServiceUrl : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="212.8643" x="277.57" y="226.1966">executionServiceUrl : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="277.57" y="242.6848">&#160;</text></g><g class="entity" data-qualified-name="execution.DataResource" data-source-line="28" id="ent0005"><rect fill="#F1F1F1" height="130.4414" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="196.0078" x="531" y="102.71" /><ellipse cx="546" cy="118.71" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M549.6143,125.21 L541.8945,125.21 L541.8945,112.8169 L549.6143,112.8169 L549.6143,114.9751 L544.3433,114.9751 L544.3433,117.648 L549.1162,117.648 L549.1162,119.8062 L544.3433,119.8062 L544.3433,123.0518 L549.6143,123.0518 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="164.0078" x="560" y="124.001">execution.DataResource</text><line style="stroke:#181818;stroke-width:0.5;" x1="532" x2="726.0078" y1="134.71" y2="134.71" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="537" y="152.2452">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="537" y="168.7334">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="537" y="185.2217">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="532" x2="726.0078" y1="192.1748" y2="192.1748" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="537" y="209.71">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="537" y="226.1983">&#160;</text></g><g class="entity" data-qualified-name="execution.WorkLoad" data-source-line="37" id="ent0006"><rect fill="#F1F1F1" height="130.4414" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="170.1406" x="24.93" y="391.84" /><ellipse cx="39.93" cy="407.84" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M43.5443,414.34 L35.8245,414.34 L35.8245,401.9469 L43.5443,401.9469 L43.5443,404.1051 L38.2733,404.1051 L38.2733,406.778 L43.0462,406.778 L43.0462,408.9362 L38.2733,408.9362 L38.2733,412.1818 L43.5443,412.1818 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="138.1406" x="53.93" y="413.131">execution.WorkLoad</text><line style="stroke:#181818;stroke-width:0.5;" x1="25.93" x2="194.0706" y1="423.84" y2="423.84" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="30.93" y="441.3752">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="30.93" y="457.8634">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="30.93" y="474.3517">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="25.93" x2="194.0706" y1="481.3048" y2="481.3048" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="30.93" y="498.84">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="30.93" y="515.3283">&#160;</text></g><g class="entity" data-qualified-name="execution.PerformanceMetric" data-source-line="46" id="ent0007"><rect fill="#F1F1F1" height="130.4414" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="230.29" x="229.85" y="391.84" /><ellipse cx="244.85" cy="407.84" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M248.4643,414.34 L240.7445,414.34 L240.7445,401.9469 L248.4643,401.9469 L248.4643,404.1051 L243.1933,404.1051 L243.1933,406.778 L247.9662,406.778 L247.9662,408.9362 L243.1933,408.9362 L243.1933,412.1818 L248.4643,412.1818 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="198.29" x="258.85" y="413.131">execution.PerformanceMetric</text><line style="stroke:#181818;stroke-width:0.5;" x1="230.85" x2="459.14" y1="423.84" y2="423.84" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="235.85" y="441.3752">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="235.85" y="457.8634">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="235.85" y="474.3517">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="230.85" x2="459.14" y1="481.3048" y2="481.3048" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="235.85" y="498.84">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="235.85" y="515.3283">&#160;</text></g><g class="entity" data-qualified-name="execution.PerformanceProfile" data-source-line="55" id="ent0008"><rect fill="#F1F1F1" height="130.4414" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="231.3564" x="495.32" y="391.84" /><ellipse cx="510.32" cy="407.84" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M513.9343,414.34 L506.2145,414.34 L506.2145,401.9469 L513.9343,401.9469 L513.9343,404.1051 L508.6633,404.1051 L508.6633,406.778 L513.4362,406.778 L513.4362,408.9362 L508.6633,408.9362 L508.6633,412.1818 L513.9343,412.1818 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="199.3564" x="524.32" y="413.131">execution.PerformanceProfile</text><line style="stroke:#181818;stroke-width:0.5;" x1="496.32" x2="725.6764" y1="423.84" y2="423.84" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="501.32" y="441.3752">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="501.32" y="457.8634">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="501.32" y="474.3517">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="496.32" x2="725.6764" y1="481.3048" y2="481.3048" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="501.32" y="498.84">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="501.32" y="515.3283">&#160;</text></g><g class="entity" data-qualified-name="tool.Author" data-source-line="64" id="ent0009"><rect fill="#F1F1F1" height="303.3242" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="200.4941" x="1282.75" y="619.25" /><ellipse cx="1339.9907" cy="635.25" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M1343.605,641.75 L1335.8853,641.75 L1335.8853,629.3569 L1343.605,629.3569 L1343.605,631.5151 L1338.334,631.5151 L1338.334,634.188 L1343.1069,634.188 L1343.1069,636.3462 L1338.334,636.3462 L1338.334,639.5918 L1343.605,639.5918 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77.5127" x="1360.4907" y="640.541">tool.Author</text><line style="stroke:#181818;stroke-width:0.5;" x1="1283.75" x2="1482.2441" y1="651.25" y2="651.25" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1288.75" y="668.7852">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="1288.75" y="685.2734">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1288.75" y="701.7617">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1283.75" x2="1482.2441" y1="708.7148" y2="708.7148" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1288.75" y="726.25">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="157.1787" x="1288.75" y="742.7383">DISCOVERY_ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116.7305" x="1288.75" y="759.2266">name : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116.1357" x="1288.75" y="775.7148">email : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="105.6152" x="1288.75" y="792.2031">role : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123.6416" x="1288.75" y="808.6914">github : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="118.043" x="1288.75" y="825.1797">gitlab : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113.7979" x="1288.75" y="841.668">orcid : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143.9102" x="1288.75" y="858.1563">affiliation : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1288.75" y="874.6445">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1283.75" x2="1482.2441" y1="881.5977" y2="881.5977" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="188.4941" x="1288.75" y="899.1328">DISCOVERY_ID : BIGINT&#171;FK&#187;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1288.75" y="915.6211">&#160;</text></g><g class="entity" data-qualified-name="tool.OCIRegistry" data-source-line="84" id="ent0011"><rect fill="#F1F1F1" height="163.418" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="142.3525" x="1119.82" y="1651.76" /><ellipse cx="1134.82" cy="1667.76" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M1138.4343,1674.26 L1130.7145,1674.26 L1130.7145,1661.8669 L1138.4343,1661.8669 L1138.4343,1664.0251 L1133.1633,1664.0251 L1133.1633,1666.698 L1137.9362,1666.698 L1137.9362,1668.8562 L1133.1633,1668.8562 L1133.1633,1672.1018 L1138.4343,1672.1018 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110.3525" x="1148.82" y="1673.051">tool.OCIRegistry</text><line style="stroke:#181818;stroke-width:0.5;" x1="1120.82" x2="1261.1725" y1="1683.76" y2="1683.76" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1125.82" y="1701.2952">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="1125.82" y="1717.7834">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1125.82" y="1734.2717">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1120.82" x2="1261.1725" y1="1741.2248" y2="1741.2248" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1125.82" y="1758.76">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109.1016" x="1125.82" y="1775.2483">host : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="127.0459" x="1125.82" y="1791.7366">project : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1125.82" y="1808.2248">&#160;</text></g><g class="entity" data-qualified-name="tool.Discovery" data-source-line="95" id="ent0012"><rect fill="#F1F1F1" height="361.2773" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="193.8086" x="1305.1" y="982.58" /><ellipse cx="1349.5336" cy="998.58" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M1353.1479,1005.08 L1345.4281,1005.08 L1345.4281,992.6869 L1353.1479,992.6869 L1353.1479,994.8451 L1347.8769,994.8451 L1347.8769,997.518 L1352.6498,997.518 L1352.6498,999.6762 L1347.8769,999.6762 L1347.8769,1002.9218 L1353.1479,1002.9218 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="96.4414" x="1370.0336" y="1003.871">tool.Discovery</text><line style="stroke:#181818;stroke-width:0.5;" x1="1306.1" x2="1497.9086" y1="1014.58" y2="1014.58" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1311.1" y="1032.1152">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="1311.1" y="1048.6034">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1311.1" y="1065.0917">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1306.1" x2="1497.9086" y1="1072.0448" y2="1072.0448" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1311.1" y="1089.58">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="150.8008" x="1311.1" y="1106.0683">imageTitle : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155.5176" x="1311.1" y="1122.5566">description : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="124.5645" x="1311.1" y="1139.0448">source : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="97.9043" x="1311.1" y="1155.5331">url : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="181.8086" x="1311.1" y="1172.0214">documentation : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="128.6865" x="1311.1" y="1188.5097">version : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="132.7334" x="1311.1" y="1204.998">revision : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141.9482" x="1311.1" y="1221.4863">created : TIMESTAMP</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="133.2666" x="1311.1" y="1237.9745">licenses : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="143.8008" x="1311.1" y="1254.4628">keywords : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="130.3887" x="1311.1" y="1270.9511">domain : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="109.1699" x="1311.1" y="1287.4394">kind : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="113.0596" x="1311.1" y="1303.9277">tools : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146.3643" x="1311.1" y="1320.4159">deprecated : INTEGER</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1311.1" y="1336.9042">&#160;</text></g><g class="entity" data-qualified-name="tool.EnvVar" data-source-line="118" id="ent0013"><rect fill="#F1F1F1" height="220.8828" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="135.6143" x="1112.19" y="660.47" /><ellipse cx="1139.1449" cy="676.47" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M1142.7591,682.97 L1135.0394,682.97 L1135.0394,670.5769 L1142.7591,670.5769 L1142.7591,672.7351 L1137.4881,672.7351 L1137.4881,675.408 L1142.2611,675.408 L1142.2611,677.5662 L1137.4881,677.5662 L1137.4881,680.8118 L1142.7591,680.8118 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="77.0479" x="1155.8015" y="681.761">tool.EnvVar</text><line style="stroke:#181818;stroke-width:0.5;" x1="1113.19" x2="1246.8043" y1="692.47" y2="692.47" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1118.19" y="710.0052">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="1118.19" y="726.4934">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1118.19" y="742.9817">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1113.19" x2="1246.8043" y1="749.9348" y2="749.9348" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1118.19" y="767.47">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.2988" x="1118.19" y="783.9583">id : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116.7305" x="1118.19" y="800.4466">name : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="114.9531" x="1118.19" y="816.9348">value : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1118.19" y="833.4231">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1113.19" x2="1246.8043" y1="840.3763" y2="840.3763" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123.6143" x="1118.19" y="857.9114">id : VARCHAR&#171;FK&#187;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1118.19" y="874.3997">&#160;</text></g><g class="entity" data-qualified-name="tool.ToolImage" data-source-line="133" id="ent0014"><rect fill="#F1F1F1" height="187.9063" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="153.7568" x="1114.12" y="1403.86" /><ellipse cx="1137.8418" cy="1419.86" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M1141.4561,1426.36 L1133.7364,1426.36 L1133.7364,1413.9669 L1141.4561,1413.9669 L1141.4561,1416.1251 L1136.1851,1416.1251 L1136.1851,1418.798 L1140.958,1418.798 L1140.958,1420.9562 L1136.1851,1420.9562 L1136.1851,1424.2018 L1141.4561,1424.2018 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="102.375" x="1153.78" y="1425.151">tool.ToolImage</text><line style="stroke:#181818;stroke-width:0.5;" x1="1115.12" x2="1266.8768" y1="1435.86" y2="1435.86" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1120.12" y="1453.3952">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="1120.12" y="1469.8834">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1120.12" y="1486.3717">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1115.12" x2="1266.8768" y1="1493.3248" y2="1493.3248" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1120.12" y="1510.86">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="110.4414" x="1120.12" y="1527.3483">registry : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1120.12" y="1543.8366">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1115.12" x2="1266.8768" y1="1550.7897" y2="1550.7897" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="141.7568" x="1120.12" y="1568.3248">registry : BIGINT&#171;FK&#187;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1120.12" y="1584.8131">&#160;</text></g><g class="entity" data-qualified-name="tool.BuildProcess" data-source-line="146" id="ent0015"><rect fill="#F1F1F1" height="130.4414" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="147.8691" x="1518.07" y="705.7" /><ellipse cx="1533.07" cy="721.7" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M1536.6843,728.2 L1528.9645,728.2 L1528.9645,715.8069 L1536.6843,715.8069 L1536.6843,717.9651 L1531.4133,717.9651 L1531.4133,720.638 L1536.1862,720.638 L1536.1862,722.7962 L1531.4133,722.7962 L1531.4133,726.0418 L1536.6843,726.0418 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115.8691" x="1547.07" y="726.991">tool.BuildProcess</text><line style="stroke:#181818;stroke-width:0.5;" x1="1519.07" x2="1664.9391" y1="737.7" y2="737.7" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1524.07" y="755.2352">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="1524.07" y="771.7234">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1524.07" y="788.2117">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1519.07" x2="1664.9391" y1="795.1648" y2="795.1648" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1524.07" y="812.7">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1524.07" y="829.1883">&#160;</text></g><g class="entity" data-qualified-name="tool.ToolInterface" data-source-line="155" id="ent0016"><rect fill="#F1F1F1" height="130.4414" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="152.3467" x="1700.83" y="705.7" /><ellipse cx="1715.83" cy="721.7" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M1719.4443,728.2 L1711.7245,728.2 L1711.7245,715.8069 L1719.4443,715.8069 L1719.4443,717.9651 L1714.1733,717.9651 L1714.1733,720.638 L1718.9462,720.638 L1718.9462,722.7962 L1714.1733,722.7962 L1714.1733,726.0418 L1719.4443,726.0418 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="120.3467" x="1729.83" y="726.991">tool.ToolInterface</text><line style="stroke:#181818;stroke-width:0.5;" x1="1701.83" x2="1852.1767" y1="737.7" y2="737.7" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1706.83" y="755.2352">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="1706.83" y="771.7234">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1706.83" y="788.2117">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1701.83" x2="1852.1767" y1="795.1648" y2="795.1648" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1706.83" y="812.7">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1706.83" y="829.1883">&#160;</text></g><g class="entity" data-qualified-name="tool.Tool" data-source-line="164" id="ent0017"><rect fill="#F1F1F1" height="204.3945" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="158.583" x="1111.71" y="1061.02" /><ellipse cx="1156.2461" cy="1077.02" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M1159.8604,1083.52 L1152.1407,1083.52 L1152.1407,1071.1269 L1159.8604,1071.1269 L1159.8604,1073.2851 L1154.5894,1073.2851 L1154.5894,1075.958 L1159.3623,1075.958 L1159.3623,1078.1162 L1154.5894,1078.1162 L1154.5894,1081.3618 L1159.8604,1081.3618 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="61.0107" x="1176.7461" y="1082.311">tool.Tool</text><line style="stroke:#181818;stroke-width:0.5;" x1="1112.71" x2="1269.293" y1="1093.02" y2="1093.02" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1117.71" y="1110.5552">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.2988" x="1117.71" y="1127.0434">id : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1117.71" y="1143.5317">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1112.71" x2="1269.293" y1="1150.4848" y2="1150.4848" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1117.71" y="1168.02">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="100.0986" x="1117.71" y="1184.5083">image : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="146.583" x="1117.71" y="1200.9966">command : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1117.71" y="1217.4848">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="1112.71" x2="1269.293" y1="1224.438" y2="1224.438" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="131.4141" x="1117.71" y="1241.9731">image : BIGINT&#171;FK&#187;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="1117.71" y="1258.4614">&#160;</text></g><g class="entity" data-qualified-name="pdl.ParameterOrGroup" data-source-line="178" id="ent0018"><rect fill="#F1F1F1" height="237.3711" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="185.2139" x="857.39" y="652.23" /><ellipse cx="872.39" cy="668.23" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M876.0043,674.73 L868.2845,674.73 L868.2845,662.3369 L876.0043,662.3369 L876.0043,664.4951 L870.7333,664.4951 L870.7333,667.168 L875.5062,667.168 L875.5062,669.3262 L870.7333,669.3262 L870.7333,672.5718 L876.0043,672.5718 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="153.2139" x="886.39" y="673.521">pdl.ParameterOrGroup</text><line style="stroke:#181818;stroke-width:0.5;" x1="858.39" x2="1041.6039" y1="684.23" y2="684.23" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="863.39" y="701.7652">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="863.39" y="718.2534">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="863.39" y="734.7417">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="858.39" x2="1041.6039" y1="741.6948" y2="741.6948" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="863.39" y="759.23">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.2988" x="863.39" y="775.7183">id : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="92.2988" x="863.39" y="792.2066">id : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="116.7305" x="863.39" y="808.6948">name : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="863.39" y="825.1831">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="858.39" x2="1041.6039" y1="832.1363" y2="832.1363" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123.6143" x="863.39" y="849.6714">id : VARCHAR&#171;FK&#187;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="123.6143" x="863.39" y="866.1597">id : VARCHAR&#171;FK&#187;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="863.39" y="882.648">&#160;</text></g><g class="entity" data-qualified-name="pdl.ParameterDefinition" data-source-line="194" id="ent0020"><rect fill="#F1F1F1" height="253.8594" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="251.6885" x="793.16" y="41" /><ellipse cx="834.3668" cy="57" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M837.981,63.5 L830.2613,63.5 L830.2613,51.1069 L837.981,51.1069 L837.981,53.2651 L832.71,53.2651 L832.71,55.938 L837.483,55.938 L837.483,58.0962 L832.71,58.0962 L832.71,61.3418 L837.981,61.3418 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="161.4512" x="854.1905" y="62.291">pdl.ParameterDefinition</text><line style="stroke:#181818;stroke-width:0.5;" x1="794.16" x2="1043.8485" y1="73" y2="73" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="799.16" y="90.5352">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="799.16" y="107.0234">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="799.16" y="123.5117">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="794.16" x2="1043.8485" y1="130.4648" y2="130.4648" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="799.16" y="148">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="208.373" x="799.16" y="164.4883">PARAMETERGROUP_ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="155.5176" x="799.16" y="180.9766">description : VARCHAR</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="115.7393" x="799.16" y="197.4648">kind : UNKNOWN</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="154.0273" x="799.16" y="213.9531">semantics : UNKNOWN</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="799.16" y="230.4414">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="794.16" x2="1043.8485" y1="237.3945" y2="237.3945" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="239.6885" x="799.16" y="254.9297">PARAMETERGROUP_ID : BIGINT&#171;FK&#187;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104.5557" x="799.16" y="271.418">ID : BIGINT&#171;FK&#187;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="799.16" y="287.9063">&#160;</text></g><g class="entity" data-qualified-name="pdl.ParameterGroup" data-source-line="211" id="ent0021"><rect fill="#F1F1F1" height="204.3945" rx="2.5" ry="2.5" style="stroke:#181818;stroke-width:0.5;" width="235.7334" x="820.13" y="354.86" /><ellipse cx="865.442" cy="370.86" fill="#ADD1B2" rx="11" ry="11" style="stroke:#181818;stroke-width:1;" /><path d="M869.0563,377.36 L861.3365,377.36 L861.3365,364.9669 L869.0563,364.9669 L869.0563,367.1251 L863.7853,367.1251 L863.7853,369.798 L868.5582,369.798 L868.5582,371.9562 L863.7853,371.9562 L863.7853,375.2018 L869.0563,375.2018 Z " fill="#000000" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="136.6094" x="885.942" y="376.151">pdl.ParameterGroup</text><line style="stroke:#181818;stroke-width:0.5;" x1="821.13" x2="1054.8634" y1="386.86" y2="386.86" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="826.13" y="404.3952">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="73.2402" x="826.13" y="420.8834">ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="826.13" y="437.3717">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="821.13" x2="1054.8634" y1="444.3248" y2="444.3248" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="826.13" y="461.86">&#160;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="192.418" x="826.13" y="478.3483">TOOLINTERFACE_ID : BIGINT</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="826.13" y="494.8366">&#160;</text><line style="stroke:#181818;stroke-width:1;" x1="821.13" x2="1054.8634" y1="501.7897" y2="501.7897" /><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="223.7334" x="826.13" y="519.3248">TOOLINTERFACE_ID : BIGINT&#171;FK&#187;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="104.5557" x="826.13" y="535.8131">ID : BIGINT&#171;FK&#187;</text><text fill="#000000" font-family="sans-serif" font-size="14" lengthAdjust="spacing" textLength="4.4297" x="826.13" y="552.3014">&#160;</text></g><g class="link" data-entity-1="ent0009" data-entity-2="ent0012" data-link-type="crowfoot" data-source-line="226" id="lnk22"><path codeLine="226" d="M1394.17,940.87 C1394.17,960.37 1394.17,954.49 1394.17,974.4" fill="none" id="Author-Discovery" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1394.17" x2="1388.17" y1="930.87" y2="922.87" /><line style="stroke:#181818;stroke-width:1;" x1="1394.17" x2="1400.17" y1="930.87" y2="922.87" /><line style="stroke:#181818;stroke-width:1;" x1="1394.17" x2="1394.17" y1="930.87" y2="922.87" /><ellipse cx="1394.17" cy="936.87" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1398.17" x2="1390.17" y1="978.4" y2="978.4" /><line style="stroke:#181818;stroke-width:1;" x1="1398.17" x2="1390.17" y1="975.4" y2="975.4" /><line style="stroke:#181818;stroke-width:1;" x1="1394.17" x2="1394.17" y1="974.4" y2="982.4" /></g><g class="link" data-entity-1="ent0013" data-entity-2="ent0017" data-link-type="crowfoot" data-source-line="227" id="lnk23"><path codeLine="227" d="M1213.9,899.76 C1213.9,955.95 1213.9,997.74 1213.9,1052.71" fill="none" id="EnvVar-Tool" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1213.9" x2="1207.9" y1="889.76" y2="881.76" /><line style="stroke:#181818;stroke-width:1;" x1="1213.9" x2="1219.9" y1="889.76" y2="881.76" /><line style="stroke:#181818;stroke-width:1;" x1="1213.9" x2="1213.9" y1="889.76" y2="881.76" /><ellipse cx="1213.9" cy="895.76" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1217.9" x2="1209.9" y1="1056.71" y2="1056.71" /><line style="stroke:#181818;stroke-width:1;" x1="1217.9" x2="1209.9" y1="1053.71" y2="1053.71" /><line style="stroke:#181818;stroke-width:1;" x1="1213.9" x2="1213.9" y1="1052.71" y2="1060.71" /></g><g class="link" data-entity-1="ent0014" data-entity-2="ent0011" data-link-type="crowfoot" data-source-line="228" id="lnk24"><path codeLine="228" d="M1191,1609.96 C1191,1629.71 1191,1624.38 1191,1643.63" fill="none" id="ToolImage-OCIRegistry" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1191" x2="1185" y1="1599.96" y2="1591.96" /><line style="stroke:#181818;stroke-width:1;" x1="1191" x2="1197" y1="1599.96" y2="1591.96" /><line style="stroke:#181818;stroke-width:1;" x1="1191" x2="1191" y1="1599.96" y2="1591.96" /><ellipse cx="1191" cy="1605.96" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1195" x2="1187" y1="1647.63" y2="1647.63" /><line style="stroke:#181818;stroke-width:1;" x1="1195" x2="1187" y1="1644.63" y2="1644.63" /><line style="stroke:#181818;stroke-width:1;" x1="1191" x2="1191" y1="1643.63" y2="1651.63" /></g><g class="link" data-entity-1="ent0017" data-entity-2="ent0014" data-link-type="crowfoot" data-source-line="229" id="lnk25"><path codeLine="229" d="M1191,1283.88 C1191,1327.77 1191,1352.68 1191,1395.6" fill="none" id="Tool-ToolImage" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1191" x2="1185" y1="1273.88" y2="1265.88" /><line style="stroke:#181818;stroke-width:1;" x1="1191" x2="1197" y1="1273.88" y2="1265.88" /><line style="stroke:#181818;stroke-width:1;" x1="1191" x2="1191" y1="1273.88" y2="1265.88" /><ellipse cx="1191" cy="1279.88" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1195" x2="1187" y1="1399.6" y2="1399.6" /><line style="stroke:#181818;stroke-width:1;" x1="1195" x2="1187" y1="1396.6" y2="1396.6" /><line style="stroke:#181818;stroke-width:1;" x1="1191" x2="1191" y1="1395.6" y2="1403.6" /></g><g class="link" data-entity-1="ent0018" data-entity-2="ent0017" data-link-type="crowfoot" data-source-line="230" id="lnk26"><path codeLine="230" d="M1060.89,884.18 C1124.72,884.18 1180,884.18 1180,884.18 C1180,884.18 1180,973.26 1180,1052.9" fill="none" id="ParameterOrGroup-Tool" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1050.89" x2="1042.89" y1="884.18" y2="890.18" /><line style="stroke:#181818;stroke-width:1;" x1="1050.89" x2="1042.89" y1="884.18" y2="878.18" /><line style="stroke:#181818;stroke-width:1;" x1="1050.89" x2="1042.89" y1="884.18" y2="884.18" /><ellipse cx="1056.89" cy="884.18" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1184" x2="1176" y1="1056.9" y2="1056.9" /><line style="stroke:#181818;stroke-width:1;" x1="1184" x2="1176" y1="1053.9" y2="1053.9" /><line style="stroke:#181818;stroke-width:1;" x1="1180" x2="1180" y1="1052.9" y2="1060.9" /></g><g class="link" data-entity-1="ent0018" data-entity-2="ent0017" data-link-type="crowfoot" data-source-line="231" id="lnk27"><path codeLine="231" d="M1060.88,887.18 C1111.56,887.18 1146.1,887.18 1146.1,887.18 C1146.1,887.18 1146.1,974.27 1146.1,1052.82" fill="none" id="ParameterOrGroup-Tool-1" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1050.88" x2="1042.88" y1="887.18" y2="893.18" /><line style="stroke:#181818;stroke-width:1;" x1="1050.88" x2="1042.88" y1="887.18" y2="881.18" /><line style="stroke:#181818;stroke-width:1;" x1="1050.88" x2="1042.88" y1="887.18" y2="887.18" /><ellipse cx="1056.88" cy="887.18" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1150.1" x2="1142.1" y1="1056.82" y2="1056.82" /><line style="stroke:#181818;stroke-width:1;" x1="1150.1" x2="1142.1" y1="1053.82" y2="1053.82" /><line style="stroke:#181818;stroke-width:1;" x1="1146.1" x2="1146.1" y1="1052.82" y2="1060.82" /></g><g class="link" data-entity-1="ent0020" data-entity-2="ent0021" data-link-type="crowfoot" data-source-line="232" id="lnk28"><path codeLine="232" d="M932.49,313.17 C932.49,333.01 932.49,327.3 932.49,346.51" fill="none" id="ParameterDefinition-ParameterGroup" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="932.49" x2="926.49" y1="303.17" y2="295.17" /><line style="stroke:#181818;stroke-width:1;" x1="932.49" x2="938.49" y1="303.17" y2="295.17" /><line style="stroke:#181818;stroke-width:1;" x1="932.49" x2="932.49" y1="303.17" y2="295.17" /><ellipse cx="932.49" cy="309.17" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="936.49" x2="928.49" y1="350.51" y2="350.51" /><line style="stroke:#181818;stroke-width:1;" x1="936.49" x2="928.49" y1="347.51" y2="347.51" /><line style="stroke:#181818;stroke-width:1;" x1="932.49" x2="932.49" y1="346.51" y2="354.51" /></g><g class="link" data-entity-1="ent0020" data-entity-2="ent0018" data-link-type="crowfoot" data-source-line="233" id="lnk29"><path codeLine="233" d="M806.64,313.13 C806.64,490.11 806.64,771.18 806.64,771.18 C806.64,771.18 821.63,771.18 849.19,771.18" fill="none" id="ParameterDefinition-ParameterOrGroup" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="806.64" x2="800.64" y1="303.13" y2="295.13" /><line style="stroke:#181818;stroke-width:1;" x1="806.64" x2="812.64" y1="303.13" y2="295.13" /><line style="stroke:#181818;stroke-width:1;" x1="806.64" x2="806.64" y1="303.13" y2="295.13" /><ellipse cx="806.64" cy="309.13" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="853.19" x2="853.19" y1="767.18" y2="775.18" /><line style="stroke:#181818;stroke-width:1;" x1="850.19" x2="850.19" y1="767.18" y2="775.18" /><line style="stroke:#181818;stroke-width:1;" x1="849.19" x2="857.19" y1="771.18" y2="771.18" /></g><g class="link" data-entity-1="ent0021" data-entity-2="ent0016" data-link-type="crowfoot" data-source-line="234" id="lnk30"><path codeLine="234" d="M1073.99,457.18 C1305.07,457.18 1777,457.18 1777,457.18 C1777,457.18 1777,605.58 1777,697.53" fill="none" id="ParameterGroup-ToolInterface" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1063.99" x2="1055.99" y1="457.18" y2="463.18" /><line style="stroke:#181818;stroke-width:1;" x1="1063.99" x2="1055.99" y1="457.18" y2="451.18" /><line style="stroke:#181818;stroke-width:1;" x1="1063.99" x2="1055.99" y1="457.18" y2="457.18" /><ellipse cx="1069.99" cy="457.18" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="1781" x2="1773" y1="701.53" y2="701.53" /><line style="stroke:#181818;stroke-width:1;" x1="1781" x2="1773" y1="698.53" y2="698.53" /><line style="stroke:#181818;stroke-width:1;" x1="1777" x2="1777" y1="697.53" y2="705.53" /></g><g class="link" data-entity-1="ent0021" data-entity-2="ent0018" data-link-type="crowfoot" data-source-line="235" id="lnk31"><path codeLine="235" d="M950,577.39 C950,606.91 950,613.37 950,643.81" fill="none" id="ParameterGroup-ParameterOrGroup" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="950" x2="944" y1="567.39" y2="559.39" /><line style="stroke:#181818;stroke-width:1;" x1="950" x2="956" y1="567.39" y2="559.39" /><line style="stroke:#181818;stroke-width:1;" x1="950" x2="950" y1="567.39" y2="559.39" /><ellipse cx="950" cy="573.39" fill="none" rx="4" ry="4" style="stroke:#181818;stroke-width:1;" /><line style="stroke:#181818;stroke-width:1;" x1="954" x2="946" y1="647.81" y2="647.81" /><line style="stroke:#181818;stroke-width:1;" x1="954" x2="946" y1="644.81" y2="644.81" /><line style="stroke:#181818;stroke-width:1;" x1="950" x2="950" y1="643.81" y2="651.81" /></g></g></svg></p>
 
 
 
@@ -1186,10 +2298,12 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "content.action.edit", "content.tooltips"], "search": "../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "content.action.edit", "content.tooltips"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.081f42fc.min.js"></script>
+      <script src="../assets/javascripts/bundle.92b07e13.min.js"></script>
       
     
   </body>

@@ -1,0 +1,67 @@
+components:
+  schemas:
+    BaseParameterType:
+      type: "object"
+      description: ""
+      properties: {}
+      required: []
+      additionalProperties: false
+    ParameterSemantics:
+      type: "object"
+      description: ""
+      properties: {}
+      required: []
+      additionalProperties: false
+    ParameterOrGroup:
+      type: "object"
+      description: ""
+      discriminator:
+        propertyName: "@type"
+        mapping:
+          pdl:ParameterDefinition: "#/components/schemas/ParameterDefinition"
+          pdl:ParameterGroup: "#/components/schemas/ParameterGroup"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        name:
+          type: "string"
+          description: "the name of the parameter"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "@type"
+      - "name"
+    ParameterDefinition:
+      allOf:
+      - $ref: "#/components/schemas/ParameterOrGroup"
+      - type: "object"
+        description: "the definition of a parameter"
+        properties:
+          description:
+            type: "string"
+            description: "Parameter description"
+          kind:
+            $ref: "#/components/schemas/BaseParameterType"
+            description: "the type of the parameter"
+          semantics:
+            $ref: "#/components/schemas/ParameterSemantics"
+            description: ""
+        required:
+        - "kind"
+        - "semantics"
+      unevaluatedProperties: false
+    ParameterGroup:
+      allOf:
+      - $ref: "#/components/schemas/ParameterOrGroup"
+      - type: "object"
+        description: "a group of parameter Definitions"
+        properties:
+          params:
+            type: "array"
+            items:
+              $ref: "#/components/schemas/ParameterDefinition"
+        required:
+        - "params"
+      unevaluatedProperties: false

@@ -1,7 +1,34 @@
-- mymodel model:
-  - Overview: "generated/TemplateDM-v1.vo-dml.md"
+- tool model:
+  - Overview: "generated/ToolDM-v1.vo-dml.md"
   - ObjectTypes:
-    - Another: "generated/mymodel/Another.md"
+    - tool.Author: "generated/tool/tool.Author.md"
+    - tool.BuildProcess: "generated/tool/tool.BuildProcess.md"
+    - tool.Discovery: "generated/tool/tool.Discovery.md"
+    - tool.EnvVar: "generated/tool/tool.EnvVar.md"
+    - tool.OCIRegistry: "generated/tool/tool.OCIRegistry.md"
+    - tool.Tool: "generated/tool/tool.Tool.md"
+    - tool.ToolImage: "generated/tool/tool.ToolImage.md"
+    - tool.ToolInterface: "generated/tool/tool.ToolInterface.md"
+- pdl model:
+  - Overview: "generated/ParameterDM-v1.vo-dml.md"
+  - ObjectTypes:
+    - ParameterDefinition: "generated/pdl/ParameterDefinition.md"
+    - ParameterGroup: "generated/pdl/ParameterGroup.md"
+    - ParameterOrGroup: "generated/pdl/ParameterOrGroup.md"
+  - DataTypes:
+    - BaseParameterType: "generated/pdl/BaseParameterType.md"
+    - ParameterSemantics: "generated/pdl/ParameterSemantics.md"
+- execution model:
+  - Overview: "generated/ExecutionDM-v1.vo-dml.md"
+  - ObjectTypes:
+    - DataResource: "generated/execution/DataResource.md"
+    - ExecutionNode: "generated/execution/ExecutionNode.md"
+    - PerformanceMetric: "generated/execution/PerformanceMetric.md"
+    - PerformanceProfile: "generated/execution/PerformanceProfile.md"
+    - PhysicalLocation: "generated/execution/PhysicalLocation.md"
+    - WorkLoad: "generated/execution/WorkLoad.md"
+  - Enumerations:
+    - job.ExecutionPhase: "generated/execution/job.ExecutionPhase.md"
 - Imported Models:
   - ivoa model:
     - Overview: "generated/IVOA-v1.0.vo-dml.md"

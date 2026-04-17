@@ -1,0 +1,186 @@
+{
+  "$schema" : "https://json-schema.org/draft/2020-12/schema",
+  "$id" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json",
+  "title" : "",
+  "description" : "A Data Model for describing the execution of a job on a computational resource",
+  "type" : "object",
+  "properties" : {
+    "ExecutionModel" : {
+      "type" : "object",
+      "properties" : {
+        "refs" : {
+          "type" : "object",
+          "properties" : {
+            "$comment" : "placeholder to make commas easier!",
+            "tool:tool.OCIRegistry" : {
+              "type" : "array",
+              "items" : {
+                "oneOf" : [ {
+                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.OCIRegistry"
+                }, {
+                  "type" : "number"
+                } ]
+              }
+            },
+            "tool:tool.ToolImage" : {
+              "type" : "array",
+              "items" : {
+                "oneOf" : [ {
+                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.ToolImage"
+                }, {
+                  "type" : "number"
+                } ]
+              }
+            }
+          },
+          "additionalProperties" : false
+        },
+        "content" : {
+          "type" : "array",
+          "items" : {
+            "anyOf" : [ {
+              "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/ExecutionNode"
+            }, {
+              "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/DataResource"
+            }, {
+              "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/WorkLoad"
+            }, {
+              "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PerformanceMetric"
+            }, {
+              "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PerformanceProfile"
+            }, {
+              "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.ToolInterface"
+            }, {
+              "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.Tool"
+            } ]
+          },
+          "additionalProperties" : false
+        }
+      },
+      "additionalProperties" : false
+    }
+  },
+  "$defs" : {
+    "$comment" : "placeholder to make commas easier!",
+    "PhysicalLocation" : {
+      "type" : "object",
+      "description" : "The physical location of a resource",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ ],
+      "additionalProperties" : false
+    },
+    "ExecutionNode" : {
+      "type" : "object",
+      "description" : "A Node where tool execution can take place",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "resourcesServiceUrl" : {
+          "type" : "string",
+          "format" : "uri",
+          "description" : "the"
+        },
+        "executionServiceUrl" : {
+          "type" : "string",
+          "format" : "uri",
+          "description" : ""
+        },
+        "location" : {
+          "type" : "object",
+          "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PhysicalLocation"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ "resourcesServiceUrl", "executionServiceUrl", "location" ],
+      "additionalProperties" : false
+    },
+    "DataResource" : {
+      "type" : "object",
+      "description" : "A data resource that can be used as input or output for a job",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ ],
+      "additionalProperties" : false
+    },
+    "WorkLoad" : {
+      "type" : "object",
+      "description" : "the execution workload",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ ],
+      "additionalProperties" : false
+    },
+    "PerformanceMetric" : {
+      "type" : "object",
+      "description" : "A performance metric for a job execution",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ ],
+      "additionalProperties" : false
+    },
+    "PerformanceProfile" : {
+      "type" : "object",
+      "description" : "A performance profile for Tool execution",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ ],
+      "additionalProperties" : false
+    },
+    "job.ExecutionPhase" : {
+      "description" : "Enumeration of possible phases of job execution",
+      "enum" : [ "PENDING", "QUEUED", "PREPARING", "EXECUTING", "FINALIZING", "COMPLETED", "ERROR", "UNKNOWN", "HELD", "SUSPENDED", "ABORTED", "ARCHIVED" ]
+    }
+  }
+}

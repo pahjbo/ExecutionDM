@@ -1,1 +1,3 @@
-https://ivoa.net/dm/TemplateDM-v1.vo-dml.json TemplateDM-v1.vo-dml.json
+https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json ExecutionDM-v1.vo-dml.json
+https://ivoa.net/dm/ToolDM-v1.vo-dml.json ToolDM-v1.vo-dml.json
+https://ivoa.net/dm/ParameterDM-v1.vo-dml.json ParameterDM-v1.vo-dml.json

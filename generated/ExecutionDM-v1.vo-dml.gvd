@@ -1,0 +1,70 @@
+
+digraph GVmap {  
+	label = "\n\nexecution data model"
+	rankdir=TB
+	
+	node [ 
+	  shape=tab
+	  style=filled
+	]
+	subgraph cluster_packages {
+	  label="Model"
+	  rankdir=TB
+      style=filled
+      fillcolor="/set312/1"
+	  
+    "job" [
+
+    URL="../execution/job"
+    label = "job"
+    fillcolor="/set312/2"
+    ] ;
+    
+	}
+	
+	node [
+	shape=record
+	fontsize=8
+	style=filled] 
+    "execution:PhysicalLocation" [
+    URL="../execution/PhysicalLocation"
+    label = "{PhysicalLocation}"
+    fillcolor="/set312/1"
+    ] ;
+  "execution:ExecutionNode" [
+    URL="../execution/ExecutionNode"
+    label = "{ExecutionNode|+resourcesServiceUrl : ivoa:anyURI\l+executionServiceUrl : ivoa:anyURI\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "execution:DataResource" [
+    URL="../execution/DataResource"
+    label = "{DataResource}"
+    fillcolor="/set312/1"
+    ] ;
+  "execution:WorkLoad" [
+    URL="../execution/WorkLoad"
+    label = "{WorkLoad}"
+    fillcolor="/set312/1"
+    ] ;
+  "execution:PerformanceMetric" [
+    URL="../execution/PerformanceMetric"
+    label = "{PerformanceMetric}"
+    fillcolor="/set312/1"
+    ] ;
+  "execution:PerformanceProfile" [
+    URL="../execution/PerformanceProfile"
+    label = "{PerformanceProfile}"
+    fillcolor="/set312/1"
+    ] ;
+  "execution:job.ExecutionPhase" [
+    URL="../execution/job.ExecutionPhase"
+    label = "{&lt;&lt;enumeration&gt;&gt;\njob/ExecutionPhase|+PENDING\l+QUEUED\l+PREPARING\l+EXECUTING\l+FINALIZING\l+COMPLETED\l+ERROR\l+UNKNOWN\l+HELD\l+SUSPENDED\l+ABORTED\l+ARCHIVED\l}"
+    fillcolor="/set312/2"
+    ] ;
+  
+ 
+    edge [color="blue", arrowhead="open", arrowtail="diamond",dir="both",fontsize="10"]
+    "execution:ExecutionNode" -> "execution:PhysicalLocation" [headlabel="1",label="location",labelfontsize=10] ;
+    
+}
+  

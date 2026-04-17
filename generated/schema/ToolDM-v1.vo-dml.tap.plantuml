@@ -1,0 +1,188 @@
+
+
+@startuml
+
+' hide the spot
+' hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+        
+entity "tool.Author" as tool.Author {
+
+    ID : BIGINT
+
+---
+
+    DISCOVERY_ID : BIGINT
+name : VARCHAR
+email : VARCHAR
+role : VARCHAR
+github : VARCHAR
+gitlab : VARCHAR
+orcid : VARCHAR
+affiliation : VARCHAR
+
+---
+      DISCOVERY_ID : BIGINT<<FK>>
+
+}
+
+entity "tool.OCIRegistry" as tool.OCIRegistry {
+
+    ID : BIGINT
+
+---
+
+    host : VARCHAR
+project : VARCHAR
+
+}
+
+entity "tool.Discovery" as tool.Discovery {
+
+    ID : BIGINT
+
+---
+
+    imageTitle : VARCHAR
+description : VARCHAR
+source : VARCHAR
+url : VARCHAR
+documentation : VARCHAR
+version : VARCHAR
+revision : VARCHAR
+created : TIMESTAMP
+licenses : VARCHAR
+keywords : VARCHAR
+domain : VARCHAR
+kind : VARCHAR
+tools : VARCHAR
+deprecated : INTEGER
+
+}
+
+entity "tool.EnvVar" as tool.EnvVar {
+
+    ID : BIGINT
+
+---
+
+    id : VARCHAR
+name : VARCHAR
+value : VARCHAR
+
+---
+      id : VARCHAR<<FK>>
+
+}
+
+entity "tool.ToolImage" as tool.ToolImage {
+
+    ID : BIGINT
+
+---
+
+    registry : BIGINT
+
+---
+      registry : BIGINT<<FK>>
+
+}
+
+entity "tool.BuildProcess" as tool.BuildProcess {
+
+    ID : BIGINT
+
+---
+
+    
+}
+
+entity "tool.ToolInterface" as tool.ToolInterface {
+
+    ID : BIGINT
+
+---
+
+    
+}
+
+entity "tool.Tool" as tool.Tool {
+
+    id : VARCHAR
+
+---
+
+    image : BIGINT
+command : VARCHAR
+
+---
+      image : BIGINT<<FK>>
+
+}
+
+entity "pdl.ParameterOrGroup" as pdl.ParameterOrGroup {
+
+    ID : BIGINT
+
+---
+
+    id : VARCHAR
+id : VARCHAR
+name : VARCHAR
+
+---
+      id : VARCHAR<<FK>>
+id : VARCHAR<<FK>>
+
+}
+
+entity "pdl.ParameterDefinition" as pdl.ParameterDefinition {
+
+    ID : BIGINT
+
+---
+
+    PARAMETERGROUP_ID : BIGINT
+description : VARCHAR
+kind : UNKNOWN
+semantics : UNKNOWN
+
+---
+      PARAMETERGROUP_ID : BIGINT<<FK>>
+ID : BIGINT<<FK>>
+
+}
+
+entity "pdl.ParameterGroup" as pdl.ParameterGroup {
+
+    ID : BIGINT
+
+---
+
+    TOOLINTERFACE_ID : BIGINT
+
+---
+      TOOLINTERFACE_ID : BIGINT<<FK>>
+ID : BIGINT<<FK>>
+
+}
+
+
+        tool.Author }o--||tool.Discovery
+tool.EnvVar }o--||tool.Tool
+tool.ToolImage }o--||tool.OCIRegistry
+tool.Tool }o--||tool.ToolImage
+pdl.ParameterOrGroup }o--||tool.Tool
+pdl.ParameterOrGroup }o--||tool.Tool
+pdl.ParameterDefinition }o--||pdl.ParameterGroup
+pdl.ParameterDefinition }o--||pdl.ParameterOrGroup
+pdl.ParameterGroup }o--||tool.ToolInterface
+pdl.ParameterGroup }o--||pdl.ParameterOrGroup
+
+
+
+@enduml
+
+    

@@ -1,0 +1,70 @@
+
+
+@startuml
+
+' hide the spot
+' hide circle
+
+' avoid problems with angled crows feet
+skinparam linetype ortho
+        
+entity "pdl.ParameterOrGroup" as pdl.ParameterOrGroup {
+
+    ID : BIGINT
+
+---
+
+    id : VARCHAR
+id : VARCHAR
+name : VARCHAR
+
+---
+      id : <<FK>>
+id : <<FK>>
+
+}
+
+entity "pdl.ParameterDefinition" as pdl.ParameterDefinition {
+
+    ID : BIGINT
+
+---
+
+    PARAMETERGROUP_ID : BIGINT
+description : VARCHAR
+kind : UNKNOWN
+semantics : UNKNOWN
+
+---
+      PARAMETERGROUP_ID : BIGINT<<FK>>
+ID : BIGINT<<FK>>
+
+}
+
+entity "pdl.ParameterGroup" as pdl.ParameterGroup {
+
+    ID : BIGINT
+
+---
+
+    TOOLINTERFACE_ID : BIGINT
+
+---
+      TOOLINTERFACE_ID : <<FK>>
+ID : BIGINT<<FK>>
+
+}
+
+
+        pdl.ParameterOrGroup }o--||tool.Tool
+pdl.ParameterOrGroup }o--||tool.Tool
+pdl.ParameterDefinition }o--||pdl.ParameterGroup
+pdl.ParameterDefinition }o--||pdl.ParameterOrGroup
+pdl.ParameterGroup }o--||tool.ToolInterface
+pdl.ParameterGroup }o--||pdl.ParameterOrGroup
+
+
+
+@enduml
+
+    

@@ -1,0 +1,103 @@
+components:
+  schemas:
+    PhysicalLocation:
+      type: "object"
+      description: "The physical location of a resource"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
+      additionalProperties: false
+    ExecutionNode:
+      type: "object"
+      description: "A Node where tool execution can take place"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        resourcesServiceUrl:
+          type: "string"
+          format: "uri"
+          description: "the"
+        executionServiceUrl:
+          type: "string"
+          format: "uri"
+          description: ""
+        location:
+          type: "object"
+          $ref: "#/components/schemas/PhysicalLocation"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "resourcesServiceUrl"
+      - "executionServiceUrl"
+      - "location"
+      additionalProperties: false
+    DataResource:
+      type: "object"
+      description: "A data resource that can be used as input or output for a job"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
+      additionalProperties: false
+    WorkLoad:
+      type: "object"
+      description: "the execution workload"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
+      additionalProperties: false
+    PerformanceMetric:
+      type: "object"
+      description: "A performance metric for a job execution"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
+      additionalProperties: false
+    PerformanceProfile:
+      type: "object"
+      description: "A performance profile for Tool execution"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
+      additionalProperties: false
+    job.ExecutionPhase:
+      description: "Enumeration of possible phases of job execution"
+      enum:
+      - "PENDING"
+      - "QUEUED"
+      - "PREPARING"
+      - "EXECUTING"
+      - "FINALIZING"
+      - "COMPLETED"
+      - "ERROR"
+      - "UNKNOWN"
+      - "HELD"
+      - "SUSPENDED"
+      - "ABORTED"
+      - "ARCHIVED"

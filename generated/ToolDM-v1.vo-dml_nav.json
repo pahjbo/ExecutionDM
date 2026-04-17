@@ -1,0 +1,20 @@
+
+
+            {
+            "tool model": [
+            {
+            "Overview": "generated/ToolDM-v1.vo-dml.md"
+            }
+
+            
+                ,{
+                "ObjectTypes": [
+
+                {"tool.Author" : "generated/tool/tool.Author.md"},{"tool.BuildProcess" : "generated/tool/tool.BuildProcess.md"},{"tool.Discovery" : "generated/tool/tool.Discovery.md"},{"tool.EnvVar" : "generated/tool/tool.EnvVar.md"},{"tool.OCIRegistry" : "generated/tool/tool.OCIRegistry.md"},{"tool.Tool" : "generated/tool/tool.Tool.md"},{"tool.ToolImage" : "generated/tool/tool.ToolImage.md"},{"tool.ToolInterface" : "generated/tool/tool.ToolInterface.md"}
+                ]
+                }
+            
+            ]
+            }
+
+        
