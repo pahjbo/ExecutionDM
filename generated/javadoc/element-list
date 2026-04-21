@@ -1,5 +1,3 @@
 org.ivoa.dm.execution
-org.ivoa.dm.execution.job
 org.ivoa.dm.pdl
 org.ivoa.dm.tool
-org.ivoa.dm.tool.tool

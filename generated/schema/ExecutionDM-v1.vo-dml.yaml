@@ -1,5 +1,20 @@
 components:
   schemas:
+    ExecutionPhase:
+      description: "Enumeration of possible phases of job execution"
+      enum:
+      - "PENDING"
+      - "QUEUED"
+      - "PREPARING"
+      - "EXECUTING"
+      - "FINALIZING"
+      - "COMPLETED"
+      - "ERROR"
+      - "UNKNOWN"
+      - "HELD"
+      - "SUSPENDED"
+      - "ABORTED"
+      - "ARCHIVED"
     PhysicalLocation:
       type: "object"
       description: "The physical location of a resource"
@@ -7,10 +22,26 @@ components:
         '@type':
           type: "string"
           description: "UType as type discriminator"
+        name:
+          type: "string"
+          description: "A human readable name for the location"
+        country:
+          type: "string"
+          description: "Country name"
+        longitude:
+          type: "number"
+          description: "Longitude in degrees"
+        latitude:
+          type: "number"
+          description: "Latitude in degrees"
         _id:
           type: "integer"
           description: "surrogate key"
-      required: []
+      required:
+      - "name"
+      - "country"
+      - "longitude"
+      - "latitude"
       additionalProperties: false
     ExecutionNode:
       type: "object"
@@ -28,14 +59,111 @@ components:
           format: "uri"
           description: ""
         location:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/PhysicalLocation"
+          description: "the location of the node"
+        dataTransferPerformance:
           type: "object"
-          $ref: "#/components/schemas/PhysicalLocation"
+          $ref: "#/components/schemas/TransferPerformance"
+        computeResources:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ComputeResource"
         _id:
           type: "integer"
           description: "surrogate key"
       required:
       - "resourcesServiceUrl"
       - "executionServiceUrl"
+      - "location"
+      - "computeResources"
+      additionalProperties: false
+    ComputeResource:
+      type: "object"
+      description: "A computational resource that can be used for executing a job"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        name:
+          type: "string"
+          description: "the name of the compute resource"
+        numberOfCores:
+          type: "integer"
+          description: "the number of CPU cores available"
+        memory:
+          type: "number"
+          description: "the amount of RAM available in GB"
+        gpu:
+          type: "boolean"
+          description: "whether the resource has GPU capabilities"
+        gpuType:
+          type: "string"
+          description: "the type of GPU available, if any"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "name"
+      - "numberOfCores"
+      - "memory"
+      - "gpu"
+      additionalProperties: false
+    TransferPerformance:
+      type: "object"
+      description: "Performance of data transfer to/from a node"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        fromLocation:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/PhysicalLocation"
+          description: "the source location of the data transfer"
+        throughput:
+          type: "number"
+          description: "the throughput of the data transfer in bytes/second"
+        latency:
+          type: "number"
+          description: "the latency of the data transfer in seconds"
+        errorRate:
+          type: "number"
+          description: "the error rate of the data transfer as a percentage"
+        timestamp:
+          type: "string"
+          format: "date-time"
+          description: "the timestamp of the performance measurement"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "fromLocation"
+      - "throughput"
+      - "timestamp"
+      additionalProperties: false
+    DataNode:
+      type: "object"
+      description: "A Node where data can be stored"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        storageServiceUrl:
+          type: "string"
+          format: "uri"
+          description: "the URL of the storage service"
+        location:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/PhysicalLocation"
+          description: "the location of the node"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "storageServiceUrl"
       - "location"
       additionalProperties: false
     DataResource:
@@ -45,10 +173,28 @@ components:
         '@type':
           type: "string"
           description: "UType as type discriminator"
+        location:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/PhysicalLocation"
+          description: "the location of the data"
+        size:
+          type: "number"
+          description: "the size of the data resource in GB"
+        mimeType:
+          type: "string"
+          description: "the mime type of the data resource"
+        accessUrl:
+          type: "string"
+          format: "uri"
+          description: "the URL that can be used to access the data resource"
         _id:
           type: "integer"
           description: "surrogate key"
-      required: []
+      required:
+      - "location"
+      - "size"
+      - "accessUrl"
       additionalProperties: false
     WorkLoad:
       type: "object"
@@ -62,6 +208,101 @@ components:
           description: "surrogate key"
       required: []
       additionalProperties: false
+    ParameterValue:
+      type: "object"
+      description: "the value of a parameter for a job execution"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        definition:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/ParameterDefinition"
+          description: "the definition of the parameter"
+        value:
+          type: "string"
+          description: "the value of the parameter - this is intentionally very flexible\
+            \ to allow for different types of parameters - e.g. atomic values, files,\
+            \ etc"
+        isIndirect:
+          type: "boolean"
+          description: "whether the value is an indirect reference to the actual value\
+            \ - e.g. a file path or a URL"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "definition"
+      - "value"
+      - "isIndirect"
+      additionalProperties: false
+    JobExecution:
+      type: "object"
+      description: "the execution of a job on a computational resource"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        id:
+          type: "string"
+          description: "Unique job execution identifier"
+        runId:
+          type: "string"
+          description: "this is a client supplied identifier - the system does nothing\
+            \ other than to return it as part of the description of the job"
+        ownerID:
+          type: "string"
+          description: "the identifier of the user who owns the job execution"
+        tool:
+          oneOf:
+          - type: "string"
+          - $ref: "#/components/schemas/Tool"
+          description: "the tool being executed"
+        inputs:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ParameterValue"
+        outputs:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ParameterValue"
+        status:
+          $ref: "#/components/schemas/ExecutionPhase"
+          description: "the current status of the job execution"
+        executionNode:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/ExecutionNode"
+          description: "the node where the job is being executed"
+        creationTime:
+          type: "string"
+          format: "date-time"
+          description: "the time when the job execution was created"
+        startTime:
+          type: "string"
+          format: "date-time"
+          description: "the start time of the job execution"
+        endTime:
+          type: "string"
+          format: "date-time"
+          description: "the time at which the job execution finished"
+        destructionTime:
+          type: "string"
+          format: "date-time"
+          description: "the time at which the job execution will be destroyed"
+        performanceMetrics:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/PerformanceMetric"
+      required:
+      - "id"
+      - "ownerID"
+      - "tool"
+      - "status"
+      - "executionNode"
+      - "creationTime"
+      additionalProperties: false
     PerformanceMetric:
       type: "object"
       description: "A performance metric for a job execution"
@@ -74,30 +315,3 @@ components:
           description: "surrogate key"
       required: []
       additionalProperties: false
-    PerformanceProfile:
-      type: "object"
-      description: "A performance profile for Tool execution"
-      properties:
-        '@type':
-          type: "string"
-          description: "UType as type discriminator"
-        _id:
-          type: "integer"
-          description: "surrogate key"
-      required: []
-      additionalProperties: false
-    job.ExecutionPhase:
-      description: "Enumeration of possible phases of job execution"
-      enum:
-      - "PENDING"
-      - "QUEUED"
-      - "PREPARING"
-      - "EXECUTING"
-      - "FINALIZING"
-      - "COMPLETED"
-      - "ERROR"
-      - "UNKNOWN"
-      - "HELD"
-      - "SUSPENDED"
-      - "ABORTED"
-      - "ARCHIVED"

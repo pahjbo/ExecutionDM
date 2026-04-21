@@ -122,6 +122,27 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-last even-row-color">
 <div class="block">inserted database key</div>
 </div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#accessUrl" class="member-name-link">accessUrl</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">the URL that can be used to access the data resource.</div>
+</div>
+<div class="col-first even-row-color"><code>protected <a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></code></div>
+<div class="col-second even-row-color"><code><a href="#location" class="member-name-link">location</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">ReferenceObject location :
+ the location of the data.</div>
+</div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#mimeType" class="member-name-link">mimeType</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">the mime type of the data resource.</div>
+</div>
+<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
+<div class="col-second even-row-color"><code><a href="#size" class="member-name-link">size</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">the size of the data resource in GB.</div>
+</div>
 </div>
 </section>
 </li>
@@ -140,6 +161,13 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.ivoa.dm.execution.DataResource)" class="member-name-link">DataResource</a><wbr>(<a href="DataResource.html" title="class in org.ivoa.dm.execution">DataResource</a>&nbsp;other)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Copy Constructor.</div>
+</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.ivoa.dm.execution.PhysicalLocation,java.lang.Double,java.lang.String,java.lang.String)" class="member-name-link">DataResource</a><wbr>(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;location,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;size,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mimeType,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;accessUrl)</code></div>
+<div class="col-last even-row-color">
+<div class="block">full parameter constructor.</div>
 </div>
 </div>
 </section>
@@ -166,13 +194,68 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forceLoad()" class="member-name-link">forceLoad</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAccessUrl()" class="member-name-link">getAccessUrl</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns accessUrl Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLocation()" class="member-name-link">getLocation</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns location Reference</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMimeType()" class="member-name-link">getMimeType</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns mimeType Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSize()" class="member-name-link">getSize</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns size Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAccessUrl(java.lang.String)" class="member-name-link">setAccessUrl</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pAccessUrl)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set accessUrl Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLocation(org.ivoa.dm.execution.PhysicalLocation)" class="member-name-link">setLocation</a><wbr>(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;pLocation)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Defines location Reference</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMimeType(java.lang.String)" class="member-name-link">setMimeType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pMimeType)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set mimeType Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSize(java.lang.Double)" class="member-name-link">setSize</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pSize)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set size Attribute.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateUsing(org.ivoa.dm.execution.DataResource)" class="member-name-link">updateUsing</a><wbr>(<a href="DataResource.html" title="class in org.ivoa.dm.execution">DataResource</a>&nbsp;other)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Update this object with the content of the given object.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DataResource.html" title="class in org.ivoa.dm.execution">DataResource</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withAccessUrl(java.lang.String)" class="member-name-link">withAccessUrl</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pAccessUrl)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for accessUrl Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DataResource.html" title="class in org.ivoa.dm.execution">DataResource</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withMimeType(java.lang.String)" class="member-name-link">withMimeType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pMimeType)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for mimeType Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DataResource.html" title="class in org.ivoa.dm.execution">DataResource</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withSize(java.lang.Double)" class="member-name-link">withSize</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pSize)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for size Attribute.</div>
 </div>
 </div>
 </div>
@@ -198,6 +281,54 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="block">inserted database key</div>
 </section>
 </li>
+<li>
+<section class="detail" id="location">
+<h3>location</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="execution:DataResource.location",
+       role=reference,
+       type="execution:PhysicalLocation",
+       typeRole=objectType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></span>&nbsp;<span class="element-name">location</span></div>
+<div class="block">ReferenceObject location :
+ the location of the data.
+ (
+ Multiplicity : 1
+ )</div>
+</section>
+</li>
+<li>
+<section class="detail" id="size">
+<h3>size</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="execution:DataResource.size",
+       role=attribute,
+       type="ivoa:real",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name">size</span></div>
+<div class="block">the size of the data resource in GB. : Attribute size type ivoa:real : multiplicity 1</div>
+</section>
+</li>
+<li>
+<section class="detail" id="mimeType">
+<h3>mimeType</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="execution:DataResource.mimeType",
+       role=attribute,
+       type="ivoa:string",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">mimeType</span></div>
+<div class="block">the mime type of the data resource. : Attribute mimeType type ivoa:string : multiplicity 0..1</div>
+</section>
+</li>
+<li>
+<section class="detail" id="accessUrl">
+<h3>accessUrl</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="execution:DataResource.accessUrl",
+       role=attribute,
+       type="ivoa:anyURI",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">accessUrl</span></div>
+<div class="block">the URL that can be used to access the data resource. : Attribute accessUrl type ivoa:anyURI : multiplicity 1</div>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -211,6 +342,23 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <h3>DataResource</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DataResource</span>()</div>
 <div class="block">Creates a new DataResource</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(org.ivoa.dm.execution.PhysicalLocation,java.lang.Double,java.lang.String,java.lang.String)">
+<h3>DataResource</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DataResource</span><wbr><span class="parameters">(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;location,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;size,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;mimeType,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;accessUrl)</span></div>
+<div class="block">full parameter constructor.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>location</code> - the location of the data.</dd>
+<dd><code>size</code> - the size of the data resource in GB.</dd>
+<dd><code>mimeType</code> - the mime type of the data resource.</dd>
+<dd><code>accessUrl</code> - the URL that can be used to access the data resource.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -252,6 +400,133 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>other</code> - the object to be copied.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getLocation()">
+<h3>getLocation</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></span>&nbsp;<span class="element-name">getLocation</span>()</div>
+<div class="block">Returns location Reference</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>location Reference</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setLocation(org.ivoa.dm.execution.PhysicalLocation)">
+<h3>setLocation</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLocation</span><wbr><span class="parameters">(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;pLocation)</span></div>
+<div class="block">Defines location Reference</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pLocation</code> - reference to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getSize()">
+<h3>getSize</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name">getSize</span>()</div>
+<div class="block">Returns size Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>size Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setSize(java.lang.Double)">
+<h3>setSize</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSize</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pSize)</span></div>
+<div class="block">Set size Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pSize</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withSize(java.lang.Double)">
+<h3>withSize</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DataResource.html" title="class in org.ivoa.dm.execution">DataResource</a></span>&nbsp;<span class="element-name">withSize</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pSize)</span></div>
+<div class="block">fluent setter for size Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pSize</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>DataResource</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getMimeType()">
+<h3>getMimeType</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getMimeType</span>()</div>
+<div class="block">Returns mimeType Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>mimeType Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setMimeType(java.lang.String)">
+<h3>setMimeType</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setMimeType</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pMimeType)</span></div>
+<div class="block">Set mimeType Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pMimeType</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withMimeType(java.lang.String)">
+<h3>withMimeType</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DataResource.html" title="class in org.ivoa.dm.execution">DataResource</a></span>&nbsp;<span class="element-name">withMimeType</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pMimeType)</span></div>
+<div class="block">fluent setter for mimeType Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pMimeType</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>DataResource</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getAccessUrl()">
+<h3>getAccessUrl</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getAccessUrl</span>()</div>
+<div class="block">Returns accessUrl Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>accessUrl Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setAccessUrl(java.lang.String)">
+<h3>setAccessUrl</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setAccessUrl</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pAccessUrl)</span></div>
+<div class="block">Set accessUrl Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pAccessUrl</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withAccessUrl(java.lang.String)">
+<h3>withAccessUrl</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DataResource.html" title="class in org.ivoa.dm.execution">DataResource</a></span>&nbsp;<span class="element-name">withAccessUrl</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pAccessUrl)</span></div>
+<div class="block">fluent setter for accessUrl Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pAccessUrl</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>DataResource</dd>
 </dl>
 </section>
 </li>

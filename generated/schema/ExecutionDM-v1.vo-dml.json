@@ -12,21 +12,61 @@
           "type" : "object",
           "properties" : {
             "$comment" : "placeholder to make commas easier!",
-            "tool:tool.OCIRegistry" : {
+            "execution:PhysicalLocation" : {
               "type" : "array",
               "items" : {
                 "oneOf" : [ {
-                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.OCIRegistry"
+                  "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PhysicalLocation"
                 }, {
                   "type" : "number"
                 } ]
               }
             },
-            "tool:tool.ToolImage" : {
+            "tool:Tool" : {
               "type" : "array",
               "items" : {
                 "oneOf" : [ {
-                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.ToolImage"
+                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/Tool"
+                }, {
+                  "type" : "string"
+                } ]
+              }
+            },
+            "execution:ExecutionNode" : {
+              "type" : "array",
+              "items" : {
+                "oneOf" : [ {
+                  "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/ExecutionNode"
+                }, {
+                  "type" : "number"
+                } ]
+              }
+            },
+            "tool:Author" : {
+              "type" : "array",
+              "items" : {
+                "oneOf" : [ {
+                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/Author"
+                }, {
+                  "type" : "number"
+                } ]
+              }
+            },
+            "tool:OCIRegistry" : {
+              "type" : "array",
+              "items" : {
+                "oneOf" : [ {
+                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/OCIRegistry"
+                }, {
+                  "type" : "number"
+                } ]
+              }
+            },
+            "tool:ToolImage" : {
+              "type" : "array",
+              "items" : {
+                "oneOf" : [ {
+                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/ToolImage"
                 }, {
                   "type" : "number"
                 } ]
@@ -39,19 +79,13 @@
           "type" : "array",
           "items" : {
             "anyOf" : [ {
-              "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/ExecutionNode"
+              "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/DataNode"
             }, {
               "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/DataResource"
             }, {
               "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/WorkLoad"
             }, {
-              "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PerformanceMetric"
-            }, {
-              "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PerformanceProfile"
-            }, {
-              "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.ToolInterface"
-            }, {
-              "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.Tool"
+              "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/JobExecution"
             } ]
           },
           "additionalProperties" : false
@@ -62,6 +96,10 @@
   },
   "$defs" : {
     "$comment" : "placeholder to make commas easier!",
+    "ExecutionPhase" : {
+      "description" : "Enumeration of possible phases of job execution",
+      "enum" : [ "PENDING", "QUEUED", "PREPARING", "EXECUTING", "FINALIZING", "COMPLETED", "ERROR", "UNKNOWN", "HELD", "SUSPENDED", "ABORTED", "ARCHIVED" ]
+    },
     "PhysicalLocation" : {
       "type" : "object",
       "description" : "The physical location of a resource",
@@ -71,12 +109,28 @@
           "type" : "string",
           "description" : "UType as type discriminator"
         },
+        "name" : {
+          "type" : "string",
+          "description" : "A human readable name for the location"
+        },
+        "country" : {
+          "type" : "string",
+          "description" : "Country name"
+        },
+        "longitude" : {
+          "type" : "number",
+          "description" : "Longitude in degrees"
+        },
+        "latitude" : {
+          "type" : "number",
+          "description" : "Latitude in degrees"
+        },
         "_id" : {
           "type" : "integer",
           "description" : "surrogate key"
         }
       },
-      "required" : [ ],
+      "required" : [ "name", "country", "longitude", "latitude" ],
       "additionalProperties" : false
     },
     "ExecutionNode" : {
@@ -99,15 +153,138 @@
           "description" : ""
         },
         "location" : {
+          "oneOf" : [ {
+            "type" : "number"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PhysicalLocation"
+          } ],
+          "description" : "the location of the node"
+        },
+        "dataTransferPerformance" : {
           "type" : "object",
-          "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PhysicalLocation"
+          "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/TransferPerformance"
+        },
+        "computeResources" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/ComputeResource"
+          }
         },
         "_id" : {
           "type" : "integer",
           "description" : "surrogate key"
         }
       },
-      "required" : [ "resourcesServiceUrl", "executionServiceUrl", "location" ],
+      "required" : [ "resourcesServiceUrl", "executionServiceUrl", "location", "computeResources" ],
+      "additionalProperties" : false
+    },
+    "ComputeResource" : {
+      "type" : "object",
+      "description" : "A computational resource that can be used for executing a job",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "the name of the compute resource"
+        },
+        "numberOfCores" : {
+          "type" : "integer",
+          "description" : "the number of CPU cores available"
+        },
+        "memory" : {
+          "type" : "number",
+          "description" : "the amount of RAM available in GB"
+        },
+        "gpu" : {
+          "type" : "boolean",
+          "description" : "whether the resource has GPU capabilities"
+        },
+        "gpuType" : {
+          "type" : "string",
+          "description" : "the type of GPU available, if any"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ "name", "numberOfCores", "memory", "gpu" ],
+      "additionalProperties" : false
+    },
+    "TransferPerformance" : {
+      "type" : "object",
+      "description" : "Performance of data transfer to/from a node",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "fromLocation" : {
+          "oneOf" : [ {
+            "type" : "number"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PhysicalLocation"
+          } ],
+          "description" : "the source location of the data transfer"
+        },
+        "throughput" : {
+          "type" : "number",
+          "description" : "the throughput of the data transfer in bytes/second"
+        },
+        "latency" : {
+          "type" : "number",
+          "description" : "the latency of the data transfer in seconds"
+        },
+        "errorRate" : {
+          "type" : "number",
+          "description" : "the error rate of the data transfer as a percentage"
+        },
+        "timestamp" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the timestamp of the performance measurement"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ "fromLocation", "throughput", "timestamp" ],
+      "additionalProperties" : false
+    },
+    "DataNode" : {
+      "type" : "object",
+      "description" : "A Node where data can be stored",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "storageServiceUrl" : {
+          "type" : "string",
+          "format" : "uri",
+          "description" : "the URL of the storage service"
+        },
+        "location" : {
+          "oneOf" : [ {
+            "type" : "number"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PhysicalLocation"
+          } ],
+          "description" : "the location of the node"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ "storageServiceUrl", "location" ],
       "additionalProperties" : false
     },
     "DataResource" : {
@@ -119,12 +296,33 @@
           "type" : "string",
           "description" : "UType as type discriminator"
         },
+        "location" : {
+          "oneOf" : [ {
+            "type" : "number"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PhysicalLocation"
+          } ],
+          "description" : "the location of the data"
+        },
+        "size" : {
+          "type" : "number",
+          "description" : "the size of the data resource in GB"
+        },
+        "mimeType" : {
+          "type" : "string",
+          "description" : "the mime type of the data resource"
+        },
+        "accessUrl" : {
+          "type" : "string",
+          "format" : "uri",
+          "description" : "the URL that can be used to access the data resource"
+        },
         "_id" : {
           "type" : "integer",
           "description" : "surrogate key"
         }
       },
-      "required" : [ ],
+      "required" : [ "location", "size", "accessUrl" ],
       "additionalProperties" : false
     },
     "WorkLoad" : {
@@ -144,6 +342,122 @@
       "required" : [ ],
       "additionalProperties" : false
     },
+    "ParameterValue" : {
+      "type" : "object",
+      "description" : "the value of a parameter for a job execution",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "definition" : {
+          "oneOf" : [ {
+            "type" : "number"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterDefinition"
+          } ],
+          "description" : "the definition of the parameter"
+        },
+        "value" : {
+          "type" : "string",
+          "description" : "the value of the parameter - this is intentionally very flexible to allow for different types of parameters - e.g. atomic values, files, etc"
+        },
+        "isIndirect" : {
+          "type" : "boolean",
+          "description" : "whether the value is an indirect reference to the actual value - e.g. a file path or a URL"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ "definition", "value", "isIndirect" ],
+      "additionalProperties" : false
+    },
+    "JobExecution" : {
+      "type" : "object",
+      "description" : "the execution of a job on a computational resource",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "id" : {
+          "type" : "string",
+          "description" : "Unique job execution identifier"
+        },
+        "runId" : {
+          "type" : "string",
+          "description" : "this is a client supplied identifier - the system does nothing other than to return it as part of the description of the job"
+        },
+        "ownerID" : {
+          "type" : "string",
+          "description" : "the identifier of the user who owns the job execution"
+        },
+        "tool" : {
+          "oneOf" : [ {
+            "type" : "string"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/Tool"
+          } ],
+          "description" : "the tool being executed"
+        },
+        "inputs" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/ParameterValue"
+          }
+        },
+        "outputs" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/ParameterValue"
+          }
+        },
+        "status" : {
+          "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/ExecutionPhase",
+          "description" : "the current status of the job execution"
+        },
+        "executionNode" : {
+          "oneOf" : [ {
+            "type" : "number"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/ExecutionNode"
+          } ],
+          "description" : "the node where the job is being executed"
+        },
+        "creationTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the time when the job execution was created"
+        },
+        "startTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the start time of the job execution"
+        },
+        "endTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the time at which the job execution finished"
+        },
+        "destructionTime" : {
+          "type" : "string",
+          "format" : "date-time",
+          "description" : "the time at which the job execution will be destroyed"
+        },
+        "performanceMetrics" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "https://ivoa.net/dm/ExecutionDM-v1.vo-dml.json#/$defs/PerformanceMetric"
+          }
+        }
+      },
+      "required" : [ "id", "ownerID", "tool", "status", "executionNode", "creationTime" ],
+      "additionalProperties" : false
+    },
     "PerformanceMetric" : {
       "type" : "object",
       "description" : "A performance metric for a job execution",
@@ -160,27 +474,6 @@
       },
       "required" : [ ],
       "additionalProperties" : false
-    },
-    "PerformanceProfile" : {
-      "type" : "object",
-      "description" : "A performance profile for Tool execution",
-      "properties" : {
-        "$comment" : "placeholder to make commas easier",
-        "@type" : {
-          "type" : "string",
-          "description" : "UType as type discriminator"
-        },
-        "_id" : {
-          "type" : "integer",
-          "description" : "surrogate key"
-        }
-      },
-      "required" : [ ],
-      "additionalProperties" : false
-    },
-    "job.ExecutionPhase" : {
-      "description" : "Enumeration of possible phases of job execution",
-      "enum" : [ "PENDING", "QUEUED", "PREPARING", "EXECUTING", "FINALIZING", "COMPLETED", "ERROR", "UNKNOWN", "HELD", "SUSPENDED", "ABORTED", "ARCHIVED" ]
     }
   }
 }

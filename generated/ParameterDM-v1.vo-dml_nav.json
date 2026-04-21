@@ -10,13 +10,13 @@
                 ,{
                 "ObjectTypes": [
 
-                {"ParameterDefinition" : "generated/pdl/ParameterDefinition.md"},{"ParameterGroup" : "generated/pdl/ParameterGroup.md"},{"ParameterOrGroup" : "generated/pdl/ParameterOrGroup.md"}
+                {"ParameterDefinition" : "generated/pdl/ParameterDefinition.md"},{"ParameterGroup" : "generated/pdl/ParameterGroup.md"},{"ParameterOrGroup" : "generated/pdl/ParameterOrGroup.md"},{"ToolInterface" : "generated/pdl/ToolInterface.md"}
                 ]
                 }
             
                 ,{
                 "DataTypes": [
-                {"BaseParameterType" : "generated/pdl/BaseParameterType.md"},{"ParameterSemantics" : "generated/pdl/ParameterSemantics.md"}
+                {"AtomicParameterType" : "generated/pdl/AtomicParameterType.md"},{"FileParameterType" : "generated/pdl/FileParameterType.md"},{"IVOASemantics" : "generated/pdl/IVOASemantics.md"},{"ParameterSemantics" : "generated/pdl/ParameterSemantics.md"},{"ParameterType" : "generated/pdl/ParameterType.md"}
                 ]
                 }
             

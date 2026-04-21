@@ -1,67 +1,147 @@
 components:
   schemas:
-    BaseParameterType:
+    ParameterType:
       type: "object"
-      description: ""
+      description: "The kind of the parameter"
       properties: {}
       required: []
+      additionalProperties: false
+    FileParameterType:
+      type: "object"
+      description: "a parameter type that is a file"
+      properties:
+        mime:
+          type: "string"
+          description: "mime type describing the file"
+      required: []
+      additionalProperties: false
+    AtomicParameterType:
+      type: "object"
+      description: "a parameterType that typically can be represented by primitive"
+      properties:
+        kind:
+          type: "string"
+          description: "the type of the parameter"
+      required:
+      - "kind"
       additionalProperties: false
     ParameterSemantics:
       type: "object"
-      description: ""
-      properties: {}
-      required: []
-      additionalProperties: false
-    ParameterOrGroup:
+      description: "a base type for semantics"
+      properties:
+        '@type':
+          type: "string"
+      required:
+      - "@type"
+    IVOASemantics:
+      allOf:
+      - $ref: "#/components/schemas/ParameterSemantics"
+      - type: "object"
+        description: ""
+        properties:
+          ucd:
+            type: "string"
+            description: "a UCD"
+        required: []
+      unevaluatedProperties: false
+    ParameterDefinition:
       type: "object"
-      description: ""
-      discriminator:
-        propertyName: "@type"
-        mapping:
-          pdl:ParameterDefinition: "#/components/schemas/ParameterDefinition"
-          pdl:ParameterGroup: "#/components/schemas/ParameterGroup"
+      description: "the definition of a parameter"
       properties:
         '@type':
           type: "string"
           description: "UType as type discriminator"
         name:
           type: "string"
-          description: "the name of the parameter"
+          description: "Parameter name"
+        description:
+          type: "string"
+          description: "Parameter description"
+        kind:
+          $ref: "#/components/schemas/ParameterType"
+          description: "the type of the parameter"
+        semantics:
+          $ref: "#/components/schemas/ParameterSemantics"
+          description: ""
         _id:
           type: "integer"
           description: "surrogate key"
       required:
-      - "@type"
       - "name"
-    ParameterDefinition:
-      allOf:
-      - $ref: "#/components/schemas/ParameterOrGroup"
-      - type: "object"
-        description: "the definition of a parameter"
-        properties:
-          description:
-            type: "string"
-            description: "Parameter description"
-          kind:
-            $ref: "#/components/schemas/BaseParameterType"
-            description: "the type of the parameter"
-          semantics:
-            $ref: "#/components/schemas/ParameterSemantics"
-            description: ""
-        required:
-        - "kind"
-        - "semantics"
-      unevaluatedProperties: false
+      - "kind"
+      additionalProperties: false
     ParameterGroup:
-      allOf:
-      - $ref: "#/components/schemas/ParameterOrGroup"
-      - type: "object"
-        description: "a group of parameter Definitions"
-        properties:
-          params:
-            type: "array"
-            items:
-              $ref: "#/components/schemas/ParameterDefinition"
-        required:
-        - "params"
-      unevaluatedProperties: false
+      type: "object"
+      description: "a group of parameter Definitions"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        name:
+          type: "string"
+          description: "Group name"
+        members:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ParameterOrGroup"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "name"
+      - "members"
+      additionalProperties: false
+    ParameterOrGroup:
+      type: "object"
+      description: "a 'choice' type"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        param:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/ParameterDefinition"
+          description: ""
+        group:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/ParameterGroup"
+          description: ""
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
+      additionalProperties: false
+    ToolInterface:
+      type: "object"
+      description: "The definition of the tool interface"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        parameters:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ParameterDefinition"
+        groups:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/ParameterGroup"
+        input:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/ParameterGroup"
+          description: "The group of of parameters that are required for tool execution\
+            \ - i.e. input"
+        output:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/ParameterGroup"
+          description: "The group of parameters that are produced by tool execution\
+            \ - i.e. output"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
+      additionalProperties: false

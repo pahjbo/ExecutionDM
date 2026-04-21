@@ -1,6 +1,6 @@
 components:
   schemas:
-    tool.Author:
+    Author:
       type: "object"
       description: "Details about an author of the image"
       properties:
@@ -24,7 +24,7 @@ components:
           description: "GitLab username"
         orcid:
           type: "string"
-          description: "ORCID identifier"
+          description: "ORCID identity"
         affiliation:
           type: "string"
           description: "Affiliation"
@@ -35,7 +35,7 @@ components:
       - "name"
       - "email"
       additionalProperties: false
-    tool.OCIRegistry:
+    OCIRegistry:
       type: "object"
       description: "Details about the OCIcontainer registry"
       properties:
@@ -55,7 +55,7 @@ components:
       - "host"
       - "project"
       additionalProperties: false
-    tool.Discovery:
+    Discovery:
       type: "object"
       description: "Discovery metadata mapped to OCI labels/annotations"
       properties:
@@ -93,7 +93,8 @@ components:
         authors:
           type: "array"
           items:
-            $ref: "#/components/schemas/tool.Author"
+            type: "number"
+          description: "Responsible people/organization"
         licenses:
           type: "string"
           description: "SPDX license expression"
@@ -111,13 +112,16 @@ components:
           type: "array"
           items:
             type: "string"
-          description: "One of notebook|headless|carta|firefly|contributed|desktop;\
-            \ min_length=1"
+          description: ""
         tools:
           type: "array"
           items:
             type: "string"
           description: "Scientific software packages included"
+        isBase:
+          type: "boolean"
+          description: "Whether this is a certified base image that should be used\
+            \ as a parent image for derived images"
         deprecated:
           type: "boolean"
           description: "Deprecation status; default false"
@@ -129,11 +133,13 @@ components:
       - "description"
       - "source"
       - "version"
+      - "authors"
       - "licenses"
       - "domain"
       - "kind"
+      - "isBase"
       additionalProperties: false
-    tool.EnvVar:
+    EnvVar:
       type: "object"
       description: "Environment variable map entry"
       properties:
@@ -153,7 +159,59 @@ components:
       - "name"
       - "value"
       additionalProperties: false
-    tool.ToolImage:
+    Vulnerability:
+      type: "object"
+      description: "a known security vulnerability"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        cve:
+          type: "string"
+          description: "the identifier for the vulnerability"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "cve"
+      additionalProperties: false
+    Compliance:
+      type: "object"
+      description: "attestation information"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
+      additionalProperties: false
+    SecurityMetadata:
+      type: "object"
+      description: "Security metadata for a tool image"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        signature:
+          type: "string"
+          description: "a digest style signature"
+        vulnerabilities:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Vulnerability"
+        compliance:
+          type: "array"
+          items:
+            $ref: "#/components/schemas/Compliance"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "signature"
+      additionalProperties: false
+    ToolImage:
       type: "object"
       description: "Definition of a tool image"
       properties:
@@ -163,14 +221,22 @@ components:
         registry:
           oneOf:
           - type: "number"
-          - $ref: "#/components/schemas/tool.OCIRegistry"
+          - $ref: "#/components/schemas/OCIRegistry"
           description: "OCI registry details"
+        parentImage:
+          oneOf:
+          - type: "number"
+          - $ref: "#/components/schemas/ToolImage"
+          description: "Parent image reference"
         build:
           type: "object"
-          $ref: "#/components/schemas/tool.BuildProcess"
+          $ref: "#/components/schemas/BuildProcess"
         discovery:
           type: "object"
-          $ref: "#/components/schemas/tool.Discovery"
+          $ref: "#/components/schemas/Discovery"
+        security:
+          type: "object"
+          $ref: "#/components/schemas/SecurityMetadata"
         _id:
           type: "integer"
           description: "surrogate key"
@@ -178,36 +244,31 @@ components:
       - "registry"
       - "build"
       - "discovery"
+      - "security"
       additionalProperties: false
-    tool.BuildProcess:
+    BuildProcess:
       type: "object"
-      description: ""
+      description: "How the tool image is built"
       properties:
         '@type':
           type: "string"
           description: "UType as type discriminator"
-        _id:
-          type: "integer"
-          description: "surrogate key"
-      required: []
-      additionalProperties: false
-    tool.ToolInterface:
-      type: "object"
-      description: ""
-      properties:
-        '@type':
+        buildCommand:
           type: "string"
-          description: "UType as type discriminator"
-        pg:
-          type: "array"
-          items:
-            $ref: "#/components/schemas/ParameterGroup"
+          description: "The command used to build the image, e.g. 'docker build .'"
+        buildContext:
+          type: "string"
+          description: "The context directory for the build, e.g. './'"
+        dockerfilePath:
+          type: "string"
+          description: "The path to the Dockerfile, e.g. './Dockerfile'"
         _id:
           type: "integer"
           description: "surrogate key"
-      required: []
+      required:
+      - "buildCommand"
       additionalProperties: false
-    tool.Tool:
+    Tool:
       type: "object"
       description: "Definition of a Library Tool"
       properties:
@@ -220,7 +281,7 @@ components:
         image:
           oneOf:
           - type: "number"
-          - $ref: "#/components/schemas/tool.ToolImage"
+          - $ref: "#/components/schemas/ToolImage"
           description: "Tool container image reference"
         command:
           type: "array"
@@ -230,22 +291,63 @@ components:
         env:
           type: "array"
           items:
-            $ref: "#/components/schemas/tool.EnvVar"
-        inputs:
-          type: "array"
-          items:
-            anyOf:
-            - $ref: "#/components/schemas/ParameterDefinition"
-            - $ref: "#/components/schemas/ParameterGroup"
-        outputs:
-          type: "array"
-          items:
-            anyOf:
-            - $ref: "#/components/schemas/ParameterDefinition"
-            - $ref: "#/components/schemas/ParameterGroup"
+            $ref: "#/components/schemas/EnvVar"
+        interface:
+          type: "object"
+          $ref: "#/components/schemas/ToolInterface"
+        performanceProfile:
+          type: "object"
+          $ref: "#/components/schemas/PerformanceProfile"
       required:
       - "id"
       - "image"
       - "command"
-      - "outputs"
+      - "interface"
+      - "performanceProfile"
+      additionalProperties: false
+    PerformanceProfile:
+      type: "object"
+      description: "A performance profile for Tool execution"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        processorScaling:
+          type: "object"
+          $ref: "#/components/schemas/ProcessorScaling"
+        dataScaling:
+          type: "object"
+          $ref: "#/components/schemas/DataScaling"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required:
+      - "processorScaling"
+      - "dataScaling"
+      additionalProperties: false
+    ProcessorScaling:
+      type: "object"
+      description: "The scaling behaviour of a tool with respect to the number of\
+        \ processors used"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
+      additionalProperties: false
+    DataScaling:
+      type: "object"
+      description: "The scaling behaviour of a tool with respect to the size of the\
+        \ input data"
+      properties:
+        '@type':
+          type: "string"
+          description: "UType as type discriminator"
+        _id:
+          type: "integer"
+          description: "surrogate key"
+      required: []
       additionalProperties: false

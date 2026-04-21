@@ -76,7 +76,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code>org.ivoa.vodml.jpa.JPAManipulations</code>, <code>org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></dd>
+<dd><code>org.ivoa.vodml.jaxb.XmlIdManagement</code>, <code>org.ivoa.vodml.jpa.JPAManipulations</code>, <code>org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Entity
@@ -84,7 +84,7 @@ loadScripts(document, 'script');</script>
        role=objectType)
 </span><span class="modifiers">public class </span><span class="element-name type-name-label">ExecutionNode</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span></div>
+implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;, org.ivoa.vodml.jaxb.XmlIdManagement</span></div>
 <div class="block">A Node where tool execution can take place.
 
  objectType:  ExecutionNode</div>
@@ -122,6 +122,16 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-last even-row-color">
 <div class="block">inserted database key</div>
 </div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#computeResources" class="member-name-link">computeResources</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">the compute resources available at the node.</div>
+</div>
+<div class="col-first even-row-color"><code>protected <a href="TransferPerformance.html" title="class in org.ivoa.dm.execution">TransferPerformance</a></code></div>
+<div class="col-second even-row-color"><code><a href="#dataTransferPerformance" class="member-name-link">dataTransferPerformance</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">the performance of data transfer to/from the node.</div>
+</div>
 <div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#executionServiceUrl" class="member-name-link">executionServiceUrl</a></code></div>
 <div class="col-last odd-row-color">
@@ -130,7 +140,8 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-first even-row-color"><code>protected <a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></code></div>
 <div class="col-second even-row-color"><code><a href="#location" class="member-name-link">location</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">the location of the node.</div>
+<div class="block">ReferenceObject location :
+ the location of the node.</div>
 </div>
 <div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#resourcesServiceUrl" class="member-name-link">resourcesServiceUrl</a></code></div>
@@ -152,9 +163,11 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-last even-row-color">
 <div class="block">Creates a new ExecutionNode</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,org.ivoa.dm.execution.PhysicalLocation)" class="member-name-link">ExecutionNode</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;resourcesServiceUrl,
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,org.ivoa.dm.execution.PhysicalLocation,org.ivoa.dm.execution.TransferPerformance,java.util.List)" class="member-name-link">ExecutionNode</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;resourcesServiceUrl,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;executionServiceUrl,
- <a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;location)</code></div>
+ <a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;location,
+ <a href="TransferPerformance.html" title="class in org.ivoa.dm.execution">TransferPerformance</a>&nbsp;dataTransferPerformance,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&gt;&nbsp;computeResources)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">full parameter constructor.</div>
 </div>
@@ -176,64 +189,110 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ExecutionNode.html" title="class in org.ivoa.dm.execution">ExecutionNode</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createExecutionNode(java.util.function.Consumer)" class="member-name-link">createExecutionNode</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="ExecutionNode.ExecutionNodeBuilder.html" title="class in org.ivoa.dm.execution">ExecutionNode.ExecutionNodeBuilder</a>&gt;&nbsp;f)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToComputeResources(org.ivoa.dm.execution.ComputeResource)" class="member-name-link">addToComputeResources</a><wbr>(<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&nbsp;p)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Add a org.ivoa.dm.execution.ComputeResource to the composition.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ExecutionNode.html" title="class in org.ivoa.dm.execution">ExecutionNode</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createExecutionNode(java.util.function.Consumer)" class="member-name-link">createExecutionNode</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="ExecutionNode.ExecutionNodeBuilder.html" title="class in org.ivoa.dm.execution">ExecutionNode.ExecutionNodeBuilder</a>&gt;&nbsp;f)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">create a ExecutionNode in functional builder style.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#delete(jakarta.persistence.EntityManager)" class="member-name-link">delete</a><wbr>(jakarta.persistence.EntityManager&nbsp;em)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"></div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forceLoad()" class="member-name-link">forceLoad</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getExecutionServiceUrl()" class="member-name-link">getExecutionServiceUrl</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns executionServiceUrl Attribute.</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#delete(jakarta.persistence.EntityManager)" class="member-name-link">delete</a><wbr>(jakarta.persistence.EntityManager&nbsp;em)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forceLoad()" class="member-name-link">forceLoad</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getComputeResources()" class="member-name-link">getComputeResources</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns computeResources composition as an immutable list.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLocation()" class="member-name-link">getLocation</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="TransferPerformance.html" title="class in org.ivoa.dm.execution">TransferPerformance</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataTransferPerformance()" class="member-name-link">getDataTransferPerformance</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns location Attribute.</div>
+<div class="block">Returns dataTransferPerformance Attribute.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getResourcesServiceUrl()" class="member-name-link">getResourcesServiceUrl</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getExecutionServiceUrl()" class="member-name-link">getExecutionServiceUrl</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns executionServiceUrl Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLocation()" class="member-name-link">getLocation</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns location Reference</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getResourcesServiceUrl()" class="member-name-link">getResourcesServiceUrl</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns resourcesServiceUrl Attribute.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getXmlId()" class="member-name-link">getXmlId</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">getter for XMLID</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasNaturalKey()" class="member-name-link">hasNaturalKey</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeFromComputeResources(org.ivoa.dm.execution.ComputeResource)" class="member-name-link">removeFromComputeResources</a><wbr>(<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&nbsp;p)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Remove a org.ivoa.dm.execution.ComputeResource from the composition.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setExecutionServiceUrl(java.lang.String)" class="member-name-link">setExecutionServiceUrl</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pExecutionServiceUrl)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#replaceInComputeResources(org.ivoa.dm.execution.ComputeResource)" class="member-name-link">replaceInComputeResources</a><wbr>(<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&nbsp;_p)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Set executionServiceUrl Attribute.</div>
+<div class="block">update a org.ivoa.dm.execution.ComputeResource in the composition.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLocation(org.ivoa.dm.execution.PhysicalLocation)" class="member-name-link">setLocation</a><wbr>(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;pLocation)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setComputeResources(java.util.List)" class="member-name-link">setComputeResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&gt;&nbsp;pComputeResources)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Set location Attribute.</div>
+<div class="block">Defines whole computeResources composition.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setResourcesServiceUrl(java.lang.String)" class="member-name-link">setResourcesServiceUrl</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pResourcesServiceUrl)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDataTransferPerformance(org.ivoa.dm.execution.TransferPerformance)" class="member-name-link">setDataTransferPerformance</a><wbr>(<a href="TransferPerformance.html" title="class in org.ivoa.dm.execution">TransferPerformance</a>&nbsp;pDataTransferPerformance)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set dataTransferPerformance Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setExecutionServiceUrl(java.lang.String)" class="member-name-link">setExecutionServiceUrl</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pExecutionServiceUrl)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set executionServiceUrl Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLocation(org.ivoa.dm.execution.PhysicalLocation)" class="member-name-link">setLocation</a><wbr>(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;pLocation)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Defines location Reference</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setResourcesServiceUrl(java.lang.String)" class="member-name-link">setResourcesServiceUrl</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pResourcesServiceUrl)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set resourcesServiceUrl Attribute.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setXmlId(java.lang.String)" class="member-name-link">setXmlId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateUsing(org.ivoa.dm.execution.ExecutionNode)" class="member-name-link">updateUsing</a><wbr>(<a href="ExecutionNode.html" title="class in org.ivoa.dm.execution">ExecutionNode</a>&nbsp;other)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Update this object with the content of the given object.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ExecutionNode.html" title="class in org.ivoa.dm.execution">ExecutionNode</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withExecutionServiceUrl(java.lang.String)" class="member-name-link">withExecutionServiceUrl</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pExecutionServiceUrl)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withDataTransferPerformance(org.ivoa.dm.execution.TransferPerformance)" class="member-name-link">withDataTransferPerformance</a><wbr>(<a href="TransferPerformance.html" title="class in org.ivoa.dm.execution">TransferPerformance</a>&nbsp;pDataTransferPerformance)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">fluent setter for executionServiceUrl Attribute.</div>
+<div class="block">fluent setter for dataTransferPerformance Attribute.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ExecutionNode.html" title="class in org.ivoa.dm.execution">ExecutionNode</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withLocation(org.ivoa.dm.execution.PhysicalLocation)" class="member-name-link">withLocation</a><wbr>(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;pLocation)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withExecutionServiceUrl(java.lang.String)" class="member-name-link">withExecutionServiceUrl</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pExecutionServiceUrl)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">fluent setter for location Attribute.</div>
+<div class="block">fluent setter for executionServiceUrl Attribute.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ExecutionNode.html" title="class in org.ivoa.dm.execution">ExecutionNode</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withResourcesServiceUrl(java.lang.String)" class="member-name-link">withResourcesServiceUrl</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pResourcesServiceUrl)</code></div>
@@ -290,14 +349,44 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <section class="detail" id="location">
 <h3>location</h3>
 <div class="member-signature"><span class="annotations">@VoDml(id="execution:ExecutionNode.location",
-       role=composition,
+       role=reference,
        type="execution:PhysicalLocation",
        typeRole=objectType)
 </span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></span>&nbsp;<span class="element-name">location</span></div>
-<div class="block">the location of the node.
- composition location :
+<div class="block">ReferenceObject location :
+ the location of the node.
  (
  Multiplicity : 1
+ )</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dataTransferPerformance">
+<h3>dataTransferPerformance</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="execution:ExecutionNode.dataTransferPerformance",
+       role=composition,
+       type="execution:TransferPerformance",
+       typeRole=objectType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="TransferPerformance.html" title="class in org.ivoa.dm.execution">TransferPerformance</a></span>&nbsp;<span class="element-name">dataTransferPerformance</span></div>
+<div class="block">the performance of data transfer to/from the node.
+ composition dataTransferPerformance :
+ (
+ Multiplicity : 0..1
+ )</div>
+</section>
+</li>
+<li>
+<section class="detail" id="computeResources">
+<h3>computeResources</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="execution:ExecutionNode.computeResources",
+       role=composition,
+       type="execution:ComputeResource",
+       typeRole=objectType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&gt;</span>&nbsp;<span class="element-name">computeResources</span></div>
+<div class="block">the compute resources available at the node.
+ composition computeResources :
+ (
+ Multiplicity : 1..*
  )</div>
 </section>
 </li>
@@ -317,17 +406,21 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 </section>
 </li>
 <li>
-<section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,org.ivoa.dm.execution.PhysicalLocation)">
+<section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,org.ivoa.dm.execution.PhysicalLocation,org.ivoa.dm.execution.TransferPerformance,java.util.List)">
 <h3>ExecutionNode</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ExecutionNode</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;resourcesServiceUrl,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;executionServiceUrl,
- <a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;location)</span></div>
+ <a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;location,
+ <a href="TransferPerformance.html" title="class in org.ivoa.dm.execution">TransferPerformance</a>&nbsp;dataTransferPerformance,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&gt;&nbsp;computeResources)</span></div>
 <div class="block">full parameter constructor.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>resourcesServiceUrl</code> - the .</dd>
 <dd><code>executionServiceUrl</code> - .</dd>
 <dd><code>location</code> - the location of the node.</dd>
+<dd><code>dataTransferPerformance</code> - the performance of data transfer to/from the node.</dd>
+<dd><code>computeResources</code> - the compute resources available at the node.</dd>
 </dl>
 </section>
 </li>
@@ -359,6 +452,37 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <dd><code>getId</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></dd>
 <dt>Returns:</dt>
 <dd>the id</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getXmlId()">
+<h3>getXmlId</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getXmlId</span>()</div>
+<div class="block">getter for XMLID</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>getXmlId</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jaxb.XmlIdManagement</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setXmlId(java.lang.String)">
+<h3>setXmlId</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setXmlId</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>setXmlId</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jaxb.XmlIdManagement</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hasNaturalKey()">
+<h3>hasNaturalKey</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasNaturalKey</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>hasNaturalKey</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jaxb.XmlIdManagement</code></dd>
 </dl>
 </section>
 </li>
@@ -447,10 +571,10 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <section class="detail" id="getLocation()">
 <h3>getLocation</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></span>&nbsp;<span class="element-name">getLocation</span>()</div>
-<div class="block">Returns location Attribute.</div>
+<div class="block">Returns location Reference</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>location Attribute</dd>
+<dd>location Reference</dd>
 </dl>
 </section>
 </li>
@@ -458,23 +582,101 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <section class="detail" id="setLocation(org.ivoa.dm.execution.PhysicalLocation)">
 <h3>setLocation</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLocation</span><wbr><span class="parameters">(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;pLocation)</span></div>
-<div class="block">Set location Attribute.</div>
+<div class="block">Defines location Reference</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>pLocation</code> - value to set</dd>
+<dd><code>pLocation</code> - reference to set</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="withLocation(org.ivoa.dm.execution.PhysicalLocation)">
-<h3>withLocation</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ExecutionNode.html" title="class in org.ivoa.dm.execution">ExecutionNode</a></span>&nbsp;<span class="element-name">withLocation</span><wbr><span class="parameters">(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;pLocation)</span></div>
-<div class="block">fluent setter for location Attribute.</div>
+<section class="detail" id="getDataTransferPerformance()">
+<h3>getDataTransferPerformance</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="TransferPerformance.html" title="class in org.ivoa.dm.execution">TransferPerformance</a></span>&nbsp;<span class="element-name">getDataTransferPerformance</span>()</div>
+<div class="block">Returns dataTransferPerformance Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>dataTransferPerformance Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setDataTransferPerformance(org.ivoa.dm.execution.TransferPerformance)">
+<h3>setDataTransferPerformance</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDataTransferPerformance</span><wbr><span class="parameters">(<a href="TransferPerformance.html" title="class in org.ivoa.dm.execution">TransferPerformance</a>&nbsp;pDataTransferPerformance)</span></div>
+<div class="block">Set dataTransferPerformance Attribute.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>pLocation</code> - value to set</dd>
+<dd><code>pDataTransferPerformance</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withDataTransferPerformance(org.ivoa.dm.execution.TransferPerformance)">
+<h3>withDataTransferPerformance</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ExecutionNode.html" title="class in org.ivoa.dm.execution">ExecutionNode</a></span>&nbsp;<span class="element-name">withDataTransferPerformance</span><wbr><span class="parameters">(<a href="TransferPerformance.html" title="class in org.ivoa.dm.execution">TransferPerformance</a>&nbsp;pDataTransferPerformance)</span></div>
+<div class="block">fluent setter for dataTransferPerformance Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pDataTransferPerformance</code> - value to set</dd>
 <dt>Returns:</dt>
 <dd>ExecutionNode</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getComputeResources()">
+<h3>getComputeResources</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&gt;</span>&nbsp;<span class="element-name">getComputeResources</span>()</div>
+<div class="block">Returns computeResources composition as an immutable list.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>computeResources composition.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setComputeResources(java.util.List)">
+<h3>setComputeResources</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setComputeResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&gt;&nbsp;pComputeResources)</span></div>
+<div class="block">Defines whole computeResources composition.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pComputeResources</code> - composition to set.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="addToComputeResources(org.ivoa.dm.execution.ComputeResource)">
+<h3>addToComputeResources</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addToComputeResources</span><wbr><span class="parameters">(<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&nbsp;p)</span></div>
+<div class="block">Add a org.ivoa.dm.execution.ComputeResource to the composition.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>p</code> - org.ivoa.dm.execution.ComputeResource to add</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeFromComputeResources(org.ivoa.dm.execution.ComputeResource)">
+<h3>removeFromComputeResources</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeFromComputeResources</span><wbr><span class="parameters">(<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&nbsp;p)</span></div>
+<div class="block">Remove a org.ivoa.dm.execution.ComputeResource from the composition.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>p</code> - org.ivoa.dm.execution.ComputeResource to remove</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="replaceInComputeResources(org.ivoa.dm.execution.ComputeResource)">
+<h3>replaceInComputeResources</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">replaceInComputeResources</span><wbr><span class="parameters">(<a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a>&nbsp;_p)</span></div>
+<div class="block">update a org.ivoa.dm.execution.ComputeResource in the composition.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>_p</code> - org.ivoa.dm.execution.ComputeResource to update
+ the match is done via the database key</dd>
 </dl>
 </section>
 </li>

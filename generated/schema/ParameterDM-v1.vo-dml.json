@@ -18,7 +18,9 @@
         "content" : {
           "type" : "array",
           "items" : {
-            "anyOf" : [ ]
+            "anyOf" : [ {
+              "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ToolInterface"
+            } ]
           },
           "additionalProperties" : false
         }
@@ -28,27 +30,72 @@
   },
   "$defs" : {
     "$comment" : "placeholder to make commas easier!",
-    "BaseParameterType" : {
+    "ParameterType" : {
       "type" : "object",
-      "description" : "",
+      "description" : "The kind of the parameter",
       "properties" : {
         "$comment" : "placeholder to make commas easier!"
       },
       "required" : [ ],
+      "additionalProperties" : false
+    },
+    "FileParameterType" : {
+      "type" : "object",
+      "description" : "a parameter type that is a file",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier!",
+        "mime" : {
+          "type" : "string",
+          "description" : "mime type describing the file"
+        }
+      },
+      "required" : [ ],
+      "additionalProperties" : false
+    },
+    "AtomicParameterType" : {
+      "type" : "object",
+      "description" : "a parameterType that typically can be represented by primitive",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier!",
+        "kind" : {
+          "type" : "string",
+          "description" : "the type of the parameter"
+        }
+      },
+      "required" : [ "kind" ],
       "additionalProperties" : false
     },
     "ParameterSemantics" : {
       "type" : "object",
-      "description" : "",
+      "description" : "a base type for semantics",
       "properties" : {
-        "$comment" : "placeholder to make commas easier!"
+        "$comment" : "placeholder to make commas easier!",
+        "@type" : {
+          "type" : "string"
+        }
       },
-      "required" : [ ],
-      "additionalProperties" : false
+      "required" : [ "@type" ]
     },
-    "ParameterOrGroup" : {
+    "IVOASemantics" : {
+      "allOf" : [ {
+        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterSemantics"
+      }, {
+        "type" : "object",
+        "description" : "",
+        "properties" : {
+          "$comment" : "placeholder to make commas easier!",
+          "ucd" : {
+            "type" : "string",
+            "description" : "a UCD"
+          }
+        },
+        "required" : [ ]
+      } ],
+      "unevaluatedProperties" : false
+    },
+    "ParameterDefinition" : {
       "type" : "object",
-      "description" : "",
+      "description" : "the definition of a parameter",
       "properties" : {
         "$comment" : "placeholder to make commas easier",
         "@type" : {
@@ -57,58 +104,132 @@
         },
         "name" : {
           "type" : "string",
-          "description" : "the name of the parameter"
+          "description" : "Parameter name"
+        },
+        "description" : {
+          "type" : "string",
+          "description" : "Parameter description"
+        },
+        "kind" : {
+          "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterType",
+          "description" : "the type of the parameter"
+        },
+        "semantics" : {
+          "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterSemantics",
+          "description" : ""
         },
         "_id" : {
           "type" : "integer",
           "description" : "surrogate key"
         }
       },
-      "required" : [ "@type", "name" ]
-    },
-    "ParameterDefinition" : {
-      "allOf" : [ {
-        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterOrGroup"
-      }, {
-        "type" : "object",
-        "description" : "the definition of a parameter",
-        "properties" : {
-          "$comment" : "placeholder to make commas easier",
-          "description" : {
-            "type" : "string",
-            "description" : "Parameter description"
-          },
-          "kind" : {
-            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/BaseParameterType",
-            "description" : "the type of the parameter"
-          },
-          "semantics" : {
-            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterSemantics",
-            "description" : ""
-          }
-        },
-        "required" : [ "kind", "semantics" ]
-      } ],
-      "unevaluatedProperties" : false
+      "required" : [ "name", "kind" ],
+      "additionalProperties" : false
     },
     "ParameterGroup" : {
-      "allOf" : [ {
-        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterOrGroup"
-      }, {
-        "type" : "object",
-        "description" : "a group of parameter Definitions",
-        "properties" : {
-          "$comment" : "placeholder to make commas easier",
-          "params" : {
-            "type" : "array",
-            "items" : {
-              "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterDefinition"
-            }
+      "type" : "object",
+      "description" : "a group of parameter Definitions",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "name" : {
+          "type" : "string",
+          "description" : "Group name"
+        },
+        "members" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterOrGroup"
           }
         },
-        "required" : [ "params" ]
-      } ],
-      "unevaluatedProperties" : false
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ "name", "members" ],
+      "additionalProperties" : false
+    },
+    "ParameterOrGroup" : {
+      "type" : "object",
+      "description" : "a 'choice' type",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "param" : {
+          "oneOf" : [ {
+            "type" : "number"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterDefinition"
+          } ],
+          "description" : ""
+        },
+        "group" : {
+          "oneOf" : [ {
+            "type" : "number"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterGroup"
+          } ],
+          "description" : ""
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ ],
+      "additionalProperties" : false
+    },
+    "ToolInterface" : {
+      "type" : "object",
+      "description" : "The definition of the tool interface",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "parameters" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterDefinition"
+          }
+        },
+        "groups" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterGroup"
+          }
+        },
+        "input" : {
+          "oneOf" : [ {
+            "type" : "number"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterGroup"
+          } ],
+          "description" : "The group of of parameters that are required for tool execution - i.e. input"
+        },
+        "output" : {
+          "oneOf" : [ {
+            "type" : "number"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterGroup"
+          } ],
+          "description" : "The group of parameters that are produced by tool execution - i.e. output"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ ],
+      "additionalProperties" : false
     }
   }
 }

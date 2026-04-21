@@ -10,13 +10,13 @@
                 ,{
                 "ObjectTypes": [
 
-                {"DataResource" : "generated/execution/DataResource.md"},{"ExecutionNode" : "generated/execution/ExecutionNode.md"},{"PerformanceMetric" : "generated/execution/PerformanceMetric.md"},{"PerformanceProfile" : "generated/execution/PerformanceProfile.md"},{"PhysicalLocation" : "generated/execution/PhysicalLocation.md"},{"WorkLoad" : "generated/execution/WorkLoad.md"}
+                {"ComputeResource" : "generated/execution/ComputeResource.md"},{"DataNode" : "generated/execution/DataNode.md"},{"DataResource" : "generated/execution/DataResource.md"},{"ExecutionNode" : "generated/execution/ExecutionNode.md"},{"JobExecution" : "generated/execution/JobExecution.md"},{"ParameterValue" : "generated/execution/ParameterValue.md"},{"PerformanceMetric" : "generated/execution/PerformanceMetric.md"},{"PhysicalLocation" : "generated/execution/PhysicalLocation.md"},{"TransferPerformance" : "generated/execution/TransferPerformance.md"},{"WorkLoad" : "generated/execution/WorkLoad.md"}
                 ]
                 }
             
                 ,{
                 "Enumerations": [
-                {"job.ExecutionPhase" : "generated/execution/job.ExecutionPhase.md"}
+                {"ExecutionPhase" : "generated/execution/ExecutionPhase.md"}
                 ]
                 }
             

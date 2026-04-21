@@ -13,22 +13,34 @@ digraph GVmap {
       style=filled
       fillcolor="/set312/1"
 	  
-    "job" [
-
-    URL="../execution/job"
-    label = "job"
-    fillcolor="/set312/2"
-    ] ;
-    
 	}
 	
 	node [
 	shape=record
 	fontsize=8
 	style=filled] 
-    "execution:PhysicalLocation" [
+    
+  "pdl:ParameterDefinition" [
+    URL="not known#ParameterDefinition"
+    label = "{pdl:ParameterDefinition}"
+    fillcolor="grey"
+    ] ;
+      
+    
+  "tool:Tool" [
+    URL="not known#Tool"
+    label = "{tool:Tool}"
+    fillcolor="grey"
+    ] ;
+      
+    "execution:ExecutionPhase" [
+    URL="../execution/ExecutionPhase"
+    label = "{&lt;&lt;enumeration&gt;&gt;\nExecutionPhase|+PENDING\l+QUEUED\l+PREPARING\l+EXECUTING\l+FINALIZING\l+COMPLETED\l+ERROR\l+UNKNOWN\l+HELD\l+SUSPENDED\l+ABORTED\l+ARCHIVED\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "execution:PhysicalLocation" [
     URL="../execution/PhysicalLocation"
-    label = "{PhysicalLocation}"
+    label = "{PhysicalLocation|+name : ivoa:string\l+country : ivoa:string\l+longitude : ivoa:real\l+latitude : ivoa:real\l}"
     fillcolor="/set312/1"
     ] ;
   "execution:ExecutionNode" [
@@ -36,9 +48,24 @@ digraph GVmap {
     label = "{ExecutionNode|+resourcesServiceUrl : ivoa:anyURI\l+executionServiceUrl : ivoa:anyURI\l}"
     fillcolor="/set312/1"
     ] ;
+  "execution:ComputeResource" [
+    URL="../execution/ComputeResource"
+    label = "{ComputeResource|+name : ivoa:string\l+numberOfCores : ivoa:integer\l+memory : ivoa:real\l+gpu : ivoa:boolean\l+gpuType : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "execution:TransferPerformance" [
+    URL="../execution/TransferPerformance"
+    label = "{TransferPerformance|+throughput : ivoa:real\l+latency : ivoa:real\l+errorRate : ivoa:real\l+timestamp : ivoa:datetime\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "execution:DataNode" [
+    URL="../execution/DataNode"
+    label = "{DataNode|+storageServiceUrl : ivoa:anyURI\l}"
+    fillcolor="/set312/1"
+    ] ;
   "execution:DataResource" [
     URL="../execution/DataResource"
-    label = "{DataResource}"
+    label = "{DataResource|+size : ivoa:real\l+mimeType : ivoa:string\l+accessUrl : ivoa:anyURI\l}"
     fillcolor="/set312/1"
     ] ;
   "execution:WorkLoad" [
@@ -46,25 +73,39 @@ digraph GVmap {
     label = "{WorkLoad}"
     fillcolor="/set312/1"
     ] ;
+  "execution:ParameterValue" [
+    URL="../execution/ParameterValue"
+    label = "{ParameterValue|+value : ivoa:string\l+isIndirect : ivoa:boolean\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "execution:JobExecution" [
+    URL="../execution/JobExecution"
+    label = "{JobExecution|+id : ivoa:string\l+runId : ivoa:string\l+ownerID : ivoa:string\l+status : execution:ExecutionPhase\l+creationTime : ivoa:datetime\l+startTime : ivoa:datetime\l+endTime : ivoa:datetime\l+destructionTime : ivoa:datetime\l}"
+    fillcolor="/set312/1"
+    ] ;
   "execution:PerformanceMetric" [
     URL="../execution/PerformanceMetric"
     label = "{PerformanceMetric}"
     fillcolor="/set312/1"
     ] ;
-  "execution:PerformanceProfile" [
-    URL="../execution/PerformanceProfile"
-    label = "{PerformanceProfile}"
-    fillcolor="/set312/1"
-    ] ;
-  "execution:job.ExecutionPhase" [
-    URL="../execution/job.ExecutionPhase"
-    label = "{&lt;&lt;enumeration&gt;&gt;\njob/ExecutionPhase|+PENDING\l+QUEUED\l+PREPARING\l+EXECUTING\l+FINALIZING\l+COMPLETED\l+ERROR\l+UNKNOWN\l+HELD\l+SUSPENDED\l+ABORTED\l+ARCHIVED\l}"
-    fillcolor="/set312/2"
-    ] ;
   
  
     edge [color="blue", arrowhead="open", arrowtail="diamond",dir="both",fontsize="10"]
+    "execution:ExecutionNode" -> "execution:TransferPerformance" [headlabel="0..1",label="dataTransferPerformance",labelfontsize=10] ;
+  "execution:ExecutionNode" -> "execution:ComputeResource" [headlabel="1..*",label="computeResources",labelfontsize=10] ;
+  "execution:JobExecution" -> "execution:ParameterValue" [headlabel="0..*",label="inputs",labelfontsize=10] ;
+  "execution:JobExecution" -> "execution:ParameterValue" [headlabel="0..*",label="outputs",labelfontsize=10] ;
+  "execution:JobExecution" -> "execution:PerformanceMetric" [headlabel="0..*",label="performanceMetrics",labelfontsize=10] ;
+  
+ 
+    edge [color="green", arrowhead="open", arrowtail="none"]
     "execution:ExecutionNode" -> "execution:PhysicalLocation" [headlabel="1",label="location",labelfontsize=10] ;
+  "execution:TransferPerformance" -> "execution:PhysicalLocation" [headlabel="1",label="fromLocation",labelfontsize=10] ;
+  "execution:DataNode" -> "execution:PhysicalLocation" [headlabel="1",label="location",labelfontsize=10] ;
+  "execution:DataResource" -> "execution:PhysicalLocation" [headlabel="1",label="location",labelfontsize=10] ;
+  "execution:ParameterValue" -> "pdl:ParameterDefinition" [headlabel="1",label="definition",labelfontsize=10] ;
+  "execution:JobExecution" -> "tool:Tool" [headlabel="1",label="tool",labelfontsize=10] ;
+  "execution:JobExecution" -> "execution:ExecutionNode" [headlabel="1",label="executionNode",labelfontsize=10] ;
     
 }
   

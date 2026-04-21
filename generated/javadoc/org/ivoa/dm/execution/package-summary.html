@@ -15,7 +15,11 @@
 <script type="text/javascript" src="../../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="package-declaration-page">
-<script type="text/javascript">var pathtoroot = "../../../../";
+<script type="text/javascript">var evenRowColor = "even-row-color";
+var oddRowColor = "odd-row-color";
+var tableTab = "table-tab";
+var activeTableTab = "active-table-tab";
+var pathtoroot = "../../../../";
 loadScripts(document, 'script');</script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
@@ -40,7 +44,7 @@ loadScripts(document, 'script');</script>
 <ul class="sub-nav-list">
 <li>Package:&nbsp;</li>
 <li><a href="#package-description">Description</a>&nbsp;|&nbsp;</li>
-<li><a href="#related-package-summary">Related Packages</a>&nbsp;|&nbsp;</li>
+<li>Related Packages&nbsp;|&nbsp;</li>
 <li><a href="#class-summary">Classes and Interfaces</a></li>
 </ul>
 </div>
@@ -66,24 +70,28 @@ loadScripts(document, 'script');</script>
 <section class="summary">
 <ul class="summary-list">
 <li>
-<div id="related-package-summary">
-<div class="caption"><span>Related Packages</span></div>
-<div class="summary-table two-column-summary">
-<div class="table-header col-first">Package</div>
-<div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><a href="job/package-summary.html">org.ivoa.dm.execution.job</a></div>
-<div class="col-last even-row-color">
-<div class="block">package job.</div>
-</div>
-</div>
-</div>
-</li>
-<li>
 <div id="class-summary">
-<div class="caption"><span>Classes</span></div>
-<div class="summary-table two-column-summary">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="class-summary-tab0" role="tab" aria-selected="true" aria-controls="class-summary.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary', 2)" class="active-table-tab">All Classes and Interfaces</button><button id="class-summary-tab2" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab2', 2)" class="table-tab">Classes</button><button id="class-summary-tab3" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab3', 2)" class="table-tab">Enum Classes</button></div>
+<div id="class-summary.tabpanel" role="tabpanel">
+<div class="summary-table two-column-summary" aria-labelledby="class-summary-tab0">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ComputeResource.html" title="class in org.ivoa.dm.execution">ComputeResource</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A computational resource that can be used for executing a job.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ComputeResource.ComputeResourceBuilder.html" title="class in org.ivoa.dm.execution">ComputeResource.ComputeResourceBuilder</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">A builder class for ComputeResource, mainly for use in the functional builder pattern.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="DataNode.html" title="class in org.ivoa.dm.execution">DataNode</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A Node where data can be stored.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="DataNode.DataNodeBuilder.html" title="class in org.ivoa.dm.execution">DataNode.DataNodeBuilder</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">A builder class for DataNode, mainly for use in the functional builder pattern.</div>
+</div>
 <div class="col-first even-row-color class-summary class-summary-tab2"><a href="DataResource.html" title="class in org.ivoa.dm.execution">DataResource</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A data resource that can be used as input or output for a job.</div>
@@ -108,37 +116,58 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A builder class for ExecutionNode, mainly for use in the functional builder pattern.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="PerformanceMetric.html" title="class in org.ivoa.dm.execution">PerformanceMetric</a></div>
+<div class="col-first even-row-color class-summary class-summary-tab3"><a href="ExecutionPhase.html" title="enum class in org.ivoa.dm.execution">ExecutionPhase</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab3">
+<div class="block">Enumeration of possible phases of job execution.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="JobExecution.html" title="class in org.ivoa.dm.execution">JobExecution</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">the execution of a job on a computational resource.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="JobExecution.JobExecutionBuilder.html" title="class in org.ivoa.dm.execution">JobExecution.JobExecutionBuilder</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A builder class for JobExecution, mainly for use in the functional builder pattern.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ParameterValue.html" title="class in org.ivoa.dm.execution">ParameterValue</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">the value of a parameter for a job execution.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ParameterValue.ParameterValueBuilder.html" title="class in org.ivoa.dm.execution">ParameterValue.ParameterValueBuilder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A builder class for ParameterValue, mainly for use in the functional builder pattern.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="PerformanceMetric.html" title="class in org.ivoa.dm.execution">PerformanceMetric</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A performance metric for a job execution.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="PerformanceMetric.PerformanceMetricBuilder.html" title="class in org.ivoa.dm.execution">PerformanceMetric.PerformanceMetricBuilder</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="PerformanceMetric.PerformanceMetricBuilder.html" title="class in org.ivoa.dm.execution">PerformanceMetric.PerformanceMetricBuilder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A builder class for PerformanceMetric, mainly for use in the functional builder pattern.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="PerformanceProfile.html" title="class in org.ivoa.dm.execution">PerformanceProfile</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
-<div class="block">A performance profile for Tool execution.</div>
-</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="PerformanceProfile.PerformanceProfileBuilder.html" title="class in org.ivoa.dm.execution">PerformanceProfile.PerformanceProfileBuilder</a></div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></div>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
-<div class="block">A builder class for PerformanceProfile, mainly for use in the functional builder pattern.</div>
-</div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">The physical location of a resource.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="PhysicalLocation.PhysicalLocationBuilder.html" title="class in org.ivoa.dm.execution">PhysicalLocation.PhysicalLocationBuilder</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="PhysicalLocation.PhysicalLocationBuilder.html" title="class in org.ivoa.dm.execution">PhysicalLocation.PhysicalLocationBuilder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A builder class for PhysicalLocation, mainly for use in the functional builder pattern.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="WorkLoad.html" title="class in org.ivoa.dm.execution">WorkLoad</a></div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="TransferPerformance.html" title="class in org.ivoa.dm.execution">TransferPerformance</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">Performance of data transfer to/from a node.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="TransferPerformance.TransferPerformanceBuilder.html" title="class in org.ivoa.dm.execution">TransferPerformance.TransferPerformanceBuilder</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A builder class for TransferPerformance, mainly for use in the functional builder pattern.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="WorkLoad.html" title="class in org.ivoa.dm.execution">WorkLoad</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">the execution workload.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="WorkLoad.WorkLoadBuilder.html" title="class in org.ivoa.dm.execution">WorkLoad.WorkLoadBuilder</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="WorkLoad.WorkLoadBuilder.html" title="class in org.ivoa.dm.execution">WorkLoad.WorkLoadBuilder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A builder class for WorkLoad, mainly for use in the functional builder pattern.</div>
+</div>
 </div>
 </div>
 </div>

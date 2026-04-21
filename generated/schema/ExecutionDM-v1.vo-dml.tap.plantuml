@@ -14,7 +14,11 @@ entity "execution.PhysicalLocation" as execution.PhysicalLocation {
 
 ---
 
-    
+    name : VARCHAR
+country : VARCHAR
+longitude : DOUBLE
+latitude : DOUBLE
+
 }
 
 entity "execution.ExecutionNode" as execution.ExecutionNode {
@@ -25,6 +29,59 @@ entity "execution.ExecutionNode" as execution.ExecutionNode {
 
     resourcesServiceUrl : VARCHAR
 executionServiceUrl : VARCHAR
+location : BIGINT
+
+---
+      location : BIGINT<<FK>>
+
+}
+
+entity "execution.ComputeResource" as execution.ComputeResource {
+
+    ID : BIGINT
+
+---
+
+    EXECUTIONNODE_ID : BIGINT
+name : VARCHAR
+numberOfCores : INTEGER
+memory : DOUBLE
+gpu : INTEGER
+gpuType : VARCHAR
+
+---
+      EXECUTIONNODE_ID : BIGINT<<FK>>
+
+}
+
+entity "execution.TransferPerformance" as execution.TransferPerformance {
+
+    ID : BIGINT
+
+---
+
+    fromLocation : BIGINT
+throughput : DOUBLE
+latency : DOUBLE
+errorRate : DOUBLE
+timestamp : TIMESTAMP
+
+---
+      fromLocation : BIGINT<<FK>>
+
+}
+
+entity "execution.DataNode" as execution.DataNode {
+
+    ID : BIGINT
+
+---
+
+    storageServiceUrl : VARCHAR
+location : BIGINT
+
+---
+      location : BIGINT<<FK>>
 
 }
 
@@ -34,7 +91,14 @@ entity "execution.DataResource" as execution.DataResource {
 
 ---
 
-    
+    location : BIGINT
+size : DOUBLE
+mimeType : VARCHAR
+accessUrl : VARCHAR
+
+---
+      location : BIGINT<<FK>>
+
 }
 
 entity "execution.WorkLoad" as execution.WorkLoad {
@@ -46,22 +110,58 @@ entity "execution.WorkLoad" as execution.WorkLoad {
     
 }
 
+entity "execution.ParameterValue" as execution.ParameterValue {
+
+    ID : BIGINT
+
+---
+
+    id : VARCHAR
+id : VARCHAR
+definition : BIGINT
+value : VARCHAR
+isIndirect : INTEGER
+
+---
+      definition : BIGINT<<FK>>
+id : VARCHAR<<FK>>
+id : VARCHAR<<FK>>
+
+}
+
+entity "execution.JobExecution" as execution.JobExecution {
+
+    id : VARCHAR
+
+---
+
+    runId : VARCHAR
+ownerID : VARCHAR
+tool : VARCHAR
+status : VARCHAR
+executionNode : BIGINT
+creationTime : TIMESTAMP
+startTime : TIMESTAMP
+endTime : TIMESTAMP
+destructionTime : TIMESTAMP
+
+---
+      tool : VARCHAR<<FK>>
+executionNode : BIGINT<<FK>>
+
+}
+
 entity "execution.PerformanceMetric" as execution.PerformanceMetric {
 
     ID : BIGINT
 
 ---
 
-    
-}
-
-entity "execution.PerformanceProfile" as execution.PerformanceProfile {
-
-    ID : BIGINT
+    id : VARCHAR
 
 ---
+      id : VARCHAR<<FK>>
 
-    
 }
 
 entity "tool.Author" as tool.Author {
@@ -70,17 +170,13 @@ entity "tool.Author" as tool.Author {
 
 ---
 
-    DISCOVERY_ID : BIGINT
-name : VARCHAR
+    name : VARCHAR
 email : VARCHAR
 role : VARCHAR
 github : VARCHAR
 gitlab : VARCHAR
 orcid : VARCHAR
 affiliation : VARCHAR
-
----
-      DISCOVERY_ID : BIGINT<<FK>>
 
 }
 
@@ -109,12 +205,17 @@ documentation : VARCHAR
 version : VARCHAR
 revision : VARCHAR
 created : TIMESTAMP
+authors : BIGINT
 licenses : VARCHAR
 keywords : VARCHAR
 domain : VARCHAR
 kind : VARCHAR
 tools : VARCHAR
+isBase : INTEGER
 deprecated : INTEGER
+
+---
+      authors : BIGINT<<FK>>
 
 }
 
@@ -133,6 +234,43 @@ value : VARCHAR
 
 }
 
+entity "tool.Vulnerability" as tool.Vulnerability {
+
+    ID : BIGINT
+
+---
+
+    SECURITYMETADATA_ID : BIGINT
+cve : VARCHAR
+
+---
+      SECURITYMETADATA_ID : BIGINT<<FK>>
+
+}
+
+entity "tool.Compliance" as tool.Compliance {
+
+    ID : BIGINT
+
+---
+
+    SECURITYMETADATA_ID : BIGINT
+
+---
+      SECURITYMETADATA_ID : BIGINT<<FK>>
+
+}
+
+entity "tool.SecurityMetadata" as tool.SecurityMetadata {
+
+    ID : BIGINT
+
+---
+
+    signature : VARCHAR
+
+}
+
 entity "tool.ToolImage" as tool.ToolImage {
 
     ID : BIGINT
@@ -140,9 +278,11 @@ entity "tool.ToolImage" as tool.ToolImage {
 ---
 
     registry : BIGINT
+parentImage : BIGINT
 
 ---
       registry : BIGINT<<FK>>
+parentImage : BIGINT<<FK>>
 
 }
 
@@ -152,16 +292,10 @@ entity "tool.BuildProcess" as tool.BuildProcess {
 
 ---
 
-    
-}
+    buildCommand : VARCHAR
+buildContext : VARCHAR
+dockerfilePath : VARCHAR
 
-entity "tool.ToolInterface" as tool.ToolInterface {
-
-    ID : BIGINT
-
----
-
-    
 }
 
 entity "tool.Tool" as tool.Tool {
@@ -178,20 +312,31 @@ command : VARCHAR
 
 }
 
-entity "pdl.ParameterOrGroup" as pdl.ParameterOrGroup {
+entity "tool.PerformanceProfile" as tool.PerformanceProfile {
 
     ID : BIGINT
 
 ---
 
-    id : VARCHAR
-id : VARCHAR
-name : VARCHAR
+    
+}
+
+entity "tool.ProcessorScaling" as tool.ProcessorScaling {
+
+    ID : BIGINT
 
 ---
-      id : VARCHAR<<FK>>
-id : VARCHAR<<FK>>
 
+    
+}
+
+entity "tool.DataScaling" as tool.DataScaling {
+
+    ID : BIGINT
+
+---
+
+    
 }
 
 entity "pdl.ParameterDefinition" as pdl.ParameterDefinition {
@@ -200,14 +345,14 @@ entity "pdl.ParameterDefinition" as pdl.ParameterDefinition {
 
 ---
 
-    PARAMETERGROUP_ID : BIGINT
+    TOOLINTERFACE_ID : BIGINT
+name : VARCHAR
 description : VARCHAR
 kind : UNKNOWN
-semantics : UNKNOWN
+semantics_ucd : VARCHAR
 
 ---
-      PARAMETERGROUP_ID : BIGINT<<FK>>
-ID : BIGINT<<FK>>
+      TOOLINTERFACE_ID : BIGINT<<FK>>
 
 }
 
@@ -218,24 +363,71 @@ entity "pdl.ParameterGroup" as pdl.ParameterGroup {
 ---
 
     TOOLINTERFACE_ID : BIGINT
+name : VARCHAR
 
 ---
       TOOLINTERFACE_ID : BIGINT<<FK>>
-ID : BIGINT<<FK>>
+
+}
+
+entity "pdl.ParameterOrGroup" as pdl.ParameterOrGroup {
+
+    ID : BIGINT
+
+---
+
+    PARAMETERGROUP_ID : BIGINT
+param : BIGINT
+group : BIGINT
+
+---
+      param : BIGINT<<FK>>
+group : BIGINT<<FK>>
+PARAMETERGROUP_ID : BIGINT<<FK>>
+
+}
+
+entity "pdl.ToolInterface" as pdl.ToolInterface {
+
+    ID : BIGINT
+
+---
+
+    input : BIGINT
+output : BIGINT
+
+---
+      input : BIGINT<<FK>>
+output : BIGINT<<FK>>
 
 }
 
 
-        tool.Author }o--||tool.Discovery
+        execution.ExecutionNode }o--||execution.PhysicalLocation
+execution.ComputeResource }o--||execution.ExecutionNode
+execution.TransferPerformance }o--||execution.PhysicalLocation
+execution.DataNode }o--||execution.PhysicalLocation
+execution.DataResource }o--||execution.PhysicalLocation
+execution.ParameterValue }o--||pdl.ParameterDefinition
+execution.ParameterValue }o--||execution.JobExecution
+execution.ParameterValue }o--||execution.JobExecution
+execution.JobExecution }o--||tool.Tool
+execution.JobExecution }o--||execution.ExecutionNode
+execution.PerformanceMetric }o--||execution.JobExecution
+tool.Discovery }o--||tool.Author
 tool.EnvVar }o--||tool.Tool
+tool.Vulnerability }o--||tool.SecurityMetadata
+tool.Compliance }o--||tool.SecurityMetadata
 tool.ToolImage }o--||tool.OCIRegistry
+tool.ToolImage }o--||tool.ToolImage
 tool.Tool }o--||tool.ToolImage
-pdl.ParameterOrGroup }o--||tool.Tool
-pdl.ParameterOrGroup }o--||tool.Tool
-pdl.ParameterDefinition }o--||pdl.ParameterGroup
-pdl.ParameterDefinition }o--||pdl.ParameterOrGroup
-pdl.ParameterGroup }o--||tool.ToolInterface
-pdl.ParameterGroup }o--||pdl.ParameterOrGroup
+pdl.ParameterDefinition }o--||pdl.ToolInterface
+pdl.ParameterGroup }o--||pdl.ToolInterface
+pdl.ParameterOrGroup }o--||pdl.ParameterDefinition
+pdl.ParameterOrGroup }o--||pdl.ParameterGroup
+pdl.ParameterOrGroup }o--||pdl.ParameterGroup
+pdl.ToolInterface }o--||pdl.ParameterGroup
+pdl.ToolInterface }o--||pdl.ParameterGroup
 
 
 

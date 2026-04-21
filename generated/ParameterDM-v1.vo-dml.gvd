@@ -19,9 +19,19 @@ digraph GVmap {
 	shape=record
 	fontsize=8
 	style=filled] 
-    "pdl:BaseParameterType" [
-    URL="../pdl/BaseParameterType"
-    label = "{&lt;&lt;datatype&gt;&gt;\nBaseParameterType}"
+    "pdl:ParameterType" [
+    URL="../pdl/ParameterType"
+    label = "{&lt;&lt;datatype&gt;&gt;\nParameterType}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:FileParameterType" [
+    URL="../pdl/FileParameterType"
+    label = "{&lt;&lt;datatype&gt;&gt;\nFileParameterType|+mime : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:AtomicParameterType" [
+    URL="../pdl/AtomicParameterType"
+    label = "{&lt;&lt;datatype&gt;&gt;\nAtomicParameterType|+kind : ivoa:string\l}"
     fillcolor="/set312/1"
     ] ;
   "pdl:ParameterSemantics" [
@@ -29,30 +39,48 @@ digraph GVmap {
     label = "{&lt;&lt;datatype&gt;&gt;\nParameterSemantics}"
     fillcolor="/set312/1"
     ] ;
-  "pdl:ParameterOrGroup" [
-    URL="../pdl/ParameterOrGroup"
-    label = "{ParameterOrGroup|+name : ivoa:string\l}"
+  "pdl:IVOASemantics" [
+    URL="../pdl/IVOASemantics"
+    label = "{&lt;&lt;datatype&gt;&gt;\nIVOASemantics|+ucd : ivoa:string\l}"
     fillcolor="/set312/1"
     ] ;
   "pdl:ParameterDefinition" [
     URL="../pdl/ParameterDefinition"
-    label = "{ParameterDefinition|+description : ivoa:string\l+kind : pdl:BaseParameterType\l+semantics : pdl:ParameterSemantics\l}"
+    label = "{ParameterDefinition|+name : ivoa:string\l+description : ivoa:string\l+kind : pdl:ParameterType\l+semantics : pdl:ParameterSemantics\l}"
     fillcolor="/set312/1"
     ] ;
   "pdl:ParameterGroup" [
     URL="../pdl/ParameterGroup"
-    label = "{ParameterGroup}"
+    label = "{ParameterGroup|+name : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:ParameterOrGroup" [
+    URL="../pdl/ParameterOrGroup"
+    label = "{ParameterOrGroup}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:ToolInterface" [
+    URL="../pdl/ToolInterface"
+    label = "{ToolInterface}"
     fillcolor="/set312/1"
     ] ;
   
  
     edge [color="red", arrowtail="none", arrowhead="empty"]
-    "pdl:ParameterDefinition" -> "pdl:ParameterOrGroup" ;
-  "pdl:ParameterGroup" -> "pdl:ParameterOrGroup" ;
+    "pdl:IVOASemantics" -> "pdl:ParameterSemantics" ;
   
  
     edge [color="blue", arrowhead="open", arrowtail="diamond",dir="both",fontsize="10"]
-    "pdl:ParameterGroup" -> "pdl:ParameterDefinition" [headlabel="1..*",label="params",labelfontsize=10] ;
+    "pdl:ParameterGroup" -> "pdl:ParameterOrGroup" [headlabel="1..*",label="members",labelfontsize=10] ;
+  "pdl:ToolInterface" -> "pdl:ParameterDefinition" [headlabel="0..*",label="parameters",labelfontsize=10] ;
+  "pdl:ToolInterface" -> "pdl:ParameterGroup" [headlabel="0..*",label="groups",labelfontsize=10] ;
+  
+ 
+    edge [color="green", arrowhead="open", arrowtail="none"]
+    "pdl:ParameterOrGroup" -> "pdl:ParameterDefinition" [headlabel="0..1",label="param",labelfontsize=10] ;
+  "pdl:ParameterOrGroup" -> "pdl:ParameterGroup" [headlabel="0..1",label="group",labelfontsize=10] ;
+  "pdl:ToolInterface" -> "pdl:ParameterGroup" [headlabel="0..1",label="input",labelfontsize=10] ;
+  "pdl:ToolInterface" -> "pdl:ParameterGroup" [headlabel="0..1",label="output",labelfontsize=10] ;
     
 }
   

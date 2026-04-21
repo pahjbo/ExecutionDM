@@ -14,17 +14,13 @@ entity "tool.Author" as tool.Author {
 
 ---
 
-    DISCOVERY_ID : BIGINT
-name : VARCHAR
+    name : VARCHAR
 email : VARCHAR
 role : VARCHAR
 github : VARCHAR
 gitlab : VARCHAR
 orcid : VARCHAR
 affiliation : VARCHAR
-
----
-      DISCOVERY_ID : BIGINT<<FK>>
 
 }
 
@@ -53,12 +49,17 @@ documentation : VARCHAR
 version : VARCHAR
 revision : VARCHAR
 created : TIMESTAMP
+authors : BIGINT
 licenses : VARCHAR
 keywords : VARCHAR
 domain : VARCHAR
 kind : VARCHAR
 tools : VARCHAR
+isBase : INTEGER
 deprecated : INTEGER
+
+---
+      authors : BIGINT<<FK>>
 
 }
 
@@ -77,6 +78,43 @@ value : VARCHAR
 
 }
 
+entity "tool.Vulnerability" as tool.Vulnerability {
+
+    ID : BIGINT
+
+---
+
+    SECURITYMETADATA_ID : BIGINT
+cve : VARCHAR
+
+---
+      SECURITYMETADATA_ID : BIGINT<<FK>>
+
+}
+
+entity "tool.Compliance" as tool.Compliance {
+
+    ID : BIGINT
+
+---
+
+    SECURITYMETADATA_ID : BIGINT
+
+---
+      SECURITYMETADATA_ID : BIGINT<<FK>>
+
+}
+
+entity "tool.SecurityMetadata" as tool.SecurityMetadata {
+
+    ID : BIGINT
+
+---
+
+    signature : VARCHAR
+
+}
+
 entity "tool.ToolImage" as tool.ToolImage {
 
     ID : BIGINT
@@ -84,9 +122,11 @@ entity "tool.ToolImage" as tool.ToolImage {
 ---
 
     registry : BIGINT
+parentImage : BIGINT
 
 ---
       registry : BIGINT<<FK>>
+parentImage : BIGINT<<FK>>
 
 }
 
@@ -96,16 +136,10 @@ entity "tool.BuildProcess" as tool.BuildProcess {
 
 ---
 
-    
-}
+    buildCommand : VARCHAR
+buildContext : VARCHAR
+dockerfilePath : VARCHAR
 
-entity "tool.ToolInterface" as tool.ToolInterface {
-
-    ID : BIGINT
-
----
-
-    
 }
 
 entity "tool.Tool" as tool.Tool {
@@ -122,20 +156,31 @@ command : VARCHAR
 
 }
 
-entity "pdl.ParameterOrGroup" as pdl.ParameterOrGroup {
+entity "tool.PerformanceProfile" as tool.PerformanceProfile {
 
     ID : BIGINT
 
 ---
 
-    id : VARCHAR
-id : VARCHAR
-name : VARCHAR
+    
+}
+
+entity "tool.ProcessorScaling" as tool.ProcessorScaling {
+
+    ID : BIGINT
 
 ---
-      id : VARCHAR<<FK>>
-id : VARCHAR<<FK>>
 
+    
+}
+
+entity "tool.DataScaling" as tool.DataScaling {
+
+    ID : BIGINT
+
+---
+
+    
 }
 
 entity "pdl.ParameterDefinition" as pdl.ParameterDefinition {
@@ -144,14 +189,14 @@ entity "pdl.ParameterDefinition" as pdl.ParameterDefinition {
 
 ---
 
-    PARAMETERGROUP_ID : BIGINT
+    TOOLINTERFACE_ID : BIGINT
+name : VARCHAR
 description : VARCHAR
 kind : UNKNOWN
-semantics : UNKNOWN
+semantics_ucd : VARCHAR
 
 ---
-      PARAMETERGROUP_ID : BIGINT<<FK>>
-ID : BIGINT<<FK>>
+      TOOLINTERFACE_ID : BIGINT<<FK>>
 
 }
 
@@ -162,24 +207,60 @@ entity "pdl.ParameterGroup" as pdl.ParameterGroup {
 ---
 
     TOOLINTERFACE_ID : BIGINT
+name : VARCHAR
 
 ---
       TOOLINTERFACE_ID : BIGINT<<FK>>
-ID : BIGINT<<FK>>
+
+}
+
+entity "pdl.ParameterOrGroup" as pdl.ParameterOrGroup {
+
+    ID : BIGINT
+
+---
+
+    PARAMETERGROUP_ID : BIGINT
+param : BIGINT
+group : BIGINT
+
+---
+      param : BIGINT<<FK>>
+group : BIGINT<<FK>>
+PARAMETERGROUP_ID : BIGINT<<FK>>
+
+}
+
+entity "pdl.ToolInterface" as pdl.ToolInterface {
+
+    ID : BIGINT
+
+---
+
+    input : BIGINT
+output : BIGINT
+
+---
+      input : BIGINT<<FK>>
+output : BIGINT<<FK>>
 
 }
 
 
-        tool.Author }o--||tool.Discovery
+        tool.Discovery }o--||tool.Author
 tool.EnvVar }o--||tool.Tool
+tool.Vulnerability }o--||tool.SecurityMetadata
+tool.Compliance }o--||tool.SecurityMetadata
 tool.ToolImage }o--||tool.OCIRegistry
+tool.ToolImage }o--||tool.ToolImage
 tool.Tool }o--||tool.ToolImage
-pdl.ParameterOrGroup }o--||tool.Tool
-pdl.ParameterOrGroup }o--||tool.Tool
-pdl.ParameterDefinition }o--||pdl.ParameterGroup
-pdl.ParameterDefinition }o--||pdl.ParameterOrGroup
-pdl.ParameterGroup }o--||tool.ToolInterface
-pdl.ParameterGroup }o--||pdl.ParameterOrGroup
+pdl.ParameterDefinition }o--||pdl.ToolInterface
+pdl.ParameterGroup }o--||pdl.ToolInterface
+pdl.ParameterOrGroup }o--||pdl.ParameterDefinition
+pdl.ParameterOrGroup }o--||pdl.ParameterGroup
+pdl.ParameterOrGroup }o--||pdl.ParameterGroup
+pdl.ToolInterface }o--||pdl.ParameterGroup
+pdl.ToolInterface }o--||pdl.ParameterGroup
 
 
 

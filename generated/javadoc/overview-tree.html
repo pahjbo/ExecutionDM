@@ -51,10 +51,8 @@ loadScripts(document, 'script');</script>
 <span class="package-hierarchy-label">Package Hierarchies:</span>
 <ul class="horizontal">
 <li><a href="org/ivoa/dm/execution/package-tree.html">org.ivoa.dm.execution</a>, </li>
-<li><a href="org/ivoa/dm/execution/job/package-tree.html">org.ivoa.dm.execution.job</a>, </li>
 <li><a href="org/ivoa/dm/pdl/package-tree.html">org.ivoa.dm.pdl</a>, </li>
-<li><a href="org/ivoa/dm/tool/package-tree.html">org.ivoa.dm.tool</a>, </li>
-<li><a href="org/ivoa/dm/tool/tool/package-tree.html">org.ivoa.dm.tool.tool</a></li>
+<li><a href="org/ivoa/dm/tool/package-tree.html">org.ivoa.dm.tool</a></li>
 </ul>
 </div>
 <section class="hierarchy">
@@ -62,48 +60,75 @@ loadScripts(document, 'script');</script>
 <ul>
 <li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" class="type-name-link external-link" title="class or interface in java.lang">Object</a>
 <ul>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/Author.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">Author</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/Author.AuthorBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">Author.AuthorBuilder</a></li>
-<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/BaseParameterType.html" class="type-name-link" title="class in org.ivoa.dm.pdl">BaseParameterType</a> (implements org.ivoa.vodml.jpa.JPAManipulations)</li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/BuildProcess.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">BuildProcess</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/BuildProcess.BuildProcessBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">BuildProcess.BuildProcessBuilder</a></li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/AtomicParameterType.html" class="type-name-link" title="class in org.ivoa.dm.pdl">AtomicParameterType</a> (implements org.ivoa.vodml.jpa.JPAManipulations)</li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/AtomicParameterType.AtomicParameterTypeBuilder.html" class="type-name-link" title="class in org.ivoa.dm.pdl">AtomicParameterType.AtomicParameterTypeBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/Author.html" class="type-name-link" title="class in org.ivoa.dm.tool">Author</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;, org.ivoa.vodml.jaxb.XmlIdManagement)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/Author.AuthorBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">Author.AuthorBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/BuildProcess.html" class="type-name-link" title="class in org.ivoa.dm.tool">BuildProcess</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/BuildProcess.BuildProcessBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">BuildProcess.BuildProcessBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/Compliance.html" class="type-name-link" title="class in org.ivoa.dm.tool">Compliance</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/Compliance.ComplianceBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">Compliance.ComplianceBuilder</a></li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/ComputeResource.html" class="type-name-link" title="class in org.ivoa.dm.execution">ComputeResource</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/ComputeResource.ComputeResourceBuilder.html" class="type-name-link" title="class in org.ivoa.dm.execution">ComputeResource.ComputeResourceBuilder</a></li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/DataNode.html" class="type-name-link" title="class in org.ivoa.dm.execution">DataNode</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/DataNode.DataNodeBuilder.html" class="type-name-link" title="class in org.ivoa.dm.execution">DataNode.DataNodeBuilder</a></li>
 <li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/DataResource.html" class="type-name-link" title="class in org.ivoa.dm.execution">DataResource</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
 <li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/DataResource.DataResourceBuilder.html" class="type-name-link" title="class in org.ivoa.dm.execution">DataResource.DataResourceBuilder</a></li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/Discovery.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">Discovery</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/Discovery.DiscoveryBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">Discovery.DiscoveryBuilder</a></li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/EnvVar.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">EnvVar</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/EnvVar.EnvVarBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">EnvVar.EnvVarBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/DataScaling.html" class="type-name-link" title="class in org.ivoa.dm.tool">DataScaling</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/DataScaling.DataScalingBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">DataScaling.DataScalingBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/Discovery.html" class="type-name-link" title="class in org.ivoa.dm.tool">Discovery</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/Discovery.DiscoveryBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">Discovery.DiscoveryBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/EnvVar.html" class="type-name-link" title="class in org.ivoa.dm.tool">EnvVar</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/EnvVar.EnvVarBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">EnvVar.EnvVarBuilder</a></li>
 <li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/ExecutionModel.html" class="type-name-link" title="class in org.ivoa.dm.execution">ExecutionModel</a> (implements org.ivoa.vodml.VodmlModel&lt;T&gt;)</li>
 <li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/ExecutionModel.References.html" class="type-name-link" title="class in org.ivoa.dm.execution">ExecutionModel.References</a></li>
-<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/ExecutionNode.html" class="type-name-link" title="class in org.ivoa.dm.execution">ExecutionNode</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/ExecutionNode.html" class="type-name-link" title="class in org.ivoa.dm.execution">ExecutionNode</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;, org.ivoa.vodml.jaxb.XmlIdManagement)</li>
 <li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/ExecutionNode.ExecutionNodeBuilder.html" class="type-name-link" title="class in org.ivoa.dm.execution">ExecutionNode.ExecutionNodeBuilder</a></li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/OCIRegistry.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">OCIRegistry</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;, org.ivoa.vodml.jaxb.XmlIdManagement)</li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/OCIRegistry.OCIRegistryBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">OCIRegistry.OCIRegistryBuilder</a></li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/FileParameterType.html" class="type-name-link" title="class in org.ivoa.dm.pdl">FileParameterType</a> (implements org.ivoa.vodml.jpa.JPAManipulations)</li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/FileParameterType.FileParameterTypeBuilder.html" class="type-name-link" title="class in org.ivoa.dm.pdl">FileParameterType.FileParameterTypeBuilder</a></li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/IVOASemantics.IVOASemanticsBuilder.html" class="type-name-link" title="class in org.ivoa.dm.pdl">IVOASemantics.IVOASemanticsBuilder</a></li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/JobExecution.html" class="type-name-link" title="class in org.ivoa.dm.execution">JobExecution</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/JobExecution.JobExecutionBuilder.html" class="type-name-link" title="class in org.ivoa.dm.execution">JobExecution.JobExecutionBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/OCIRegistry.html" class="type-name-link" title="class in org.ivoa.dm.tool">OCIRegistry</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;, org.ivoa.vodml.jaxb.XmlIdManagement)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/OCIRegistry.OCIRegistryBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">OCIRegistry.OCIRegistryBuilder</a></li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterDefinition.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterDefinition</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;, org.ivoa.vodml.jaxb.XmlIdManagement)</li>
 <li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterDefinition.ParameterDefinitionBuilder.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterDefinition.ParameterDefinitionBuilder</a></li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterGroup.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterGroup</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;, org.ivoa.vodml.jaxb.XmlIdManagement)</li>
 <li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterGroup.ParameterGroupBuilder.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterGroup.ParameterGroupBuilder</a></li>
-<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterOrGroup.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterOrGroup.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterOrGroup.ParameterOrGroupBuilder.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterOrGroup.ParameterOrGroupBuilder</a></li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterSemantics.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterSemantics</a> (implements org.ivoa.vodml.jpa.JPAManipulations)
 <ul>
-<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterDefinition.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterDefinition</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
-<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterGroup.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterGroup</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/IVOASemantics.html" class="type-name-link" title="class in org.ivoa.dm.pdl">IVOASemantics</a> (implements org.ivoa.vodml.jpa.JPAManipulations)</li>
 </ul>
 </li>
-<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterSemantics.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterSemantics</a> (implements org.ivoa.vodml.jpa.JPAManipulations)</li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ParameterType.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ParameterType</a> (implements org.ivoa.vodml.jpa.JPAManipulations)</li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/ParameterValue.html" class="type-name-link" title="class in org.ivoa.dm.execution">ParameterValue</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/ParameterValue.ParameterValueBuilder.html" class="type-name-link" title="class in org.ivoa.dm.execution">ParameterValue.ParameterValueBuilder</a></li>
 <li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/PdlModel.html" class="type-name-link" title="class in org.ivoa.dm.pdl">PdlModel</a> (implements org.ivoa.vodml.VodmlModel&lt;T&gt;)</li>
 <li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/PdlModel.References.html" class="type-name-link" title="class in org.ivoa.dm.pdl">PdlModel.References</a></li>
 <li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/PerformanceMetric.html" class="type-name-link" title="class in org.ivoa.dm.execution">PerformanceMetric</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
 <li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/PerformanceMetric.PerformanceMetricBuilder.html" class="type-name-link" title="class in org.ivoa.dm.execution">PerformanceMetric.PerformanceMetricBuilder</a></li>
-<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/PerformanceProfile.html" class="type-name-link" title="class in org.ivoa.dm.execution">PerformanceProfile</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
-<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/PerformanceProfile.PerformanceProfileBuilder.html" class="type-name-link" title="class in org.ivoa.dm.execution">PerformanceProfile.PerformanceProfileBuilder</a></li>
-<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/PhysicalLocation.html" class="type-name-link" title="class in org.ivoa.dm.execution">PhysicalLocation</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/PerformanceProfile.html" class="type-name-link" title="class in org.ivoa.dm.tool">PerformanceProfile</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/PerformanceProfile.PerformanceProfileBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">PerformanceProfile.PerformanceProfileBuilder</a></li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/PhysicalLocation.html" class="type-name-link" title="class in org.ivoa.dm.execution">PhysicalLocation</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;, org.ivoa.vodml.jaxb.XmlIdManagement)</li>
 <li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/PhysicalLocation.PhysicalLocationBuilder.html" class="type-name-link" title="class in org.ivoa.dm.execution">PhysicalLocation.PhysicalLocationBuilder</a></li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/Tool.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">Tool</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/Tool.ToolBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">Tool.ToolBuilder</a></li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/ToolImage.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">ToolImage</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;, org.ivoa.vodml.jaxb.XmlIdManagement)</li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/ToolImage.ToolImageBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">ToolImage.ToolImageBuilder</a></li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/ToolInterface.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">ToolInterface</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
-<li class="circle">org.ivoa.dm.tool.tool.<a href="org/ivoa/dm/tool/tool/ToolInterface.ToolInterfaceBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool.tool">ToolInterface.ToolInterfaceBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/ProcessorScaling.html" class="type-name-link" title="class in org.ivoa.dm.tool">ProcessorScaling</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/ProcessorScaling.ProcessorScalingBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">ProcessorScaling.ProcessorScalingBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/SecurityMetadata.html" class="type-name-link" title="class in org.ivoa.dm.tool">SecurityMetadata</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/SecurityMetadata.SecurityMetadataBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">SecurityMetadata.SecurityMetadataBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/Tool.html" class="type-name-link" title="class in org.ivoa.dm.tool">Tool</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;, org.ivoa.vodml.jaxb.XmlIdManagement)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/Tool.ToolBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">Tool.ToolBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/ToolImage.html" class="type-name-link" title="class in org.ivoa.dm.tool">ToolImage</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;, org.ivoa.vodml.jaxb.XmlIdManagement)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/ToolImage.ToolImageBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">ToolImage.ToolImageBuilder</a></li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ToolInterface.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ToolInterface</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.pdl.<a href="org/ivoa/dm/pdl/ToolInterface.ToolInterfaceBuilder.html" class="type-name-link" title="class in org.ivoa.dm.pdl">ToolInterface.ToolInterfaceBuilder</a></li>
 <li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/ToolModel.html" class="type-name-link" title="class in org.ivoa.dm.tool">ToolModel</a> (implements org.ivoa.vodml.VodmlModel&lt;T&gt;)</li>
 <li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/ToolModel.References.html" class="type-name-link" title="class in org.ivoa.dm.tool">ToolModel.References</a></li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/TransferPerformance.html" class="type-name-link" title="class in org.ivoa.dm.execution">TransferPerformance</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/TransferPerformance.TransferPerformanceBuilder.html" class="type-name-link" title="class in org.ivoa.dm.execution">TransferPerformance.TransferPerformanceBuilder</a></li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/Vulnerability.html" class="type-name-link" title="class in org.ivoa.dm.tool">Vulnerability</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
+<li class="circle">org.ivoa.dm.tool.<a href="org/ivoa/dm/tool/Vulnerability.VulnerabilityBuilder.html" class="type-name-link" title="class in org.ivoa.dm.tool">Vulnerability.VulnerabilityBuilder</a></li>
 <li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/WorkLoad.html" class="type-name-link" title="class in org.ivoa.dm.execution">WorkLoad</a> (implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;ID&gt;)</li>
 <li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/WorkLoad.WorkLoadBuilder.html" class="type-name-link" title="class in org.ivoa.dm.execution">WorkLoad.WorkLoadBuilder</a></li>
 </ul>
@@ -117,7 +142,7 @@ loadScripts(document, 'script');</script>
 <ul>
 <li class="circle">java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Enum.html" class="type-name-link external-link" title="class or interface in java.lang">Enum</a>&lt;E&gt; (implements java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Comparable.html" title="class or interface in java.lang" class="external-link">Comparable</a>&lt;T&gt;, java.lang.constant.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/constant/Constable.html" title="class or interface in java.lang.constant" class="external-link">Constable</a>, java.io.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/Serializable.html" title="class or interface in java.io" class="external-link">Serializable</a>)
 <ul>
-<li class="circle">org.ivoa.dm.execution.job.<a href="org/ivoa/dm/execution/job/ExecutionPhase.html" class="type-name-link" title="enum class in org.ivoa.dm.execution.job">ExecutionPhase</a></li>
+<li class="circle">org.ivoa.dm.execution.<a href="org/ivoa/dm/execution/ExecutionPhase.html" class="type-name-link" title="enum class in org.ivoa.dm.execution">ExecutionPhase</a></li>
 </ul>
 </li>
 </ul>

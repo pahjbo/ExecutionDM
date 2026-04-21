@@ -71,22 +71,20 @@ loadScripts(document, 'script');</script>
 <h1 title="Class ParameterGroup" class="title">Class ParameterGroup</h1>
 </div>
 <div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
-<div class="inheritance"><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">org.ivoa.dm.pdl.ParameterOrGroup</a>
 <div class="inheritance">org.ivoa.dm.pdl.ParameterGroup</div>
-</div>
 </div>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code>org.ivoa.vodml.jpa.JPAManipulations</code>, <code>org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></dd>
+<dd><code>org.ivoa.vodml.jaxb.XmlIdManagement</code>, <code>org.ivoa.vodml.jpa.JPAManipulations</code>, <code>org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Entity
 @VoDml(id="pdl:ParameterGroup",
        role=objectType)
 </span><span class="modifiers">public class </span><span class="element-name type-name-label">ParameterGroup</span>
-<span class="extends-implements">extends <a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>
-implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span></div>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;, org.ivoa.vodml.jaxb.XmlIdManagement</span></div>
 <div class="block">a group of parameter Definitions.
 
  objectType:  ParameterGroup</div>
@@ -119,15 +117,22 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&gt;</code></div>
-<div class="col-second even-row-color"><code><a href="#params" class="member-name-link">params</a></code></div>
+<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
+<div class="col-second even-row-color"><code><a href="#_id" class="member-name-link">_id</a></code></div>
 <div class="col-last even-row-color">
+<div class="block">inserted database key</div>
+</div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#members" class="member-name-link">members</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">the definitions in the group.</div>
 </div>
+<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#name" class="member-name-link">name</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Group name.</div>
 </div>
-<div class="inherited-list">
-<h3 id="fields-inherited-from-class-org.ivoa.dm.pdl.ParameterOrGroup">Fields inherited from class&nbsp;org.ivoa.dm.pdl.<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></h3>
-<code><a href="ParameterOrGroup.html#_id">_id</a>, <a href="ParameterOrGroup.html#name">name</a></code></div>
+</div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -142,19 +147,14 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-last even-row-color">
 <div class="block">Creates a new ParameterGroup</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.util.List,java.lang.String)" class="member-name-link">ParameterGroup</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&gt;&nbsp;params,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.util.List)" class="member-name-link">ParameterGroup</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&gt;&nbsp;members)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">full parameter constructor.</div>
 </div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.ivoa.dm.pdl.ParameterGroup)" class="member-name-link">ParameterGroup</a><wbr>(<a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a>&nbsp;other)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Copy Constructor.</div>
-</div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.ivoa.dm.pdl.ParameterOrGroup,java.util.List)" class="member-name-link">ParameterGroup</a><wbr>(<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&nbsp;superinstance,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&gt;&nbsp;params)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Constructor from supertype instance.</div>
 </div>
 </div>
 </section>
@@ -171,63 +171,86 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToParams(org.ivoa.dm.pdl.ParameterDefinition)" class="member-name-link">addToParams</a><wbr>(<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&nbsp;p)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToMembers(org.ivoa.dm.pdl.ParameterOrGroup)" class="member-name-link">addToMembers</a><wbr>(<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&nbsp;p)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Add a org.ivoa.dm.pdl.ParameterDefinition to the composition.</div>
+<div class="block">Add a org.ivoa.dm.pdl.ParameterOrGroup to the composition.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#copyMe()" class="member-name-link">copyMe</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">make a clone of the object taking into account current polymorhic type.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createParameterGroup(java.util.function.Consumer)" class="member-name-link">createParameterGroup</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="ParameterGroup.ParameterGroupBuilder.html" title="class in org.ivoa.dm.pdl">ParameterGroup.ParameterGroupBuilder</a>&gt;&nbsp;f)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createParameterGroup(java.util.function.Consumer)" class="member-name-link">createParameterGroup</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="ParameterGroup.ParameterGroupBuilder.html" title="class in org.ivoa.dm.pdl">ParameterGroup.ParameterGroupBuilder</a>&gt;&nbsp;f)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">create a ParameterGroup in functional builder style.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#delete(jakarta.persistence.EntityManager)" class="member-name-link">delete</a><wbr>(jakarta.persistence.EntityManager&nbsp;em)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"></div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forceLoad()" class="member-name-link">forceLoad</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#delete(jakarta.persistence.EntityManager)" class="member-name-link">delete</a><wbr>(jakarta.persistence.EntityManager&nbsp;em)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forceLoad()" class="member-name-link">forceLoad</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParams()" class="member-name-link">getParams</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMembers()" class="member-name-link">getMembers</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns params composition as an immutable list.</div>
+<div class="block">Returns members composition as an immutable list.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getName()" class="member-name-link">getName</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns name Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getXmlId()" class="member-name-link">getXmlId</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">getter for XMLID</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasNaturalKey()" class="member-name-link">hasNaturalKey</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeFromMembers(org.ivoa.dm.pdl.ParameterOrGroup)" class="member-name-link">removeFromMembers</a><wbr>(<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&nbsp;p)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Remove a org.ivoa.dm.pdl.ParameterOrGroup from the composition.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeFromParams(org.ivoa.dm.pdl.ParameterDefinition)" class="member-name-link">removeFromParams</a><wbr>(<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&nbsp;p)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#replaceInMembers(org.ivoa.dm.pdl.ParameterOrGroup)" class="member-name-link">replaceInMembers</a><wbr>(<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&nbsp;_p)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Remove a org.ivoa.dm.pdl.ParameterDefinition from the composition.</div>
+<div class="block">update a org.ivoa.dm.pdl.ParameterOrGroup in the composition.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#replaceInParams(org.ivoa.dm.pdl.ParameterDefinition)" class="member-name-link">replaceInParams</a><wbr>(<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&nbsp;_p)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMembers(java.util.List)" class="member-name-link">setMembers</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&gt;&nbsp;pMembers)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">update a org.ivoa.dm.pdl.ParameterDefinition in the composition.</div>
+<div class="block">Defines whole members composition.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParams(java.util.List)" class="member-name-link">setParams</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&gt;&nbsp;pParams)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setName(java.lang.String)" class="member-name-link">setName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pName)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Defines whole params composition.</div>
+<div class="block">Set name Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setXmlId(java.lang.String)" class="member-name-link">setXmlId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateClonedReferences()" class="member-name-link">updateClonedReferences</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">updates any cloned references that are contained within the hierarchy.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateUsing(org.ivoa.dm.pdl.ParameterGroup)" class="member-name-link">updateUsing</a><wbr>(<a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a>&nbsp;other)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Update this object with the content of the given object.</div>
 </div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withName(java.lang.String)" class="member-name-link">withName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pName)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for name Attribute.</div>
 </div>
 </div>
 </div>
-<div class="inherited-list">
-<h3 id="methods-inherited-from-class-org.ivoa.dm.pdl.ParameterOrGroup">Methods inherited from class&nbsp;org.ivoa.dm.pdl.<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></h3>
-<code><a href="ParameterOrGroup.html#getId()">getId</a>, <a href="ParameterOrGroup.html#getName()">getName</a>, <a href="ParameterOrGroup.html#setName(java.lang.String)">setName</a>, <a href="ParameterOrGroup.html#updateUsing(org.ivoa.dm.pdl.ParameterOrGroup)">updateUsing</a>, <a href="ParameterOrGroup.html#withName(java.lang.String)">withName</a></code></div>
+</div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
-<div class="inherited-list">
-<h3 id="methods-inherited-from-class-org.ivoa.vodml.jpa.JPAManipulationsForObjectType">Methods inherited from interface&nbsp;org.ivoa.vodml.jpa.JPAManipulationsForObjectType</h3>
-<code>getId</code></div>
 </section>
 </li>
 </ul>
@@ -240,15 +263,33 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="params">
-<h3>params</h3>
-<div class="member-signature"><span class="annotations">@VoDml(id="pdl:ParameterGroup.params",
+<section class="detail" id="_id">
+<h3>_id</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></span>&nbsp;<span class="element-name">_id</span></div>
+<div class="block">inserted database key</div>
+</section>
+</li>
+<li>
+<section class="detail" id="name">
+<h3>name</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="pdl:ParameterGroup.name",
+       role=attribute,
+       type="ivoa:string",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">name</span></div>
+<div class="block">Group name. : Attribute name type ivoa:string : multiplicity 1</div>
+</section>
+</li>
+<li>
+<section class="detail" id="members">
+<h3>members</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="pdl:ParameterGroup.members",
        role=composition,
-       type="pdl:ParameterDefinition",
+       type="pdl:ParameterOrGroup",
        typeRole=objectType)
-</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&gt;</span>&nbsp;<span class="element-name">params</span></div>
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&gt;</span>&nbsp;<span class="element-name">members</span></div>
 <div class="block">the definitions in the group.
- composition params :
+ composition members :
  (
  Multiplicity : 1..*
  )</div>
@@ -270,15 +311,15 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 </section>
 </li>
 <li>
-<section class="detail" id="&lt;init&gt;(java.util.List,java.lang.String)">
+<section class="detail" id="&lt;init&gt;(java.lang.String,java.util.List)">
 <h3>ParameterGroup</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ParameterGroup</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&gt;&nbsp;params,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ParameterGroup</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&gt;&nbsp;members)</span></div>
 <div class="block">full parameter constructor.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>params</code> - the definitions in the group.</dd>
-<dd><code>name</code> - the name of the parameter.</dd>
+<dd><code>name</code> - Group name.</dd>
+<dd><code>members</code> - the definitions in the group.</dd>
 </dl>
 </section>
 </li>
@@ -293,19 +334,6 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 </dl>
 </section>
 </li>
-<li>
-<section class="detail" id="&lt;init&gt;(org.ivoa.dm.pdl.ParameterOrGroup,java.util.List)">
-<h3>ParameterGroup</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ParameterGroup</span><wbr><span class="parameters">(<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&nbsp;superinstance,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&gt;&nbsp;params)</span></div>
-<div class="block">Constructor from supertype instance.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>superinstance</code> - The supertype.</dd>
-<dd><code>params</code> - the definitions in the group.</dd>
-</dl>
-</section>
-</li>
 </ul>
 </section>
 </li>
@@ -315,16 +343,53 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="copyMe()">
-<h3>copyMe</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></span>&nbsp;<span class="element-name">copyMe</span>()</div>
-<div class="block">make a clone of the object taking into account current polymorhic type.</div>
+<section class="detail" id="getId()">
+<h3>getId</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></span>&nbsp;<span class="element-name">getId</span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="ParameterOrGroup.html#copyMe()">copyMe</a></code>&nbsp;in class&nbsp;<code><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></code></dd>
+<dd><code>getId</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></dd>
 <dt>Returns:</dt>
-<dd>the cloned object.</dd>
+<dd>the id</dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getXmlId()">
+<h3>getXmlId</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getXmlId</span>()</div>
+<div class="block">getter for XMLID</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>getXmlId</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jaxb.XmlIdManagement</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setXmlId(java.lang.String)">
+<h3>setXmlId</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setXmlId</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>setXmlId</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jaxb.XmlIdManagement</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hasNaturalKey()">
+<h3>hasNaturalKey</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasNaturalKey</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>hasNaturalKey</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jaxb.XmlIdManagement</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="updateClonedReferences()">
+<h3>updateClonedReferences</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateClonedReferences</span>()</div>
+<div class="block">updates any cloned references that are contained within the hierarchy.</div>
 </section>
 </li>
 <li>
@@ -339,57 +404,92 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 </section>
 </li>
 <li>
-<section class="detail" id="getParams()">
-<h3>getParams</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&gt;</span>&nbsp;<span class="element-name">getParams</span>()</div>
-<div class="block">Returns params composition as an immutable list.</div>
+<section class="detail" id="getName()">
+<h3>getName</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getName</span>()</div>
+<div class="block">Returns name Attribute.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>params composition.</dd>
+<dd>name Attribute</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="setParams(java.util.List)">
-<h3>setParams</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setParams</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&gt;&nbsp;pParams)</span></div>
-<div class="block">Defines whole params composition.</div>
+<section class="detail" id="setName(java.lang.String)">
+<h3>setName</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pName)</span></div>
+<div class="block">Set name Attribute.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>pParams</code> - composition to set.</dd>
+<dd><code>pName</code> - value to set</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="addToParams(org.ivoa.dm.pdl.ParameterDefinition)">
-<h3>addToParams</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addToParams</span><wbr><span class="parameters">(<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&nbsp;p)</span></div>
-<div class="block">Add a org.ivoa.dm.pdl.ParameterDefinition to the composition.</div>
+<section class="detail" id="withName(java.lang.String)">
+<h3>withName</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a></span>&nbsp;<span class="element-name">withName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pName)</span></div>
+<div class="block">fluent setter for name Attribute.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>p</code> - org.ivoa.dm.pdl.ParameterDefinition to add</dd>
+<dd><code>pName</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>ParameterGroup</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="removeFromParams(org.ivoa.dm.pdl.ParameterDefinition)">
-<h3>removeFromParams</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeFromParams</span><wbr><span class="parameters">(<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&nbsp;p)</span></div>
-<div class="block">Remove a org.ivoa.dm.pdl.ParameterDefinition from the composition.</div>
+<section class="detail" id="getMembers()">
+<h3>getMembers</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&gt;</span>&nbsp;<span class="element-name">getMembers</span>()</div>
+<div class="block">Returns members composition as an immutable list.</div>
 <dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>p</code> - org.ivoa.dm.pdl.ParameterDefinition to remove</dd>
+<dt>Returns:</dt>
+<dd>members composition.</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="replaceInParams(org.ivoa.dm.pdl.ParameterDefinition)">
-<h3>replaceInParams</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">replaceInParams</span><wbr><span class="parameters">(<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&nbsp;_p)</span></div>
-<div class="block">update a org.ivoa.dm.pdl.ParameterDefinition in the composition.</div>
+<section class="detail" id="setMembers(java.util.List)">
+<h3>setMembers</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setMembers</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&gt;&nbsp;pMembers)</span></div>
+<div class="block">Defines whole members composition.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>_p</code> - org.ivoa.dm.pdl.ParameterDefinition to update
+<dd><code>pMembers</code> - composition to set.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="addToMembers(org.ivoa.dm.pdl.ParameterOrGroup)">
+<h3>addToMembers</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addToMembers</span><wbr><span class="parameters">(<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&nbsp;p)</span></div>
+<div class="block">Add a org.ivoa.dm.pdl.ParameterOrGroup to the composition.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>p</code> - org.ivoa.dm.pdl.ParameterOrGroup to add</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="removeFromMembers(org.ivoa.dm.pdl.ParameterOrGroup)">
+<h3>removeFromMembers</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeFromMembers</span><wbr><span class="parameters">(<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&nbsp;p)</span></div>
+<div class="block">Remove a org.ivoa.dm.pdl.ParameterOrGroup from the composition.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>p</code> - org.ivoa.dm.pdl.ParameterOrGroup to remove</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="replaceInMembers(org.ivoa.dm.pdl.ParameterOrGroup)">
+<h3>replaceInMembers</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">replaceInMembers</span><wbr><span class="parameters">(<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&nbsp;_p)</span></div>
+<div class="block">update a org.ivoa.dm.pdl.ParameterOrGroup in the composition.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>_p</code> - org.ivoa.dm.pdl.ParameterOrGroup to update
  the match is done via the database key</dd>
 </dl>
 </section>
@@ -414,8 +514,6 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>forceLoad</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jpa.JPAManipulations</code></dd>
-<dt>Overrides:</dt>
-<dd><code><a href="ParameterOrGroup.html#forceLoad()">forceLoad</a></code>&nbsp;in class&nbsp;<code><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></code></dd>
 </dl>
 </section>
 </li>

@@ -1,34 +1,47 @@
 - tool model:
   - Overview: "generated/ToolDM-v1.vo-dml.md"
   - ObjectTypes:
-    - tool.Author: "generated/tool/tool.Author.md"
-    - tool.BuildProcess: "generated/tool/tool.BuildProcess.md"
-    - tool.Discovery: "generated/tool/tool.Discovery.md"
-    - tool.EnvVar: "generated/tool/tool.EnvVar.md"
-    - tool.OCIRegistry: "generated/tool/tool.OCIRegistry.md"
-    - tool.Tool: "generated/tool/tool.Tool.md"
-    - tool.ToolImage: "generated/tool/tool.ToolImage.md"
-    - tool.ToolInterface: "generated/tool/tool.ToolInterface.md"
+    - Author: "generated/tool/Author.md"
+    - BuildProcess: "generated/tool/BuildProcess.md"
+    - Compliance: "generated/tool/Compliance.md"
+    - DataScaling: "generated/tool/DataScaling.md"
+    - Discovery: "generated/tool/Discovery.md"
+    - EnvVar: "generated/tool/EnvVar.md"
+    - OCIRegistry: "generated/tool/OCIRegistry.md"
+    - PerformanceProfile: "generated/tool/PerformanceProfile.md"
+    - ProcessorScaling: "generated/tool/ProcessorScaling.md"
+    - SecurityMetadata: "generated/tool/SecurityMetadata.md"
+    - Tool: "generated/tool/Tool.md"
+    - ToolImage: "generated/tool/ToolImage.md"
+    - Vulnerability: "generated/tool/Vulnerability.md"
 - pdl model:
   - Overview: "generated/ParameterDM-v1.vo-dml.md"
   - ObjectTypes:
     - ParameterDefinition: "generated/pdl/ParameterDefinition.md"
     - ParameterGroup: "generated/pdl/ParameterGroup.md"
     - ParameterOrGroup: "generated/pdl/ParameterOrGroup.md"
+    - ToolInterface: "generated/pdl/ToolInterface.md"
   - DataTypes:
-    - BaseParameterType: "generated/pdl/BaseParameterType.md"
+    - AtomicParameterType: "generated/pdl/AtomicParameterType.md"
+    - FileParameterType: "generated/pdl/FileParameterType.md"
+    - IVOASemantics: "generated/pdl/IVOASemantics.md"
     - ParameterSemantics: "generated/pdl/ParameterSemantics.md"
+    - ParameterType: "generated/pdl/ParameterType.md"
 - execution model:
   - Overview: "generated/ExecutionDM-v1.vo-dml.md"
   - ObjectTypes:
+    - ComputeResource: "generated/execution/ComputeResource.md"
+    - DataNode: "generated/execution/DataNode.md"
     - DataResource: "generated/execution/DataResource.md"
     - ExecutionNode: "generated/execution/ExecutionNode.md"
+    - JobExecution: "generated/execution/JobExecution.md"
+    - ParameterValue: "generated/execution/ParameterValue.md"
     - PerformanceMetric: "generated/execution/PerformanceMetric.md"
-    - PerformanceProfile: "generated/execution/PerformanceProfile.md"
     - PhysicalLocation: "generated/execution/PhysicalLocation.md"
+    - TransferPerformance: "generated/execution/TransferPerformance.md"
     - WorkLoad: "generated/execution/WorkLoad.md"
   - Enumerations:
-    - job.ExecutionPhase: "generated/execution/job.ExecutionPhase.md"
+    - ExecutionPhase: "generated/execution/ExecutionPhase.md"
 - Imported Models:
   - ivoa model:
     - Overview: "generated/IVOA-v1.0.vo-dml.md"

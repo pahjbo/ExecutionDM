@@ -12,21 +12,31 @@
           "type" : "object",
           "properties" : {
             "$comment" : "placeholder to make commas easier!",
-            "tool:tool.OCIRegistry" : {
+            "tool:Author" : {
               "type" : "array",
               "items" : {
                 "oneOf" : [ {
-                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.OCIRegistry"
+                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/Author"
                 }, {
                   "type" : "number"
                 } ]
               }
             },
-            "tool:tool.ToolImage" : {
+            "tool:OCIRegistry" : {
               "type" : "array",
               "items" : {
                 "oneOf" : [ {
-                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.ToolImage"
+                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/OCIRegistry"
+                }, {
+                  "type" : "number"
+                } ]
+              }
+            },
+            "tool:ToolImage" : {
+              "type" : "array",
+              "items" : {
+                "oneOf" : [ {
+                  "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/ToolImage"
                 }, {
                   "type" : "number"
                 } ]
@@ -39,9 +49,7 @@
           "type" : "array",
           "items" : {
             "anyOf" : [ {
-              "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.ToolInterface"
-            }, {
-              "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.Tool"
+              "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/Tool"
             } ]
           },
           "additionalProperties" : false
@@ -52,7 +60,7 @@
   },
   "$defs" : {
     "$comment" : "placeholder to make commas easier!",
-    "tool.Author" : {
+    "Author" : {
       "type" : "object",
       "description" : "Details about an author of the image",
       "properties" : {
@@ -83,7 +91,7 @@
         },
         "orcid" : {
           "type" : "string",
-          "description" : "ORCID identifier"
+          "description" : "ORCID identity"
         },
         "affiliation" : {
           "type" : "string",
@@ -97,7 +105,7 @@
       "required" : [ "name", "email" ],
       "additionalProperties" : false
     },
-    "tool.OCIRegistry" : {
+    "OCIRegistry" : {
       "type" : "object",
       "description" : "Details about the OCIcontainer registry",
       "properties" : {
@@ -122,7 +130,7 @@
       "required" : [ "host", "project" ],
       "additionalProperties" : false
     },
-    "tool.Discovery" : {
+    "Discovery" : {
       "type" : "object",
       "description" : "Discovery metadata mapped to OCI labels/annotations",
       "properties" : {
@@ -170,8 +178,9 @@
         "authors" : {
           "type" : "array",
           "items" : {
-            "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.Author"
-          }
+            "type" : "number"
+          },
+          "description" : "Responsible people/organization"
         },
         "licenses" : {
           "type" : "string",
@@ -196,7 +205,7 @@
           "items" : {
             "type" : "string"
           },
-          "description" : "One of notebook|headless|carta|firefly|contributed|desktop; min_length=1"
+          "description" : ""
         },
         "tools" : {
           "type" : "array",
@@ -204,6 +213,10 @@
             "type" : "string"
           },
           "description" : "Scientific software packages included"
+        },
+        "isBase" : {
+          "type" : "boolean",
+          "description" : "Whether this is a certified base image that should be used as a parent image for derived images"
         },
         "deprecated" : {
           "type" : "boolean",
@@ -214,10 +227,10 @@
           "description" : "surrogate key"
         }
       },
-      "required" : [ "imageTitle", "description", "source", "version", "licenses", "domain", "kind" ],
+      "required" : [ "imageTitle", "description", "source", "version", "authors", "licenses", "domain", "kind", "isBase" ],
       "additionalProperties" : false
     },
-    "tool.EnvVar" : {
+    "EnvVar" : {
       "type" : "object",
       "description" : "Environment variable map entry",
       "properties" : {
@@ -242,7 +255,78 @@
       "required" : [ "name", "value" ],
       "additionalProperties" : false
     },
-    "tool.ToolImage" : {
+    "Vulnerability" : {
+      "type" : "object",
+      "description" : "a known security vulnerability",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "cve" : {
+          "type" : "string",
+          "description" : "the identifier for the vulnerability"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ "cve" ],
+      "additionalProperties" : false
+    },
+    "Compliance" : {
+      "type" : "object",
+      "description" : "attestation information",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ ],
+      "additionalProperties" : false
+    },
+    "SecurityMetadata" : {
+      "type" : "object",
+      "description" : "Security metadata for a tool image",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "signature" : {
+          "type" : "string",
+          "description" : "a digest style signature"
+        },
+        "vulnerabilities" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/Vulnerability"
+          }
+        },
+        "compliance" : {
+          "type" : "array",
+          "items" : {
+            "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/Compliance"
+          }
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ "signature" ],
+      "additionalProperties" : false
+    },
+    "ToolImage" : {
       "type" : "object",
       "description" : "Definition of a tool image",
       "properties" : {
@@ -255,67 +339,68 @@
           "oneOf" : [ {
             "type" : "number"
           }, {
-            "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.OCIRegistry"
+            "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/OCIRegistry"
           } ],
           "description" : "OCI registry details"
         },
+        "parentImage" : {
+          "oneOf" : [ {
+            "type" : "number"
+          }, {
+            "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/ToolImage"
+          } ],
+          "description" : "Parent image reference"
+        },
         "build" : {
           "type" : "object",
-          "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.BuildProcess"
+          "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/BuildProcess"
         },
         "discovery" : {
           "type" : "object",
-          "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.Discovery"
+          "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/Discovery"
+        },
+        "security" : {
+          "type" : "object",
+          "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/SecurityMetadata"
         },
         "_id" : {
           "type" : "integer",
           "description" : "surrogate key"
         }
       },
-      "required" : [ "registry", "build", "discovery" ],
+      "required" : [ "registry", "build", "discovery", "security" ],
       "additionalProperties" : false
     },
-    "tool.BuildProcess" : {
+    "BuildProcess" : {
       "type" : "object",
-      "description" : "",
+      "description" : "How the tool image is built",
       "properties" : {
         "$comment" : "placeholder to make commas easier",
         "@type" : {
           "type" : "string",
           "description" : "UType as type discriminator"
         },
-        "_id" : {
-          "type" : "integer",
-          "description" : "surrogate key"
-        }
-      },
-      "required" : [ ],
-      "additionalProperties" : false
-    },
-    "tool.ToolInterface" : {
-      "type" : "object",
-      "description" : "",
-      "properties" : {
-        "$comment" : "placeholder to make commas easier",
-        "@type" : {
+        "buildCommand" : {
           "type" : "string",
-          "description" : "UType as type discriminator"
+          "description" : "The command used to build the image, e.g. 'docker build .'"
         },
-        "pg" : {
-          "type" : "array",
-          "items" : {
-            "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterGroup"
-          }
+        "buildContext" : {
+          "type" : "string",
+          "description" : "The context directory for the build, e.g. './'"
+        },
+        "dockerfilePath" : {
+          "type" : "string",
+          "description" : "The path to the Dockerfile, e.g. './Dockerfile'"
         },
         "_id" : {
           "type" : "integer",
           "description" : "surrogate key"
         }
       },
-      "required" : [ ],
+      "required" : [ "buildCommand" ],
       "additionalProperties" : false
     },
-    "tool.Tool" : {
+    "Tool" : {
       "type" : "object",
       "description" : "Definition of a Library Tool",
       "properties" : {
@@ -332,7 +417,7 @@
           "oneOf" : [ {
             "type" : "number"
           }, {
-            "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.ToolImage"
+            "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/ToolImage"
           } ],
           "description" : "Tool container image reference"
         },
@@ -346,31 +431,78 @@
         "env" : {
           "type" : "array",
           "items" : {
-            "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/tool.EnvVar"
+            "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/EnvVar"
           }
         },
-        "inputs" : {
-          "type" : "array",
-          "items" : {
-            "anyOf" : [ {
-              "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterDefinition"
-            }, {
-              "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterGroup"
-            } ]
-          }
+        "interface" : {
+          "type" : "object",
+          "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ToolInterface"
         },
-        "outputs" : {
-          "type" : "array",
-          "items" : {
-            "anyOf" : [ {
-              "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterDefinition"
-            }, {
-              "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterGroup"
-            } ]
-          }
+        "performanceProfile" : {
+          "type" : "object",
+          "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/PerformanceProfile"
         }
       },
-      "required" : [ "id", "image", "command", "outputs" ],
+      "required" : [ "id", "image", "command", "interface", "performanceProfile" ],
+      "additionalProperties" : false
+    },
+    "PerformanceProfile" : {
+      "type" : "object",
+      "description" : "A performance profile for Tool execution",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "processorScaling" : {
+          "type" : "object",
+          "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/ProcessorScaling"
+        },
+        "dataScaling" : {
+          "type" : "object",
+          "$ref" : "https://ivoa.net/dm/ToolDM-v1.vo-dml.json#/$defs/DataScaling"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ "processorScaling", "dataScaling" ],
+      "additionalProperties" : false
+    },
+    "ProcessorScaling" : {
+      "type" : "object",
+      "description" : "The scaling behaviour of a tool with respect to the number of processors used",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ ],
+      "additionalProperties" : false
+    },
+    "DataScaling" : {
+      "type" : "object",
+      "description" : "The scaling behaviour of a tool with respect to the size of the input data",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier",
+        "@type" : {
+          "type" : "string",
+          "description" : "UType as type discriminator"
+        },
+        "_id" : {
+          "type" : "integer",
+          "description" : "surrogate key"
+        }
+      },
+      "required" : [ ],
       "additionalProperties" : false
     }
   }

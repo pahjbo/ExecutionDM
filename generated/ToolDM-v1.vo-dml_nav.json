@@ -10,7 +10,7 @@
                 ,{
                 "ObjectTypes": [
 
-                {"tool.Author" : "generated/tool/tool.Author.md"},{"tool.BuildProcess" : "generated/tool/tool.BuildProcess.md"},{"tool.Discovery" : "generated/tool/tool.Discovery.md"},{"tool.EnvVar" : "generated/tool/tool.EnvVar.md"},{"tool.OCIRegistry" : "generated/tool/tool.OCIRegistry.md"},{"tool.Tool" : "generated/tool/tool.Tool.md"},{"tool.ToolImage" : "generated/tool/tool.ToolImage.md"},{"tool.ToolInterface" : "generated/tool/tool.ToolInterface.md"}
+                {"Author" : "generated/tool/Author.md"},{"BuildProcess" : "generated/tool/BuildProcess.md"},{"Compliance" : "generated/tool/Compliance.md"},{"DataScaling" : "generated/tool/DataScaling.md"},{"Discovery" : "generated/tool/Discovery.md"},{"EnvVar" : "generated/tool/EnvVar.md"},{"OCIRegistry" : "generated/tool/OCIRegistry.md"},{"PerformanceProfile" : "generated/tool/PerformanceProfile.md"},{"ProcessorScaling" : "generated/tool/ProcessorScaling.md"},{"SecurityMetadata" : "generated/tool/SecurityMetadata.md"},{"Tool" : "generated/tool/Tool.md"},{"ToolImage" : "generated/tool/ToolImage.md"},{"Vulnerability" : "generated/tool/Vulnerability.md"}
                 ]
                 }
             

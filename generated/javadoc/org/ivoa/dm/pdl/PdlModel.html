@@ -150,15 +150,25 @@ implements org.ivoa.vodml.VodmlModel&lt;<a href="PdlModel.html" title="class in 
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static jakarta.xml.bind.JAXBContext</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#contextFactory()" class="member-name-link">contextFactory</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addContent(org.ivoa.dm.pdl.ToolInterface)" class="member-name-link">addContent</a><wbr>(<a href="ToolInterface.html" title="class in org.ivoa.dm.pdl">ToolInterface</a>&nbsp;c)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">add ToolInterface to model.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static jakarta.xml.bind.JAXBContext</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#contextFactory()" class="member-name-link">contextFactory</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">the context factory for the model.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createContext()" class="member-name-link">createContext</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createContext()" class="member-name-link">createContext</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">create a context in preparation for cloning.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deleteContent(org.ivoa.dm.pdl.ToolInterface)" class="member-name-link">deleteContent</a><wbr>(<a href="ToolInterface.html" title="class in org.ivoa.dm.pdl">ToolInterface</a>&nbsp;c)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">remove ToolInterface from model.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;T&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getContent(java.lang.Class)" class="member-name-link">getContent</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;c)</code></div>
@@ -258,6 +268,28 @@ implements org.ivoa.vodml.VodmlModel&lt;<a href="PdlModel.html" title="class in 
 <dd><code>vocabulary</code> - the uri for the vocabulary.</dd>
 <dt>Returns:</dt>
 <dd>true if the term is in the vocabulary.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="addContent(org.ivoa.dm.pdl.ToolInterface)">
+<h3>addContent</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addContent</span><wbr><span class="parameters">(<a href="ToolInterface.html" title="class in org.ivoa.dm.pdl">ToolInterface</a>&nbsp;c)</span></div>
+<div class="block">add ToolInterface to model.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>c</code> - org.ivoa.dm.pdl.ToolInterface</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="deleteContent(org.ivoa.dm.pdl.ToolInterface)">
+<h3>deleteContent</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deleteContent</span><wbr><span class="parameters">(<a href="ToolInterface.html" title="class in org.ivoa.dm.pdl">ToolInterface</a>&nbsp;c)</span></div>
+<div class="block">remove ToolInterface from model.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>c</code> - org.ivoa.dm.pdl.ToolInterface</dd>
 </dl>
 </section>
 </li>

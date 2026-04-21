@@ -76,7 +76,7 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>All Implemented Interfaces:</dt>
-<dd><code>org.ivoa.vodml.jpa.JPAManipulations</code>, <code>org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></dd>
+<dd><code>org.ivoa.vodml.jaxb.XmlIdManagement</code>, <code>org.ivoa.vodml.jpa.JPAManipulations</code>, <code>org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="annotations">@Entity
@@ -84,7 +84,7 @@ loadScripts(document, 'script');</script>
        role=objectType)
 </span><span class="modifiers">public class </span><span class="element-name type-name-label">PhysicalLocation</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
-implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span></div>
+implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;, org.ivoa.vodml.jaxb.XmlIdManagement</span></div>
 <div class="block">The physical location of a resource.
 
  objectType:  PhysicalLocation</div>
@@ -122,6 +122,26 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-last even-row-color">
 <div class="block">inserted database key</div>
 </div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#country" class="member-name-link">country</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Country name.</div>
+</div>
+<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
+<div class="col-second even-row-color"><code><a href="#latitude" class="member-name-link">latitude</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Latitude in degrees.</div>
+</div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#longitude" class="member-name-link">longitude</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Longitude in degrees.</div>
+</div>
+<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#name" class="member-name-link">name</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">A human readable name for the location.</div>
+</div>
 </div>
 </section>
 </li>
@@ -137,8 +157,15 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-last even-row-color">
 <div class="block">Creates a new PhysicalLocation</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.ivoa.dm.execution.PhysicalLocation)" class="member-name-link">PhysicalLocation</a><wbr>(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;other)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,java.lang.Double,java.lang.Double)" class="member-name-link">PhysicalLocation</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;country,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;longitude,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;latitude)</code></div>
 <div class="col-last odd-row-color">
+<div class="block">full parameter constructor.</div>
+</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(org.ivoa.dm.execution.PhysicalLocation)" class="member-name-link">PhysicalLocation</a><wbr>(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;other)</code></div>
+<div class="col-last even-row-color">
 <div class="block">Copy Constructor.</div>
 </div>
 </div>
@@ -166,13 +193,84 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forceLoad()" class="member-name-link">forceLoad</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCountry()" class="member-name-link">getCountry</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns country Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLatitude()" class="member-name-link">getLatitude</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns latitude Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLongitude()" class="member-name-link">getLongitude</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns longitude Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getName()" class="member-name-link">getName</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns name Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getXmlId()" class="member-name-link">getXmlId</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">getter for XMLID</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasNaturalKey()" class="member-name-link">hasNaturalKey</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateUsing(org.ivoa.dm.execution.PhysicalLocation)" class="member-name-link">updateUsing</a><wbr>(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;other)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCountry(java.lang.String)" class="member-name-link">setCountry</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pCountry)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set country Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLatitude(java.lang.Double)" class="member-name-link">setLatitude</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pLatitude)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set latitude Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLongitude(java.lang.Double)" class="member-name-link">setLongitude</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pLongitude)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set longitude Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setName(java.lang.String)" class="member-name-link">setName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pName)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set name Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setXmlId(java.lang.String)" class="member-name-link">setXmlId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateUsing(org.ivoa.dm.execution.PhysicalLocation)" class="member-name-link">updateUsing</a><wbr>(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;other)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Update this object with the content of the given object.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withCountry(java.lang.String)" class="member-name-link">withCountry</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pCountry)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for country Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withLatitude(java.lang.Double)" class="member-name-link">withLatitude</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pLatitude)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for latitude Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withLongitude(java.lang.Double)" class="member-name-link">withLongitude</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pLongitude)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for longitude Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withName(java.lang.String)" class="member-name-link">withName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pName)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for name Attribute.</div>
 </div>
 </div>
 </div>
@@ -198,6 +296,50 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="block">inserted database key</div>
 </section>
 </li>
+<li>
+<section class="detail" id="name">
+<h3>name</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="execution:PhysicalLocation.name",
+       role=attribute,
+       type="ivoa:string",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">name</span></div>
+<div class="block">A human readable name for the location. : Attribute name type ivoa:string : multiplicity 1</div>
+</section>
+</li>
+<li>
+<section class="detail" id="country">
+<h3>country</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="execution:PhysicalLocation.country",
+       role=attribute,
+       type="ivoa:string",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">country</span></div>
+<div class="block">Country name. : Attribute country type ivoa:string : multiplicity 1</div>
+</section>
+</li>
+<li>
+<section class="detail" id="longitude">
+<h3>longitude</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="execution:PhysicalLocation.longitude",
+       role=attribute,
+       type="ivoa:real",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name">longitude</span></div>
+<div class="block">Longitude in degrees. : Attribute longitude type ivoa:real : multiplicity 1</div>
+</section>
+</li>
+<li>
+<section class="detail" id="latitude">
+<h3>latitude</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="execution:PhysicalLocation.latitude",
+       role=attribute,
+       type="ivoa:real",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name">latitude</span></div>
+<div class="block">Latitude in degrees. : Attribute latitude type ivoa:real : multiplicity 1</div>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -211,6 +353,23 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <h3>PhysicalLocation</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">PhysicalLocation</span>()</div>
 <div class="block">Creates a new PhysicalLocation</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,java.lang.Double,java.lang.Double)">
+<h3>PhysicalLocation</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">PhysicalLocation</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;country,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;longitude,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;latitude)</span></div>
+<div class="block">full parameter constructor.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>name</code> - A human readable name for the location.</dd>
+<dd><code>country</code> - Country name.</dd>
+<dd><code>longitude</code> - Longitude in degrees.</dd>
+<dd><code>latitude</code> - Latitude in degrees.</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -245,6 +404,37 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 </section>
 </li>
 <li>
+<section class="detail" id="getXmlId()">
+<h3>getXmlId</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getXmlId</span>()</div>
+<div class="block">getter for XMLID</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>getXmlId</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jaxb.XmlIdManagement</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setXmlId(java.lang.String)">
+<h3>setXmlId</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setXmlId</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;id)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>setXmlId</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jaxb.XmlIdManagement</code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="hasNaturalKey()">
+<h3>hasNaturalKey</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasNaturalKey</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>hasNaturalKey</code>&nbsp;in interface&nbsp;<code>org.ivoa.vodml.jaxb.XmlIdManagement</code></dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="updateUsing(org.ivoa.dm.execution.PhysicalLocation)">
 <h3>updateUsing</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateUsing</span><wbr><span class="parameters">(<a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a>&nbsp;other)</span></div>
@@ -252,6 +442,146 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>other</code> - the object to be copied.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getName()">
+<h3>getName</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getName</span>()</div>
+<div class="block">Returns name Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>name Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setName(java.lang.String)">
+<h3>setName</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pName)</span></div>
+<div class="block">Set name Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pName</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withName(java.lang.String)">
+<h3>withName</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></span>&nbsp;<span class="element-name">withName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pName)</span></div>
+<div class="block">fluent setter for name Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pName</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>PhysicalLocation</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getCountry()">
+<h3>getCountry</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getCountry</span>()</div>
+<div class="block">Returns country Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>country Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setCountry(java.lang.String)">
+<h3>setCountry</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setCountry</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pCountry)</span></div>
+<div class="block">Set country Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pCountry</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withCountry(java.lang.String)">
+<h3>withCountry</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></span>&nbsp;<span class="element-name">withCountry</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pCountry)</span></div>
+<div class="block">fluent setter for country Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pCountry</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>PhysicalLocation</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getLongitude()">
+<h3>getLongitude</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name">getLongitude</span>()</div>
+<div class="block">Returns longitude Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>longitude Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setLongitude(java.lang.Double)">
+<h3>setLongitude</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLongitude</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pLongitude)</span></div>
+<div class="block">Set longitude Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pLongitude</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withLongitude(java.lang.Double)">
+<h3>withLongitude</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></span>&nbsp;<span class="element-name">withLongitude</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pLongitude)</span></div>
+<div class="block">fluent setter for longitude Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pLongitude</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>PhysicalLocation</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getLatitude()">
+<h3>getLatitude</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a></span>&nbsp;<span class="element-name">getLatitude</span>()</div>
+<div class="block">Returns latitude Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>latitude Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setLatitude(java.lang.Double)">
+<h3>setLatitude</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLatitude</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pLatitude)</span></div>
+<div class="block">Set latitude Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pLatitude</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withLatitude(java.lang.Double)">
+<h3>withLatitude</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="PhysicalLocation.html" title="class in org.ivoa.dm.execution">PhysicalLocation</a></span>&nbsp;<span class="element-name">withLatitude</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&nbsp;pLatitude)</span></div>
+<div class="block">fluent setter for latitude Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pLatitude</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>PhysicalLocation</dd>
 </dl>
 </section>
 </li>

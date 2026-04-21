@@ -8,36 +8,20 @@
 ' avoid problems with angled crows feet
 skinparam linetype ortho
         
-entity "pdl.ParameterOrGroup" as pdl.ParameterOrGroup {
-
-    ID : BIGINT
-
----
-
-    id : VARCHAR
-id : VARCHAR
-name : VARCHAR
-
----
-      id : <<FK>>
-id : <<FK>>
-
-}
-
 entity "pdl.ParameterDefinition" as pdl.ParameterDefinition {
 
     ID : BIGINT
 
 ---
 
-    PARAMETERGROUP_ID : BIGINT
+    TOOLINTERFACE_ID : BIGINT
+name : VARCHAR
 description : VARCHAR
 kind : UNKNOWN
-semantics : UNKNOWN
+semantics_ucd : VARCHAR
 
 ---
-      PARAMETERGROUP_ID : BIGINT<<FK>>
-ID : BIGINT<<FK>>
+      TOOLINTERFACE_ID : BIGINT<<FK>>
 
 }
 
@@ -48,20 +32,53 @@ entity "pdl.ParameterGroup" as pdl.ParameterGroup {
 ---
 
     TOOLINTERFACE_ID : BIGINT
+name : VARCHAR
 
 ---
-      TOOLINTERFACE_ID : <<FK>>
-ID : BIGINT<<FK>>
+      TOOLINTERFACE_ID : BIGINT<<FK>>
+
+}
+
+entity "pdl.ParameterOrGroup" as pdl.ParameterOrGroup {
+
+    ID : BIGINT
+
+---
+
+    PARAMETERGROUP_ID : BIGINT
+param : BIGINT
+group : BIGINT
+
+---
+      param : BIGINT<<FK>>
+group : BIGINT<<FK>>
+PARAMETERGROUP_ID : BIGINT<<FK>>
+
+}
+
+entity "pdl.ToolInterface" as pdl.ToolInterface {
+
+    ID : BIGINT
+
+---
+
+    input : BIGINT
+output : BIGINT
+
+---
+      input : BIGINT<<FK>>
+output : BIGINT<<FK>>
 
 }
 
 
-        pdl.ParameterOrGroup }o--||tool.Tool
-pdl.ParameterOrGroup }o--||tool.Tool
-pdl.ParameterDefinition }o--||pdl.ParameterGroup
-pdl.ParameterDefinition }o--||pdl.ParameterOrGroup
-pdl.ParameterGroup }o--||tool.ToolInterface
-pdl.ParameterGroup }o--||pdl.ParameterOrGroup
+        pdl.ParameterDefinition }o--||pdl.ToolInterface
+pdl.ParameterGroup }o--||pdl.ToolInterface
+pdl.ParameterOrGroup }o--||pdl.ParameterDefinition
+pdl.ParameterOrGroup }o--||pdl.ParameterGroup
+pdl.ParameterOrGroup }o--||pdl.ParameterGroup
+pdl.ToolInterface }o--||pdl.ParameterGroup
+pdl.ToolInterface }o--||pdl.ParameterGroup
 
 
 

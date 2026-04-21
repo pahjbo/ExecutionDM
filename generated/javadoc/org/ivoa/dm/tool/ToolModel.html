@@ -151,22 +151,22 @@ implements org.ivoa.vodml.VodmlModel&lt;<a href="ToolModel.html" title="class in
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addContent(org.ivoa.dm.tool.tool.Tool)" class="member-name-link">addContent</a><wbr>(<a href="tool/Tool.html" title="class in org.ivoa.dm.tool.tool">Tool</a>&nbsp;c)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addContent(org.ivoa.dm.tool.Tool)" class="member-name-link">addContent</a><wbr>(<a href="Tool.html" title="class in org.ivoa.dm.tool">Tool</a>&nbsp;c)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">add Tool to model.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addContent(org.ivoa.dm.tool.tool.ToolInterface)" class="member-name-link">addContent</a><wbr>(<a href="tool/ToolInterface.html" title="class in org.ivoa.dm.tool.tool">ToolInterface</a>&nbsp;c)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addReference(org.ivoa.dm.tool.Author)" class="member-name-link">addReference</a><wbr>(<a href="Author.html" title="class in org.ivoa.dm.tool">Author</a>&nbsp;c)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">add ToolInterface to model.</div>
+<div class="block">directly add reference.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addReference(org.ivoa.dm.tool.tool.OCIRegistry)" class="member-name-link">addReference</a><wbr>(<a href="tool/OCIRegistry.html" title="class in org.ivoa.dm.tool.tool">OCIRegistry</a>&nbsp;c)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addReference(org.ivoa.dm.tool.OCIRegistry)" class="member-name-link">addReference</a><wbr>(<a href="OCIRegistry.html" title="class in org.ivoa.dm.tool">OCIRegistry</a>&nbsp;c)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">directly add reference.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addReference(org.ivoa.dm.tool.tool.ToolImage)" class="member-name-link">addReference</a><wbr>(<a href="tool/ToolImage.html" title="class in org.ivoa.dm.tool.tool">ToolImage</a>&nbsp;c)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addReference(org.ivoa.dm.tool.ToolImage)" class="member-name-link">addReference</a><wbr>(<a href="ToolImage.html" title="class in org.ivoa.dm.tool">ToolImage</a>&nbsp;c)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">directly add reference.</div>
 </div>
@@ -181,52 +181,47 @@ implements org.ivoa.vodml.VodmlModel&lt;<a href="ToolModel.html" title="class in
 <div class="block">create a context in preparation for cloning.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deleteContent(org.ivoa.dm.tool.tool.Tool)" class="member-name-link">deleteContent</a><wbr>(<a href="tool/Tool.html" title="class in org.ivoa.dm.tool.tool">Tool</a>&nbsp;c)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deleteContent(org.ivoa.dm.tool.Tool)" class="member-name-link">deleteContent</a><wbr>(<a href="Tool.html" title="class in org.ivoa.dm.tool">Tool</a>&nbsp;c)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">remove Tool from model.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deleteContent(org.ivoa.dm.tool.tool.ToolInterface)" class="member-name-link">deleteContent</a><wbr>(<a href="tool/ToolInterface.html" title="class in org.ivoa.dm.tool.tool">ToolInterface</a>&nbsp;c)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;T&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getContent(java.lang.Class)" class="member-name-link">getContent</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;c)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">remove ToolInterface from model.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;T&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getContent(java.lang.Class)" class="member-name-link">getContent</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;T&gt;&nbsp;c)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Get the content of the given type.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hasReferences()" class="member-name-link">hasReferences</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hasReferences()" class="member-name-link">hasReferences</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">if the model has references.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isInVocabulary(java.lang.String,java.lang.String)" class="member-name-link">isInVocabulary</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isInVocabulary(java.lang.String,java.lang.String)" class="member-name-link">isInVocabulary</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;value,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;vocabulary)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Test if a term is in the vocabulary.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static com.fasterxml.jackson.databind.ObjectMapper</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#jsonMapper()" class="member-name-link">jsonMapper</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static com.fasterxml.jackson.databind.ObjectMapper</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#jsonMapper()" class="member-name-link">jsonMapper</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">Return a Jackson objectMapper suitable for JSON serialzation.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.ivoa.vodml.ModelManagement&lt;<a href="ToolModel.html" title="class in org.ivoa.dm.tool">ToolModel</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#management()" class="member-name-link">management</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.ivoa.vodml.ModelManagement&lt;<a href="ToolModel.html" title="class in org.ivoa.dm.tool">ToolModel</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#management()" class="member-name-link">management</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">generate management interface instance for model.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#processReferences()" class="member-name-link">processReferences</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#pu_name()" class="member-name-link">pu_name</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#processReferences()" class="member-name-link">processReferences</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#pu_name()" class="member-name-link">pu_name</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">The persistence unit name for the model.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#TAPSchema()" class="member-name-link">TAPSchema</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#TAPSchema()" class="member-name-link">TAPSchema</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
 <div class="block">the TAP schema for the model.</div>
 </div>
 </div>
@@ -292,53 +287,31 @@ implements org.ivoa.vodml.VodmlModel&lt;<a href="ToolModel.html" title="class in
 </section>
 </li>
 <li>
-<section class="detail" id="addContent(org.ivoa.dm.tool.tool.ToolInterface)">
+<section class="detail" id="addContent(org.ivoa.dm.tool.Tool)">
 <h3>addContent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addContent</span><wbr><span class="parameters">(<a href="tool/ToolInterface.html" title="class in org.ivoa.dm.tool.tool">ToolInterface</a>&nbsp;c)</span></div>
-<div class="block">add ToolInterface to model.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>c</code> - org.ivoa.dm.tool.tool.ToolInterface</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="deleteContent(org.ivoa.dm.tool.tool.ToolInterface)">
-<h3>deleteContent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deleteContent</span><wbr><span class="parameters">(<a href="tool/ToolInterface.html" title="class in org.ivoa.dm.tool.tool">ToolInterface</a>&nbsp;c)</span></div>
-<div class="block">remove ToolInterface from model.</div>
-<dl class="notes">
-<dt>Parameters:</dt>
-<dd><code>c</code> - org.ivoa.dm.tool.tool.ToolInterface</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="addContent(org.ivoa.dm.tool.tool.Tool)">
-<h3>addContent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addContent</span><wbr><span class="parameters">(<a href="tool/Tool.html" title="class in org.ivoa.dm.tool.tool">Tool</a>&nbsp;c)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addContent</span><wbr><span class="parameters">(<a href="Tool.html" title="class in org.ivoa.dm.tool">Tool</a>&nbsp;c)</span></div>
 <div class="block">add Tool to model.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>c</code> - org.ivoa.dm.tool.tool.Tool</dd>
+<dd><code>c</code> - org.ivoa.dm.tool.Tool</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="deleteContent(org.ivoa.dm.tool.tool.Tool)">
+<section class="detail" id="deleteContent(org.ivoa.dm.tool.Tool)">
 <h3>deleteContent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deleteContent</span><wbr><span class="parameters">(<a href="tool/Tool.html" title="class in org.ivoa.dm.tool.tool">Tool</a>&nbsp;c)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deleteContent</span><wbr><span class="parameters">(<a href="Tool.html" title="class in org.ivoa.dm.tool">Tool</a>&nbsp;c)</span></div>
 <div class="block">remove Tool from model.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>c</code> - org.ivoa.dm.tool.tool.Tool</dd>
+<dd><code>c</code> - org.ivoa.dm.tool.Tool</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="addReference(org.ivoa.dm.tool.tool.OCIRegistry)">
+<section class="detail" id="addReference(org.ivoa.dm.tool.Author)">
 <h3>addReference</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addReference</span><wbr><span class="parameters">(<a href="tool/OCIRegistry.html" title="class in org.ivoa.dm.tool.tool">OCIRegistry</a>&nbsp;c)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addReference</span><wbr><span class="parameters">(<a href="Author.html" title="class in org.ivoa.dm.tool">Author</a>&nbsp;c)</span></div>
 <div class="block">directly add reference. N.B. should not be necessary in normal operation - adding content should find embedded references.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
@@ -347,9 +320,20 @@ implements org.ivoa.vodml.VodmlModel&lt;<a href="ToolModel.html" title="class in
 </section>
 </li>
 <li>
-<section class="detail" id="addReference(org.ivoa.dm.tool.tool.ToolImage)">
+<section class="detail" id="addReference(org.ivoa.dm.tool.OCIRegistry)">
 <h3>addReference</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addReference</span><wbr><span class="parameters">(<a href="tool/ToolImage.html" title="class in org.ivoa.dm.tool.tool">ToolImage</a>&nbsp;c)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addReference</span><wbr><span class="parameters">(<a href="OCIRegistry.html" title="class in org.ivoa.dm.tool">OCIRegistry</a>&nbsp;c)</span></div>
+<div class="block">directly add reference. N.B. should not be necessary in normal operation - adding content should find embedded references.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>c</code> - the reference to be added.</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="addReference(org.ivoa.dm.tool.ToolImage)">
+<h3>addReference</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addReference</span><wbr><span class="parameters">(<a href="ToolImage.html" title="class in org.ivoa.dm.tool">ToolImage</a>&nbsp;c)</span></div>
 <div class="block">directly add reference. N.B. should not be necessary in normal operation - adding content should find embedded references.</div>
 <dl class="notes">
 <dt>Parameters:</dt>

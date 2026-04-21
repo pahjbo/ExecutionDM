@@ -13,13 +13,6 @@ digraph GVmap {
       style=filled
       fillcolor="/set312/1"
 	  
-    "tool" [
-
-    URL="../tool/tool"
-    label = "tool"
-    fillcolor="/set312/2"
-    ] ;
-    
 	}
 	
 	node [
@@ -27,74 +20,97 @@ digraph GVmap {
 	fontsize=8
 	style=filled] 
     
-  "pdl:ParameterGroup" [
-    URL="not known#ParameterGroup"
-    label = "{pdl:ParameterGroup}"
+  "pdl:ToolInterface" [
+    URL="not known#ToolInterface"
+    label = "{pdl:ToolInterface}"
     fillcolor="grey"
     ] ;
       
-    
-  "pdl:ParameterOrGroup" [
-    URL="not known#ParameterOrGroup"
-    label = "{pdl:ParameterOrGroup}"
-    fillcolor="grey"
+    "tool:Author" [
+    URL="../tool/Author"
+    label = "{Author|+name : ivoa:string\l+email : ivoa:string\l+role : ivoa:string\l+github : ivoa:string\l+gitlab : ivoa:string\l+orcid : ivoa:string\l+affiliation : ivoa:string\l}"
+    fillcolor="/set312/1"
     ] ;
-      
-    "tool:tool.Author" [
-    URL="../tool/tool.Author"
-    label = "{tool/Author|+name : ivoa:string\l+email : ivoa:string\l+role : ivoa:string\l+github : ivoa:string\l+gitlab : ivoa:string\l+orcid : ivoa:string\l+affiliation : ivoa:string\l}"
-    fillcolor="/set312/2"
+  "tool:OCIRegistry" [
+    URL="../tool/OCIRegistry"
+    label = "{OCIRegistry|+host : ivoa:string\l+project : ivoa:string\l}"
+    fillcolor="/set312/1"
     ] ;
-  "tool:tool.OCIRegistry" [
-    URL="../tool/tool.OCIRegistry"
-    label = "{tool/OCIRegistry|+host : ivoa:string\l+project : ivoa:string\l}"
-    fillcolor="/set312/2"
+  "tool:Discovery" [
+    URL="../tool/Discovery"
+    label = "{Discovery|+imageTitle : ivoa:string\l+description : ivoa:string\l+source : ivoa:anyURI\l+url : ivoa:anyURI\l+documentation : ivoa:anyURI\l+version : ivoa:string\l+revision : ivoa:string\l+created : ivoa:datetime\l+licenses : ivoa:string\l+keywords : ivoa:string\l+domain : ivoa:string\l+kind : ivoa:string\l+tools : ivoa:string\l+isBase : ivoa:boolean\l+deprecated : ivoa:boolean\l}"
+    fillcolor="/set312/1"
     ] ;
-  "tool:tool.Discovery" [
-    URL="../tool/tool.Discovery"
-    label = "{tool/Discovery|+imageTitle : ivoa:string\l+description : ivoa:string\l+source : ivoa:anyURI\l+url : ivoa:anyURI\l+documentation : ivoa:anyURI\l+version : ivoa:string\l+revision : ivoa:string\l+created : ivoa:datetime\l+licenses : ivoa:string\l+keywords : ivoa:string\l+domain : ivoa:string\l+kind : ivoa:string\l+tools : ivoa:string\l+deprecated : ivoa:boolean\l}"
-    fillcolor="/set312/2"
+  "tool:EnvVar" [
+    URL="../tool/EnvVar"
+    label = "{EnvVar|+name : ivoa:string\l+value : ivoa:string\l}"
+    fillcolor="/set312/1"
     ] ;
-  "tool:tool.EnvVar" [
-    URL="../tool/tool.EnvVar"
-    label = "{tool/EnvVar|+name : ivoa:string\l+value : ivoa:string\l}"
-    fillcolor="/set312/2"
+  "tool:Vulnerability" [
+    URL="../tool/Vulnerability"
+    label = "{Vulnerability|+cve : ivoa:string\l}"
+    fillcolor="/set312/1"
     ] ;
-  "tool:tool.ToolImage" [
-    URL="../tool/tool.ToolImage"
-    label = "{tool/ToolImage}"
-    fillcolor="/set312/2"
+  "tool:Compliance" [
+    URL="../tool/Compliance"
+    label = "{Compliance}"
+    fillcolor="/set312/1"
     ] ;
-  "tool:tool.BuildProcess" [
-    URL="../tool/tool.BuildProcess"
-    label = "{tool/BuildProcess}"
-    fillcolor="/set312/2"
+  "tool:SecurityMetadata" [
+    URL="../tool/SecurityMetadata"
+    label = "{SecurityMetadata|+signature : ivoa:string\l}"
+    fillcolor="/set312/1"
     ] ;
-  "tool:tool.ToolInterface" [
-    URL="../tool/tool.ToolInterface"
-    label = "{tool/ToolInterface}"
-    fillcolor="/set312/2"
+  "tool:ToolImage" [
+    URL="../tool/ToolImage"
+    label = "{ToolImage}"
+    fillcolor="/set312/1"
     ] ;
-  "tool:tool.Tool" [
-    URL="../tool/tool.Tool"
-    label = "{tool/Tool|+id : ivoa:string\l+command : ivoa:string\l}"
-    fillcolor="/set312/2"
+  "tool:BuildProcess" [
+    URL="../tool/BuildProcess"
+    label = "{BuildProcess|+buildCommand : ivoa:string\l+buildContext : ivoa:string\l+dockerfilePath : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "tool:Tool" [
+    URL="../tool/Tool"
+    label = "{Tool|+id : ivoa:string\l+command : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "tool:PerformanceProfile" [
+    URL="../tool/PerformanceProfile"
+    label = "{PerformanceProfile}"
+    fillcolor="/set312/1"
+    ] ;
+  "tool:ProcessorScaling" [
+    URL="../tool/ProcessorScaling"
+    label = "{ProcessorScaling}"
+    fillcolor="/set312/1"
+    ] ;
+  "tool:DataScaling" [
+    URL="../tool/DataScaling"
+    label = "{DataScaling}"
+    fillcolor="/set312/1"
     ] ;
   
  
     edge [color="blue", arrowhead="open", arrowtail="diamond",dir="both",fontsize="10"]
-    "tool:tool.Discovery" -> "tool:tool.Author" [headlabel="0..*",label="authors",labelfontsize=10] ;
-  "tool:tool.ToolImage" -> "tool:tool.BuildProcess" [headlabel="1",label="build",labelfontsize=10] ;
-  "tool:tool.ToolImage" -> "tool:tool.Discovery" [headlabel="1",label="discovery",labelfontsize=10] ;
-  "tool:tool.ToolInterface" -> "pdl:ParameterGroup" [headlabel="0..*",label="pg",labelfontsize=10] ;
-  "tool:tool.Tool" -> "tool:tool.EnvVar" [headlabel="0..*",label="env",labelfontsize=10] ;
-  "tool:tool.Tool" -> "pdl:ParameterOrGroup" [headlabel="0..*",label="inputs",labelfontsize=10] ;
-  "tool:tool.Tool" -> "pdl:ParameterOrGroup" [headlabel="1..*",label="outputs",labelfontsize=10] ;
+    "tool:SecurityMetadata" -> "tool:Vulnerability" [headlabel="0..*",label="vulnerabilities",labelfontsize=10] ;
+  "tool:SecurityMetadata" -> "tool:Compliance" [headlabel="0..*",label="compliance",labelfontsize=10] ;
+  "tool:ToolImage" -> "tool:BuildProcess" [headlabel="1",label="build",labelfontsize=10] ;
+  "tool:ToolImage" -> "tool:Discovery" [headlabel="1",label="discovery",labelfontsize=10] ;
+  "tool:ToolImage" -> "tool:SecurityMetadata" [headlabel="1",label="security",labelfontsize=10] ;
+  "tool:Tool" -> "tool:EnvVar" [headlabel="0..*",label="env",labelfontsize=10] ;
+  "tool:Tool" -> "pdl:ToolInterface" [headlabel="1",label="interface",labelfontsize=10] ;
+  "tool:Tool" -> "tool:PerformanceProfile" [headlabel="1",label="performanceProfile",labelfontsize=10] ;
+  "tool:PerformanceProfile" -> "tool:ProcessorScaling" [headlabel="1",label="processorScaling",labelfontsize=10] ;
+  "tool:PerformanceProfile" -> "tool:DataScaling" [headlabel="1",label="dataScaling",labelfontsize=10] ;
   
  
     edge [color="green", arrowhead="open", arrowtail="none"]
-    "tool:tool.ToolImage" -> "tool:tool.OCIRegistry" [headlabel="1",label="registry",labelfontsize=10] ;
-  "tool:tool.Tool" -> "tool:tool.ToolImage" [headlabel="1",label="image",labelfontsize=10] ;
+    "tool:Discovery" -> "tool:Author" [headlabel="1..*",label="authors",labelfontsize=10] ;
+  "tool:ToolImage" -> "tool:OCIRegistry" [headlabel="1",label="registry",labelfontsize=10] ;
+  "tool:ToolImage" -> "tool:ToolImage" [headlabel="0..1",label="parentImage",labelfontsize=10] ;
+  "tool:Tool" -> "tool:ToolImage" [headlabel="1",label="image",labelfontsize=10] ;
     
 }
   
