@@ -1,0 +1,63 @@
+model pdl (0.1) "Parameter Data Model for tool inputs and outputs"
+// this is spiritually the  successor of the PDL (which garnered no support), but really the CEA parameter model reimagined
+  author "Paul Harrison"
+
+include "../build/tmp/IVOA-v1.0.vodsl"
+
+
+
+abstract dtype ParameterType "The kind of the parameter " { // the idea is that there are
+	
+}
+
+dtype FileParameterType "a parameter type that is a file" {
+	mime: ivoa:string @? "mime type describing the file";
+	
+}
+
+dtype AtomicParameterType "a parameterType that typically can be represented by primitive " {
+	
+	kind: ivoa:string "the type of the parameter" semantic in "urn:vo-dml:pdl!vocab:parameterType"; //IMPL note a local vocab at the moment.
+}
+
+abstract dtype ParameterSemantics "a base type for semantics " { // TODO perhaps does not really need to be a type tree
+	
+}
+
+dtype IVOASemantics -> ParameterSemantics "" {
+	ucd : ivoa:string @? "a UCD";
+	
+}
+
+
+otype ParameterDefinition  "the definition of a parameter" {
+  name: ivoa:string "Parameter name";
+	description: ivoa:string @? "Parameter description";
+	kind: ParameterType  "the type of the parameter";
+	semantics: ParameterSemantics @? "";
+}
+
+
+
+otype ParameterGroup  "a group of parameter Definitions" { // this is here to allow for conditional
+    name: ivoa:string "Group name";
+	  members: ParameterOrGroup @+ as composition   "the definitions in the group"; //TODO VODML doesn't like aggregations - in this case
+    //TODO add semantics to allow for conditional groups - e.g. if parameter X has value Y then include this group of parameters (like original IVOA PDL)
+    //TODO see also https://github.com/pahjbo/PDL-S/blob/master/net.ivoa.pdl.pdls/src/net/ivoa/pdl/pdls/Pdls.xtext
+}
+
+otype ParameterOrGroup "a 'choice' type " { //IMPL not a great name...
+	//if VO-VODML had a choice (or on-of) relation this would be used here - i.e. only one of these should be set
+	param @? references ParameterDefinition "";
+	group @? references ParameterGroup "";
+}
+
+
+otype ToolInterface "The definition of the tool interface" {
+
+     parameters: ParameterDefinition @* as composition "All possible parameters for the tool interface";
+     groups: ParameterGroup @* as composition "all the Parameter Groups";
+
+     input @? references ParameterGroup   "The group of of parameters that are required for tool execution - i.e. input";
+     output @? references ParameterGroup  "The group of parameters that are produced by tool execution - i.e. output";
+}

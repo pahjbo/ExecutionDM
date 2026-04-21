@@ -21,12 +21,13 @@ Read this file before making any changes.
 ```
 ExecutionDM/
 ├── model/                      # ← VODSL source (edit here)
-│   ├── ExecutionDM-v1.vodsl    # Core execution model
-│   ├── ApplicationDM-v1.vodsl  # Container / application manifest model
-│   └── ExecutionBrokerDM-v1.vodsl  # Reference-only broker model (do not extend without discussion)
+│   ├── ExecutionDM-v1.vodsl    # Core execution model (job lifecycle, resources, I/O)
+│   ├── ParameterDM-v1.vodsl    # Parameter / PDL model (inputs and outputs type system)
+│   └── ToolDM-v1.vodsl         # Tool image model (OCI registry, build, discovery, interface)
 ├── vo-dml/                     # VO-DML XML (generated from model/ via vodslToVodml or committed)
 │   ├── ExecutionDM-v1.vo-dml.xml
-│   ├── ApplicationDM-v1.vo-dml.xml
+│   ├── ParameterDM-v1.vo-dml.xml
+│   ├── ToolDM-v1.vo-dml.xml
 │   └── ExecutionDM-v1.vodml-binding.xml   # Java binding configuration
 ├── src/test/java/org/ivoa/dm/execution/   # JUnit 5 model round-trip tests
 ├── doc/
@@ -91,16 +92,27 @@ ExecutionDM/
 
 ## 5. Model Authoring Rules (VODSL)
 
+The three VODSL source files and their responsibilities are:
+
+| File | Model prefix | Purpose |
+|------|-------------|---------|
+| `ExecutionDM-v1.vodsl` | `execution` | Core job lifecycle, resources, I/O |
+| `ParameterDM-v1.vodsl` | `pdl` | Parameter / PDL type system (inputs and outputs) |
+| `ToolDM-v1.vodsl` | `tool` | Tool image model (OCI registry, build, discovery, interface) |
+
+`ExecutionDM-v1.vodsl` includes both `ToolDM-v1.vodsl` and `ParameterDM-v1.vodsl`; `ToolDM-v1.vodsl` includes `ParameterDM-v1.vodsl`.  Dependency direction is: `execution → tool → pdl`.
+
 1. **Edit only the VODSL sources** in `model/`. The VO-DML XML in `vo-dml/` is either committed after generation or generated during the build — never edit it directly.
 2. **Generated files in `build/` are never committed.** The `.gitignore` should (and does) exclude the `build/` directory.
 3. **VODSL syntax quick reference:**
-   - `otype` = object type (reference semantics)
+   - `otype` = object type (identity semantics)
    - `dtype` = data type (value semantics, no identity)
    - `abstract otype` = abstract base type
    - `primitive` = scalar leaf type
    - `enum` = enumerated type
-   - Multiplicity suffixes: none = `[1..1]`, `@?` = `[0..1]`, `@*` = `[0..*]`, `@+` = `[1..*]`
+   - Multiplicity suffixes: none = `[1,1]`, `@?` = `[0,1]`, `@*` = `[0,*]`, `@+` = `[1,*]`
    - `as composition` = strong ownership (child cannot exist without parent)
+   - `references` = weak reference (child can exist independently)
 4. All new types **must have a non-empty description string**.
 5. New types that represent exchangeable resources should extend from appropriate IVOA base types where applicable.
 6. Follow the **black-box principle**: the model describes inputs, outputs, and execution context — never internal algorithmic behaviour inside a container.

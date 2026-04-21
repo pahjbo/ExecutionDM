@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vo-dml:model xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 https://www.ivoa.net/xml/VODML/vo-dml-v1.xsd" 
+              vodmlVersion="1.1">	<!-- file generated from VODSL - needs validatation against v1.1 of schema  --> 
+      <name>pdl</name>
+      <description>Parameter Data Model for tool inputs and outputs</description> 
+      <uri/>
+      <title></title>
+      <author>Paul Harrison</author>
+      <version>0.1</version>
+      <lastModified>2026-04-21T14:30:06Z</lastModified>
+      <import>
+        <name>ivoa</name>
+        <version>1.0</version>
+        <url>IVOA-v1.0.vo-dml.xml</url>
+        <documentationURL>not known</documentationURL>
+      </import>
+            <dataType abstract="true">
+              <vodml-id>ParameterType</vodml-id>
+              <name>ParameterType</name>
+              <description>The kind of the parameter </description>	    
+            </dataType>
+            <dataType>
+              <vodml-id>FileParameterType</vodml-id>
+              <name>FileParameterType</name>
+              <description>a parameter type that is a file</description>	    
+            <attribute>
+              <vodml-id>FileParameterType.mime</vodml-id>
+              <name>mime</name>
+              <description>mime type describing the file</description>	    
+              <datatype>
+                 <vodml-ref>ivoa:string</vodml-ref>
+              </datatype>
+              <multiplicity>
+                <minOccurs>0</minOccurs>
+                <maxOccurs>1</maxOccurs>
+              </multiplicity>
+            </attribute>
+            </dataType>
+            <dataType>
+              <vodml-id>AtomicParameterType</vodml-id>
+              <name>AtomicParameterType</name>
+              <description>a parameterType that typically can be represented by primitive </description>	    
+            <attribute>
+              <vodml-id>AtomicParameterType.kind</vodml-id>
+              <name>kind</name>
+              <description>the type of the parameter</description>	    
+              <datatype>
+                 <vodml-ref>ivoa:string</vodml-ref>
+              </datatype>
+              <multiplicity>
+                <minOccurs>1</minOccurs>
+                <maxOccurs>1</maxOccurs>
+              </multiplicity>
+            <semanticconcept>
+              <vocabularyURI>urn:vo-dml:pdl!vocab:parameterType</vocabularyURI>
+            </semanticconcept>
+            </attribute>
+            </dataType>
+            <dataType abstract="true">
+              <vodml-id>ParameterSemantics</vodml-id>
+              <name>ParameterSemantics</name>
+              <description>a base type for semantics </description>	    
+            </dataType>
+            <dataType>
+              <vodml-id>IVOASemantics</vodml-id>
+              <name>IVOASemantics</name>
+              <description></description>	    
+               <extends>
+                  <vodml-ref>pdl:ParameterSemantics</vodml-ref>
+               </extends>
+            <attribute>
+              <vodml-id>IVOASemantics.ucd</vodml-id>
+              <name>ucd</name>
+              <description>a UCD</description>	    
+              <datatype>
+                 <vodml-ref>ivoa:string</vodml-ref>
+              </datatype>
+              <multiplicity>
+                <minOccurs>0</minOccurs>
+                <maxOccurs>1</maxOccurs>
+              </multiplicity>
+            </attribute>
+            </dataType>
+            <objectType>
+               <vodml-id>ParameterDefinition</vodml-id>
+               <name>ParameterDefinition</name>
+               <description>the definition of a parameter</description>	    
+               <attribute>
+                 <vodml-id>ParameterDefinition.name</vodml-id>
+                 <name>name</name>
+                 <description>Parameter name</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ParameterDefinition.description</vodml-id>
+                 <name>description</name>
+                 <description>Parameter description</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ParameterDefinition.kind</vodml-id>
+                 <name>kind</name>
+                 <description>the type of the parameter</description>	    
+                 <datatype>
+                    <vodml-ref>pdl:ParameterType</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ParameterDefinition.semantics</vodml-id>
+                 <name>semantics</name>
+                 <description></description>	    
+                 <datatype>
+                    <vodml-ref>pdl:ParameterSemantics</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>ParameterGroup</vodml-id>
+               <name>ParameterGroup</name>
+               <description>a group of parameter Definitions</description>	    
+               <attribute>
+                 <vodml-id>ParameterGroup.name</vodml-id>
+                 <name>name</name>
+                 <description>Group name</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <composition>
+                 <vodml-id>ParameterGroup.members</vodml-id>
+                 <name>members</name>
+                 <description>the definitions in the group</description>	    
+                 <datatype>
+                    <vodml-ref>pdl:ParameterOrGroup</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </composition>
+            </objectType>
+            <objectType>
+               <vodml-id>ParameterOrGroup</vodml-id>
+               <name>ParameterOrGroup</name>
+               <description>a 'choice' type </description>	    
+               <reference>
+                 <vodml-id>ParameterOrGroup.param</vodml-id>
+                 <name>param</name>
+                 <description></description>	    
+                 <datatype>
+                   <vodml-ref>pdl:ParameterDefinition</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <reference>
+                 <vodml-id>ParameterOrGroup.group</vodml-id>
+                 <name>group</name>
+                 <description></description>	    
+                 <datatype>
+                   <vodml-ref>pdl:ParameterGroup</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+            </objectType>
+            <objectType>
+               <vodml-id>ToolInterface</vodml-id>
+               <name>ToolInterface</name>
+               <description>The definition of the tool interface</description>	    
+               <composition>
+                 <vodml-id>ToolInterface.parameters</vodml-id>
+                 <name>parameters</name>
+                 <description>All possible parameters for the tool interface</description>	    
+                 <datatype>
+                    <vodml-ref>pdl:ParameterDefinition</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </composition>
+               <composition>
+                 <vodml-id>ToolInterface.groups</vodml-id>
+                 <name>groups</name>
+                 <description>all the Parameter Groups</description>	    
+                 <datatype>
+                    <vodml-ref>pdl:ParameterGroup</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </composition>
+               <reference>
+                 <vodml-id>ToolInterface.input</vodml-id>
+                 <name>input</name>
+                 <description>The group of of parameters that are required for tool execution - i.e. input</description>	    
+                 <datatype>
+                   <vodml-ref>pdl:ParameterGroup</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <reference>
+                 <vodml-id>ToolInterface.output</vodml-id>
+                 <name>output</name>
+                 <description>The group of parameters that are produced by tool execution - i.e. output</description>	    
+                 <datatype>
+                   <vodml-ref>pdl:ParameterGroup</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+            </objectType>
+</vo-dml:model>

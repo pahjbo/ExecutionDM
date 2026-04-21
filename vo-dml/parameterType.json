@@ -1,0 +1,30 @@
+{
+  "uri": "urn:vo-dml:pdl!vocab:parameterType",
+  "flavour": "RDF Class",
+  "terms": {
+    "string": {
+      "label": "String",
+      "description": "String",
+      "preliminary": "",
+      "wider": [],
+      "narrower": [
+      ]
+    },
+    "int": {
+      "label": "Integer",
+      "description": "Int",
+      "preliminary": "",
+      "wider": [
+      ],
+      "narrower": []
+    },
+    "float": {
+      "label": "Float",
+      "description": "Float",
+      "preliminary": "",
+      "wider": [
+      ],
+      "narrower": []
+    }
+  }
+}

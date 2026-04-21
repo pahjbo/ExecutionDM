@@ -1,0 +1,30 @@
+{
+  "uri": "urn:vo-dml:execution!vocab:gpuType",
+  "flavour": "RDF Class",
+  "terms": {
+    "NVIDIA": {
+      "label": "NVIDIA",
+      "description": "NGPUs from NVIDIA - TODO need to add the names of specific GPU models as narrower terms",
+      "preliminary": "",
+      "wider": [],
+      "narrower": [
+      ]
+    },
+    "AMD": {
+      "label": "AMD",
+      "description": "GPUs from AMD",
+      "preliminary": "",
+      "wider": [
+      ],
+      "narrower": []
+    },
+    "Intel": {
+      "label": "Intel",
+      "description": "GPUs from Intel",
+      "preliminary": "",
+      "wider": [
+      ],
+      "narrower": []
+    }
+  }
+}

@@ -1,8 +1,122 @@
-model execution (1.0) "a template data model"
-  author "me"
-  
+
+model execution (0.1) "A Data Model for describing the execution of a job on a computational resource"
+  author "Paul Harrison"
+  // author "Dave Morris" // TODO does he want to be an author?
+
+//TODO - add more detail - this is an early draft
+//TODO include the 1.1 base model
   include "../build/tmp/IVOA-v1.0.vodsl"
+  include "ToolDM-v1.vodsl"
+  include "ParameterDM-v1.vodsl"
   
-  otype Another "an example otype" {
-  	att: ivoa:string "describe me";
+  otype PhysicalLocation "The physical location of a resource" {
+     name: ivoa:string "A human readable name for the location";
+     country: ivoa:string "Country name";
+     longitude: ivoa:real "Longitude in degrees";
+     latitude: ivoa:real "Latitude in degrees";
   }
+  
+  otype ExecutionNode "A Node where tool execution can take place" {
+  	resourcesServiceUrl: ivoa:anyURI "the ";
+  	executionServiceUrl: ivoa:anyURI "";
+  	location references PhysicalLocation  "the location of the node";
+  	dataTransferPerformance: TransferPerformance @? as composition "the performance of data transfer to/from the node";
+  	computeResources: ComputeResource @+ as composition "the compute resources available at the node";
+  }
+
+  otype ComputeResource "A computational resource that can be used for executing a job" {
+  	name: ivoa:string "the name of the compute resource";
+  	numberOfCores: ivoa:integer "the number of CPU cores available";
+  	memory: ivoa:real "the amount of RAM available in GB";
+  	gpu: ivoa:boolean "whether the resource has GPU capabilities";
+  	gpuType: ivoa:string @? "the type of GPU available, if any" semantic in "urn:vo-dml:execution!vocab:gpuType";
+  }
+
+   otype TransferPerformance "Performance of data transfer to/from a node" {
+  	fromLocation references PhysicalLocation "the source location of the data transfer";
+  	throughput: ivoa:real "the throughput of the data transfer in bytes/second";
+  	latency: ivoa:real @? "the latency of the data transfer in seconds";
+  	errorRate: ivoa:real  @? "the error rate of the data transfer as a percentage";
+  	timestamp: ivoa:datetime "the timestamp of the performance measurement";
+  }
+
+  otype DataNode "A Node where data can be stored" {
+  	storageServiceUrl: ivoa:anyURI "the URL of the storage service";
+  	location references PhysicalLocation  "the location of the node";
+  }
+
+  otype DataResource "A data resource that can be used as input or output for a job" { //TODO really want to make distinction between a "resolved" and an unresolved resopurce
+  	location references PhysicalLocation  "the location of the data";
+  	size: ivoa:real "the size of the data resource in GB";
+  	mimeType: ivoa:string @? "the mime type of the data resource";
+  	accessUrl: ivoa:anyURI "the URL that can be used to access the data resource"; // perhaps we want to have a more structured way of representing access to the data resource - e.g. if it is a file then we want to have a reference to the file rather than just a URL - but for now this is a simple URL that can be used to access the data resource
+  }
+  
+  otype WorkLoad "the execution workload" {
+
+  	
+  }
+
+  //IMPL this follows the general idea of a ParameterValue from CEA - might want to make it better typed.
+  //FIXME - this needs to be linked with DataResource if the parameter is a file - i.e. rather than just having a string value for the parameter we want to have a reference to a DataResource that represents the file - this would allow us to capture more metadata about the file (e.g. size, mime type, etc) and also to link with the data management aspects of the model - but for now this is a simple string value.
+  otype ParameterValue "the value of a parameter for a job execution" {
+  	definition references pdl:ParameterDefinition "the definition of the parameter";
+  	value: ivoa:string "the value of the parameter - this is intentionally very flexible to allow for different types of parameters - e.g. atomic values, files, etc"; //TODO - perhaps we want to have a more structured way of representing parameter values - e.g. if the parameter is a file then we want to have a reference to the file rather than just a string value - but for now this is a simple
+    isIndirect: ivoa:boolean "whether the value is an indirect reference to the actual value - e.g. a file path or a URL"; //
+  }
+
+  otype JobExecution "the execution of a job on a computational resource" {
+  	id: ivoa:string iskey "Unique job execution identifier";
+  	runId: ivoa:string  @?   "this is a client supplied identifier - the system
+                      does nothing other than to return it as part of the
+                      description of the job";
+  	ownerID: ivoa:string "the identifier of the user who owns the job execution";
+  	tool references tool:Tool "the tool being executed";
+  	inputs: ParameterValue @* as composition "the input parameter values for the job execution";
+  	outputs: ParameterValue @* as composition "the output parameter values for the job execution";
+  	status: ExecutionPhase "the current status of the job execution";
+  	executionNode references ExecutionNode "the node where the job is being executed";
+  	creationTime: ivoa:datetime "the time when the job execution was created";
+  	startTime: ivoa:datetime @? "the start time of the job execution";
+  	endTime: ivoa:datetime @? "the time at which the job execution finished";
+  	destructionTime: ivoa:datetime @? "the time at which the job execution will be destroyed";
+   	performanceMetrics: PerformanceMetric @* as composition "performance metrics for the job execution";
+   	//TODO need to have some detail about how the data resource resolution is progressing.
+  }
+
+  otype PerformanceMetric "A performance metric for a job execution" {
+  	//TODO - need to think about how to model this - e.g. do we want to have a standard set of performance metrics (e.g. execution time, memory usage, etc) or do we want to allow for arbitrary metrics to be defined by the user?
+  }
+
+
+
+//IMPL this extends the UWS execution phase model - adds Preparing and Finalizing phases, where data mounts can be prepared and results can be finalized (e.g. copied to a final location, temporary resources cleaned up etc)
+  enum ExecutionPhase  "Enumeration of possible phases of job execution"
+  {
+  PENDING  "The first phase a job is entered into - this is where
+                    a job is being set up but no request to run has
+                    occurred.",
+  QUEUED  "A job has been accepted for execution but is waiting
+                    in a queue",
+  PREPARING "A Job is preparing data mounts",
+  EXECUTING  "A job is running",
+  FINALIZING "A job is finalizing - this is a phase that can be used to indicate that the job has finished execution but is still doing some work to finalize the results 
+              - e.g. copying results to a final location, cleaning up temporary resources etc",
+  COMPLETED  "A job has completed successfully",
+  ERROR  "Some form of error has occurred",
+  UNKNOWN  "The job is in an unknown state.",
+  HELD  "The job is HELD pending execution and will not
+                    automatically be executed - can occur after a
+                    PHASE=RUN request has been made (cf PENDING).",
+  SUSPENDED  "The job has been suspended by the system during
+                    execution",
+  ABORTED  "The job has been aborted, either by user request or by
+                    the server because of lack or overuse of resources.",
+  ARCHIVED  "The job has been archived by the server at destruction time. An archived job
+                    may have deleted the results to reclaim resources, but must have job metadata preserved.
+                    This is an alternative that the server may choose in contrast to completely destroying all record of the job."
+  }
+
+
+
+

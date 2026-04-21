@@ -7,4 +7,17 @@
         <java-package>org.ivoa.dm.execution</java-package> <!-- the java package for the generated code -->
         <xml-targetnamespace prefix="execution">http://ivoa.net/dm/execution/v0.1</xml-targetnamespace>
     </model>
+    <model>
+        <name>tool</name>
+        <file>ToolDM-v1.vo-dml.xml</file>
+        <java-package>org.ivoa.dm.tool</java-package>
+        <xml-targetnamespace prefix="tool">http://ivoa.net/dm/tool/v0.1</xml-targetnamespace>
+    </model>
+    <model>
+        <name>pdl</name>
+        <file>ParameterDM-v1.vo-dml.xml</file>
+        <java-package>org.ivoa.dm.pdl</java-package>
+        <xml-targetnamespace prefix="pdl">http://ivoa.net/dm/pdl/v0.1</xml-targetnamespace>
+    </model>
+
 </m:mappedModels>

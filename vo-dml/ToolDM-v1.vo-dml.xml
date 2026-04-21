@@ -1,0 +1,657 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vo-dml:model xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 https://www.ivoa.net/xml/VODML/vo-dml-v1.xsd" 
+              vodmlVersion="1.1">	<!-- file generated from VODSL - needs validatation against v1.1 of schema  --> 
+      <name>tool</name>
+      <description>Tool Data Model for defining executable tools</description> 
+      <uri/>
+      <title></title>
+      <author>Paul Harrison</author>
+      <version>0.1</version>
+      <lastModified>2026-04-21T14:12:05Z</lastModified>
+      <import>
+        <name>ivoa</name>
+        <version>1.0</version>
+        <url>IVOA-v1.0.vo-dml.xml</url>
+        <documentationURL>not known</documentationURL>
+      </import>
+      <import>
+        <name>pdl</name>
+        <version>0.1</version>
+        <url>ParameterDM-v1.vo-dml.xml</url>
+        <documentationURL>not known</documentationURL>
+      </import>
+            <objectType>
+               <vodml-id>Author</vodml-id>
+               <name>Author</name>
+               <description>Details about an author of the image</description>	    
+               <attribute>
+                 <vodml-id>Author.name</vodml-id>
+                 <name>name</name>
+                 <description>Name of the author</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Author.email</vodml-id>
+                 <name>email</name>
+                 <description>Contact email address for the author</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Author.role</vodml-id>
+                 <name>role</name>
+                 <description>Role of the author; default maintainer</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Author.github</vodml-id>
+                 <name>github</name>
+                 <description>GitHub username </description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Author.gitlab</vodml-id>
+                 <name>gitlab</name>
+                 <description>GitLab username </description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Author.orcid</vodml-id>
+                 <name>orcid</name>
+                 <description>ORCID identity</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Author.affiliation</vodml-id>
+                 <name>affiliation</name>
+                 <description>Affiliation </description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>OCIRegistry</vodml-id>
+               <name>OCIRegistry</name>
+               <description>Details about the OCIcontainer registry</description>	    
+               <attribute>
+                 <vodml-id>OCIRegistry.host</vodml-id>
+                 <name>host</name>
+                 <description>Container registry hostname</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>OCIRegistry.project</vodml-id>
+                 <name>project</name>
+                 <description>Container registry project/namespace</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>Discovery</vodml-id>
+               <name>Discovery</name>
+               <description>Discovery metadata mapped to OCI labels/annotations</description>	    
+               <attribute>
+                 <vodml-id>Discovery.imageTitle</vodml-id>
+                 <name>imageTitle</name>
+                 <description>Human-readable title (schema field: title)</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.description</vodml-id>
+                 <name>description</name>
+                 <description>Human-readable description (1..255 chars)</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.source</vodml-id>
+                 <name>source</name>
+                 <description>Source code URL</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:anyURI</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.url</vodml-id>
+                 <name>url</name>
+                 <description>Project URL </description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:anyURI</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.documentation</vodml-id>
+                 <name>documentation</name>
+                 <description>Documentation URL </description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:anyURI</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.version</vodml-id>
+                 <name>version</name>
+                 <description>Packaged software version</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.revision</vodml-id>
+                 <name>revision</name>
+                 <description>Source control revision; default unknown</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.created</vodml-id>
+                 <name>created</name>
+                 <description>Metadata processing timestamp (UTC)</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:datetime</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <reference>
+                 <vodml-id>Discovery.authors</vodml-id>
+                 <name>authors</name>
+                 <description>Responsible people/organization</description>	    
+                 <datatype>
+                   <vodml-ref>tool:Author</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <attribute>
+                 <vodml-id>Discovery.licenses</vodml-id>
+                 <name>licenses</name>
+                 <description>SPDX license expression</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.keywords</vodml-id>
+                 <name>keywords</name>
+                 <description>Discovery/search keywords</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.domain</vodml-id>
+                 <name>domain</name>
+                 <description>Scientific domains; default astronomy; min_length=1</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.kind</vodml-id>
+                 <name>kind</name>
+                 <description></description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.tools</vodml-id>
+                 <name>tools</name>
+                 <description>Scientific software packages included</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.isBase</vodml-id>
+                 <name>isBase</name>
+                 <description>Whether this is a certified base image that should be used as a parent image for derived images</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:boolean</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>Discovery.deprecated</vodml-id>
+                 <name>deprecated</name>
+                 <description>Deprecation status; default false</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:boolean</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>EnvVar</vodml-id>
+               <name>EnvVar</name>
+               <description>Environment variable map entry</description>	    
+               <attribute>
+                 <vodml-id>EnvVar.name</vodml-id>
+                 <name>name</name>
+                 <description>Environment variable name</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>EnvVar.value</vodml-id>
+                 <name>value</name>
+                 <description>Environment variable value</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>Vulnerability</vodml-id>
+               <name>Vulnerability</name>
+               <description>a known security vulnerability</description>	    
+               <attribute>
+                 <vodml-id>Vulnerability.cve</vodml-id>
+                 <name>cve</name>
+                 <description>the identifier for the vulnerability</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>Compliance</vodml-id>
+               <name>Compliance</name>
+               <description>attestation information</description>	    
+            </objectType>
+            <objectType>
+               <vodml-id>SecurityMetadata</vodml-id>
+               <name>SecurityMetadata</name>
+               <description>Security metadata for a tool image</description>	    
+               <attribute>
+                 <vodml-id>SecurityMetadata.signature</vodml-id>
+                 <name>signature</name>
+                 <description>a digest style signature</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <composition>
+                 <vodml-id>SecurityMetadata.vulnerabilities</vodml-id>
+                 <name>vulnerabilities</name>
+                 <description>Known vulnerabilities in the image</description>	    
+                 <datatype>
+                    <vodml-ref>tool:Vulnerability</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </composition>
+               <composition>
+                 <vodml-id>SecurityMetadata.compliance</vodml-id>
+                 <name>compliance</name>
+                 <description>Compliance information for the image</description>	    
+                 <datatype>
+                    <vodml-ref>tool:Compliance</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </composition>
+            </objectType>
+            <objectType>
+               <vodml-id>ToolImage</vodml-id>
+               <name>ToolImage</name>
+               <description>Definition of a tool image</description>	    
+               <reference>
+                 <vodml-id>ToolImage.registry</vodml-id>
+                 <name>registry</name>
+                 <description>OCI registry details</description>	    
+                 <datatype>
+                   <vodml-ref>tool:OCIRegistry</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <reference>
+                 <vodml-id>ToolImage.parentImage</vodml-id>
+                 <name>parentImage</name>
+                 <description>Parent image reference</description>	    
+                 <datatype>
+                   <vodml-ref>tool:ToolImage</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <composition>
+                 <vodml-id>ToolImage.build</vodml-id>
+                 <name>build</name>
+                 <description>Build detail</description>	    
+                 <datatype>
+                    <vodml-ref>tool:BuildProcess</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </composition>
+               <composition>
+                 <vodml-id>ToolImage.discovery</vodml-id>
+                 <name>discovery</name>
+                 <description>Discovery metadata for the tool image</description>	    
+                 <datatype>
+                    <vodml-ref>tool:Discovery</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </composition>
+               <composition>
+                 <vodml-id>ToolImage.security</vodml-id>
+                 <name>security</name>
+                 <description>Security metadata for the tool image</description>	    
+                 <datatype>
+                    <vodml-ref>tool:SecurityMetadata</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </composition>
+            </objectType>
+            <objectType>
+               <vodml-id>BuildProcess</vodml-id>
+               <name>BuildProcess</name>
+               <description>How the tool image is built</description>	    
+               <attribute>
+                 <vodml-id>BuildProcess.buildCommand</vodml-id>
+                 <name>buildCommand</name>
+                 <description>The command used to build the image, e.g. 'docker build .'</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>BuildProcess.buildContext</vodml-id>
+                 <name>buildContext</name>
+                 <description>The context directory for the build, e.g. './'</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>BuildProcess.dockerfilePath</vodml-id>
+                 <name>dockerfilePath</name>
+                 <description>The path to the Dockerfile, e.g. './Dockerfile'</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>Tool</vodml-id>
+               <name>Tool</name>
+               <description>Definition of a Library Tool</description>	    
+               <attribute>
+                 <vodml-id>Tool.id</vodml-id>
+                 <name>id</name>
+                 <description>Unique tool identifier</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               <constraint xsi:type="vo-dml:NaturalKey">
+               	<position>1</position>
+               </constraint>
+               </attribute>
+               <reference>
+                 <vodml-id>Tool.image</vodml-id>
+                 <name>image</name>
+                 <description>Tool container image reference</description>	    
+                 <datatype>
+                   <vodml-ref>tool:ToolImage</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <attribute>
+                 <vodml-id>Tool.command</vodml-id>
+                 <name>command</name>
+                 <description>Tokenized initial command; supports {{inputs.key}} min_length=1</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <composition>
+                 <vodml-id>Tool.env</vodml-id>
+                 <name>env</name>
+                 <description>Environment map entries</description>	    
+                 <datatype>
+                    <vodml-ref>tool:EnvVar</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </composition>
+               <composition>
+                 <vodml-id>Tool.interface</vodml-id>
+                 <name>interface</name>
+                 <description>Tool interface definition - note that the inputs will be mounted in the /inputs directory and the outputs in the /outputs directory</description>	    
+                 <datatype>
+                    <vodml-ref>pdl:ToolInterface</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </composition>
+               <composition>
+                 <vodml-id>Tool.performanceProfile</vodml-id>
+                 <name>performanceProfile</name>
+                 <description>Performance profile for the tool</description>	    
+                 <datatype>
+                    <vodml-ref>tool:PerformanceProfile</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </composition>
+            </objectType>
+            <objectType>
+               <vodml-id>PerformanceProfile</vodml-id>
+               <name>PerformanceProfile</name>
+               <description>A performance profile for Tool execution</description>	    
+               <composition>
+                 <vodml-id>PerformanceProfile.processorScaling</vodml-id>
+                 <name>processorScaling</name>
+                 <description>the scaling behaviour of the tool with respect to the number of processors used</description>	    
+                 <datatype>
+                    <vodml-ref>tool:ProcessorScaling</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </composition>
+               <composition>
+                 <vodml-id>PerformanceProfile.dataScaling</vodml-id>
+                 <name>dataScaling</name>
+                 <description>the scaling behaviour of the tool with respect to the data size of the input data</description>	    
+                 <datatype>
+                    <vodml-ref>tool:DataScaling</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </composition>
+            </objectType>
+            <objectType>
+               <vodml-id>ProcessorScaling</vodml-id>
+               <name>ProcessorScaling</name>
+               <description>The scaling behaviour of a tool with respect to the number of processors used</description>	    
+            </objectType>
+            <objectType>
+               <vodml-id>DataScaling</vodml-id>
+               <name>DataScaling</name>
+               <description>The scaling behaviour of a tool with respect to the size of the input data</description>	    
+            </objectType>
+</vo-dml:model>

@@ -14,8 +14,7 @@ public class ExecutionModelTest extends AutoRoundTripWithValidationTest<Executio
         // create the model instance here.
         ExecutionModel retval = new ExecutionModel();
 
-        Another another = new Another("test");
-        retval.addContent(another);
+
         return retval;
     }
 

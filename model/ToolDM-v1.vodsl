@@ -1,0 +1,104 @@
+model tool (0.1) "Tool Data Model for defining executable tools"
+  author "Paul Harrison"
+
+  include "../build/tmp/IVOA-v1.0.vodsl"
+  include "ParameterDM-v1.vodsl"
+
+
+     otype Author "Details about an author of the image" { //TODO how to connect with SKA IAM identity.
+       name: ivoa:string "Name of the author";
+       email: ivoa:string "Contact email address for the author";
+       role: ivoa:string @? "Role of the author; default maintainer";
+       github: ivoa:string @? "GitHub username ";
+       gitlab: ivoa:string @? "GitLab username ";
+       orcid: ivoa:string @? "ORCID identity";
+       affiliation: ivoa:string @? "Affiliation ";
+     }
+
+     //IMPL the idea is that this is something like Harbor
+     otype OCIRegistry "Details about the OCIcontainer registry" { //TODO need to regularize with the possibility of transparent proxy registrieds
+       host: ivoa:string "Container registry hostname";
+       project: ivoa:string "Container registry project/namespace";
+     }
+
+//TODO - align with SRCNET metadata?
+ otype Discovery "Discovery metadata mapped to OCI labels/annotations" { // IMPL lifted straight from CADC libtool - 
+    imageTitle: ivoa:string "Human-readable title (schema field: title)";
+    description: ivoa:string "Human-readable description (1..255 chars)";
+    source: ivoa:anyURI "Source code URL";
+    url: ivoa:anyURI @? "Project URL ";
+    documentation: ivoa:anyURI @? "Documentation URL ";
+    version: ivoa:string "Packaged software version";
+    revision: ivoa:string @? "Source control revision; default unknown";
+    created: ivoa:datetime @? "Metadata processing timestamp (UTC)";
+    authors  @+ references Author  "Responsible people/organization"; //TODO VO-DML does not like aggregation...
+    licenses: ivoa:string "SPDX license expression";
+    keywords: ivoa:string @* "Discovery/search keywords";
+    domain: ivoa:string @+ "Scientific domains; default astronomy; min_length=1"; //FIXME - this needs a vocabulary.
+    kind: ivoa:string @+ "";// not sure if this is needed
+    tools: ivoa:string @* "Scientific software packages included";
+    isBase: ivoa:boolean "Whether this is a certified base image that should be used as a parent image for derived images";
+    deprecated: ivoa:boolean @? "Deprecation status; default false";
+  }
+
+ otype EnvVar "Environment variable map entry" {
+    name: ivoa:string "Environment variable name";
+    value: ivoa:string "Environment variable value";
+  }
+
+
+  otype Vulnerability "a known security vulnerability" {
+  	cve : ivoa:string "the identifier for the vulnerability";
+  	//TBC
+  }
+  
+  otype Compliance "attestation information" {
+  	
+  }
+
+
+  otype SecurityMetadata "Security metadata for a tool image" {
+  	signature: ivoa:string "a digest style signature";
+    vulnerabilities: Vulnerability @* as composition "Known vulnerabilities in the image";
+    compliance: Compliance @* as composition "Compliance information for the image";
+  }
+
+  otype ToolImage "Definition of a tool image" {
+    registry references OCIRegistry "OCI registry details";
+    parentImage @? references ToolImage "Parent image reference";
+    build: BuildProcess as composition "Build detail";
+    discovery: Discovery as composition "Discovery metadata for the tool image";
+    security: SecurityMetadata as composition "Security metadata for the tool image";
+  }
+
+ 
+  otype BuildProcess "How the tool image is built" {
+    buildCommand: ivoa:string "The command used to build the image, e.g. 'docker build .'";
+    buildContext: ivoa:string @? "The context directory for the build, e.g. './'";
+    dockerfilePath: ivoa:string @? "The path to the Dockerfile, e.g. './Dockerfile'";
+     //TODO - add more detail here - e.g. build args, secrets, etc.
+   	
+   }
+
+   otype Tool "Definition of a Library Tool" {
+      id: ivoa:string iskey "Unique tool identifier";
+      image references ToolImage  "Tool container image reference"; //IMPL - perhaps composition
+      command: ivoa:string @+ "Tokenized initial command; supports {{inputs.key}} min_length=1";
+      env: EnvVar @* as composition  "Environment map entries";
+      interface: pdl:ToolInterface as composition "Tool interface definition - note that the inputs will be mounted in the /inputs directory and the outputs in the /outputs directory";
+      performanceProfile: PerformanceProfile as composition "Performance profile for the tool";
+    }
+
+otype PerformanceProfile "A performance profile for Tool execution" {
+       processorScaling: ProcessorScaling as composition "the scaling behaviour of the tool with respect to the number of processors used";
+       dataScaling: DataScaling as composition "the scaling behaviour of the tool with respect to the data size of the input data";
+  }
+
+  otype ProcessorScaling "The scaling behaviour of a tool with respect to the number of processors used" {
+  	//TODO - need to think about how to model this - e.g. do we want to have a standard set of scaling behaviours (e.g. linear, sub-linear, super-linear) or do we want to allow for arbitrary scaling behaviours to be defined by the user?
+  }
+
+  otype DataScaling "The scaling behaviour of a tool with respect to the size of the input data" {
+  	//TODO - need to think about how to model this - e.g. do we want to have a standard set of scaling behaviours (e.g. linear, sub-linear, super-linear) or do we want to allow for arbitrary scaling behaviours to be defined by the user?
+  }
+

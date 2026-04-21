@@ -2,27 +2,115 @@
 <vo-dml:model xmlns:vo-dml="http://www.ivoa.net/xml/VODML/v1" 
               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
               xsi:schemaLocation="http://www.ivoa.net/xml/VODML/v1 https://www.ivoa.net/xml/VODML/vo-dml-v1.xsd" 
-              vodmlVersion="1.1">	<!-- file generated from VODSL - needs validatate against v1.1 of schema  --> 
+              vodmlVersion="1.1">	<!-- file generated from VODSL - needs validatation against v1.1 of schema  --> 
       <name>execution</name>
-      <description>a template data model</description> 
+      <description>A Data Model for describing the execution of a job on a computational resource</description> 
       <uri/>
-      <title>TBD</title>
-      <author>me</author>
-      <version>1.0</version>
-      <lastModified>2023-05-10T08:28:16Z</lastModified>
+      <title></title>
+      <author>Paul Harrison</author>
+      <version>0.1</version>
+      <lastModified>2026-04-21T14:13:03Z</lastModified>
       <import>
-        <name>null</name><!--should not be needed in modern vo-dml -->
+        <name>ivoa</name>
+        <version>1.0</version>
         <url>IVOA-v1.0.vo-dml.xml</url>
         <documentationURL>not known</documentationURL>
       </import>
+      <import>
+        <name>tool</name>
+        <version>0.1</version>
+        <url>ToolDM-v1.vo-dml.xml</url>
+        <documentationURL>not known</documentationURL>
+      </import>
+      <import>
+        <name>pdl</name>
+        <version>0.1</version>
+        <url>ParameterDM-v1.vo-dml.xml</url>
+        <documentationURL>not known</documentationURL>
+      </import>
+            <enumeration>
+               <vodml-id>ExecutionPhase</vodml-id>
+               <name>ExecutionPhase</name>
+               <description>Enumeration of possible phases of job execution</description>	    
+                  <literal>
+                    <vodml-id>ExecutionPhase.PENDING</vodml-id>
+                    <name>PENDING</name>
+                    <description>The first phase a job is entered into - this is where
+                                        a job is being set up but no request to run has
+                                        occurred.</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ExecutionPhase.QUEUED</vodml-id>
+                    <name>QUEUED</name>
+                    <description>A job has been accepted for execution but is waiting
+                                        in a queue</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ExecutionPhase.PREPARING</vodml-id>
+                    <name>PREPARING</name>
+                    <description>A Job is preparing data mounts</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ExecutionPhase.EXECUTING</vodml-id>
+                    <name>EXECUTING</name>
+                    <description>A job is running</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ExecutionPhase.FINALIZING</vodml-id>
+                    <name>FINALIZING</name>
+                    <description>A job is finalizing - this is a phase that can be used to indicate that the job has finished execution but is still doing some work to finalize the results 
+                                  - e.g. copying results to a final location, cleaning up temporary resources etc</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ExecutionPhase.COMPLETED</vodml-id>
+                    <name>COMPLETED</name>
+                    <description>A job has completed successfully</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ExecutionPhase.ERROR</vodml-id>
+                    <name>ERROR</name>
+                    <description>Some form of error has occurred</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ExecutionPhase.UNKNOWN</vodml-id>
+                    <name>UNKNOWN</name>
+                    <description>The job is in an unknown state.</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ExecutionPhase.HELD</vodml-id>
+                    <name>HELD</name>
+                    <description>The job is HELD pending execution and will not
+                                        automatically be executed - can occur after a
+                                        PHASE=RUN request has been made (cf PENDING).</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ExecutionPhase.SUSPENDED</vodml-id>
+                    <name>SUSPENDED</name>
+                    <description>The job has been suspended by the system during
+                                        execution</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ExecutionPhase.ABORTED</vodml-id>
+                    <name>ABORTED</name>
+                    <description>The job has been aborted, either by user request or by
+                                        the server because of lack or overuse of resources.</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ExecutionPhase.ARCHIVED</vodml-id>
+                    <name>ARCHIVED</name>
+                    <description>The job has been archived by the server at destruction time. An archived job
+                                        may have deleted the results to reclaim resources, but must have job metadata preserved.
+                                        This is an alternative that the server may choose in contrast to completely destroying all record of the job.</description>	    
+                  </literal>	
+            </enumeration>
             <objectType>
-               <vodml-id>Another</vodml-id>
-               <name>Another</name>
-               <description></description>	    
+               <vodml-id>PhysicalLocation</vodml-id>
+               <name>PhysicalLocation</name>
+               <description>The physical location of a resource</description>	    
                <attribute>
-                 <vodml-id>Another.att</vodml-id>
-                 <name>att</name>
-                 <description>describe me</description>	    
+                 <vodml-id>PhysicalLocation.name</vodml-id>
+                 <name>name</name>
+                 <description>A human readable name for the location</description>	    
                  <datatype>
                     <vodml-ref>ivoa:string</vodml-ref>
                  </datatype>
@@ -31,5 +119,538 @@
                    <maxOccurs>1</maxOccurs>
                  </multiplicity>
                </attribute>
+               <attribute>
+                 <vodml-id>PhysicalLocation.country</vodml-id>
+                 <name>country</name>
+                 <description>Country name</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>PhysicalLocation.longitude</vodml-id>
+                 <name>longitude</name>
+                 <description>Longitude in degrees</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:real</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>PhysicalLocation.latitude</vodml-id>
+                 <name>latitude</name>
+                 <description>Latitude in degrees</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:real</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>ExecutionNode</vodml-id>
+               <name>ExecutionNode</name>
+               <description>A Node where tool execution can take place</description>	    
+               <attribute>
+                 <vodml-id>ExecutionNode.resourcesServiceUrl</vodml-id>
+                 <name>resourcesServiceUrl</name>
+                 <description>the </description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:anyURI</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ExecutionNode.executionServiceUrl</vodml-id>
+                 <name>executionServiceUrl</name>
+                 <description></description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:anyURI</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <reference>
+                 <vodml-id>ExecutionNode.location</vodml-id>
+                 <name>location</name>
+                 <description>the location of the node</description>	    
+                 <datatype>
+                   <vodml-ref>execution:PhysicalLocation</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <composition>
+                 <vodml-id>ExecutionNode.dataTransferPerformance</vodml-id>
+                 <name>dataTransferPerformance</name>
+                 <description>the performance of data transfer to/from the node</description>	    
+                 <datatype>
+                    <vodml-ref>execution:TransferPerformance</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </composition>
+               <composition>
+                 <vodml-id>ExecutionNode.computeResources</vodml-id>
+                 <name>computeResources</name>
+                 <description>the compute resources available at the node</description>	    
+                 <datatype>
+                    <vodml-ref>execution:ComputeResource</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </composition>
+            </objectType>
+            <objectType>
+               <vodml-id>ComputeResource</vodml-id>
+               <name>ComputeResource</name>
+               <description>A computational resource that can be used for executing a job</description>	    
+               <attribute>
+                 <vodml-id>ComputeResource.name</vodml-id>
+                 <name>name</name>
+                 <description>the name of the compute resource</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ComputeResource.numberOfCores</vodml-id>
+                 <name>numberOfCores</name>
+                 <description>the number of CPU cores available</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:integer</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ComputeResource.memory</vodml-id>
+                 <name>memory</name>
+                 <description>the amount of RAM available in GB</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:real</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ComputeResource.gpu</vodml-id>
+                 <name>gpu</name>
+                 <description>whether the resource has GPU capabilities</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:boolean</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ComputeResource.gpuType</vodml-id>
+                 <name>gpuType</name>
+                 <description>the type of GPU available, if any</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               <semanticconcept>
+                 <vocabularyURI>urn:vo-dml:execution!vocab:gpuType</vocabularyURI>
+               </semanticconcept>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>TransferPerformance</vodml-id>
+               <name>TransferPerformance</name>
+               <description>Performance of data transfer to/from a node</description>	    
+               <reference>
+                 <vodml-id>TransferPerformance.fromLocation</vodml-id>
+                 <name>fromLocation</name>
+                 <description>the source location of the data transfer</description>	    
+                 <datatype>
+                   <vodml-ref>execution:PhysicalLocation</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <attribute>
+                 <vodml-id>TransferPerformance.throughput</vodml-id>
+                 <name>throughput</name>
+                 <description>the throughput of the data transfer in bytes/second</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:real</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>TransferPerformance.latency</vodml-id>
+                 <name>latency</name>
+                 <description>the latency of the data transfer in seconds</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:real</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>TransferPerformance.errorRate</vodml-id>
+                 <name>errorRate</name>
+                 <description>the error rate of the data transfer as a percentage</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:real</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>TransferPerformance.timestamp</vodml-id>
+                 <name>timestamp</name>
+                 <description>the timestamp of the performance measurement</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:datetime</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>DataNode</vodml-id>
+               <name>DataNode</name>
+               <description>A Node where data can be stored</description>	    
+               <attribute>
+                 <vodml-id>DataNode.storageServiceUrl</vodml-id>
+                 <name>storageServiceUrl</name>
+                 <description>the URL of the storage service</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:anyURI</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <reference>
+                 <vodml-id>DataNode.location</vodml-id>
+                 <name>location</name>
+                 <description>the location of the node</description>	    
+                 <datatype>
+                   <vodml-ref>execution:PhysicalLocation</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+            </objectType>
+            <objectType>
+               <vodml-id>DataResource</vodml-id>
+               <name>DataResource</name>
+               <description>A data resource that can be used as input or output for a job</description>	    
+               <reference>
+                 <vodml-id>DataResource.location</vodml-id>
+                 <name>location</name>
+                 <description>the location of the data</description>	    
+                 <datatype>
+                   <vodml-ref>execution:PhysicalLocation</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <attribute>
+                 <vodml-id>DataResource.size</vodml-id>
+                 <name>size</name>
+                 <description>the size of the data resource in GB</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:real</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>DataResource.mimeType</vodml-id>
+                 <name>mimeType</name>
+                 <description>the mime type of the data resource</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>DataResource.accessUrl</vodml-id>
+                 <name>accessUrl</name>
+                 <description>the URL that can be used to access the data resource</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:anyURI</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>WorkLoad</vodml-id>
+               <name>WorkLoad</name>
+               <description>the execution workload</description>	    
+            </objectType>
+            <objectType>
+               <vodml-id>ParameterValue</vodml-id>
+               <name>ParameterValue</name>
+               <description>the value of a parameter for a job execution</description>	    
+               <reference>
+                 <vodml-id>ParameterValue.definition</vodml-id>
+                 <name>definition</name>
+                 <description>the definition of the parameter</description>	    
+                 <datatype>
+                   <vodml-ref>pdl:ParameterDefinition</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <attribute>
+                 <vodml-id>ParameterValue.value</vodml-id>
+                 <name>value</name>
+                 <description>the value of the parameter - this is intentionally very flexible to allow for different types of parameters - e.g. atomic values, files, etc</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ParameterValue.isIndirect</vodml-id>
+                 <name>isIndirect</name>
+                 <description>whether the value is an indirect reference to the actual value - e.g. a file path or a URL</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:boolean</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+            </objectType>
+            <objectType>
+               <vodml-id>JobExecution</vodml-id>
+               <name>JobExecution</name>
+               <description>the execution of a job on a computational resource</description>	    
+               <attribute>
+                 <vodml-id>JobExecution.id</vodml-id>
+                 <name>id</name>
+                 <description>Unique job execution identifier</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               <constraint xsi:type="vo-dml:NaturalKey">
+               	<position>1</position>
+               </constraint>
+               </attribute>
+               <attribute>
+                 <vodml-id>JobExecution.runId</vodml-id>
+                 <name>runId</name>
+                 <description>this is a client supplied identifier - the system
+                                       does nothing other than to return it as part of the
+                                       description of the job</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>JobExecution.ownerID</vodml-id>
+                 <name>ownerID</name>
+                 <description>the identifier of the user who owns the job execution</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <reference>
+                 <vodml-id>JobExecution.tool</vodml-id>
+                 <name>tool</name>
+                 <description>the tool being executed</description>	    
+                 <datatype>
+                   <vodml-ref>tool:Tool</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <composition>
+                 <vodml-id>JobExecution.inputs</vodml-id>
+                 <name>inputs</name>
+                 <description>the input parameter values for the job execution</description>	    
+                 <datatype>
+                    <vodml-ref>execution:ParameterValue</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </composition>
+               <composition>
+                 <vodml-id>JobExecution.outputs</vodml-id>
+                 <name>outputs</name>
+                 <description>the output parameter values for the job execution</description>	    
+                 <datatype>
+                    <vodml-ref>execution:ParameterValue</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </composition>
+               <attribute>
+                 <vodml-id>JobExecution.status</vodml-id>
+                 <name>status</name>
+                 <description>the current status of the job execution</description>	    
+                 <datatype>
+                    <vodml-ref>execution:ExecutionPhase</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <reference>
+                 <vodml-id>JobExecution.executionNode</vodml-id>
+                 <name>executionNode</name>
+                 <description>the node where the job is being executed</description>	    
+                 <datatype>
+                   <vodml-ref>execution:ExecutionNode</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </reference>
+               <attribute>
+                 <vodml-id>JobExecution.creationTime</vodml-id>
+                 <name>creationTime</name>
+                 <description>the time when the job execution was created</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:datetime</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>JobExecution.startTime</vodml-id>
+                 <name>startTime</name>
+                 <description>the start time of the job execution</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:datetime</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>JobExecution.endTime</vodml-id>
+                 <name>endTime</name>
+                 <description>the time at which the job execution finished</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:datetime</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>JobExecution.destructionTime</vodml-id>
+                 <name>destructionTime</name>
+                 <description>the time at which the job execution will be destroyed</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:datetime</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <composition>
+                 <vodml-id>JobExecution.performanceMetrics</vodml-id>
+                 <name>performanceMetrics</name>
+                 <description>performance metrics for the job execution</description>	    
+                 <datatype>
+                    <vodml-ref>execution:PerformanceMetric</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>-1</maxOccurs>
+                 </multiplicity>
+               </composition>
+            </objectType>
+            <objectType>
+               <vodml-id>PerformanceMetric</vodml-id>
+               <name>PerformanceMetric</name>
+               <description>A performance metric for a job execution</description>	    
             </objectType>
 </vo-dml:model>
