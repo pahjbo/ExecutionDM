@@ -16,15 +16,15 @@ vodml {
 
 }
 /* uncomment below to run the generation of vodml from vodsl automatically */
-//tasks.named("vodmlJavaGenerate") {
-//    dependsOn("vodslToVodml")
-//}
-//tasks.named("vodmlSchema") {
-//    dependsOn("vodslToVodml")
-//}
-//tasks.named("vodmlSite") {
-//    dependsOn("vodslToVodml")
-//}
+tasks.named("vodmlJavaGenerate") {
+    dependsOn("vodslToVodml")
+}
+tasks.named("vodmlSchema") {
+    dependsOn("vodslToVodml")
+}
+tasks.named("vodmlSite") {
+    dependsOn("vodslToVodml")
+}
 
 
 tasks.test {

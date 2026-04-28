@@ -17,6 +17,7 @@ model execution (0.1) "A Data Model for describing the execution of a job on a c
   }
   
   otype ExecutionNode "A Node where tool execution can take place" {
+  	name: ivoa:string "name for the node";
   	resourcesServiceUrl: ivoa:anyURI "the ";
   	executionServiceUrl: ivoa:anyURI "";
   	location references PhysicalLocation  "the location of the node";

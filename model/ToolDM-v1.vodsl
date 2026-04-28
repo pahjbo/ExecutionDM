@@ -58,7 +58,7 @@ model tool (0.1) "Tool Data Model for defining executable tools"
 
 
   otype SecurityMetadata "Security metadata for a tool image" {
-  	signature: ivoa:string "a digest style signature";
+  	digest: ivoa:string "a digest style signature";
     vulnerabilities: Vulnerability @* as composition "Known vulnerabilities in the image";
     compliance: Compliance @* as composition "Compliance information for the image";
   }

@@ -9,7 +9,7 @@
       <title></title>
       <author>Paul Harrison</author>
       <version>0.1</version>
-      <lastModified>2026-04-21T14:13:03Z</lastModified>
+      <lastModified>2026-04-22T08:37:55Z</lastModified>
       <import>
         <name>ivoa</name>
         <version>1.0</version>
@@ -160,6 +160,18 @@
                <vodml-id>ExecutionNode</vodml-id>
                <name>ExecutionNode</name>
                <description>A Node where tool execution can take place</description>	    
+               <attribute>
+                 <vodml-id>ExecutionNode.name</vodml-id>
+                 <name>name</name>
+                 <description>name for the node</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:string</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>1</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
                <attribute>
                  <vodml-id>ExecutionNode.resourcesServiceUrl</vodml-id>
                  <name>resourcesServiceUrl</name>

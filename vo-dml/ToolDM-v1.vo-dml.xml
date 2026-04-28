@@ -9,7 +9,7 @@
       <title></title>
       <author>Paul Harrison</author>
       <version>0.1</version>
-      <lastModified>2026-04-21T14:12:05Z</lastModified>
+      <lastModified>2026-04-22T21:00:49Z</lastModified>
       <import>
         <name>ivoa</name>
         <version>1.0</version>
@@ -393,8 +393,8 @@
                <name>SecurityMetadata</name>
                <description>Security metadata for a tool image</description>	    
                <attribute>
-                 <vodml-id>SecurityMetadata.signature</vodml-id>
-                 <name>signature</name>
+                 <vodml-id>SecurityMetadata.digest</vodml-id>
+                 <name>digest</name>
                  <description>a digest style signature</description>	    
                  <datatype>
                     <vodml-ref>ivoa:string</vodml-ref>

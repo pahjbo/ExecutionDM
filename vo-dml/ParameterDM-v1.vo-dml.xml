@@ -9,13 +9,163 @@
       <title></title>
       <author>Paul Harrison</author>
       <version>0.1</version>
-      <lastModified>2026-04-21T14:30:06Z</lastModified>
+      <lastModified>2026-04-22T21:24:11Z</lastModified>
       <import>
         <name>ivoa</name>
         <version>1.0</version>
         <url>IVOA-v1.0.vo-dml.xml</url>
         <documentationURL>not known</documentationURL>
       </import>
+            <enumeration>
+               <vodml-id>ValueEncoding</vodml-id>
+               <name>ValueEncoding</name>
+               <description>How a parameter value is encoded for exchange</description>	    
+                  <literal>
+                    <vodml-id>ValueEncoding.PLAIN</vodml-id>
+                    <name>PLAIN</name>
+                    <description>Unencoded plain value representation</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ValueEncoding.JSON</vodml-id>
+                    <name>JSON</name>
+                    <description>JSON-encoded representation</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ValueEncoding.URI</vodml-id>
+                    <name>URI</name>
+                    <description>URI reference representation</description>	    
+                  </literal>	
+                  <literal>
+                    <vodml-id>ValueEncoding.BASE64</vodml-id>
+                    <name>BASE64</name>
+                    <description>Base64-encoded binary-safe representation</description>	    
+                  </literal>	
+            </enumeration>
+            <dataType abstract="true">
+              <vodml-id>ParameterLiteral</vodml-id>
+              <name>ParameterLiteral</name>
+              <description>A typed literal value for parameter defaults and value constraints</description>	    
+            </dataType>
+            <dataType>
+              <vodml-id>StringLiteral</vodml-id>
+              <name>StringLiteral</name>
+              <description>A string literal value</description>	    
+               <extends>
+                  <vodml-ref>pdl:ParameterLiteral</vodml-ref>
+               </extends>
+            <attribute>
+              <vodml-id>StringLiteral.value</vodml-id>
+              <name>value</name>
+              <description>The string value</description>	    
+              <datatype>
+                 <vodml-ref>ivoa:string</vodml-ref>
+              </datatype>
+              <multiplicity>
+                <minOccurs>1</minOccurs>
+                <maxOccurs>1</maxOccurs>
+              </multiplicity>
+            </attribute>
+            </dataType>
+            <dataType>
+              <vodml-id>IntegerLiteral</vodml-id>
+              <name>IntegerLiteral</name>
+              <description>An integer literal value</description>	    
+               <extends>
+                  <vodml-ref>pdl:ParameterLiteral</vodml-ref>
+               </extends>
+            <attribute>
+              <vodml-id>IntegerLiteral.value</vodml-id>
+              <name>value</name>
+              <description>The integer value</description>	    
+              <datatype>
+                 <vodml-ref>ivoa:integer</vodml-ref>
+              </datatype>
+              <multiplicity>
+                <minOccurs>1</minOccurs>
+                <maxOccurs>1</maxOccurs>
+              </multiplicity>
+            </attribute>
+            </dataType>
+            <dataType>
+              <vodml-id>RealLiteral</vodml-id>
+              <name>RealLiteral</name>
+              <description>A floating-point literal value</description>	    
+               <extends>
+                  <vodml-ref>pdl:ParameterLiteral</vodml-ref>
+               </extends>
+            <attribute>
+              <vodml-id>RealLiteral.value</vodml-id>
+              <name>value</name>
+              <description>The real value</description>	    
+              <datatype>
+                 <vodml-ref>ivoa:real</vodml-ref>
+              </datatype>
+              <multiplicity>
+                <minOccurs>1</minOccurs>
+                <maxOccurs>1</maxOccurs>
+              </multiplicity>
+            </attribute>
+            </dataType>
+            <dataType>
+              <vodml-id>BooleanLiteral</vodml-id>
+              <name>BooleanLiteral</name>
+              <description>A boolean literal value</description>	    
+               <extends>
+                  <vodml-ref>pdl:ParameterLiteral</vodml-ref>
+               </extends>
+            <attribute>
+              <vodml-id>BooleanLiteral.value</vodml-id>
+              <name>value</name>
+              <description>The boolean value</description>	    
+              <datatype>
+                 <vodml-ref>ivoa:boolean</vodml-ref>
+              </datatype>
+              <multiplicity>
+                <minOccurs>1</minOccurs>
+                <maxOccurs>1</maxOccurs>
+              </multiplicity>
+            </attribute>
+            </dataType>
+            <dataType>
+              <vodml-id>UriLiteral</vodml-id>
+              <name>UriLiteral</name>
+              <description>A URI literal value</description>	    
+               <extends>
+                  <vodml-ref>pdl:ParameterLiteral</vodml-ref>
+               </extends>
+            <attribute>
+              <vodml-id>UriLiteral.value</vodml-id>
+              <name>value</name>
+              <description>The URI value</description>	    
+              <datatype>
+                 <vodml-ref>ivoa:anyURI</vodml-ref>
+              </datatype>
+              <multiplicity>
+                <minOccurs>1</minOccurs>
+                <maxOccurs>1</maxOccurs>
+              </multiplicity>
+            </attribute>
+            </dataType>
+            <dataType>
+              <vodml-id>JsonLiteral</vodml-id>
+              <name>JsonLiteral</name>
+              <description>A JSON literal value used for structured defaults</description>	    
+               <extends>
+                  <vodml-ref>pdl:ParameterLiteral</vodml-ref>
+               </extends>
+            <attribute>
+              <vodml-id>JsonLiteral.value</vodml-id>
+              <name>value</name>
+              <description>A JSON document representing object or array content</description>	    
+              <datatype>
+                 <vodml-ref>ivoa:string</vodml-ref>
+              </datatype>
+              <multiplicity>
+                <minOccurs>1</minOccurs>
+                <maxOccurs>1</maxOccurs>
+              </multiplicity>
+            </attribute>
+            </dataType>
             <dataType abstract="true">
               <vodml-id>ParameterType</vodml-id>
               <name>ParameterType</name>
@@ -25,6 +175,9 @@
               <vodml-id>FileParameterType</vodml-id>
               <name>FileParameterType</name>
               <description>a parameter type that is a file</description>	    
+               <extends>
+                  <vodml-ref>pdl:ParameterType</vodml-ref>
+               </extends>
             <attribute>
               <vodml-id>FileParameterType.mime</vodml-id>
               <name>mime</name>
@@ -42,6 +195,9 @@
               <vodml-id>AtomicParameterType</vodml-id>
               <name>AtomicParameterType</name>
               <description>a parameterType that typically can be represented by primitive </description>	    
+               <extends>
+                  <vodml-ref>pdl:ParameterType</vodml-ref>
+               </extends>
             <attribute>
               <vodml-id>AtomicParameterType.kind</vodml-id>
               <name>kind</name>
@@ -74,6 +230,18 @@
               <vodml-id>IVOASemantics.ucd</vodml-id>
               <name>ucd</name>
               <description>a UCD</description>	    
+              <datatype>
+                 <vodml-ref>ivoa:string</vodml-ref>
+              </datatype>
+              <multiplicity>
+                <minOccurs>0</minOccurs>
+                <maxOccurs>1</maxOccurs>
+              </multiplicity>
+            </attribute>
+            <attribute>
+              <vodml-id>IVOASemantics.utype</vodml-id>
+              <name>utype</name>
+              <description>a Utype</description>	    
               <datatype>
                  <vodml-ref>ivoa:string</vodml-ref>
               </datatype>
@@ -124,9 +292,69 @@
                  </multiplicity>
                </attribute>
                <attribute>
+                 <vodml-id>ParameterDefinition.required</vodml-id>
+                 <name>required</name>
+                 <description>Whether this parameter must be provided by clients</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:boolean</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ParameterDefinition.minItems</vodml-id>
+                 <name>minItems</name>
+                 <description>Minimum number of items allowed in the array</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:integer</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ParameterDefinition.maxItems</vodml-id>
+                 <name>maxItems</name>
+                 <description>Maximum number of items allowed in the array</description>	    
+                 <datatype>
+                    <vodml-ref>ivoa:integer</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ParameterDefinition.defaultValue</vodml-id>
+                 <name>defaultValue</name>
+                 <description>A typed default value used when no explicit value is supplied</description>	    
+                 <datatype>
+                    <vodml-ref>pdl:ParameterLiteral</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
+                 <vodml-id>ParameterDefinition.encoding</vodml-id>
+                 <name>encoding</name>
+                 <description>Preferred exchange encoding for this parameter value</description>	    
+                 <datatype>
+                    <vodml-ref>pdl:ValueEncoding</vodml-ref>
+                 </datatype>
+                 <multiplicity>
+                   <minOccurs>0</minOccurs>
+                   <maxOccurs>1</maxOccurs>
+                 </multiplicity>
+               </attribute>
+               <attribute>
                  <vodml-id>ParameterDefinition.semantics</vodml-id>
                  <name>semantics</name>
-                 <description></description>	    
+                 <description>Optional semantic annotation for this parameter</description>	    
                  <datatype>
                     <vodml-ref>pdl:ParameterSemantics</vodml-ref>
                  </datatype>
