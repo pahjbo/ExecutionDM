@@ -1,6 +1,6 @@
 site_name: Model Documentation
 docs_dir: doc/site
-repo_url: 'https://github.com/pahjbo/ExecutionDM'
+repo_url: 'https://github.com/Javastro/ExecutionDM'
 
 theme:
   name: material
