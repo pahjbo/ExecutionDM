@@ -45,7 +45,7 @@ digraph GVmap {
     ] ;
   "execution:ExecutionNode" [
     URL="../execution/ExecutionNode"
-    label = "{ExecutionNode|+resourcesServiceUrl : ivoa:anyURI\l+executionServiceUrl : ivoa:anyURI\l}"
+    label = "{ExecutionNode|+name : ivoa:string\l+resourcesServiceUrl : ivoa:anyURI\l+executionServiceUrl : ivoa:anyURI\l}"
     fillcolor="/set312/1"
     ] ;
   "execution:ComputeResource" [

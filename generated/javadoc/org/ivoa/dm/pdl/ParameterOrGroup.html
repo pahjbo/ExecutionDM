@@ -128,11 +128,26 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="block">ReferenceObject group :
  .</div>
 </div>
+<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
+<div class="col-second even-row-color"><code><a href="#maxItems" class="member-name-link">maxItems</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">Maximum number of items allowed in the array.</div>
+</div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#minItems" class="member-name-link">minItems</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Minimum number of items allowed in the array.</div>
+</div>
 <div class="col-first even-row-color"><code>protected <a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a></code></div>
 <div class="col-second even-row-color"><code><a href="#param" class="member-name-link">param</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">ReferenceObject param :
  .</div>
+</div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#required" class="member-name-link">required</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Whether this parameter/group must be provided by clients.</div>
 </div>
 </div>
 </section>
@@ -149,8 +164,11 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-last even-row-color">
 <div class="block">Creates a new ParameterOrGroup</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.ivoa.dm.pdl.ParameterDefinition,org.ivoa.dm.pdl.ParameterGroup)" class="member-name-link">ParameterOrGroup</a><wbr>(<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&nbsp;param,
- <a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a>&nbsp;group)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.ivoa.dm.pdl.ParameterDefinition,org.ivoa.dm.pdl.ParameterGroup,java.lang.Boolean,java.lang.Integer,java.lang.Integer)" class="member-name-link">ParameterOrGroup</a><wbr>(<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&nbsp;param,
+ <a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a>&nbsp;group,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;required,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;minItems,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;maxItems)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">full parameter constructor.</div>
 </div>
@@ -191,20 +209,50 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxItems()" class="member-name-link">getMaxItems</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns maxItems Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMinItems()" class="member-name-link">getMinItems</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns minItems Attribute.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParam()" class="member-name-link">getParam</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns param Reference</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGroup(org.ivoa.dm.pdl.ParameterGroup)" class="member-name-link">setGroup</a><wbr>(<a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a>&nbsp;pGroup)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRequired()" class="member-name-link">getRequired</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Defines group Reference</div>
+<div class="block">Returns required Attribute.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParam(org.ivoa.dm.pdl.ParameterDefinition)" class="member-name-link">setParam</a><wbr>(<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&nbsp;pParam)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGroup(org.ivoa.dm.pdl.ParameterGroup)" class="member-name-link">setGroup</a><wbr>(<a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a>&nbsp;pGroup)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Defines group Reference</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMaxItems(java.lang.Integer)" class="member-name-link">setMaxItems</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;pMaxItems)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set maxItems Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMinItems(java.lang.Integer)" class="member-name-link">setMinItems</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;pMinItems)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set minItems Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setParam(org.ivoa.dm.pdl.ParameterDefinition)" class="member-name-link">setParam</a><wbr>(<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&nbsp;pParam)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Defines param Reference</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRequired(java.lang.Boolean)" class="member-name-link">setRequired</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;pRequired)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set required Attribute.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateClonedReferences()" class="member-name-link">updateClonedReferences</a>()</code></div>
@@ -215,6 +263,21 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateUsing(org.ivoa.dm.pdl.ParameterOrGroup)" class="member-name-link">updateUsing</a><wbr>(<a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a>&nbsp;other)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Update this object with the content of the given object.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withMaxItems(java.lang.Integer)" class="member-name-link">withMaxItems</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;pMaxItems)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for maxItems Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withMinItems(java.lang.Integer)" class="member-name-link">withMinItems</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;pMinItems)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for minItems Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withRequired(java.lang.Boolean)" class="member-name-link">withRequired</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;pRequired)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for required Attribute.</div>
 </div>
 </div>
 </div>
@@ -270,6 +333,39 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
  )</div>
 </section>
 </li>
+<li>
+<section class="detail" id="required">
+<h3>required</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="pdl:ParameterOrGroup.required",
+       role=attribute,
+       type="ivoa:boolean",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a></span>&nbsp;<span class="element-name">required</span></div>
+<div class="block">Whether this parameter/group must be provided by clients. : Attribute required type ivoa:boolean : multiplicity 0..1</div>
+</section>
+</li>
+<li>
+<section class="detail" id="minItems">
+<h3>minItems</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="pdl:ParameterOrGroup.minItems",
+       role=attribute,
+       type="ivoa:integer",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">minItems</span></div>
+<div class="block">Minimum number of items allowed in the array. : Attribute minItems type ivoa:integer : multiplicity 0..1</div>
+</section>
+</li>
+<li>
+<section class="detail" id="maxItems">
+<h3>maxItems</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="pdl:ParameterOrGroup.maxItems",
+       role=attribute,
+       type="ivoa:integer",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">maxItems</span></div>
+<div class="block">Maximum number of items allowed in the array. : Attribute maxItems type ivoa:integer : multiplicity 0..1</div>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -286,15 +382,21 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 </section>
 </li>
 <li>
-<section class="detail" id="&lt;init&gt;(org.ivoa.dm.pdl.ParameterDefinition,org.ivoa.dm.pdl.ParameterGroup)">
+<section class="detail" id="&lt;init&gt;(org.ivoa.dm.pdl.ParameterDefinition,org.ivoa.dm.pdl.ParameterGroup,java.lang.Boolean,java.lang.Integer,java.lang.Integer)">
 <h3>ParameterOrGroup</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ParameterOrGroup</span><wbr><span class="parameters">(<a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a>&nbsp;param,
- <a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a>&nbsp;group)</span></div>
+ <a href="ParameterGroup.html" title="class in org.ivoa.dm.pdl">ParameterGroup</a>&nbsp;group,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;required,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;minItems,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;maxItems)</span></div>
 <div class="block">full parameter constructor.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>param</code> - .</dd>
 <dd><code>group</code> - .</dd>
+<dd><code>required</code> - Whether this parameter/group must be provided by clients.</dd>
+<dd><code>minItems</code> - Minimum number of items allowed in the array.</dd>
+<dd><code>maxItems</code> - Maximum number of items allowed in the array.</dd>
 </dl>
 </section>
 </li>
@@ -388,6 +490,111 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>pGroup</code> - reference to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getRequired()">
+<h3>getRequired</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a></span>&nbsp;<span class="element-name">getRequired</span>()</div>
+<div class="block">Returns required Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>required Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setRequired(java.lang.Boolean)">
+<h3>setRequired</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setRequired</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;pRequired)</span></div>
+<div class="block">Set required Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pRequired</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withRequired(java.lang.Boolean)">
+<h3>withRequired</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></span>&nbsp;<span class="element-name">withRequired</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&nbsp;pRequired)</span></div>
+<div class="block">fluent setter for required Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pRequired</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>ParameterOrGroup</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getMinItems()">
+<h3>getMinItems</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">getMinItems</span>()</div>
+<div class="block">Returns minItems Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>minItems Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setMinItems(java.lang.Integer)">
+<h3>setMinItems</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setMinItems</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;pMinItems)</span></div>
+<div class="block">Set minItems Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pMinItems</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withMinItems(java.lang.Integer)">
+<h3>withMinItems</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></span>&nbsp;<span class="element-name">withMinItems</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;pMinItems)</span></div>
+<div class="block">fluent setter for minItems Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pMinItems</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>ParameterOrGroup</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getMaxItems()">
+<h3>getMaxItems</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a></span>&nbsp;<span class="element-name">getMaxItems</span>()</div>
+<div class="block">Returns maxItems Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>maxItems Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setMaxItems(java.lang.Integer)">
+<h3>setMaxItems</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setMaxItems</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;pMaxItems)</span></div>
+<div class="block">Set maxItems Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pMaxItems</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withMaxItems(java.lang.Integer)">
+<h3>withMaxItems</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></span>&nbsp;<span class="element-name">withMaxItems</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&nbsp;pMaxItems)</span></div>
+<div class="block">fluent setter for maxItems Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pMaxItems</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>ParameterOrGroup</dd>
 </dl>
 </section>
 </li>

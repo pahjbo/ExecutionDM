@@ -19,7 +19,47 @@ digraph GVmap {
 	shape=record
 	fontsize=8
 	style=filled] 
-    "pdl:ParameterType" [
+    "pdl:ValueEncoding" [
+    URL="../pdl/ValueEncoding"
+    label = "{&lt;&lt;enumeration&gt;&gt;\nValueEncoding|+PLAIN\l+URI\l+BASE64\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:ParameterLiteral" [
+    URL="../pdl/ParameterLiteral"
+    label = "{&lt;&lt;datatype&gt;&gt;\nParameterLiteral}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:StringLiteral" [
+    URL="../pdl/StringLiteral"
+    label = "{&lt;&lt;datatype&gt;&gt;\nStringLiteral|+value : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:IntegerLiteral" [
+    URL="../pdl/IntegerLiteral"
+    label = "{&lt;&lt;datatype&gt;&gt;\nIntegerLiteral|+value : ivoa:integer\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:RealLiteral" [
+    URL="../pdl/RealLiteral"
+    label = "{&lt;&lt;datatype&gt;&gt;\nRealLiteral|+value : ivoa:real\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:BooleanLiteral" [
+    URL="../pdl/BooleanLiteral"
+    label = "{&lt;&lt;datatype&gt;&gt;\nBooleanLiteral|+value : ivoa:boolean\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:UriLiteral" [
+    URL="../pdl/UriLiteral"
+    label = "{&lt;&lt;datatype&gt;&gt;\nUriLiteral|+value : ivoa:anyURI\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:JsonLiteral" [
+    URL="../pdl/JsonLiteral"
+    label = "{&lt;&lt;datatype&gt;&gt;\nJsonLiteral|+value : ivoa:string\l}"
+    fillcolor="/set312/1"
+    ] ;
+  "pdl:ParameterType" [
     URL="../pdl/ParameterType"
     label = "{&lt;&lt;datatype&gt;&gt;\nParameterType}"
     fillcolor="/set312/1"
@@ -41,12 +81,12 @@ digraph GVmap {
     ] ;
   "pdl:IVOASemantics" [
     URL="../pdl/IVOASemantics"
-    label = "{&lt;&lt;datatype&gt;&gt;\nIVOASemantics|+ucd : ivoa:string\l}"
+    label = "{&lt;&lt;datatype&gt;&gt;\nIVOASemantics|+ucd : ivoa:string\l+utype : ivoa:string\l}"
     fillcolor="/set312/1"
     ] ;
   "pdl:ParameterDefinition" [
     URL="../pdl/ParameterDefinition"
-    label = "{ParameterDefinition|+name : ivoa:string\l+description : ivoa:string\l+kind : pdl:ParameterType\l+semantics : pdl:ParameterSemantics\l}"
+    label = "{ParameterDefinition|+name : ivoa:string\l+description : ivoa:string\l+kind : pdl:ParameterType\l+defaultValue : pdl:ParameterLiteral\l+encoding : pdl:ValueEncoding\l+semantics : pdl:ParameterSemantics\l}"
     fillcolor="/set312/1"
     ] ;
   "pdl:ParameterGroup" [
@@ -56,7 +96,7 @@ digraph GVmap {
     ] ;
   "pdl:ParameterOrGroup" [
     URL="../pdl/ParameterOrGroup"
-    label = "{ParameterOrGroup}"
+    label = "{ParameterOrGroup|+required : ivoa:boolean\l+minItems : ivoa:integer\l+maxItems : ivoa:integer\l}"
     fillcolor="/set312/1"
     ] ;
   "pdl:ToolInterface" [
@@ -67,7 +107,15 @@ digraph GVmap {
   
  
     edge [color="red", arrowtail="none", arrowhead="empty"]
-    "pdl:IVOASemantics" -> "pdl:ParameterSemantics" ;
+    "pdl:StringLiteral" -> "pdl:ParameterLiteral" ;
+  "pdl:IntegerLiteral" -> "pdl:ParameterLiteral" ;
+  "pdl:RealLiteral" -> "pdl:ParameterLiteral" ;
+  "pdl:BooleanLiteral" -> "pdl:ParameterLiteral" ;
+  "pdl:UriLiteral" -> "pdl:ParameterLiteral" ;
+  "pdl:JsonLiteral" -> "pdl:ParameterLiteral" ;
+  "pdl:FileParameterType" -> "pdl:ParameterType" ;
+  "pdl:AtomicParameterType" -> "pdl:ParameterType" ;
+  "pdl:IVOASemantics" -> "pdl:ParameterSemantics" ;
   
  
     edge [color="blue", arrowhead="open", arrowtail="diamond",dir="both",fontsize="10"]

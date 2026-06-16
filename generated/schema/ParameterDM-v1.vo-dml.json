@@ -30,40 +30,168 @@
   },
   "$defs" : {
     "$comment" : "placeholder to make commas easier!",
+    "ValueEncoding" : {
+      "description" : "How a parameter value is encoded for exchange",
+      "enum" : [ "PLAIN", "URI", "BASE64" ]
+    },
+    "ParameterLiteral" : {
+      "type" : "object",
+      "description" : "A typed literal value for parameter defaults and value constraints",
+      "properties" : {
+        "$comment" : "placeholder to make commas easier!",
+        "@type" : {
+          "type" : "string"
+        }
+      },
+      "required" : [ "@type" ]
+    },
+    "StringLiteral" : {
+      "allOf" : [ {
+        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterLiteral"
+      }, {
+        "type" : "object",
+        "description" : "A string literal value",
+        "properties" : {
+          "$comment" : "placeholder to make commas easier!",
+          "value" : {
+            "type" : "string",
+            "description" : "The string value"
+          }
+        },
+        "required" : [ "value" ]
+      } ],
+      "unevaluatedProperties" : false
+    },
+    "IntegerLiteral" : {
+      "allOf" : [ {
+        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterLiteral"
+      }, {
+        "type" : "object",
+        "description" : "An integer literal value",
+        "properties" : {
+          "$comment" : "placeholder to make commas easier!",
+          "value" : {
+            "type" : "integer",
+            "description" : "The integer value"
+          }
+        },
+        "required" : [ "value" ]
+      } ],
+      "unevaluatedProperties" : false
+    },
+    "RealLiteral" : {
+      "allOf" : [ {
+        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterLiteral"
+      }, {
+        "type" : "object",
+        "description" : "A floating-point literal value",
+        "properties" : {
+          "$comment" : "placeholder to make commas easier!",
+          "value" : {
+            "type" : "number",
+            "description" : "The real value"
+          }
+        },
+        "required" : [ "value" ]
+      } ],
+      "unevaluatedProperties" : false
+    },
+    "BooleanLiteral" : {
+      "allOf" : [ {
+        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterLiteral"
+      }, {
+        "type" : "object",
+        "description" : "A boolean literal value",
+        "properties" : {
+          "$comment" : "placeholder to make commas easier!",
+          "value" : {
+            "type" : "boolean",
+            "description" : "The boolean value"
+          }
+        },
+        "required" : [ "value" ]
+      } ],
+      "unevaluatedProperties" : false
+    },
+    "UriLiteral" : {
+      "allOf" : [ {
+        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterLiteral"
+      }, {
+        "type" : "object",
+        "description" : "A URI literal value",
+        "properties" : {
+          "$comment" : "placeholder to make commas easier!",
+          "value" : {
+            "type" : "string",
+            "format" : "uri",
+            "description" : "The URI value"
+          }
+        },
+        "required" : [ "value" ]
+      } ],
+      "unevaluatedProperties" : false
+    },
+    "JsonLiteral" : {
+      "allOf" : [ {
+        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterLiteral"
+      }, {
+        "type" : "object",
+        "description" : "A JSON literal value used for structured defaults",
+        "properties" : {
+          "$comment" : "placeholder to make commas easier!",
+          "value" : {
+            "type" : "string",
+            "description" : "A JSON document representing object or array content"
+          }
+        },
+        "required" : [ "value" ]
+      } ],
+      "unevaluatedProperties" : false
+    },
     "ParameterType" : {
       "type" : "object",
       "description" : "The kind of the parameter",
       "properties" : {
-        "$comment" : "placeholder to make commas easier!"
+        "$comment" : "placeholder to make commas easier!",
+        "@type" : {
+          "type" : "string"
+        }
       },
-      "required" : [ ],
-      "additionalProperties" : false
+      "required" : [ "@type" ]
     },
     "FileParameterType" : {
-      "type" : "object",
-      "description" : "a parameter type that is a file",
-      "properties" : {
-        "$comment" : "placeholder to make commas easier!",
-        "mime" : {
-          "type" : "string",
-          "description" : "mime type describing the file"
-        }
-      },
-      "required" : [ ],
-      "additionalProperties" : false
+      "allOf" : [ {
+        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterType"
+      }, {
+        "type" : "object",
+        "description" : "a parameter type that is a file",
+        "properties" : {
+          "$comment" : "placeholder to make commas easier!",
+          "mime" : {
+            "type" : "string",
+            "description" : "mime type describing the file"
+          }
+        },
+        "required" : [ ]
+      } ],
+      "unevaluatedProperties" : false
     },
     "AtomicParameterType" : {
-      "type" : "object",
-      "description" : "a parameterType that typically can be represented by primitive",
-      "properties" : {
-        "$comment" : "placeholder to make commas easier!",
-        "kind" : {
-          "type" : "string",
-          "description" : "the type of the parameter"
-        }
-      },
-      "required" : [ "kind" ],
-      "additionalProperties" : false
+      "allOf" : [ {
+        "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterType"
+      }, {
+        "type" : "object",
+        "description" : "a parameterType that typically can be represented by primitive",
+        "properties" : {
+          "$comment" : "placeholder to make commas easier!",
+          "kind" : {
+            "type" : "string",
+            "description" : "the type of the parameter"
+          }
+        },
+        "required" : [ "kind" ]
+      } ],
+      "unevaluatedProperties" : false
     },
     "ParameterSemantics" : {
       "type" : "object",
@@ -87,6 +215,10 @@
           "ucd" : {
             "type" : "string",
             "description" : "a UCD"
+          },
+          "utype" : {
+            "type" : "string",
+            "description" : "a Utype"
           }
         },
         "required" : [ ]
@@ -114,9 +246,17 @@
           "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterType",
           "description" : "the type of the parameter"
         },
+        "defaultValue" : {
+          "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterLiteral",
+          "description" : "A typed default value used when no explicit value is supplied"
+        },
+        "encoding" : {
+          "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ValueEncoding",
+          "description" : "Preferred exchange encoding for this parameter value"
+        },
         "semantics" : {
           "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterSemantics",
-          "description" : ""
+          "description" : "Optional semantic annotation for this parameter"
         },
         "_id" : {
           "type" : "integer",
@@ -177,6 +317,18 @@
             "$ref" : "https://ivoa.net/dm/ParameterDM-v1.vo-dml.json#/$defs/ParameterGroup"
           } ],
           "description" : ""
+        },
+        "required" : {
+          "type" : "boolean",
+          "description" : "Whether this parameter/group must be provided by clients"
+        },
+        "minItems" : {
+          "type" : "integer",
+          "description" : "Minimum number of items allowed in the array"
+        },
+        "maxItems" : {
+          "type" : "integer",
+          "description" : "Maximum number of items allowed in the array"
         },
         "_id" : {
           "type" : "integer",

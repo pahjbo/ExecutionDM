@@ -16,7 +16,13 @@
             
                 ,{
                 "DataTypes": [
-                {"AtomicParameterType" : "generated/pdl/AtomicParameterType.md"},{"FileParameterType" : "generated/pdl/FileParameterType.md"},{"IVOASemantics" : "generated/pdl/IVOASemantics.md"},{"ParameterSemantics" : "generated/pdl/ParameterSemantics.md"},{"ParameterType" : "generated/pdl/ParameterType.md"}
+                {"AtomicParameterType" : "generated/pdl/AtomicParameterType.md"},{"BooleanLiteral" : "generated/pdl/BooleanLiteral.md"},{"FileParameterType" : "generated/pdl/FileParameterType.md"},{"IVOASemantics" : "generated/pdl/IVOASemantics.md"},{"IntegerLiteral" : "generated/pdl/IntegerLiteral.md"},{"JsonLiteral" : "generated/pdl/JsonLiteral.md"},{"ParameterLiteral" : "generated/pdl/ParameterLiteral.md"},{"ParameterSemantics" : "generated/pdl/ParameterSemantics.md"},{"ParameterType" : "generated/pdl/ParameterType.md"},{"RealLiteral" : "generated/pdl/RealLiteral.md"},{"StringLiteral" : "generated/pdl/StringLiteral.md"},{"UriLiteral" : "generated/pdl/UriLiteral.md"}
+                ]
+                }
+            
+                ,{
+                "Enumerations": [
+                {"ValueEncoding" : "generated/pdl/ValueEncoding.md"}
                 ]
                 }
             

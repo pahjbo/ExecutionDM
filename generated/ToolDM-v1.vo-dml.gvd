@@ -58,7 +58,7 @@ digraph GVmap {
     ] ;
   "tool:SecurityMetadata" [
     URL="../tool/SecurityMetadata"
-    label = "{SecurityMetadata|+signature : ivoa:string\l}"
+    label = "{SecurityMetadata|+digest : ivoa:string\l}"
     fillcolor="/set312/1"
     ] ;
   "tool:ToolImage" [

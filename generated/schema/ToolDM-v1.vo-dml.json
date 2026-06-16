@@ -302,7 +302,7 @@
           "type" : "string",
           "description" : "UType as type discriminator"
         },
-        "signature" : {
+        "digest" : {
           "type" : "string",
           "description" : "a digest style signature"
         },
@@ -323,7 +323,7 @@
           "description" : "surrogate key"
         }
       },
-      "required" : [ "signature" ],
+      "required" : [ "digest" ],
       "additionalProperties" : false
     },
     "ToolImage" : {

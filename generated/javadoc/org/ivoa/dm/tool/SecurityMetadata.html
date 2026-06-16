@@ -128,7 +128,7 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="block">Compliance information for the image.</div>
 </div>
 <div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#signature" class="member-name-link">signature</a></code></div>
+<div class="col-second even-row-color"><code><a href="#digest" class="member-name-link">digest</a></code></div>
 <div class="col-last even-row-color">
 <div class="block">a digest style signature.</div>
 </div>
@@ -152,7 +152,7 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-last even-row-color">
 <div class="block">Creates a new SecurityMetadata</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.util.List,java.util.List)" class="member-name-link">SecurityMetadata</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;signature,
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.util.List,java.util.List)" class="member-name-link">SecurityMetadata</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;digest,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Vulnerability.html" title="class in org.ivoa.dm.tool">Vulnerability</a>&gt;&nbsp;vulnerabilities,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Compliance.html" title="class in org.ivoa.dm.tool">Compliance</a>&gt;&nbsp;compliance)</code></div>
 <div class="col-last odd-row-color">
@@ -202,14 +202,14 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns compliance composition as an immutable list.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSignature()" class="member-name-link">getSignature</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns signature Attribute.</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDigest()" class="member-name-link">getDigest</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns digest Attribute.</div>
 </div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Vulnerability.html" title="class in org.ivoa.dm.tool">Vulnerability</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getVulnerabilities()" class="member-name-link">getVulnerabilities</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -241,9 +241,9 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="block">Defines whole compliance composition.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSignature(java.lang.String)" class="member-name-link">setSignature</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pSignature)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDigest(java.lang.String)" class="member-name-link">setDigest</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pDigest)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Set signature Attribute.</div>
+<div class="block">Set digest Attribute.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setVulnerabilities(java.util.List)" class="member-name-link">setVulnerabilities</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Vulnerability.html" title="class in org.ivoa.dm.tool">Vulnerability</a>&gt;&nbsp;pVulnerabilities)</code></div>
@@ -256,9 +256,9 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="block">Update this object with the content of the given object.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SecurityMetadata.html" title="class in org.ivoa.dm.tool">SecurityMetadata</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withSignature(java.lang.String)" class="member-name-link">withSignature</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pSignature)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withDigest(java.lang.String)" class="member-name-link">withDigest</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pDigest)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">fluent setter for signature Attribute.</div>
+<div class="block">fluent setter for digest Attribute.</div>
 </div>
 </div>
 </div>
@@ -285,14 +285,14 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 </section>
 </li>
 <li>
-<section class="detail" id="signature">
-<h3>signature</h3>
-<div class="member-signature"><span class="annotations">@VoDml(id="tool:SecurityMetadata.signature",
+<section class="detail" id="digest">
+<h3>digest</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="tool:SecurityMetadata.digest",
        role=attribute,
        type="ivoa:string",
        typeRole=primitiveType)
-</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">signature</span></div>
-<div class="block">a digest style signature. : Attribute signature type ivoa:string : multiplicity 1</div>
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">digest</span></div>
+<div class="block">a digest style signature. : Attribute digest type ivoa:string : multiplicity 1</div>
 </section>
 </li>
 <li>
@@ -343,13 +343,13 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.String,java.util.List,java.util.List)">
 <h3>SecurityMetadata</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SecurityMetadata</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;signature,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SecurityMetadata</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;digest,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Vulnerability.html" title="class in org.ivoa.dm.tool">Vulnerability</a>&gt;&nbsp;vulnerabilities,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Compliance.html" title="class in org.ivoa.dm.tool">Compliance</a>&gt;&nbsp;compliance)</span></div>
 <div class="block">full parameter constructor.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>signature</code> - a digest style signature.</dd>
+<dd><code>digest</code> - a digest style signature.</dd>
 <dd><code>vulnerabilities</code> - Known vulnerabilities in the image.</dd>
 <dd><code>compliance</code> - Compliance information for the image.</dd>
 </dl>
@@ -398,35 +398,35 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 </section>
 </li>
 <li>
-<section class="detail" id="getSignature()">
-<h3>getSignature</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getSignature</span>()</div>
-<div class="block">Returns signature Attribute.</div>
+<section class="detail" id="getDigest()">
+<h3>getDigest</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getDigest</span>()</div>
+<div class="block">Returns digest Attribute.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>signature Attribute</dd>
+<dd>digest Attribute</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="setSignature(java.lang.String)">
-<h3>setSignature</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSignature</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pSignature)</span></div>
-<div class="block">Set signature Attribute.</div>
+<section class="detail" id="setDigest(java.lang.String)">
+<h3>setDigest</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDigest</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pDigest)</span></div>
+<div class="block">Set digest Attribute.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>pSignature</code> - value to set</dd>
+<dd><code>pDigest</code> - value to set</dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="withSignature(java.lang.String)">
-<h3>withSignature</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SecurityMetadata.html" title="class in org.ivoa.dm.tool">SecurityMetadata</a></span>&nbsp;<span class="element-name">withSignature</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pSignature)</span></div>
-<div class="block">fluent setter for signature Attribute.</div>
+<section class="detail" id="withDigest(java.lang.String)">
+<h3>withDigest</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SecurityMetadata.html" title="class in org.ivoa.dm.tool">SecurityMetadata</a></span>&nbsp;<span class="element-name">withDigest</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pDigest)</span></div>
+<div class="block">fluent setter for digest Attribute.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
-<dd><code>pSignature</code> - value to set</dd>
+<dd><code>pDigest</code> - value to set</dd>
 <dt>Returns:</dt>
 <dd>SecurityMetadata</dd>
 </dl>

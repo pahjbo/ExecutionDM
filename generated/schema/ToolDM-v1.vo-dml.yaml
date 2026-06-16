@@ -194,7 +194,7 @@ components:
         '@type':
           type: "string"
           description: "UType as type discriminator"
-        signature:
+        digest:
           type: "string"
           description: "a digest style signature"
         vulnerabilities:
@@ -209,7 +209,7 @@ components:
           type: "integer"
           description: "surrogate key"
       required:
-      - "signature"
+      - "digest"
       additionalProperties: false
     ToolImage:
       type: "object"

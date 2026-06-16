@@ -15,7 +15,11 @@
 <script type="text/javascript" src="../../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="package-declaration-page">
-<script type="text/javascript">var pathtoroot = "../../../../";
+<script type="text/javascript">var evenRowColor = "even-row-color";
+var oddRowColor = "odd-row-color";
+var tableTab = "table-tab";
+var activeTableTab = "active-table-tab";
+var pathtoroot = "../../../../";
 loadScripts(document, 'script');</script>
 <noscript>
 <div>JavaScript is disabled on your browser.</div>
@@ -67,8 +71,9 @@ loadScripts(document, 'script');</script>
 <ul class="summary-list">
 <li>
 <div id="class-summary">
-<div class="caption"><span>Classes</span></div>
-<div class="summary-table two-column-summary">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="class-summary-tab0" role="tab" aria-selected="true" aria-controls="class-summary.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary', 2)" class="active-table-tab">All Classes and Interfaces</button><button id="class-summary-tab2" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab2', 2)" class="table-tab">Classes</button><button id="class-summary-tab3" role="tab" aria-selected="false" aria-controls="class-summary.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('class-summary', 'class-summary-tab3', 2)" class="table-tab">Enum Classes</button></div>
+<div id="class-summary.tabpanel" role="tabpanel">
+<div class="summary-table two-column-summary" aria-labelledby="class-summary-tab0">
 <div class="table-header col-first">Class</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color class-summary class-summary-tab2"><a href="AtomicParameterType.html" title="class in org.ivoa.dm.pdl">AtomicParameterType</a></div>
@@ -79,6 +84,14 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A builder class for AtomicParameterType, mainly for use in the functional builder pattern.</div>
 </div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="BooleanLiteral.html" title="class in org.ivoa.dm.pdl">BooleanLiteral</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A boolean literal value.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="BooleanLiteral.BooleanLiteralBuilder.html" title="class in org.ivoa.dm.pdl">BooleanLiteral.BooleanLiteralBuilder</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">A builder class for BooleanLiteral, mainly for use in the functional builder pattern.</div>
+</div>
 <div class="col-first even-row-color class-summary class-summary-tab2"><a href="FileParameterType.html" title="class in org.ivoa.dm.pdl">FileParameterType</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">a parameter type that is a file.</div>
@@ -87,6 +100,14 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A builder class for FileParameterType, mainly for use in the functional builder pattern.</div>
 </div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="IntegerLiteral.html" title="class in org.ivoa.dm.pdl">IntegerLiteral</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">An integer literal value.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="IntegerLiteral.IntegerLiteralBuilder.html" title="class in org.ivoa.dm.pdl">IntegerLiteral.IntegerLiteralBuilder</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">A builder class for IntegerLiteral, mainly for use in the functional builder pattern.</div>
+</div>
 <div class="col-first even-row-color class-summary class-summary-tab2"><a href="IVOASemantics.html" title="class in org.ivoa.dm.pdl">IVOASemantics</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">.</div>
@@ -94,6 +115,14 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color class-summary class-summary-tab2"><a href="IVOASemantics.IVOASemanticsBuilder.html" title="class in org.ivoa.dm.pdl">IVOASemantics.IVOASemanticsBuilder</a></div>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A builder class for IVOASemantics, mainly for use in the functional builder pattern.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="JsonLiteral.html" title="class in org.ivoa.dm.pdl">JsonLiteral</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A JSON literal value used for structured defaults.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="JsonLiteral.JsonLiteralBuilder.html" title="class in org.ivoa.dm.pdl">JsonLiteral.JsonLiteralBuilder</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">A builder class for JsonLiteral, mainly for use in the functional builder pattern.</div>
 </div>
 <div class="col-first even-row-color class-summary class-summary-tab2"><a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
@@ -111,37 +140,70 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">A builder class for ParameterGroup, mainly for use in the functional builder pattern.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ParameterLiteral.html" title="class in org.ivoa.dm.pdl">ParameterLiteral</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A typed literal value for parameter defaults and value constraints.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ParameterOrGroup.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">a 'choice' type .</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ParameterOrGroup.ParameterOrGroupBuilder.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup.ParameterOrGroupBuilder</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ParameterOrGroup.ParameterOrGroupBuilder.html" title="class in org.ivoa.dm.pdl">ParameterOrGroup.ParameterOrGroupBuilder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A builder class for ParameterOrGroup, mainly for use in the functional builder pattern.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ParameterSemantics.html" title="class in org.ivoa.dm.pdl">ParameterSemantics</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ParameterSemantics.html" title="class in org.ivoa.dm.pdl">ParameterSemantics</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">a base type for semantics .</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ParameterType.html" title="class in org.ivoa.dm.pdl">ParameterType</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ParameterType.html" title="class in org.ivoa.dm.pdl">ParameterType</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">The kind of the parameter .</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="PdlModel.html" title="class in org.ivoa.dm.pdl">PdlModel</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="PdlModel.html" title="class in org.ivoa.dm.pdl">PdlModel</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">The container class for the pdl Model.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="PdlModel.References.html" title="class in org.ivoa.dm.pdl">PdlModel.References</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="PdlModel.References.html" title="class in org.ivoa.dm.pdl">PdlModel.References</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A container class for the references in the model.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ToolInterface.html" title="class in org.ivoa.dm.pdl">ToolInterface</a></div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="RealLiteral.html" title="class in org.ivoa.dm.pdl">RealLiteral</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">A floating-point literal value.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="RealLiteral.RealLiteralBuilder.html" title="class in org.ivoa.dm.pdl">RealLiteral.RealLiteralBuilder</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A builder class for RealLiteral, mainly for use in the functional builder pattern.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="StringLiteral.html" title="class in org.ivoa.dm.pdl">StringLiteral</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">A string literal value.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="StringLiteral.StringLiteralBuilder.html" title="class in org.ivoa.dm.pdl">StringLiteral.StringLiteralBuilder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A builder class for StringLiteral, mainly for use in the functional builder pattern.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ToolInterface.html" title="class in org.ivoa.dm.pdl">ToolInterface</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">The definition of the tool interface.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ToolInterface.ToolInterfaceBuilder.html" title="class in org.ivoa.dm.pdl">ToolInterface.ToolInterfaceBuilder</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ToolInterface.ToolInterfaceBuilder.html" title="class in org.ivoa.dm.pdl">ToolInterface.ToolInterfaceBuilder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">A builder class for ToolInterface, mainly for use in the functional builder pattern.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="UriLiteral.html" title="class in org.ivoa.dm.pdl">UriLiteral</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">A URI literal value.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="UriLiteral.UriLiteralBuilder.html" title="class in org.ivoa.dm.pdl">UriLiteral.UriLiteralBuilder</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">A builder class for UriLiteral, mainly for use in the functional builder pattern.</div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab3"><a href="ValueEncoding.html" title="enum class in org.ivoa.dm.pdl">ValueEncoding</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab3">
+<div class="block">How a parameter value is encoded for exchange.</div>
+</div>
 </div>
 </div>
 </div>

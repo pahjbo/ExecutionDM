@@ -142,6 +142,10 @@
           "type" : "string",
           "description" : "UType as type discriminator"
         },
+        "name" : {
+          "type" : "string",
+          "description" : "name for the node"
+        },
         "resourcesServiceUrl" : {
           "type" : "string",
           "format" : "uri",
@@ -175,7 +179,7 @@
           "description" : "surrogate key"
         }
       },
-      "required" : [ "resourcesServiceUrl", "executionServiceUrl", "location", "computeResources" ],
+      "required" : [ "name", "resourcesServiceUrl", "executionServiceUrl", "location", "computeResources" ],
       "additionalProperties" : false
     },
     "ComputeResource" : {

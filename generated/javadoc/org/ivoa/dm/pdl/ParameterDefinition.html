@@ -122,10 +122,20 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-last even-row-color">
 <div class="block">inserted database key</div>
 </div>
-<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#description" class="member-name-link">description</a></code></div>
+<div class="col-first odd-row-color"><code>protected <a href="ParameterLiteral.html" title="class in org.ivoa.dm.pdl">ParameterLiteral</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#defaultValue" class="member-name-link">defaultValue</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block">A typed default value used when no explicit value is supplied.</div>
+</div>
+<div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#description" class="member-name-link">description</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">Parameter description.</div>
+</div>
+<div class="col-first odd-row-color"><code>protected <a href="ValueEncoding.html" title="enum class in org.ivoa.dm.pdl">ValueEncoding</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#encoding" class="member-name-link">encoding</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">Preferred exchange encoding for this parameter value.</div>
 </div>
 <div class="col-first even-row-color"><code>protected <a href="ParameterType.html" title="class in org.ivoa.dm.pdl">ParameterType</a></code></div>
 <div class="col-second even-row-color"><code><a href="#kind" class="member-name-link">kind</a></code></div>
@@ -140,7 +150,7 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-first even-row-color"><code>protected <a href="ParameterSemantics.html" title="class in org.ivoa.dm.pdl">ParameterSemantics</a></code></div>
 <div class="col-second even-row-color"><code><a href="#semantics" class="member-name-link">semantics</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">.</div>
+<div class="block">Optional semantic annotation for this parameter.</div>
 </div>
 </div>
 </section>
@@ -157,9 +167,11 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-last even-row-color">
 <div class="block">Creates a new ParameterDefinition</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,org.ivoa.dm.pdl.ParameterType,org.ivoa.dm.pdl.ParameterSemantics)" class="member-name-link">ParameterDefinition</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String,org.ivoa.dm.pdl.ParameterType,org.ivoa.dm.pdl.ParameterLiteral,org.ivoa.dm.pdl.ValueEncoding,org.ivoa.dm.pdl.ParameterSemantics)" class="member-name-link">ParameterDefinition</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;description,
  <a href="ParameterType.html" title="class in org.ivoa.dm.pdl">ParameterType</a>&nbsp;kind,
+ <a href="ParameterLiteral.html" title="class in org.ivoa.dm.pdl">ParameterLiteral</a>&nbsp;defaultValue,
+ <a href="ValueEncoding.html" title="enum class in org.ivoa.dm.pdl">ValueEncoding</a>&nbsp;encoding,
  <a href="ParameterSemantics.html" title="class in org.ivoa.dm.pdl">ParameterSemantics</a>&nbsp;semantics)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">full parameter constructor.</div>
@@ -193,10 +205,20 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forceLoad()" class="member-name-link">forceLoad</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDescription()" class="member-name-link">getDescription</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ParameterLiteral.html" title="class in org.ivoa.dm.pdl">ParameterLiteral</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDefaultValue()" class="member-name-link">getDefaultValue</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns defaultValue Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDescription()" class="member-name-link">getDescription</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns description Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ValueEncoding.html" title="enum class in org.ivoa.dm.pdl">ValueEncoding</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEncoding()" class="member-name-link">getEncoding</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns encoding Attribute.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
@@ -225,9 +247,19 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasNaturalKey()" class="member-name-link">hasNaturalKey</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDescription(java.lang.String)" class="member-name-link">setDescription</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pDescription)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDefaultValue(org.ivoa.dm.pdl.ParameterLiteral)" class="member-name-link">setDefaultValue</a><wbr>(<a href="ParameterLiteral.html" title="class in org.ivoa.dm.pdl">ParameterLiteral</a>&nbsp;pDefaultValue)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set defaultValue Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDescription(java.lang.String)" class="member-name-link">setDescription</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pDescription)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set description Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setEncoding(org.ivoa.dm.pdl.ValueEncoding)" class="member-name-link">setEncoding</a><wbr>(<a href="ValueEncoding.html" title="enum class in org.ivoa.dm.pdl">ValueEncoding</a>&nbsp;pEncoding)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set encoding Attribute.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setKind(org.ivoa.dm.pdl.ParameterType)" class="member-name-link">setKind</a><wbr>(<a href="ParameterType.html" title="class in org.ivoa.dm.pdl">ParameterType</a>&nbsp;pKind)</code></div>
@@ -253,9 +285,19 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <div class="block">Update this object with the content of the given object.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withDescription(java.lang.String)" class="member-name-link">withDescription</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pDescription)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withDefaultValue(org.ivoa.dm.pdl.ParameterLiteral)" class="member-name-link">withDefaultValue</a><wbr>(<a href="ParameterLiteral.html" title="class in org.ivoa.dm.pdl">ParameterLiteral</a>&nbsp;pDefaultValue)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for defaultValue Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withDescription(java.lang.String)" class="member-name-link">withDescription</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pDescription)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">fluent setter for description Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withEncoding(org.ivoa.dm.pdl.ValueEncoding)" class="member-name-link">withEncoding</a><wbr>(<a href="ValueEncoding.html" title="enum class in org.ivoa.dm.pdl">ValueEncoding</a>&nbsp;pEncoding)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for encoding Attribute.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withKind(org.ivoa.dm.pdl.ParameterType)" class="member-name-link">withKind</a><wbr>(<a href="ParameterType.html" title="class in org.ivoa.dm.pdl">ParameterType</a>&nbsp;pKind)</code></div>
@@ -330,6 +372,28 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 </section>
 </li>
 <li>
+<section class="detail" id="defaultValue">
+<h3>defaultValue</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="pdl:ParameterDefinition.defaultValue",
+       role=attribute,
+       type="pdl:ParameterLiteral",
+       typeRole=dataType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="ParameterLiteral.html" title="class in org.ivoa.dm.pdl">ParameterLiteral</a></span>&nbsp;<span class="element-name">defaultValue</span></div>
+<div class="block">A typed default value used when no explicit value is supplied. : Attribute defaultValue type pdl:ParameterLiteral : multiplicity 0..1</div>
+</section>
+</li>
+<li>
+<section class="detail" id="encoding">
+<h3>encoding</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="pdl:ParameterDefinition.encoding",
+       role=attribute,
+       type="pdl:ValueEncoding",
+       typeRole=enumeration)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="ValueEncoding.html" title="enum class in org.ivoa.dm.pdl">ValueEncoding</a></span>&nbsp;<span class="element-name">encoding</span></div>
+<div class="block">Preferred exchange encoding for this parameter value. : Attribute encoding type pdl:ValueEncoding : multiplicity 0..1</div>
+</section>
+</li>
+<li>
 <section class="detail" id="semantics">
 <h3>semantics</h3>
 <div class="member-signature"><span class="annotations">@VoDml(id="pdl:ParameterDefinition.semantics",
@@ -337,7 +401,7 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
        type="pdl:ParameterSemantics",
        typeRole=dataType)
 </span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="ParameterSemantics.html" title="class in org.ivoa.dm.pdl">ParameterSemantics</a></span>&nbsp;<span class="element-name">semantics</span></div>
-<div class="block">. : Attribute semantics type pdl:ParameterSemantics : multiplicity 0..1</div>
+<div class="block">Optional semantic annotation for this parameter. : Attribute semantics type pdl:ParameterSemantics : multiplicity 0..1</div>
 </section>
 </li>
 </ul>
@@ -356,11 +420,13 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 </section>
 </li>
 <li>
-<section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,org.ivoa.dm.pdl.ParameterType,org.ivoa.dm.pdl.ParameterSemantics)">
+<section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String,org.ivoa.dm.pdl.ParameterType,org.ivoa.dm.pdl.ParameterLiteral,org.ivoa.dm.pdl.ValueEncoding,org.ivoa.dm.pdl.ParameterSemantics)">
 <h3>ParameterDefinition</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ParameterDefinition</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;description,
  <a href="ParameterType.html" title="class in org.ivoa.dm.pdl">ParameterType</a>&nbsp;kind,
+ <a href="ParameterLiteral.html" title="class in org.ivoa.dm.pdl">ParameterLiteral</a>&nbsp;defaultValue,
+ <a href="ValueEncoding.html" title="enum class in org.ivoa.dm.pdl">ValueEncoding</a>&nbsp;encoding,
  <a href="ParameterSemantics.html" title="class in org.ivoa.dm.pdl">ParameterSemantics</a>&nbsp;semantics)</span></div>
 <div class="block">full parameter constructor.</div>
 <dl class="notes">
@@ -368,7 +434,9 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <dd><code>name</code> - Parameter name.</dd>
 <dd><code>description</code> - Parameter description.</dd>
 <dd><code>kind</code> - the type of the parameter.</dd>
-<dd><code>semantics</code> - .</dd>
+<dd><code>defaultValue</code> - A typed default value used when no explicit value is supplied.</dd>
+<dd><code>encoding</code> - Preferred exchange encoding for this parameter value.</dd>
+<dd><code>semantics</code> - Optional semantic annotation for this parameter.</dd>
 </dl>
 </section>
 </li>
@@ -545,6 +613,76 @@ implements org.ivoa.vodml.jpa.JPAManipulationsForObjectType&lt;<a href="https://
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>pKind</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>ParameterDefinition</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getDefaultValue()">
+<h3>getDefaultValue</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ParameterLiteral.html" title="class in org.ivoa.dm.pdl">ParameterLiteral</a></span>&nbsp;<span class="element-name">getDefaultValue</span>()</div>
+<div class="block">Returns defaultValue Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>defaultValue Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setDefaultValue(org.ivoa.dm.pdl.ParameterLiteral)">
+<h3>setDefaultValue</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDefaultValue</span><wbr><span class="parameters">(<a href="ParameterLiteral.html" title="class in org.ivoa.dm.pdl">ParameterLiteral</a>&nbsp;pDefaultValue)</span></div>
+<div class="block">Set defaultValue Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pDefaultValue</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withDefaultValue(org.ivoa.dm.pdl.ParameterLiteral)">
+<h3>withDefaultValue</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a></span>&nbsp;<span class="element-name">withDefaultValue</span><wbr><span class="parameters">(<a href="ParameterLiteral.html" title="class in org.ivoa.dm.pdl">ParameterLiteral</a>&nbsp;pDefaultValue)</span></div>
+<div class="block">fluent setter for defaultValue Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pDefaultValue</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>ParameterDefinition</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getEncoding()">
+<h3>getEncoding</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ValueEncoding.html" title="enum class in org.ivoa.dm.pdl">ValueEncoding</a></span>&nbsp;<span class="element-name">getEncoding</span>()</div>
+<div class="block">Returns encoding Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>encoding Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setEncoding(org.ivoa.dm.pdl.ValueEncoding)">
+<h3>setEncoding</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setEncoding</span><wbr><span class="parameters">(<a href="ValueEncoding.html" title="enum class in org.ivoa.dm.pdl">ValueEncoding</a>&nbsp;pEncoding)</span></div>
+<div class="block">Set encoding Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pEncoding</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withEncoding(org.ivoa.dm.pdl.ValueEncoding)">
+<h3>withEncoding</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ParameterDefinition.html" title="class in org.ivoa.dm.pdl">ParameterDefinition</a></span>&nbsp;<span class="element-name">withEncoding</span><wbr><span class="parameters">(<a href="ValueEncoding.html" title="enum class in org.ivoa.dm.pdl">ValueEncoding</a>&nbsp;pEncoding)</span></div>
+<div class="block">fluent setter for encoding Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pEncoding</code> - value to set</dd>
 <dt>Returns:</dt>
 <dd>ParameterDefinition</dd>
 </dl>

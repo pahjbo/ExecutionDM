@@ -181,7 +181,7 @@
                       omitDetails="false"
                       stereotype=""
                       use3DEffect="true">
-                  <y:AttributeLabel xml:space="preserve">+signature : ivoa:string
+                  <y:AttributeLabel xml:space="preserve">+digest : ivoa:string
 </y:AttributeLabel>
                   <y:MethodLabel xml:space="preserve"/>
                </y:UML>

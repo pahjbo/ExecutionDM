@@ -94,7 +94,8 @@
                       omitDetails="false"
                       stereotype=""
                       use3DEffect="true">
-                  <y:AttributeLabel xml:space="preserve">+resourcesServiceUrl : ivoa:anyURI
+                  <y:AttributeLabel xml:space="preserve">+name : ivoa:string
++resourcesServiceUrl : ivoa:anyURI
 +executionServiceUrl : ivoa:anyURI
 </y:AttributeLabel>
                   <y:MethodLabel xml:space="preserve"/>
@@ -294,6 +295,8 @@
                   <y:AttributeLabel xml:space="preserve">+name : ivoa:string
 +description : ivoa:string
 +kind : pdl:ParameterType
++defaultValue : pdl:ParameterLiteral
++encoding : pdl:ValueEncoding
 +semantics : pdl:ParameterSemantics
 </y:AttributeLabel>
                   <y:MethodLabel xml:space="preserve"/>
@@ -324,7 +327,7 @@
       </node>
       <!--edges-->
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e150"
+            id="d197e159"
             source="execution:ExecutionNode"
             target="execution:TransferPerformance">
          <data key="k3">
@@ -340,7 +343,7 @@
          </data>
       </edge>
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e159"
+            id="d197e168"
             source="execution:ExecutionNode"
             target="execution:ComputeResource">
          <data key="k3">
@@ -356,7 +359,7 @@
          </data>
       </edge>
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e407"
+            id="d197e416"
             source="execution:JobExecution"
             target="execution:ParameterValue">
          <data key="k3">
@@ -372,7 +375,7 @@
          </data>
       </edge>
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e416"
+            id="d197e425"
             source="execution:JobExecution"
             target="execution:ParameterValue">
          <data key="k3">
@@ -388,7 +391,7 @@
          </data>
       </edge>
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e480"
+            id="d197e489"
             source="execution:JobExecution"
             target="execution:PerformanceMetric">
          <data key="k3">
@@ -404,7 +407,7 @@
          </data>
       </edge>
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e141"
+            id="d197e150"
             source="execution:ExecutionNode"
             target="execution:PhysicalLocation">
          <data key="k3">
@@ -420,7 +423,7 @@
          </data>
       </edge>
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e223"
+            id="d197e232"
             source="execution:TransferPerformance"
             target="execution:PhysicalLocation">
          <data key="k3">
@@ -436,7 +439,7 @@
          </data>
       </edge>
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e281"
+            id="d197e290"
             source="execution:DataNode"
             target="execution:PhysicalLocation">
          <data key="k3">
@@ -452,7 +455,7 @@
          </data>
       </edge>
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e294"
+            id="d197e303"
             source="execution:DataResource"
             target="execution:PhysicalLocation">
          <data key="k3">
@@ -468,7 +471,7 @@
          </data>
       </edge>
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e338"
+            id="d197e347"
             source="execution:ParameterValue"
             target="pdl:ParameterDefinition">
          <data key="k3">
@@ -484,7 +487,7 @@
          </data>
       </edge>
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e398"
+            id="d197e407"
             source="execution:JobExecution"
             target="tool:Tool">
          <data key="k3">
@@ -500,7 +503,7 @@
          </data>
       </edge>
       <edge xmlns:y="http://www.yworks.com/xml/graphml"
-            id="d149e434"
+            id="d197e443"
             source="execution:JobExecution"
             target="execution:ExecutionNode">
          <data key="k3">

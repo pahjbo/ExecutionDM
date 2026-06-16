@@ -124,6 +124,11 @@ implements org.ivoa.vodml.jpa.JPAManipulations</span></div>
 <div class="col-last even-row-color">
 <div class="block">a UCD.</div>
 </div>
+<div class="col-first odd-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#utype" class="member-name-link">utype</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">a Utype.</div>
+</div>
 </div>
 </section>
 </li>
@@ -139,7 +144,8 @@ implements org.ivoa.vodml.jpa.JPAManipulations</span></div>
 <div class="col-last even-row-color">
 <div class="block">Creates a new IVOASemantics</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String)" class="member-name-link">IVOASemantics</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ucd)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.lang.String)" class="member-name-link">IVOASemantics</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ucd,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;utype)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">full parameter constructor.</div>
 </div>
@@ -147,8 +153,9 @@ implements org.ivoa.vodml.jpa.JPAManipulations</span></div>
 <div class="col-last even-row-color">
 <div class="block">Copy Constructor.</div>
 </div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.ivoa.dm.pdl.ParameterSemantics,java.lang.String)" class="member-name-link">IVOASemantics</a><wbr>(<a href="ParameterSemantics.html" title="class in org.ivoa.dm.pdl">ParameterSemantics</a>&nbsp;superinstance,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ucd)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(org.ivoa.dm.pdl.ParameterSemantics,java.lang.String,java.lang.String)" class="member-name-link">IVOASemantics</a><wbr>(<a href="ParameterSemantics.html" title="class in org.ivoa.dm.pdl">ParameterSemantics</a>&nbsp;superinstance,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ucd,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;utype)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Constructor from supertype instance.</div>
 </div>
@@ -187,13 +194,23 @@ implements org.ivoa.vodml.jpa.JPAManipulations</span></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns ucd Attribute.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setUcd(java.lang.String)" class="member-name-link">setUcd</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pUcd)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUtype()" class="member-name-link">getUtype</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns utype Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setUcd(java.lang.String)" class="member-name-link">setUcd</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pUcd)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set ucd Attribute.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setUtype(java.lang.String)" class="member-name-link">setUtype</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pUtype)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set utype Attribute.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateUsing(org.ivoa.dm.pdl.IVOASemantics)" class="member-name-link">updateUsing</a><wbr>(<a href="IVOASemantics.html" title="class in org.ivoa.dm.pdl">IVOASemantics</a>&nbsp;other)</code></div>
@@ -204,6 +221,11 @@ implements org.ivoa.vodml.jpa.JPAManipulations</span></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withUcd(java.lang.String)" class="member-name-link">withUcd</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pUcd)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">fluent setter for ucd Attribute.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="IVOASemantics.html" title="class in org.ivoa.dm.pdl">IVOASemantics</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withUtype(java.lang.String)" class="member-name-link">withUtype</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pUtype)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">fluent setter for utype Attribute.</div>
 </div>
 </div>
 </div>
@@ -236,6 +258,17 @@ implements org.ivoa.vodml.jpa.JPAManipulations</span></div>
 <div class="block">a UCD. : Attribute ucd type ivoa:string : multiplicity 0..1</div>
 </section>
 </li>
+<li>
+<section class="detail" id="utype">
+<h3>utype</h3>
+<div class="member-signature"><span class="annotations">@VoDml(id="pdl:IVOASemantics.utype",
+       role=attribute,
+       type="ivoa:string",
+       typeRole=primitiveType)
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">utype</span></div>
+<div class="block">a Utype. : Attribute utype type ivoa:string : multiplicity 0..1</div>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -252,13 +285,15 @@ implements org.ivoa.vodml.jpa.JPAManipulations</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="&lt;init&gt;(java.lang.String)">
+<section class="detail" id="&lt;init&gt;(java.lang.String,java.lang.String)">
 <h3>IVOASemantics</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">IVOASemantics</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ucd)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">IVOASemantics</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ucd,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;utype)</span></div>
 <div class="block">full parameter constructor.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>ucd</code> - a UCD.</dd>
+<dd><code>utype</code> - a Utype.</dd>
 </dl>
 </section>
 </li>
@@ -274,15 +309,17 @@ implements org.ivoa.vodml.jpa.JPAManipulations</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="&lt;init&gt;(org.ivoa.dm.pdl.ParameterSemantics,java.lang.String)">
+<section class="detail" id="&lt;init&gt;(org.ivoa.dm.pdl.ParameterSemantics,java.lang.String,java.lang.String)">
 <h3>IVOASemantics</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">IVOASemantics</span><wbr><span class="parameters">(<a href="ParameterSemantics.html" title="class in org.ivoa.dm.pdl">ParameterSemantics</a>&nbsp;superinstance,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ucd)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;ucd,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;utype)</span></div>
 <div class="block">Constructor from supertype instance.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>superinstance</code> - The supertype.</dd>
 <dd><code>ucd</code> - a UCD.</dd>
+<dd><code>utype</code> - a Utype.</dd>
 </dl>
 </section>
 </li>
@@ -348,6 +385,41 @@ implements org.ivoa.vodml.jpa.JPAManipulations</span></div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>pUcd</code> - value to set</dd>
+<dt>Returns:</dt>
+<dd>IVOASemantics</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getUtype()">
+<h3>getUtype</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getUtype</span>()</div>
+<div class="block">Returns utype Attribute.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>utype Attribute</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="setUtype(java.lang.String)">
+<h3>setUtype</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setUtype</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pUtype)</span></div>
+<div class="block">Set utype Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pUtype</code> - value to set</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="withUtype(java.lang.String)">
+<h3>withUtype</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="IVOASemantics.html" title="class in org.ivoa.dm.pdl">IVOASemantics</a></span>&nbsp;<span class="element-name">withUtype</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;pUtype)</span></div>
+<div class="block">fluent setter for utype Attribute.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>pUtype</code> - value to set</dd>
 <dt>Returns:</dt>
 <dd>IVOASemantics</dd>
 </dl>

@@ -17,8 +17,17 @@ entity "pdl.ParameterDefinition" as pdl.ParameterDefinition {
     TOOLINTERFACE_ID : BIGINT
 name : VARCHAR
 description : VARCHAR
-kind : UNKNOWN
+kind_mime : VARCHAR
+kind_kind : VARCHAR
+defaultValue_value : VARCHAR
+defaultValue_value : INTEGER
+defaultValue_value : DOUBLE
+defaultValue_value : INTEGER
+defaultValue_value : VARCHAR
+defaultValue_value : VARCHAR
+encoding : VARCHAR
 semantics_ucd : VARCHAR
+semantics_utype : VARCHAR
 
 ---
       TOOLINTERFACE_ID : BIGINT<<FK>>
@@ -48,6 +57,9 @@ entity "pdl.ParameterOrGroup" as pdl.ParameterOrGroup {
     PARAMETERGROUP_ID : BIGINT
 param : BIGINT
 group : BIGINT
+required : INTEGER
+minItems : INTEGER
+maxItems : INTEGER
 
 ---
       param : BIGINT<<FK>>
