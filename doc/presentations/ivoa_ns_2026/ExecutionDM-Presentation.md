@@ -20,7 +20,7 @@ date: Strasbourg, June 2026
 
 :::notes
 
-this is all fairly well known and an accepted paradigm - however what is presented heve is not restricted to that exact use case - it works well for other more traditional batch job execution use cases as well - e.g. a user has a script that they want to run on a cluster and be notified when the results are ready.
+this is all fairly well known and an accepted paradigm - however what is presented here is not restricted to that exact use case - it works well for other more traditional batch job execution use cases as well - e.g. a user has a script that they want to run on a cluster and be notified when the results are ready.
 
 :::
 
